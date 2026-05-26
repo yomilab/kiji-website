@@ -1,0 +1,9 @@
+/rss.xml  /feed.xml  301
+/updates.xml  /feed.xml  301
+/download/  /index.html  200
+/logos/  /resource/  301
+/resource/  /index.html  200
+/changelog/  /index.html  200
+/privacy/  /index.html  200
+/support/  /index.html  200
+/*  /index.html  200
