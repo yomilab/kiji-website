@@ -16,7 +16,7 @@ Official pages:
 - Resources: https://kiji.yomilab.app/resource/
 - Changelog: https://kiji.yomilab.app/changelog/
 - Updates RSS: https://kiji.yomilab.app/feed.xml
-- Support: hello@yomilab.app
+- Feedback: hello@yomilab.app
 - Release manifest: https://github.com/yomilab/kiji-releases/releases/latest/download/release.json
 - Resource repo: https://github.com/yomilab/kiji-resource
 

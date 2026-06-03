@@ -205,8 +205,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
         canonicalPath: '/privacy/',
       },
       support: {
-        title: 'KiJi Support',
-        description: 'Contact KiJi support.',
+        title: 'KiJi Feedback',
+        description: 'Share feedback, feature ideas, questions, and bug reports with KiJi.',
         canonicalPath: '/support/',
       },
     },
@@ -216,11 +216,11 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       resource: 'Resource',
       changelog: 'Changelog',
       rss: 'RSS',
-      support: 'Support',
+      support: 'Feedback',
     },
     footer: {
       privacy: 'Privacy',
-      support: 'Support',
+      support: 'Feedback',
       resource: 'Resource',
       github: 'YomiLab GitHub',
     },
@@ -277,10 +277,10 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       lead: 'KiJi\'s desktop reader keeps your feeds, articles, saved items, and reading state on your device. Your data can be exported, and the core reader does not use tracking or an algorithmic timeline.',
     },
     support: {
-      eyebrow: 'Support',
-      title: 'Need help with KiJi?',
-      leadPrefix: 'Email',
-      leadSuffix: 'Configure Cloudflare Email Routing before publishing this address.',
+      eyebrow: 'Feedback',
+      title: 'We would love to hear from you.',
+      leadPrefix: 'Send us a note at',
+      leadSuffix: 'If there is a feature you would like to see, a bug you ran into, or anything that felt confusing, please let us know.',
     },
     logoDownloads: {
       'logo-pack': {
@@ -332,8 +332,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
         canonicalPath: '/privacy/',
       },
       support: {
-        title: 'KiJi 支持',
-        description: '联系 KiJi 支持。',
+        title: 'KiJi 反馈',
+        description: '向 KiJi 提交反馈、功能建议、问题和 bug 报告。',
         canonicalPath: '/support/',
       },
     },
@@ -343,11 +343,11 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       resource: '资源',
       changelog: '更新',
       rss: 'RSS',
-      support: '支持',
+      support: '反馈',
     },
     footer: {
       privacy: '隐私',
-      support: '支持',
+      support: '反馈',
       resource: '资源',
       github: 'YomiLab GitHub',
     },
@@ -404,10 +404,10 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       lead: 'KiJi 桌面阅读器会将你的订阅、文章、收藏和阅读状态保存在设备本地。你的数据可以导出，核心阅读器不使用追踪或算法信息流。',
     },
     support: {
-      eyebrow: '支持',
-      title: '需要 KiJi 帮助？',
-      leadPrefix: '发送邮件到',
-      leadSuffix: '发布该地址前请先配置 Cloudflare Email Routing。',
+      eyebrow: '反馈',
+      title: '我们很想听听你的想法。',
+      leadPrefix: '欢迎发邮件到',
+      leadSuffix: '如果你有想加入的功能、遇到 bug，或使用中有任何让你感到困惑的地方，都欢迎告诉我们。',
     },
     logoDownloads: {
       'logo-pack': {
@@ -459,8 +459,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
         canonicalPath: '/privacy/',
       },
       support: {
-        title: 'KiJi サポート',
-        description: 'KiJiサポートへの連絡先。',
+        title: 'KiJi フィードバック',
+        description: 'KiJi へのフィードバック、機能要望、質問、不具合報告はこちら。',
         canonicalPath: '/support/',
       },
     },
@@ -470,11 +470,11 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       resource: 'リソース',
       changelog: '更新履歴',
       rss: 'RSS',
-      support: 'サポート',
+      support: 'フィードバック',
     },
     footer: {
       privacy: 'プライバシー',
-      support: 'サポート',
+      support: 'フィードバック',
       resource: 'リソース',
       github: 'YomiLab GitHub',
     },
@@ -531,10 +531,10 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       lead: 'KiJiのデスクトップリーダーは、フィード、記事、保存項目、読書状態をデバイス上に保ちます。データはエクスポートでき、コアリーダーはトラッキングやアルゴリズム型タイムラインを使いません。',
     },
     support: {
-      eyebrow: 'サポート',
-      title: 'KiJiのサポートが必要ですか？',
-      leadPrefix: 'メール:',
-      leadSuffix: 'このアドレスを公開する前にCloudflare Email Routingを設定してください。',
+      eyebrow: 'フィードバック',
+      title: 'ぜひご意見をお聞かせください。',
+      leadPrefix: 'メールはこちら',
+      leadSuffix: '追加してほしい機能、遭遇した不具合、わかりにくかった点があれば、ぜひお知らせください。',
     },
     logoDownloads: {
       'logo-pack': {
