@@ -1,11 +1,11 @@
 {
   "productName": "KiJi",
-  "version": "1.0.0",
-  "tag": "v1.0.0",
-  "date": "2026-05-21T00:00:00.000Z",
+  "version": "0.10.1",
+  "tag": "v0.10.1",
+  "date": "2026-06-04T00:00:00.000Z",
   "notesUrl": "https://kiji.yomilab.app/changelog/",
   "updatesFeedUrl": "https://kiji.yomilab.app/feed.xml",
-  "checksumsUrl": "https://github.com/yomilab/kiji-releases/releases/latest/download/checksums.txt",
+  "checksumsUrl": "https://github.com/yomilab/kiji-release/releases/latest/download/checksums.txt",
   "downloadOptions": [
     {
       "id": "mac-arm64",
@@ -13,9 +13,9 @@
       "label": "macOS Apple Silicon",
       "detail": "Recommended for M1, M2, M3, and newer Macs",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.0.0-mac-arm64.zip",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-releases/releases/download/v1.0.0/KiJi-1.0.0-mac-arm64.zip",
+      "fileName": "KiJi-0.10.1-mac-arm64.zip",
+      "version": "0.10.1",
+      "url": "https://github.com/yomilab/kiji-release/releases/download/v0.10.1/KiJi-0.10.1-mac-arm64.zip",
       "sha256": "",
       "size": 0
     },
@@ -25,45 +25,9 @@
       "label": "macOS Intel",
       "detail": "For Intel-based Macs",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.0.0-mac-x64.zip",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-releases/releases/download/v1.0.0/KiJi-1.0.0-mac-x64.zip",
-      "sha256": "",
-      "size": 0
-    },
-    {
-      "id": "windows-x64",
-      "platform": "windows",
-      "label": "Windows x64",
-      "detail": "Recommended for most Windows PCs",
-      "fileType": "EXE",
-      "fileName": "KiJi-1.0.0-windows-x64.exe",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-releases/releases/download/v1.0.0/KiJi-1.0.0-windows-x64.exe",
-      "sha256": "",
-      "size": 0
-    },
-    {
-      "id": "linux-deb",
-      "platform": "linux",
-      "label": "Linux Debian/Ubuntu",
-      "detail": "For Debian, Ubuntu, and compatible distributions",
-      "fileType": "DEB",
-      "fileName": "KiJi-1.0.0-linux-amd64.deb",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-releases/releases/download/v1.0.0/KiJi-1.0.0-linux-amd64.deb",
-      "sha256": "",
-      "size": 0
-    },
-    {
-      "id": "linux-rpm",
-      "platform": "linux",
-      "label": "Linux Fedora/RHEL",
-      "detail": "For Fedora, RHEL, and compatible distributions",
-      "fileType": "RPM",
-      "fileName": "KiJi-1.0.0-linux-x86_64.rpm",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-releases/releases/download/v1.0.0/KiJi-1.0.0-linux-x86_64.rpm",
+      "fileName": "KiJi-0.10.1-mac-x64.zip",
+      "version": "0.10.1",
+      "url": "https://github.com/yomilab/kiji-release/releases/download/v0.10.1/KiJi-0.10.1-mac-x64.zip",
       "sha256": "",
       "size": 0
     }

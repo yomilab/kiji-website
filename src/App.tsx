@@ -32,10 +32,11 @@ interface LogoDownload {
 type LogoDownloadId = 'logo-pack' | 'light-logo' | 'dark-logo';
 
 const OPML_DIRECTORY_URL = 'https://github.com/yomilab/kiji-resource';
-const DOWNLOAD_MANIFEST_URL = 'https://github.com/yomilab/kiji-releases/releases/latest/download/release.json';
-const DEFAULT_CHECKSUMS_URL = 'https://github.com/yomilab/kiji-releases/releases/latest/download/checksums.txt';
+const DOWNLOAD_MANIFEST_URL = 'https://github.com/yomilab/kiji-release/releases/latest/download/release.json';
+const DEFAULT_CHECKSUMS_URL = 'https://github.com/yomilab/kiji-release/releases/latest/download/checksums.txt';
 const YOMILAB_GITHUB_URL = 'https://github.com/yomilab';
-const DOWNLOAD_ORDER = ['mac-arm64', 'mac-x64', 'windows-x64', 'linux-deb', 'linux-rpm'];
+const DOWNLOAD_ORDER = ['mac-arm64', 'mac-x64'];
+const DOWNLOADS_UNDER_DEVELOPMENT = true;
 const LANGUAGE_STORAGE_KEY = 'kiji-website-language';
 const LANGUAGE_OPTIONS = [
   { code: 'en', label: 'English', shortLabel: 'EN' },
@@ -186,7 +187,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'Download KiJi',
-        description: 'Download KiJi, a simple private RSS reader for macOS, Windows, and Linux.',
+        description: 'KiJi desktop downloads are currently under development, with macOS as the active release target.',
         canonicalPath: '/download/',
       },
       resource: {
@@ -235,8 +236,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
-      downloadsTitle: 'Cross-platform downloads',
-      downloadsText: 'Install KiJi on macOS, Windows, or Linux with release checksums for every package.',
+      downloadsTitle: 'macOS release status',
+      downloadsText: 'Desktop downloads are under development. KiJi is focusing on macOS packaging first, and Windows/Linux builds will come later.',
       privacyTitle: 'No personal reading data collected',
       privacyText: 'Your feeds, articles, saved items, Markdown files, and reading state stay under your control on your device.',
       feedsTitle: 'Import and export feeds',
@@ -248,7 +249,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     download: {
       eyebrow: 'Downloads',
       title: 'Get KiJi for your desktop.',
-      lead: 'Download the simple, private RSS reader for your desktop. Use the side menu to choose another platform package.',
+      lead: 'Desktop downloads are currently under development. KiJi is stabilizing macOS packaging first, and Windows/Linux builds are paused for later.',
       panelAria: 'Download KiJi',
       kicker: 'Download recommended build',
       chooseAria: 'Choose another download',
@@ -313,7 +314,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: '下载 KiJi',
-        description: '下载 KiJi，一个适用于 macOS、Windows 和 Linux 的简单私密 RSS 阅读器。',
+        description: 'KiJi 桌面下载目前仍在完善中，当前以 macOS 发布为主。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -362,8 +363,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
-      downloadsTitle: '跨平台下载',
-      downloadsText: '在 macOS、Windows 或 Linux 上安装 KiJi，并为每个安装包提供校验信息。',
+      downloadsTitle: 'macOS 发布状态',
+      downloadsText: '桌面下载仍在开发中。KiJi 当前优先完善 macOS 打包，Windows 和 Linux 版本会在之后再开放。',
       privacyTitle: '不收集个人阅读数据',
       privacyText: '你的订阅、文章、收藏、Markdown 文件和阅读状态都由你掌控，保存在设备本地。',
       feedsTitle: '导入和导出订阅',
@@ -375,7 +376,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     download: {
       eyebrow: '下载',
       title: '为你的桌面设备获取 KiJi。',
-      lead: '下载这个简单、私密的桌面 RSS 阅读器。也可以通过侧边菜单选择其他平台安装包。',
+      lead: '桌面下载目前仍在完善中。KiJi 当前优先稳定 macOS 打包，Windows 和 Linux 版本暂缓到后续阶段。',
       panelAria: '下载 KiJi',
       kicker: '下载推荐版本',
       chooseAria: '选择其他下载',
@@ -440,7 +441,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'KiJiをダウンロード',
-        description: 'macOS、Windows、Linux向けのシンプルでプライベートなRSSリーダー、KiJiをダウンロード。',
+        description: 'KiJiのデスクトップ配布は現在整備中で、当面はmacOS版を優先しています。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -489,8 +490,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',
-      downloadsTitle: 'クロスプラットフォーム対応',
-      downloadsText: 'macOS、Windows、LinuxにKiJiをインストールできます。各パッケージにはチェックサムがあります。',
+      downloadsTitle: 'macOSリリース状況',
+      downloadsText: 'デスクトップ配布は現在開発中です。KiJiはまずmacOS向けパッケージの安定化を進め、WindowsとLinuxはその後に対応します。',
       privacyTitle: '個人の読書データを収集しません',
       privacyText: 'フィード、記事、保存項目、Markdownファイル、読書状態は、あなたの管理下でデバイス上に残ります。',
       feedsTitle: 'フィードのインポートとエクスポート',
@@ -502,7 +503,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     download: {
       eyebrow: 'ダウンロード',
       title: 'デスクトップ向けKiJiを入手。',
-      lead: 'シンプルでプライベートなデスクトップRSSリーダーをダウンロードできます。サイドメニューから別のプラットフォームパッケージも選べます。',
+      lead: 'デスクトップ配布は現在整備中です。KiJiはまずmacOS向けパッケージの安定化を進めており、WindowsとLinuxは後続対応です。',
       panelAria: 'KiJiをダウンロード',
       kicker: 'おすすめビルドをダウンロード',
       chooseAria: '別のダウンロードを選択',
@@ -698,17 +699,23 @@ const downloadOptionsFromManifest = (manifest: ReleaseManifest): DownloadOption[
     ? manifest.downloadOptions.map((asset) => normalizeDownloadOption(asset, asset.id ?? asset.fileName, manifest.version))
     : Object.entries(manifest.downloads ?? {}).map(([key, asset]) => normalizeDownloadOption(asset, key, manifest.version));
 
-  return assets.sort((left, right) => {
-    const leftIndex = DOWNLOAD_ORDER.indexOf(left.id);
-    const rightIndex = DOWNLOAD_ORDER.indexOf(right.id);
-    return (leftIndex === -1 ? Number.MAX_SAFE_INTEGER : leftIndex) - (rightIndex === -1 ? Number.MAX_SAFE_INTEGER : rightIndex);
-  });
+  return assets
+    .filter((asset) => asset.platform === 'mac')
+    .sort((left, right) => {
+      const leftIndex = DOWNLOAD_ORDER.indexOf(left.id);
+      const rightIndex = DOWNLOAD_ORDER.indexOf(right.id);
+      return (leftIndex === -1 ? Number.MAX_SAFE_INTEGER : leftIndex) - (rightIndex === -1 ? Number.MAX_SAFE_INTEGER : rightIndex);
+    });
 };
 
-const useReleaseManifest = (): ReleaseManifest => {
+const useReleaseManifest = (enabled = true): ReleaseManifest => {
   const [manifest, setManifest] = useState<ReleaseManifest>(localReleaseManifest);
 
   useEffect(() => {
+    if (!enabled) {
+      return undefined;
+    }
+
     const controller = new AbortController();
 
     const loadManifest = async (): Promise<void> => {
@@ -739,7 +746,7 @@ const useReleaseManifest = (): ReleaseManifest => {
     return () => {
       controller.abort();
     };
-  }, []);
+  }, [enabled]);
 
   return manifest;
 };
@@ -938,18 +945,36 @@ function HomePage({ text }: { text: LocalizedText }) {
 
 function DownloadPage({ text }: { text: LocalizedText }) {
   const downloadMenuRef = useDismissibleDetails();
-  const releaseManifest = useReleaseManifest();
+  const releaseManifest = useReleaseManifest(!DOWNLOADS_UNDER_DEVELOPMENT);
   const downloadOptions = useMemo(() => downloadOptionsFromManifest(releaseManifest), [releaseManifest]);
-  const recommendedDownload = useMemo(() => detectRecommendedDownload(downloadOptions), [downloadOptions]);
+  const recommendedDownload = useMemo(
+    () => (downloadOptions.length > 0 ? detectRecommendedDownload(downloadOptions) : null),
+    [downloadOptions]
+  );
   const [selectedDownloadId, setSelectedDownloadId] = useState<string | null>(null);
-  const selectedDownload = downloadOptions.find((option) => option.id === selectedDownloadId) ?? recommendedDownload;
-  const selectedDownloadText = getLocalizedDownloadOption(selectedDownload, text);
+  const selectedDownload = recommendedDownload
+    ? downloadOptions.find((option) => option.id === selectedDownloadId) ?? recommendedDownload
+    : null;
+  const selectedDownloadText = selectedDownload ? getLocalizedDownloadOption(selectedDownload, text) : null;
 
   useEffect(() => {
-    if (!selectedDownloadId || !downloadOptions.some((option) => option.id === selectedDownloadId)) {
+    if (recommendedDownload && (!selectedDownloadId || !downloadOptions.some((option) => option.id === selectedDownloadId))) {
       setSelectedDownloadId(recommendedDownload.id);
     }
-  }, [downloadOptions, recommendedDownload.id, selectedDownloadId]);
+  }, [downloadOptions, recommendedDownload, selectedDownloadId]);
+
+  if (DOWNLOADS_UNDER_DEVELOPMENT || !selectedDownload || !selectedDownloadText) {
+    return (
+      <main className="shell hero">
+        <p className="eyebrow">{text.download.eyebrow}</p>
+        <h1>{text.download.title}</h1>
+        <p className="lead">{text.download.lead}</p>
+        <div className="actions">
+          <a className="button" href="/feed.xml">{text.download.releaseRss}</a>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="shell hero">
