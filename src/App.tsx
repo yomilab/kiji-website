@@ -187,7 +187,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'Download KiJi',
-        description: 'KiJi desktop downloads are currently under development, with macOS as the active release target.',
+        description: 'KiJi desktop downloads for all platforms are under development. A public release is coming soon.',
         canonicalPath: '/download/',
       },
       resource: {
@@ -236,8 +236,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
-      downloadsTitle: 'macOS release status',
-      downloadsText: 'Desktop downloads are under development. KiJi is focusing on macOS packaging first, and Windows/Linux builds will come later.',
+      downloadsTitle: 'Release status',
+      downloadsText: 'All platform versions are currently under development. A public release is coming soon.',
       privacyTitle: 'No personal reading data collected',
       privacyText: 'Your feeds, articles, saved items, Markdown files, and reading state stay under your control on your device.',
       feedsTitle: 'Import and export feeds',
@@ -249,7 +249,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     download: {
       eyebrow: 'Downloads',
       title: 'Get KiJi for your desktop.',
-      lead: 'Desktop downloads are currently under development. KiJi is stabilizing macOS packaging first, and Windows/Linux builds are paused for later.',
+      lead: 'All platform versions are currently under development. A public release is coming soon.',
       panelAria: 'Download KiJi',
       kicker: 'Download recommended build',
       chooseAria: 'Choose another download',
@@ -314,7 +314,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: '下载 KiJi',
-        description: 'KiJi 桌面下载目前仍在完善中，当前以 macOS 发布为主。',
+        description: 'KiJi 桌面版各平台正在开发中，即将正式发布。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -363,8 +363,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
-      downloadsTitle: 'macOS 发布状态',
-      downloadsText: '桌面下载仍在开发中。KiJi 当前优先完善 macOS 打包，Windows 和 Linux 版本会在之后再开放。',
+      downloadsTitle: '发布状态',
+      downloadsText: '所有平台版本正在开发中，即将正式发布。',
       privacyTitle: '不收集个人阅读数据',
       privacyText: '你的订阅、文章、收藏、Markdown 文件和阅读状态都由你掌控，保存在设备本地。',
       feedsTitle: '导入和导出订阅',
@@ -376,7 +376,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     download: {
       eyebrow: '下载',
       title: '为你的桌面设备获取 KiJi。',
-      lead: '桌面下载目前仍在完善中。KiJi 当前优先稳定 macOS 打包，Windows 和 Linux 版本暂缓到后续阶段。',
+      lead: '所有平台版本正在开发中，即将正式发布。',
       panelAria: '下载 KiJi',
       kicker: '下载推荐版本',
       chooseAria: '选择其他下载',
@@ -441,7 +441,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'KiJiをダウンロード',
-        description: 'KiJiのデスクトップ配布は現在整備中で、当面はmacOS版を優先しています。',
+        description: 'KiJiのデスクトップ版は全プラットフォームで現在開発中です。まもなく公開予定です。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -490,8 +490,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',
-      downloadsTitle: 'macOSリリース状況',
-      downloadsText: 'デスクトップ配布は現在開発中です。KiJiはまずmacOS向けパッケージの安定化を進め、WindowsとLinuxはその後に対応します。',
+      downloadsTitle: 'リリース状況',
+      downloadsText: '全プラットフォーム版は現在開発中です。まもなく公開予定です。',
       privacyTitle: '個人の読書データを収集しません',
       privacyText: 'フィード、記事、保存項目、Markdownファイル、読書状態は、あなたの管理下でデバイス上に残ります。',
       feedsTitle: 'フィードのインポートとエクスポート',
@@ -503,7 +503,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     download: {
       eyebrow: 'ダウンロード',
       title: 'デスクトップ向けKiJiを入手。',
-      lead: 'デスクトップ配布は現在整備中です。KiJiはまずmacOS向けパッケージの安定化を進めており、WindowsとLinuxは後続対応です。',
+      lead: '全プラットフォーム版は現在開発中です。まもなく公開予定です。',
       panelAria: 'KiJiをダウンロード',
       kicker: 'おすすめビルドをダウンロード',
       chooseAria: '別のダウンロードを選択',
