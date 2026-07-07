@@ -32,11 +32,26 @@ interface LogoDownload {
 type LogoDownloadId = 'logo-pack' | 'light-logo' | 'dark-logo';
 
 const OPML_DIRECTORY_URL = 'https://github.com/yomilab/kiji-resource';
-const DOWNLOAD_MANIFEST_URL = 'https://github.com/yomilab/kiji-release/releases/latest/download/release.json';
-const DEFAULT_CHECKSUMS_URL = 'https://github.com/yomilab/kiji-release/releases/latest/download/checksums.txt';
+const DOWNLOAD_MANIFEST_URL = '/release.json';
+const DEFAULT_CHECKSUMS_URL = 'https://github.com/yomilab/kiji-app/releases/tag/v1.0.0';
 const YOMILAB_GITHUB_URL = 'https://github.com/yomilab';
-const DOWNLOAD_ORDER = ['mac-arm64', 'mac-x64'];
-const DOWNLOADS_UNDER_DEVELOPMENT = true;
+const DOWNLOAD_ORDER = [
+  'mac-arm64',
+  'mac-x64',
+  'mac-arm64-zip',
+  'mac-x64-zip',
+  'windows-x64',
+  'windows-arm64',
+  'windows-x64-setup',
+  'windows-arm64-setup',
+  'linux-x86_64-appimage',
+  'linux-x86_64-deb',
+  'linux-x86_64-rpm',
+  'linux-aarch64-appimage',
+  'linux-aarch64-deb',
+  'linux-aarch64-rpm',
+];
+const DOWNLOADS_UNDER_DEVELOPMENT = false;
 const LANGUAGE_STORAGE_KEY = 'kiji-website-language';
 const LANGUAGE_OPTIONS = [
   { code: 'en', label: 'English', shortLabel: 'EN' },
@@ -129,6 +144,11 @@ interface LocalizedText {
     opmlLink: string;
     simpleTitle: string;
     simpleText: string;
+    previewAria: string;
+    previewTitle: string;
+    previewLead: string;
+    previewArticleList: string;
+    previewReaderMode: string;
   };
   download: {
     eyebrow: string;
@@ -187,7 +207,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'Download KiJi',
-        description: 'KiJi desktop downloads are currently under development, with macOS as the active release target.',
+        description: 'Download KiJi 1.0.0 for macOS, Windows, and Linux from GitHub Releases.',
         canonicalPath: '/download/',
       },
       resource: {
@@ -236,8 +256,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
-      downloadsTitle: 'macOS release status',
-      downloadsText: 'Desktop downloads are under development. KiJi is focusing on macOS packaging first, and Windows/Linux builds will come later.',
+      downloadsTitle: 'KiJi 1.0.0 is available',
+      downloadsText: 'Native desktop builds for macOS, Windows, and Linux are published on the download page and GitHub Releases.',
       privacyTitle: 'No personal reading data collected',
       privacyText: 'Your feeds, articles, saved items, Markdown files, and reading state stay under your control on your device.',
       feedsTitle: 'Import and export feeds',
@@ -245,16 +265,21 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       opmlLink: 'View OPML directory',
       simpleTitle: 'Markdown sync and saved exports',
       simpleText: 'Sync saved articles to a local Markdown folder and export all saved articles when you want a portable archive.',
+      previewAria: 'KiJi app previews',
+      previewTitle: 'See KiJi in action',
+      previewLead: 'Browse stations and articles in a native desktop layout, then open a clean reader view for distraction-free reading.',
+      previewArticleList: 'Article list with stations sidebar',
+      previewReaderMode: 'Reader mode',
     },
     download: {
       eyebrow: 'Downloads',
-      title: 'Get KiJi for your desktop.',
-      lead: 'Desktop downloads are currently under development. KiJi is stabilizing macOS packaging first, and Windows/Linux builds are paused for later.',
+      title: 'Get KiJi 1.0.0 for your desktop.',
+      lead: 'Choose the installer for your platform. KiJi ships native Tauri builds for macOS, Windows, and Linux on x64 and ARM64 where supported.',
       panelAria: 'Download KiJi',
       kicker: 'Download recommended build',
       chooseAria: 'Choose another download',
       directUrl: 'Direct release asset URL:',
-      checksums: 'Checksums',
+      checksums: 'GitHub release',
       releaseRss: 'Release RSS',
     },
     changelog: {
@@ -300,7 +325,18 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     downloadOptions: {
       'mac-arm64': { label: 'macOS Apple Silicon', detail: 'Recommended for M1, M2, M3, and newer Macs' },
       'mac-x64': { label: 'macOS Intel', detail: 'For Intel-based Macs' },
+      'mac-arm64-zip': { label: 'macOS Apple Silicon', detail: 'Portable .app archive' },
+      'mac-x64-zip': { label: 'macOS Intel', detail: 'Portable .app archive' },
       'windows-x64': { label: 'Windows x64', detail: 'Recommended for most Windows PCs' },
+      'windows-arm64': { label: 'Windows ARM64', detail: 'For ARM-based Windows devices' },
+      'windows-x64-setup': { label: 'Windows x64', detail: 'NSIS installer executable' },
+      'windows-arm64-setup': { label: 'Windows ARM64', detail: 'NSIS installer executable' },
+      'linux-x86_64-appimage': { label: 'Linux x64', detail: 'Portable AppImage for most Linux desktops' },
+      'linux-x86_64-deb': { label: 'Linux x64 Debian/Ubuntu', detail: 'For Debian, Ubuntu, and compatible distributions' },
+      'linux-x86_64-rpm': { label: 'Linux x64 Fedora/RHEL', detail: 'For Fedora, RHEL, and compatible distributions' },
+      'linux-aarch64-appimage': { label: 'Linux ARM64', detail: 'Portable AppImage for ARM64 Linux' },
+      'linux-aarch64-deb': { label: 'Linux ARM64 Debian/Ubuntu', detail: 'For ARM64 Debian, Ubuntu, and compatible distributions' },
+      'linux-aarch64-rpm': { label: 'Linux ARM64 Fedora/RHEL', detail: 'For ARM64 Fedora, RHEL, and compatible distributions' },
       'linux-deb': { label: 'Linux Debian/Ubuntu', detail: 'For Debian, Ubuntu, and compatible distributions' },
       'linux-rpm': { label: 'Linux Fedora/RHEL', detail: 'For Fedora, RHEL, and compatible distributions' },
     },
@@ -314,7 +350,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: '下载 KiJi',
-        description: 'KiJi 桌面下载目前仍在完善中，当前以 macOS 发布为主。',
+        description: '从 GitHub Releases 下载适用于 macOS、Windows 和 Linux 的 KiJi 1.0.0。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -363,8 +399,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
-      downloadsTitle: 'macOS 发布状态',
-      downloadsText: '桌面下载仍在开发中。KiJi 当前优先完善 macOS 打包，Windows 和 Linux 版本会在之后再开放。',
+      downloadsTitle: 'KiJi 1.0.0 已发布',
+      downloadsText: 'macOS、Windows 和 Linux 的原生桌面版本可在下载页和 GitHub Releases 获取。',
       privacyTitle: '不收集个人阅读数据',
       privacyText: '你的订阅、文章、收藏、Markdown 文件和阅读状态都由你掌控，保存在设备本地。',
       feedsTitle: '导入和导出订阅',
@@ -372,16 +408,21 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       opmlLink: '查看 OPML 目录',
       simpleTitle: 'Markdown 同步与收藏导出',
       simpleText: '把已保存文章同步到本地 Markdown 文件夹，也可以在需要时导出全部收藏文章，保留可迁移的归档。',
+      previewAria: 'KiJi 应用预览',
+      previewTitle: '看看 KiJi 的实际界面',
+      previewLead: '在原生桌面布局中浏览站点与文章列表，再进入简洁的阅读模式专注阅读。',
+      previewArticleList: '带站点侧栏的文章列表',
+      previewReaderMode: '阅读模式',
     },
     download: {
       eyebrow: '下载',
-      title: '为你的桌面设备获取 KiJi。',
-      lead: '桌面下载目前仍在完善中。KiJi 当前优先稳定 macOS 打包，Windows 和 Linux 版本暂缓到后续阶段。',
+      title: '为你的桌面获取 KiJi 1.0.0。',
+      lead: '选择适合你平台的安装包。KiJi 提供 macOS、Windows 和 Linux 的原生 Tauri 构建，并在支持的平台提供 x64 与 ARM64 版本。',
       panelAria: '下载 KiJi',
       kicker: '下载推荐版本',
       chooseAria: '选择其他下载',
       directUrl: '直接发布资源地址：',
-      checksums: '校验文件',
+      checksums: 'GitHub 发布页',
       releaseRss: '发布 RSS',
     },
     changelog: {
@@ -427,7 +468,18 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     downloadOptions: {
       'mac-arm64': { label: 'macOS Apple Silicon', detail: '推荐用于 M1、M2、M3 和更新的 Mac' },
       'mac-x64': { label: 'macOS Intel', detail: '用于 Intel Mac' },
+      'mac-arm64-zip': { label: 'macOS Apple Silicon', detail: '便携 .app 压缩包' },
+      'mac-x64-zip': { label: 'macOS Intel', detail: '便携 .app 压缩包' },
       'windows-x64': { label: 'Windows x64', detail: '推荐用于大多数 Windows 电脑' },
+      'windows-arm64': { label: 'Windows ARM64', detail: '适用于 ARM 架构 Windows 设备' },
+      'windows-x64-setup': { label: 'Windows x64', detail: 'NSIS 安装程序' },
+      'windows-arm64-setup': { label: 'Windows ARM64', detail: 'NSIS 安装程序' },
+      'linux-x86_64-appimage': { label: 'Linux x64', detail: '适用于大多数 Linux 桌面的便携 AppImage' },
+      'linux-x86_64-deb': { label: 'Linux x64 Debian/Ubuntu', detail: '用于 Debian、Ubuntu 和兼容发行版' },
+      'linux-x86_64-rpm': { label: 'Linux x64 Fedora/RHEL', detail: '用于 Fedora、RHEL 和兼容发行版' },
+      'linux-aarch64-appimage': { label: 'Linux ARM64', detail: '适用于 ARM64 Linux 的便携 AppImage' },
+      'linux-aarch64-deb': { label: 'Linux ARM64 Debian/Ubuntu', detail: '用于 ARM64 Debian、Ubuntu 和兼容发行版' },
+      'linux-aarch64-rpm': { label: 'Linux ARM64 Fedora/RHEL', detail: '用于 ARM64 Fedora、RHEL 和兼容发行版' },
       'linux-deb': { label: 'Linux Debian/Ubuntu', detail: '用于 Debian、Ubuntu 和兼容发行版' },
       'linux-rpm': { label: 'Linux Fedora/RHEL', detail: '用于 Fedora、RHEL 和兼容发行版' },
     },
@@ -441,7 +493,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'KiJiをダウンロード',
-        description: 'KiJiのデスクトップ配布は現在整備中で、当面はmacOS版を優先しています。',
+        description: 'GitHub Releases から macOS、Windows、Linux 向け KiJi 1.0.0 をダウンロードできます。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -490,8 +542,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',
-      downloadsTitle: 'macOSリリース状況',
-      downloadsText: 'デスクトップ配布は現在開発中です。KiJiはまずmacOS向けパッケージの安定化を進め、WindowsとLinuxはその後に対応します。',
+      downloadsTitle: 'KiJi 1.0.0 を公開',
+      downloadsText: 'macOS、Windows、Linux 向けのネイティブデスクトップ版をダウンロードページと GitHub Releases から入手できます。',
       privacyTitle: '個人の読書データを収集しません',
       privacyText: 'フィード、記事、保存項目、Markdownファイル、読書状態は、あなたの管理下でデバイス上に残ります。',
       feedsTitle: 'フィードのインポートとエクスポート',
@@ -499,16 +551,21 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       opmlLink: 'OPMLディレクトリを見る',
       simpleTitle: 'Markdown同期と保存記事のエクスポート',
       simpleText: '保存した記事をローカルのMarkdownフォルダに同期し、必要なときにすべての保存記事をポータブルなアーカイブとしてエクスポートできます。',
+      previewAria: 'KiJiアプリのプレビュー',
+      previewTitle: 'KiJiの画面を見る',
+      previewLead: 'ネイティブなデスクトップレイアウトでステーションと記事を閲覧し、集中して読めるリーダービューを開けます。',
+      previewArticleList: 'ステーションサイドバー付き記事リスト',
+      previewReaderMode: 'リーダーモード',
     },
     download: {
       eyebrow: 'ダウンロード',
-      title: 'デスクトップ向けKiJiを入手。',
-      lead: 'デスクトップ配布は現在整備中です。KiJiはまずmacOS向けパッケージの安定化を進めており、WindowsとLinuxは後続対応です。',
+      title: 'デスクトップ向け KiJi 1.0.0 を入手。',
+      lead: 'お使いのプラットフォーム向けインストーラーを選んでください。KiJi は macOS、Windows、Linux 向けのネイティブ Tauri ビルドを提供し、対応環境では x64 と ARM64 をサポートします。',
       panelAria: 'KiJiをダウンロード',
       kicker: 'おすすめビルドをダウンロード',
       chooseAria: '別のダウンロードを選択',
       directUrl: '直接リリースアセットURL:',
-      checksums: 'チェックサム',
+      checksums: 'GitHubリリース',
       releaseRss: 'リリースRSS',
     },
     changelog: {
@@ -554,7 +611,18 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     downloadOptions: {
       'mac-arm64': { label: 'macOS Apple Silicon', detail: 'M1、M2、M3以降のMacにおすすめ' },
       'mac-x64': { label: 'macOS Intel', detail: 'Intel搭載Mac向け' },
+      'mac-arm64-zip': { label: 'macOS Apple Silicon', detail: 'ポータブル .app アーカイブ' },
+      'mac-x64-zip': { label: 'macOS Intel', detail: 'ポータブル .app アーカイブ' },
       'windows-x64': { label: 'Windows x64', detail: 'ほとんどのWindows PCにおすすめ' },
+      'windows-arm64': { label: 'Windows ARM64', detail: 'ARMベースのWindowsデバイス向け' },
+      'windows-x64-setup': { label: 'Windows x64', detail: 'NSISインストーラー' },
+      'windows-arm64-setup': { label: 'Windows ARM64', detail: 'NSISインストーラー' },
+      'linux-x86_64-appimage': { label: 'Linux x64', detail: '多くのLinuxデスクトップ向けポータブルAppImage' },
+      'linux-x86_64-deb': { label: 'Linux x64 Debian/Ubuntu', detail: 'Debian、Ubuntu、互換ディストリビューション向け' },
+      'linux-x86_64-rpm': { label: 'Linux x64 Fedora/RHEL', detail: 'Fedora、RHEL、互換ディストリビューション向け' },
+      'linux-aarch64-appimage': { label: 'Linux ARM64', detail: 'ARM64 Linux向けポータブルAppImage' },
+      'linux-aarch64-deb': { label: 'Linux ARM64 Debian/Ubuntu', detail: 'ARM64 Debian、Ubuntu、互換ディストリビューション向け' },
+      'linux-aarch64-rpm': { label: 'Linux ARM64 Fedora/RHEL', detail: 'ARM64 Fedora、RHEL、互換ディストリビューション向け' },
       'linux-deb': { label: 'Linux Debian/Ubuntu', detail: 'Debian、Ubuntu、互換ディストリビューション向け' },
       'linux-rpm': { label: 'Linux Fedora/RHEL', detail: 'Fedora、RHEL、互換ディストリビューション向け' },
     },
@@ -628,23 +696,23 @@ const inferFileType = (fileName: string): string => {
 
 const inferDownloadLabel = (id: string, fileName: string): Pick<DownloadOption, 'platform' | 'label' | 'detail' | 'fileType'> => {
   const fileType = inferFileType(fileName);
-  if (id === 'mac-arm64') {
+  if (id === 'mac-arm64' || id === 'mac-arm64-zip') {
     return {
       platform: 'mac',
       label: 'macOS Apple Silicon',
-      detail: 'Recommended for M1, M2, M3, and newer Macs',
+      detail: id.endsWith('-zip') ? 'Portable .app archive' : 'Recommended for M1, M2, M3, and newer Macs',
       fileType,
     };
   }
-  if (id === 'mac-x64') {
+  if (id === 'mac-x64' || id === 'mac-x64-zip') {
     return {
       platform: 'mac',
       label: 'macOS Intel',
-      detail: 'For Intel-based Macs',
+      detail: id.endsWith('-zip') ? 'Portable .app archive' : 'For Intel-based Macs',
       fileType,
     };
   }
-  if (id === 'windows-x64') {
+  if (id === 'windows-x64' || id === 'windows-x64-setup') {
     return {
       platform: 'windows',
       label: 'Windows x64',
@@ -652,11 +720,35 @@ const inferDownloadLabel = (id: string, fileName: string): Pick<DownloadOption, 
       fileType,
     };
   }
-  if (id === 'linux-deb') {
+  if (id === 'windows-arm64' || id === 'windows-arm64-setup') {
+    return {
+      platform: 'windows',
+      label: 'Windows ARM64',
+      detail: 'For ARM-based Windows devices',
+      fileType,
+    };
+  }
+  if (id.startsWith('linux-x86_64') || id === 'linux-deb') {
     return {
       platform: 'linux',
-      label: 'Linux Debian/Ubuntu',
-      detail: 'For Debian, Ubuntu, and compatible distributions',
+      label: id.includes('rpm') ? 'Linux x64 Fedora/RHEL' : id.includes('appimage') ? 'Linux x64' : 'Linux x64 Debian/Ubuntu',
+      detail: id.includes('rpm')
+        ? 'For Fedora, RHEL, and compatible distributions'
+        : id.includes('appimage')
+          ? 'Portable AppImage for most Linux desktops'
+          : 'For Debian, Ubuntu, and compatible distributions',
+      fileType,
+    };
+  }
+  if (id.startsWith('linux-aarch64')) {
+    return {
+      platform: 'linux',
+      label: id.includes('rpm') ? 'Linux ARM64 Fedora/RHEL' : id.includes('appimage') ? 'Linux ARM64' : 'Linux ARM64 Debian/Ubuntu',
+      detail: id.includes('rpm')
+        ? 'For ARM64 Fedora, RHEL, and compatible distributions'
+        : id.includes('appimage')
+          ? 'Portable AppImage for ARM64 Linux'
+          : 'For ARM64 Debian, Ubuntu, and compatible distributions',
       fileType,
     };
   }
@@ -700,7 +792,6 @@ const downloadOptionsFromManifest = (manifest: ReleaseManifest): DownloadOption[
     : Object.entries(manifest.downloads ?? {}).map(([key, asset]) => normalizeDownloadOption(asset, key, manifest.version));
 
   return assets
-    .filter((asset) => asset.platform === 'mac')
     .sort((left, right) => {
       const leftIndex = DOWNLOAD_ORDER.indexOf(left.id);
       const rightIndex = DOWNLOAD_ORDER.indexOf(right.id);
@@ -758,17 +849,20 @@ const detectRecommendedDownload = (options: DownloadOption[]): DownloadOption =>
   const isWindows = userAgent.includes('win') || platform.includes('win');
   const isLinux = userAgent.includes('linux') || platform.includes('linux');
   const isLikelyAppleSilicon = isMac && !userAgent.includes('intel') && !platform.includes('intel');
+  const isLikelyArm = userAgent.includes('arm') || platform.includes('arm');
 
   if (isMac) {
     return options.find((option) => option.id === (isLikelyAppleSilicon ? 'mac-arm64' : 'mac-x64')) ?? options[0];
   }
 
   if (isWindows) {
-    return options.find((option) => option.id === 'windows-x64') ?? options[0];
+    return options.find((option) => option.id === (isLikelyArm ? 'windows-arm64' : 'windows-x64')) ?? options[0];
   }
 
   if (isLinux) {
-    return options.find((option) => option.id === 'linux-deb') ?? options[0];
+    return options.find((option) => option.id === (isLikelyArm ? 'linux-aarch64-appimage' : 'linux-x86_64-appimage'))
+      ?? options.find((option) => option.id === 'linux-x86_64-deb')
+      ?? options[0];
   }
 
   return options[0];
@@ -918,6 +1012,31 @@ function HomePage({ text }: { text: LocalizedText }) {
           </div>
         </section>
 
+        <section className="preview-section" aria-label={text.home.previewAria}>
+          <div className="preview-copy">
+            <h2>{text.home.previewTitle}</h2>
+            <p className="muted">{text.home.previewLead}</p>
+          </div>
+          <div className="preview-grid">
+            <figure className="preview-shot">
+              <img
+                src="/images/screenshots/preview-article-list.png"
+                alt={text.home.previewArticleList}
+                loading="lazy"
+              />
+              <figcaption>{text.home.previewArticleList}</figcaption>
+            </figure>
+            <figure className="preview-shot">
+              <img
+                src="/images/screenshots/preview-reader-mode.png"
+                alt={text.home.previewReaderMode}
+                loading="lazy"
+              />
+              <figcaption>{text.home.previewReaderMode}</figcaption>
+            </figure>
+          </div>
+        </section>
+
         <section className="grid" aria-label={text.home.featuresAria}>
           <article className="card" id="privacy">
             <h2>{text.home.privacyTitle}</h2>
@@ -935,6 +1054,7 @@ function HomePage({ text }: { text: LocalizedText }) {
           <article className="card" id="downloads">
             <h2>{text.home.downloadsTitle}</h2>
             <p className="muted">{text.home.downloadsText}</p>
+            <a href="/download/">{text.home.downloadCta}</a>
           </article>
         </section>
       </main>

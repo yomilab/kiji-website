@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DEFAULT_MANIFEST_URL = 'https://github.com/yomilab/kiji-releases/releases/latest/download/release.json';
+const DEFAULT_MANIFEST_URL = 'https://kiji.yomilab.app/release.json';
 
 const args = new Map();
 for (let index = 0; index < process.argv.slice(2).length; index += 1) {
