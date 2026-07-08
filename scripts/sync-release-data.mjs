@@ -63,6 +63,12 @@ await writeFile(
   'utf8'
 );
 
+await writeFile(
+  path.join(ROOT_DIR, 'public/release.json'),
+  `${JSON.stringify(manifest, null, 2)}\n`,
+  'utf8'
+);
+
 const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
