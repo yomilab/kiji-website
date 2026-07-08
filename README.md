@@ -32,7 +32,7 @@ Cloudflare Pages settings (local build output):
 | Output directory | `dist` |
 | Node version | `20` |
 
-**Production deploy:** push to `main` — Cloudflare Pages (Git integration) builds with `npm ci && npm run build` and publishes `dist/`. See `kiji-doc/docs/website/setup-kiji-website-deploy.md`.
+**Production deploy:** push to **`main`** — Cloudflare Pages (Git integration) builds with `npm ci && npm run build` and publishes `dist/`. Each change: commit on `main` + update `kiji-doc` in the same task. See `kiji-doc/docs/website/setup-kiji-website-deploy.md`.
 
 ## Required online links
 
