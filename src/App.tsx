@@ -140,7 +140,6 @@ interface LocalizedText {
   home: {
     eyebrow: string;
     title: string;
-    lead: string;
     downloadCta: string;
     subscribeCta: string;
     featuresAria: string;
@@ -210,7 +209,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
   en: {
     pageMeta: {
       home: {
-        title: 'KiJi - A simple, private RSS reader',
+        title: 'KiJi - A simple, private reader',
         description: 'KiJi is a simple, private RSS reader that keeps feeds, saved articles, Markdown folder sync, and reading data local and exportable.',
         canonicalPath: '/',
       },
@@ -259,9 +258,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: 'Set language to',
     },
     home: {
-      eyebrow: 'Simple, private RSS reader',
-      title: 'A practical RSS reader that runs locally.',
-      lead: 'KiJi helps you follow feeds, save articles, sync saved reading to a local Markdown folder, and export your data without tracking or algorithmic noise.',
+      eyebrow: 'Simple, private reader',
+      title: 'A simple, private reader.',
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
@@ -402,9 +400,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '切换语言到',
     },
     home: {
-      eyebrow: '简单、私密的 RSS 阅读器',
-      title: '在本地运行的实用 RSS 阅读器。',
-      lead: 'KiJi 帮你跟进订阅、保存文章，把已保存内容同步到本地 Markdown 文件夹，并导出你的数据，没有追踪，也没有算法信息流。',
+      eyebrow: '简单、私密的阅读器',
+      title: '简单、私密的阅读器。',
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
@@ -545,9 +542,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '言語を変更',
     },
     home: {
-      eyebrow: 'シンプルでプライベートなRSSリーダー',
-      title: 'ローカルで動く実用的なRSSリーダー。',
-      lead: 'KiJiはフィードの購読、記事の保存、保存した読み物のローカルMarkdownフォルダ同期、データのエクスポートを支えます。トラッキングやアルゴリズム型タイムラインはありません。',
+      eyebrow: 'シンプルでプライベートなリーダー',
+      title: 'シンプルでプライベートなリーダー。',
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',
@@ -1018,9 +1014,6 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
         <section className="hero" id="top">
           <p className="eyebrow">{text.home.eyebrow}</p>
           <h1>{text.home.title}</h1>
-          <p className="lead">
-            {text.home.lead}
-          </p>
           <div className="actions">
             <a className="button primary" href="/download/">{text.home.downloadCta}</a>
             <a className="button" href="/feed.xml">{text.home.subscribeCta}</a>

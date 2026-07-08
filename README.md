@@ -1,6 +1,6 @@
 # KiJi Website
 
-Public Cloudflare Pages website for KiJi, a simple private RSS reader that keeps user reading data local and exportable.
+Public Cloudflare Pages website for KiJi — a simple, private reader.
 
 ## Purpose
 
