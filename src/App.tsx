@@ -842,30 +842,33 @@ const useReleaseManifest = (enabled = true): ReleaseManifest => {
   return manifest;
 };
 
+const DEFAULT_DOWNLOAD_ID = 'mac-arm64';
+
 const detectRecommendedDownload = (options: DownloadOption[]): DownloadOption => {
+  const defaultDownload = options.find((option) => option.id === DEFAULT_DOWNLOAD_ID) ?? options[0];
   const userAgent = window.navigator.userAgent.toLowerCase();
   const platform = window.navigator.platform.toLowerCase();
   const isMac = userAgent.includes('mac') || platform.includes('mac');
   const isWindows = userAgent.includes('win') || platform.includes('win');
   const isLinux = userAgent.includes('linux') || platform.includes('linux');
-  const isLikelyAppleSilicon = isMac && !userAgent.includes('intel') && !platform.includes('intel');
-  const isLikelyArm = userAgent.includes('arm') || platform.includes('arm');
+  const isLikelyArm = userAgent.includes('arm') || platform.includes('arm') || userAgent.includes('aarch64');
 
+  // Apple Silicon Macs often report platform "MacIntel" for web compatibility.
   if (isMac) {
-    return options.find((option) => option.id === (isLikelyAppleSilicon ? 'mac-arm64' : 'mac-x64')) ?? options[0];
+    return defaultDownload;
   }
 
   if (isWindows) {
-    return options.find((option) => option.id === (isLikelyArm ? 'windows-arm64' : 'windows-x64')) ?? options[0];
+    return options.find((option) => option.id === (isLikelyArm ? 'windows-arm64' : 'windows-x64')) ?? defaultDownload;
   }
 
   if (isLinux) {
     return options.find((option) => option.id === (isLikelyArm ? 'linux-aarch64-appimage' : 'linux-x86_64-appimage'))
       ?? options.find((option) => option.id === 'linux-x86_64-deb')
-      ?? options[0];
+      ?? defaultDownload;
   }
 
-  return options[0];
+  return defaultDownload;
 };
 
 const getLocalizedDownloadOption = (option: DownloadOption, text: LocalizedText): Pick<DownloadOption, 'label' | 'detail'> => (

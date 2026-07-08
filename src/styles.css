@@ -1,25 +1,27 @@
 :root {
   color-scheme: light dark;
-  --color-bg: #f7f4ee;
-  --color-surface: #ffffff;
-  --color-text: #191714;
-  --color-muted: #6f6860;
-  --color-primary: #e86f3a;
-  --color-primary-soft: #ffe2d2;
-  --color-accent: #2f8f83;
-  --color-border: #e4ddd3;
+  --color-bg: #f3efe8;
+  --color-surface: #fffcf8;
+  --color-text: #171513;
+  --color-muted: #625c55;
+  --color-primary: #c95624;
+  --color-primary-strong: #9f4218;
+  --color-primary-soft: #edd9cc;
+  --color-accent: #2a756b;
+  --color-border: #d9d1c6;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #11100e;
-    --color-surface: #1b1916;
-    --color-text: #f4efe7;
-    --color-muted: #aaa095;
-    --color-primary: #ff8a55;
-    --color-primary-soft: #3a2419;
-    --color-accent: #5fc3b3;
-    --color-border: #2f2a24;
+    --color-bg: #100f0d;
+    --color-surface: #1a1815;
+    --color-text: #f2ebe3;
+    --color-muted: #a39a8f;
+    --color-primary: #dd6f3a;
+    --color-primary-strong: #b85628;
+    --color-primary-soft: #342218;
+    --color-accent: #58b5a6;
+    --color-border: #2d2822;
   }
 }
 
@@ -224,28 +226,28 @@ h1 {
 .split-download {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 72px;
+  grid-template-columns: minmax(0, 1fr) 52px;
   overflow: visible;
-  border-radius: 28px;
-  box-shadow: 0 18px 45px color-mix(in srgb, var(--color-primary) 22%, transparent);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--color-primary-strong) 24%, transparent);
 }
 
 .download-primary {
   display: grid;
-  gap: 4px;
-  min-height: 92px;
-  padding: 18px 24px;
-  border: 1px solid var(--color-primary);
-  border-right: 1px solid color-mix(in srgb, #ffffff 35%, transparent);
-  border-radius: 28px 0 0 28px;
-  background: var(--color-primary);
+  gap: 2px;
+  min-height: 64px;
+  padding: 12px 18px;
+  border: 1px solid var(--color-primary-strong);
+  border-right: 1px solid color-mix(in srgb, #ffffff 22%, transparent);
+  border-radius: 18px 0 0 18px;
+  background: var(--color-primary-strong);
   color: #ffffff;
   text-decoration: none;
 }
 
 .download-primary strong {
-  font-size: clamp(20px, 3vw, 28px);
-  line-height: 1.1;
+  font-size: clamp(16px, 2.4vw, 20px);
+  line-height: 1.15;
 }
 
 .download-primary span:last-child,
@@ -253,8 +255,12 @@ h1 {
   opacity: 0.86;
 }
 
-.download-kicker {
+.download-primary span:last-child {
   font-size: 13px;
+}
+
+.download-kicker {
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -266,16 +272,16 @@ h1 {
 
 .download-menu summary {
   display: grid;
-  min-height: 92px;
+  min-height: 64px;
   height: 100%;
   place-items: center;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--color-primary-strong);
   border-left: 0;
-  border-radius: 0 28px 28px 0;
-  background: color-mix(in srgb, var(--color-primary) 88%, #000000);
+  border-radius: 0 18px 18px 0;
+  background: color-mix(in srgb, var(--color-primary-strong) 82%, #000000);
   color: #ffffff;
   cursor: pointer;
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 700;
   list-style: none;
 }

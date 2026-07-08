@@ -23,7 +23,7 @@ npm run preview
 http://127.0.0.1:5173/
 ```
 
-Cloudflare Pages settings:
+Cloudflare Pages settings (local build output):
 
 | Setting | Value |
 |---|---|
@@ -32,7 +32,7 @@ Cloudflare Pages settings:
 | Output directory | `dist` |
 | Node version | `20` |
 
-This repo also includes `wrangler.toml` with `pages_build_output_dir = "dist"` for Cloudflare Pages tooling.
+**Production deploy:** push to `main` triggers `.github/workflows/deploy-website.yml` (Cloudflare Pages direct upload). Requires `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` repo secrets. See `kiji-doc/docs/website/setup-kiji-website-deploy.md`.
 
 ## Required online links
 
