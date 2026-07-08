@@ -8,7 +8,6 @@
   --color-primary-strong: #9f4218;
   --color-primary-soft: #edd9cc;
   --color-accent: #2a756b;
-  --color-eyebrow: #2a4f7a;
   --color-border: #d9d1c6;
   --radius: 8px;
 }
@@ -23,7 +22,6 @@
     --color-primary-strong: #b85628;
     --color-primary-soft: #342218;
     --color-accent: #58b5a6;
-    --color-eyebrow: #7eb0d8;
     --color-border: #2d2822;
   }
 }
@@ -175,7 +173,7 @@ a {
 }
 
 .eyebrow {
-  color: var(--color-eyebrow);
+  color: var(--color-text);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
