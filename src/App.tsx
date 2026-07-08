@@ -33,7 +33,6 @@ type LogoDownloadId = 'logo-pack' | 'light-logo' | 'dark-logo';
 
 const OPML_DIRECTORY_URL = 'https://github.com/yomilab/kiji-resource';
 const DOWNLOAD_MANIFEST_URL = '/release.json';
-const DEFAULT_CHECKSUMS_URL = 'https://github.com/yomilab/kiji-app/releases/tag/v1.0.0';
 const YOMILAB_GITHUB_URL = 'https://github.com/yomilab';
 const DOWNLOAD_ORDER = [
   'mac-arm64',
@@ -107,6 +106,16 @@ interface ReleaseManifest {
 }
 
 const localReleaseManifest: ReleaseManifest = latestReleaseManifest;
+
+const DEFAULT_CHECKSUMS_URL = localReleaseManifest.checksumsUrl ?? localReleaseManifest.notesUrl ?? 'https://github.com/yomilab/kiji-app/releases/latest';
+
+const resolveReleaseVersion = (manifest: ReleaseManifest): string => (
+  manifest.version ?? localReleaseManifest.version ?? '1.0.0'
+);
+
+const formatVersionedCopy = (template: string, version: string): string => (
+  template.replaceAll('{version}', version)
+);
 
 interface LocalizedText {
   pageMeta: Record<PageKey, PageMeta>;
@@ -207,7 +216,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'Download KiJi',
-        description: 'Download KiJi 1.0.0 for macOS, Windows, and Linux from GitHub Releases.',
+        description: 'Download KiJi {version} for macOS, Windows, and Linux from GitHub Releases.',
         canonicalPath: '/download/',
       },
       resource: {
@@ -256,7 +265,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
-      downloadsTitle: 'KiJi 1.0.0 is available',
+      downloadsTitle: 'KiJi {version} is available',
       downloadsText: 'Native desktop builds for macOS, Windows, and Linux are published on the download page and GitHub Releases.',
       privacyTitle: 'No personal reading data collected',
       privacyText: 'Your feeds, articles, saved items, Markdown files, and reading state stay under your control on your device.',
@@ -273,7 +282,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     },
     download: {
       eyebrow: 'Downloads',
-      title: 'Get KiJi 1.0.0 for your desktop.',
+      title: 'Get KiJi {version} for your desktop.',
       lead: 'Choose the installer for your platform. KiJi ships native Tauri builds for macOS, Windows, and Linux on x64 and ARM64 where supported.',
       panelAria: 'Download KiJi',
       kicker: 'Download recommended build',
@@ -350,7 +359,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: '下载 KiJi',
-        description: '从 GitHub Releases 下载适用于 macOS、Windows 和 Linux 的 KiJi 1.0.0。',
+        description: '从 GitHub Releases 下载适用于 macOS、Windows 和 Linux 的 KiJi {version}。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -399,7 +408,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
-      downloadsTitle: 'KiJi 1.0.0 已发布',
+      downloadsTitle: 'KiJi {version} 已发布',
       downloadsText: 'macOS、Windows 和 Linux 的原生桌面版本可在下载页和 GitHub Releases 获取。',
       privacyTitle: '不收集个人阅读数据',
       privacyText: '你的订阅、文章、收藏、Markdown 文件和阅读状态都由你掌控，保存在设备本地。',
@@ -416,7 +425,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     },
     download: {
       eyebrow: '下载',
-      title: '为你的桌面获取 KiJi 1.0.0。',
+      title: '为你的桌面获取 KiJi {version}。',
       lead: '选择适合你平台的安装包。KiJi 提供 macOS、Windows 和 Linux 的原生 Tauri 构建，并在支持的平台提供 x64 与 ARM64 版本。',
       panelAria: '下载 KiJi',
       kicker: '下载推荐版本',
@@ -493,7 +502,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       },
       download: {
         title: 'KiJiをダウンロード',
-        description: 'GitHub Releases から macOS、Windows、Linux 向け KiJi 1.0.0 をダウンロードできます。',
+        description: 'GitHub Releases から macOS、Windows、Linux 向け KiJi {version} をダウンロードできます。',
         canonicalPath: '/download/',
       },
       resource: {
@@ -542,7 +551,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',
-      downloadsTitle: 'KiJi 1.0.0 を公開',
+      downloadsTitle: 'KiJi {version} を公開',
       downloadsText: 'macOS、Windows、Linux 向けのネイティブデスクトップ版をダウンロードページと GitHub Releases から入手できます。',
       privacyTitle: '個人の読書データを収集しません',
       privacyText: 'フィード、記事、保存項目、Markdownファイル、読書状態は、あなたの管理下でデバイス上に残ります。',
@@ -559,7 +568,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     },
     download: {
       eyebrow: 'ダウンロード',
-      title: 'デスクトップ向け KiJi 1.0.0 を入手。',
+      title: 'デスクトップ向け KiJi {version} を入手。',
       lead: 'お使いのプラットフォーム向けインストーラーを選んでください。KiJi は macOS、Windows、Linux 向けのネイティブ Tauri ビルドを提供し、対応環境では x64 と ARM64 をサポートします。',
       panelAria: 'KiJiをダウンロード',
       kicker: 'おすすめビルドをダウンロード',
@@ -666,20 +675,23 @@ const setMetaContent = (selector: string, content: string): void => {
   }
 };
 
-const usePageMeta = (page: PageKey, language: LanguageCode): void => {
+const usePageMeta = (page: PageKey, language: LanguageCode, releaseVersion: string): void => {
   useEffect(() => {
     const meta = TEXT[language].pageMeta[page];
+    const description = page === 'download'
+      ? formatVersionedCopy(meta.description, releaseVersion)
+      : meta.description;
     document.documentElement.lang = language;
     document.title = meta.title;
-    setMetaContent('meta[name="description"]', meta.description);
+    setMetaContent('meta[name="description"]', description);
     setMetaContent('meta[property="og:title"]', meta.title);
-    setMetaContent('meta[property="og:description"]', meta.description);
+    setMetaContent('meta[property="og:description"]', description);
 
     const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (canonical) {
       canonical.href = `https://kiji.yomilab.app${meta.canonicalPath}`;
     }
-  }, [language, page]);
+  }, [language, page, releaseVersion]);
 };
 
 const normalizePlatform = (platform?: string): DownloadPlatform | null => {
@@ -999,7 +1011,7 @@ function Footer({ text }: { text: LocalizedText }) {
   );
 }
 
-function HomePage({ text }: { text: LocalizedText }) {
+function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersion: string }) {
   return (
     <>
       <main className="shell">
@@ -1055,7 +1067,7 @@ function HomePage({ text }: { text: LocalizedText }) {
             <p className="muted">{text.home.simpleText}</p>
           </article>
           <article className="card" id="downloads">
-            <h2>{text.home.downloadsTitle}</h2>
+            <h2>{formatVersionedCopy(text.home.downloadsTitle, releaseVersion)}</h2>
             <p className="muted">{text.home.downloadsText}</p>
             <a href="/download/">{text.home.downloadCta}</a>
           </article>
@@ -1066,7 +1078,8 @@ function HomePage({ text }: { text: LocalizedText }) {
   );
 }
 
-function DownloadPage({ text }: { text: LocalizedText }) {
+function DownloadPage({ text, releaseVersion }: { text: LocalizedText; releaseVersion: string }) {
+  const downloadTitle = formatVersionedCopy(text.download.title, releaseVersion);
   const downloadMenuRef = useDismissibleDetails();
   const releaseManifest = useReleaseManifest(!DOWNLOADS_UNDER_DEVELOPMENT);
   const downloadOptions = useMemo(() => downloadOptionsFromManifest(releaseManifest), [releaseManifest]);
@@ -1090,7 +1103,7 @@ function DownloadPage({ text }: { text: LocalizedText }) {
     return (
       <main className="shell hero">
         <p className="eyebrow">{text.download.eyebrow}</p>
-        <h1>{text.download.title}</h1>
+        <h1>{downloadTitle}</h1>
         <p className="lead">{text.download.lead}</p>
         <div className="actions">
           <a className="button" href="/feed.xml">{text.download.releaseRss}</a>
@@ -1102,7 +1115,7 @@ function DownloadPage({ text }: { text: LocalizedText }) {
   return (
     <main className="shell hero">
       <p className="eyebrow">{text.download.eyebrow}</p>
-      <h1>{text.download.title}</h1>
+      <h1>{downloadTitle}</h1>
       <p className="lead">{text.download.lead}</p>
       <div className="download-panel">
         <div className="split-download" aria-label={text.download.panelAria}>
@@ -1218,8 +1231,10 @@ export default function App() {
   const page = getPageKey();
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageCode>(readStoredLanguage);
   const text = TEXT[selectedLanguage];
+  const releaseManifest = useReleaseManifest(!DOWNLOADS_UNDER_DEVELOPMENT);
+  const releaseVersion = resolveReleaseVersion(releaseManifest);
 
-  usePageMeta(page, selectedLanguage);
+  usePageMeta(page, selectedLanguage, releaseVersion);
 
   useEffect(() => {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
@@ -1228,8 +1243,8 @@ export default function App() {
   return (
     <>
       <Header text={text} selectedLanguage={selectedLanguage} onSelectLanguage={setSelectedLanguage} />
-      {page === 'home' && <HomePage text={text} />}
-      {page === 'download' && <DownloadPage text={text} />}
+      {page === 'home' && <HomePage text={text} releaseVersion={releaseVersion} />}
+      {page === 'download' && <DownloadPage text={text} releaseVersion={releaseVersion} />}
       {page === 'resource' && <ResourcePage text={text} />}
       {page === 'changelog' && <ChangelogPage text={text} />}
       {page === 'privacy' && <PrivacyPage text={text} />}
