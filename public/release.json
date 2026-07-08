@@ -1,143 +1,22 @@
 {
   "productName": "KiJi",
-  "version": "1.0.0",
-  "tag": "v1.0.0",
-  "date": "2026-07-07T09:56:56.000Z",
-  "notesUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.0.0",
+  "version": "1.0.1",
+  "tag": "v1.0.1",
+  "date": "2026-07-08T06:38:47Z",
+  "notesUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.0.1",
   "updatesFeedUrl": "https://kiji.yomilab.app/feed.xml",
-  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.0.0",
+  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.0.1",
   "downloadOptions": [
-    {
-      "id": "mac-arm64",
-      "platform": "mac",
-      "label": "macOS Apple Silicon",
-      "detail": "Recommended for M1, M2, M3, and newer Macs",
-      "fileType": "DMG",
-      "fileName": "KiJi-1.0.0-macos-aarch64.dmg",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-macos-aarch64.dmg",
-      "size": 16315890
-    },
-    {
-      "id": "mac-x64",
-      "platform": "mac",
-      "label": "macOS Intel",
-      "detail": "For Intel-based Macs",
-      "fileType": "DMG",
-      "fileName": "KiJi-1.0.0-macos-x86_64.dmg",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-macos-x86_64.dmg",
-      "size": 16857953
-    },
-    {
-      "id": "mac-arm64-zip",
-      "platform": "mac",
-      "label": "macOS Apple Silicon",
-      "detail": "Portable .app archive",
-      "fileType": "ZIP",
-      "fileName": "KiJi-1.0.0-macos-aarch64.app.zip",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-macos-aarch64.app.zip",
-      "size": 16185253
-    },
-    {
-      "id": "mac-x64-zip",
-      "platform": "mac",
-      "label": "macOS Intel",
-      "detail": "Portable .app archive",
-      "fileType": "ZIP",
-      "fileName": "KiJi-1.0.0-macos-x86_64.app.zip",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-macos-x86_64.app.zip",
-      "size": 16744400
-    },
-    {
-      "id": "windows-x64",
-      "platform": "windows",
-      "label": "Windows x64",
-      "detail": "Recommended for most Windows PCs",
-      "fileType": "MSI",
-      "fileName": "KiJi-1.0.0-windows-x86_64.msi",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-windows-x86_64.msi",
-      "size": 16630594
-    },
-    {
-      "id": "windows-arm64",
-      "platform": "windows",
-      "label": "Windows ARM64",
-      "detail": "For ARM-based Windows devices",
-      "fileType": "MSI",
-      "fileName": "KiJi-1.0.0-windows-aarch64.msi",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-windows-aarch64.msi",
-      "size": 16151362
-    },
-    {
-      "id": "windows-x64-setup",
-      "platform": "windows",
-      "label": "Windows x64",
-      "detail": "NSIS installer executable",
-      "fileType": "EXE",
-      "fileName": "KiJi-1.0.0-windows-x86_64-setup.exe",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-windows-x86_64-setup.exe",
-      "size": 12938695
-    },
-    {
-      "id": "windows-arm64-setup",
-      "platform": "windows",
-      "label": "Windows ARM64",
-      "detail": "NSIS installer executable",
-      "fileType": "EXE",
-      "fileName": "KiJi-1.0.0-windows-aarch64-setup.exe",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-windows-aarch64-setup.exe",
-      "size": 12325828
-    },
-    {
-      "id": "linux-x86_64-appimage",
-      "platform": "linux",
-      "label": "Linux x64",
-      "detail": "Portable AppImage for most Linux desktops",
-      "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.0.0-linux-x86_64.AppImage",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-linux-x86_64.AppImage",
-      "size": 91556344
-    },
-    {
-      "id": "linux-x86_64-deb",
-      "platform": "linux",
-      "label": "Linux x64 Debian/Ubuntu",
-      "detail": "For Debian, Ubuntu, and compatible distributions",
-      "fileType": "DEB",
-      "fileName": "KiJi-1.0.0-linux-x86_64.deb",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-linux-x86_64.deb",
-      "size": 17981526
-    },
-    {
-      "id": "linux-x86_64-rpm",
-      "platform": "linux",
-      "label": "Linux x64 Fedora/RHEL",
-      "detail": "For Fedora, RHEL, and compatible distributions",
-      "fileType": "RPM",
-      "fileName": "KiJi-1.0.0-linux-x86_64.rpm",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-linux-x86_64.rpm",
-      "size": 18009674
-    },
     {
       "id": "linux-aarch64-appimage",
       "platform": "linux",
       "label": "Linux ARM64",
       "detail": "Portable AppImage for ARM64 Linux",
       "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.0.0-linux-aarch64.AppImage",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-linux-aarch64.AppImage",
-      "size": 89668104
+      "fileName": "KiJi-1.0.1-linux-aarch64.AppImage",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-linux-aarch64.AppImage",
+      "size": 89659912
     },
     {
       "id": "linux-aarch64-deb",
@@ -145,10 +24,10 @@
       "label": "Linux ARM64 Debian/Ubuntu",
       "detail": "For ARM64 Debian, Ubuntu, and compatible distributions",
       "fileType": "DEB",
-      "fileName": "KiJi-1.0.0-linux-aarch64.deb",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-linux-aarch64.deb",
-      "size": 17911140
+      "fileName": "KiJi-1.0.1-linux-aarch64.deb",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-linux-aarch64.deb",
+      "size": 17916052
     },
     {
       "id": "linux-aarch64-rpm",
@@ -156,10 +35,131 @@
       "label": "Linux ARM64 Fedora/RHEL",
       "detail": "For ARM64 Fedora, RHEL, and compatible distributions",
       "fileType": "RPM",
-      "fileName": "KiJi-1.0.0-linux-aarch64.rpm",
-      "version": "1.0.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.0/KiJi-1.0.0-linux-aarch64.rpm",
-      "size": 17928339
+      "fileName": "KiJi-1.0.1-linux-aarch64.rpm",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-linux-aarch64.rpm",
+      "size": 17931612
+    },
+    {
+      "id": "linux-x86_64-appimage",
+      "platform": "linux",
+      "label": "Linux x64",
+      "detail": "Portable AppImage for most Linux desktops",
+      "fileType": "APPIMAGE",
+      "fileName": "KiJi-1.0.1-linux-x86_64.AppImage",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-linux-x86_64.AppImage",
+      "size": 91548152
+    },
+    {
+      "id": "linux-x86_64-deb",
+      "platform": "linux",
+      "label": "Linux x64 Debian/Ubuntu",
+      "detail": "For Debian, Ubuntu, and compatible distributions",
+      "fileType": "DEB",
+      "fileName": "KiJi-1.0.1-linux-x86_64.deb",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-linux-x86_64.deb",
+      "size": 17982622
+    },
+    {
+      "id": "linux-x86_64-rpm",
+      "platform": "linux",
+      "label": "Linux x64 Fedora/RHEL",
+      "detail": "For Fedora, RHEL, and compatible distributions",
+      "fileType": "RPM",
+      "fileName": "KiJi-1.0.1-linux-x86_64.rpm",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-linux-x86_64.rpm",
+      "size": 18009590
+    },
+    {
+      "id": "mac-arm64-zip",
+      "platform": "mac",
+      "label": "macOS Apple Silicon",
+      "detail": "Portable .app archive",
+      "fileType": "ZIP",
+      "fileName": "KiJi-1.0.1-macos-aarch64.app.zip",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-macos-aarch64.app.zip",
+      "size": 16192681
+    },
+    {
+      "id": "mac-arm64",
+      "platform": "mac",
+      "label": "macOS Apple Silicon",
+      "detail": "Recommended for M1, M2, M3, and newer Macs",
+      "fileType": "DMG",
+      "fileName": "KiJi-1.0.1-macos-aarch64.dmg",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-macos-aarch64.dmg",
+      "size": 16331655
+    },
+    {
+      "id": "mac-x64-zip",
+      "platform": "mac",
+      "label": "macOS Intel",
+      "detail": "Portable .app archive",
+      "fileType": "ZIP",
+      "fileName": "KiJi-1.0.1-macos-x86_64.app.zip",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-macos-x86_64.app.zip",
+      "size": 16751872
+    },
+    {
+      "id": "mac-x64",
+      "platform": "mac",
+      "label": "macOS Intel",
+      "detail": "For Intel-based Macs",
+      "fileType": "DMG",
+      "fileName": "KiJi-1.0.1-macos-x86_64.dmg",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-macos-x86_64.dmg",
+      "size": 16875396
+    },
+    {
+      "id": "windows-arm64-setup",
+      "platform": "windows",
+      "label": "Windows ARM64",
+      "detail": "NSIS installer executable",
+      "fileType": "EXE",
+      "fileName": "KiJi-1.0.1-windows-aarch64-setup.exe",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-windows-aarch64-setup.exe",
+      "size": 12328144
+    },
+    {
+      "id": "windows-arm64",
+      "platform": "windows",
+      "label": "Windows ARM64",
+      "detail": "For ARM-based Windows devices",
+      "fileType": "MSI",
+      "fileName": "KiJi-1.0.1-windows-aarch64.msi",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-windows-aarch64.msi",
+      "size": 16147266
+    },
+    {
+      "id": "windows-x64-setup",
+      "platform": "windows",
+      "label": "Windows x64",
+      "detail": "NSIS installer executable",
+      "fileType": "EXE",
+      "fileName": "KiJi-1.0.1-windows-x86_64-setup.exe",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-windows-x86_64-setup.exe",
+      "size": 12942389
+    },
+    {
+      "id": "windows-x64",
+      "platform": "windows",
+      "label": "Windows x64",
+      "detail": "Recommended for most Windows PCs",
+      "fileType": "MSI",
+      "fileName": "KiJi-1.0.1-windows-x86_64.msi",
+      "version": "1.0.1",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.0.1/KiJi-1.0.1-windows-x86_64.msi",
+      "size": 16630594
     }
   ]
 }
