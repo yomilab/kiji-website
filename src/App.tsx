@@ -128,10 +128,15 @@ interface LocalizedText {
     support: string;
   };
   footer: {
+    brandTagline: string;
+    productHeading: string;
+    legalHeading: string;
+    disclaimer: string;
     privacy: string;
     support: string;
     resource: string;
     github: string;
+    llms: string;
   };
   language: {
     triggerAria: string;
@@ -248,10 +253,15 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'Feedback',
     },
     footer: {
+      brandTagline: 'A simple, private desktop reader. Built with privacy first.',
+      productHeading: 'Product',
+      legalHeading: 'Legal',
+      disclaimer: '© 2026 KiJi by Yomi Lab. All processing is local.',
       privacy: 'Privacy',
       support: 'Feedback',
       resource: 'Resource',
       github: 'YomiLab GitHub',
+      llms: 'llms.txt',
     },
     language: {
       triggerAria: 'Language',
@@ -390,10 +400,15 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: '反馈',
     },
     footer: {
+      brandTagline: '简单、私密的桌面阅读器。以隐私为先构建。',
+      productHeading: '产品',
+      legalHeading: '法律与支持',
+      disclaimer: '© 2026 KiJi by Yomi Lab。所有处理均在本地完成。',
       privacy: '隐私',
       support: '反馈',
       resource: '资源',
       github: 'YomiLab GitHub',
+      llms: 'llms.txt',
     },
     language: {
       triggerAria: '语言',
@@ -532,10 +547,15 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'フィードバック',
     },
     footer: {
+      brandTagline: 'シンプルでプライベートなデスクトップリーダー。プライバシーを最優先に構築。',
+      productHeading: '製品',
+      legalHeading: '法務とサポート',
+      disclaimer: '© 2026 KiJi by Yomi Lab。すべての処理はローカルで行われます。',
       privacy: 'プライバシー',
       support: 'フィードバック',
       resource: 'リソース',
       github: 'YomiLab GitHub',
+      llms: 'llms.txt',
     },
     language: {
       triggerAria: '言語',
@@ -993,16 +1013,32 @@ function Header({
 function Footer({ text }: { text: LocalizedText }) {
   return (
     <footer className="shell footer">
-      <span>KiJi</span>
-      <span className="footer-links">
-        <a href="/privacy/">{text.footer.privacy}</a> · <a href="/support/">{text.footer.support}</a> · <a href="/resource/">{text.footer.resource}</a> · <a href="/llms.txt">llms.txt</a> ·
-        <a className="github-link" href={YOMILAB_GITHUB_URL} target="_blank" rel="noreferrer" aria-label={`${text.footer.github}: KiJi open repositories`}>
-          <svg className="github-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.96c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.78c0 .27.18.59.69.49A10.18 10.18 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" />
-          </svg>
-          <span>{text.footer.github}</span>
-        </a>
-      </span>
+      <div className="footer-grid">
+        <div className="footer-brand">
+          <div className="footer-brand-name">KiJi</div>
+          <p>{text.footer.brandTagline}</p>
+        </div>
+        <div className="footer-col">
+          <h4>{text.footer.productHeading}</h4>
+          <a href="/download/">{text.nav.download}</a>
+          <a href="/changelog/">{text.nav.changelog}</a>
+          <a href="/resource/">{text.nav.resource}</a>
+          <a href="/feed.xml">{text.nav.rss}</a>
+        </div>
+        <div className="footer-col">
+          <h4>{text.footer.legalHeading}</h4>
+          <a href="/privacy/">{text.footer.privacy}</a>
+          <a href="/support/">{text.footer.support}</a>
+          <a href="/llms.txt">{text.footer.llms}</a>
+          <a className="github-link" href={YOMILAB_GITHUB_URL} target="_blank" rel="noreferrer" aria-label={`${text.footer.github}: KiJi open repositories`}>
+            <svg className="github-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.96c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.78c0 .27.18.59.69.49A10.18 10.18 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" />
+            </svg>
+            <span>{text.footer.github}</span>
+          </a>
+        </div>
+      </div>
+      <p className="footer-bottom">{text.footer.disclaimer}</p>
     </footer>
   );
 }
