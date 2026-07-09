@@ -39,18 +39,19 @@ Cloudflare Pages settings (local build output):
 - Website: `https://kiji.yomilab.app`
 - Downloads: `https://kiji.yomilab.app/download/`
 - Updates RSS: `https://kiji.yomilab.app/feed.xml`
-- Public release manifest: `https://github.com/yomilab/kiji-releases/releases/latest/download/release.json`
+- Public release manifest: `https://kiji.yomilab.app/release.json`
+- GitHub Releases (installers): `https://github.com/yomilab/kiji-app/releases/latest`
 - Resource repo: `https://github.com/yomilab/kiji-resource`
 
 ## Download data
 
-The download page reads version and asset information from the generated release manifest:
+The download page reads version and asset information from the release manifest:
 
 ```text
-https://github.com/yomilab/kiji-releases/releases/latest/download/release.json
+https://kiji.yomilab.app/release.json
 ```
 
-For local development before the release repo is online, the page falls back to:
+Installers are hosted on `yomilab/kiji-app` GitHub Releases. For local development when the runtime fetch fails, the page falls back to:
 
 ```text
 src/data/latestRelease.json

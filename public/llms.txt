@@ -17,7 +17,8 @@ Official pages:
 - Changelog: https://kiji.yomilab.app/changelog/
 - Updates RSS: https://kiji.yomilab.app/feed.xml
 - Feedback: hello@yomilab.app
-- Release manifest: https://github.com/yomilab/kiji-releases/releases/latest/download/release.json
+- Release manifest: https://kiji.yomilab.app/release.json
+- GitHub Releases: https://github.com/yomilab/kiji-app/releases/latest
 - Resource repo: https://github.com/yomilab/kiji-resource
 
 Product behavior and brand guidance are defined in the private KiJi app repo first, then synced to public repositories.
