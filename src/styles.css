@@ -514,6 +514,20 @@ h1 {
   color: var(--color-text);
 }
 
+.footer-col .github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+}
+
+.footer-col .github-icon {
+  display: block;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+}
+
 .footer-bottom {
   margin: 28px 0 0;
   padding-top: 20px;
