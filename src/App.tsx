@@ -1068,7 +1068,6 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
                 alt={text.home.previewArticleList}
                 loading="lazy"
               />
-              <figcaption>{text.home.previewArticleList}</figcaption>
             </figure>
             <figure className="preview-shot">
               <img
@@ -1076,7 +1075,6 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
                 alt={text.home.previewReaderMode}
                 loading="lazy"
               />
-              <figcaption>{text.home.previewReaderMode}</figcaption>
             </figure>
           </div>
         </section>

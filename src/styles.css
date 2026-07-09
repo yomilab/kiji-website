@@ -411,23 +411,13 @@ h1 {
 
 .preview-shot {
   margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background: var(--color-surface);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
 }
 
 .preview-shot img {
   display: block;
   width: 100%;
   height: auto;
-}
-
-.preview-shot figcaption {
-  padding: 12px 16px 14px;
-  color: var(--color-muted);
-  font-size: 14px;
+  border-radius: var(--radius);
 }
 
 @media (min-width: 900px) {
