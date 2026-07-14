@@ -148,8 +148,6 @@ interface LocalizedText {
     downloadCta: string;
     subscribeCta: string;
     featuresAria: string;
-    downloadsTitle: string;
-    downloadsText: string;
     privacyTitle: string;
     privacyText: string;
     feedsTitle: string;
@@ -275,8 +273,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
-      downloadsTitle: 'KiJi {version} is available',
-      downloadsText: 'Desktop builds for macOS, Windows, and Linux.',
       privacyTitle: 'Local-only',
       privacyText: 'No account, no cloud, no telemetry. Subscriptions and reading state stay on disk.',
       feedsTitle: 'Stations',
@@ -424,8 +420,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
-      downloadsTitle: 'KiJi {version} 已发布',
-      downloadsText: 'macOS、Windows、Linux 桌面构建。',
       privacyTitle: '纯本地',
       privacyText: '无需账号，无云端，无遥测。订阅与阅读状态保存在本地磁盘。',
       feedsTitle: '站点',
@@ -573,8 +567,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',
-      downloadsTitle: 'KiJi {version} を公開',
-      downloadsText: 'macOS、Windows、Linux 向けデスクトップビルド。',
       privacyTitle: 'ローカル専用',
       privacyText: 'アカウント不要、クラウドなし、テレメトリなし。購読と読書状態はディスクに残ります。',
       feedsTitle: 'ステーション',
@@ -1051,7 +1043,7 @@ function Footer({ text }: { text: LocalizedText }) {
   );
 }
 
-function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersion: string }) {
+function HomePage({ text }: { text: LocalizedText }) {
   return (
     <>
       <main className="shell">
@@ -1104,11 +1096,6 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
           <article className="card" id="pro">
             <h2>{text.home.simpleTitle}</h2>
             <p className="muted">{text.home.simpleText}</p>
-          </article>
-          <article className="card" id="downloads">
-            <h2>{formatVersionedCopy(text.home.downloadsTitle, releaseVersion)}</h2>
-            <p className="muted">{text.home.downloadsText}</p>
-            <a href="/download/">{text.home.downloadCta}</a>
           </article>
         </section>
       </main>
@@ -1282,7 +1269,7 @@ export default function App() {
   return (
     <>
       <Header text={text} selectedLanguage={selectedLanguage} onSelectLanguage={setSelectedLanguage} />
-      {page === 'home' && <HomePage text={text} releaseVersion={releaseVersion} />}
+      {page === 'home' && <HomePage text={text} />}
       {page === 'download' && <DownloadPage text={text} releaseVersion={releaseVersion} />}
       {page === 'resource' && <ResourcePage text={text} />}
       {page === 'changelog' && <ChangelogPage text={text} />}
