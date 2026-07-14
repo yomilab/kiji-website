@@ -1,13 +1,14 @@
 # KiJi
 
-KiJi is a simple, private RSS reader for keeping up with feeds.
+KiJi is a local-only desktop RSS reader with stations, reader mode, and Markdown sync for saved articles.
 
 Brand summary:
 
-- KiJi collects no personal reading data in the desktop reader.
-- Feeds, articles, saved items, Markdown sync files, and reading state stay local on the user's device.
-- Saved articles can sync to a local Markdown folder and can be exported as a portable archive.
-- KiJi is a common RSS reader that works and stays simple, without tracking or algorithmic timelines.
+- Local-only — no account, no cloud, no telemetry. Subscriptions and reading state stay on disk.
+- Stations — tag feeds into groups; switch across unread and saved without a timeline.
+- Reader mode — full-article view with a quiet layout for long-form reading.
+- Markdown sync — saved articles write to a local Markdown folder you own and can version or back up.
+- No ranking feed — a straightforward reader without telemetry.
 
 Official pages:
 
@@ -21,4 +22,4 @@ Official pages:
 - GitHub Releases: https://github.com/yomilab/kiji-app/releases/latest
 - Resource repo: https://github.com/yomilab/kiji-resource
 
-Product behavior and brand guidance are defined in the private KiJi app repo first, then synced to public repositories.
+Product behavior and brand guidance are defined in kiji-doc first, then synced to public repositories.

@@ -155,6 +155,8 @@ interface LocalizedText {
     feedsTitle: string;
     feedsText: string;
     opmlLink: string;
+    readingTitle: string;
+    readingText: string;
     simpleTitle: string;
     simpleText: string;
     previewAria: string;
@@ -215,7 +217,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     pageMeta: {
       home: {
         title: 'KiJi - A simple, private reader',
-        description: 'KiJi is a simple, private RSS reader that keeps feeds, saved articles, Markdown folder sync, and reading data local and exportable.',
+        description: 'KiJi is a local-only desktop RSS reader with stations, reader mode, and Markdown sync for saved articles — no account, no telemetry.',
         canonicalPath: '/',
       },
       download: {
@@ -253,7 +255,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'Feedback',
     },
     footer: {
-      brandTagline: 'A simple, private desktop reader. Built with privacy first.',
+      brandTagline: 'A simple, private desktop RSS reader. Local-only.',
       productHeading: 'Product',
       legalHeading: 'Legal',
       disclaimer: '© 2026 KiJi by Yomi Lab. All processing is local.',
@@ -274,17 +276,19 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
       downloadsTitle: 'KiJi {version} is available',
-      downloadsText: 'Native desktop builds for macOS, Windows, and Linux are published on the download page and GitHub Releases.',
-      privacyTitle: 'No personal reading data collected',
-      privacyText: 'Your feeds, articles, saved items, Markdown files, and reading state stay under your control on your device.',
-      feedsTitle: 'Import and export feeds',
-      feedsText: 'Start with OPML feed collections and keep your subscriptions portable.',
-      opmlLink: 'View OPML directory',
-      simpleTitle: 'Markdown sync and saved exports',
-      simpleText: 'Sync saved articles to a local Markdown folder and export all saved articles when you want a portable archive.',
+      downloadsText: 'Desktop builds for macOS, Windows, and Linux.',
+      privacyTitle: 'Local-only',
+      privacyText: 'No account, no cloud, no telemetry. Subscriptions and reading state stay on disk.',
+      feedsTitle: 'Stations',
+      feedsText: 'Tag feeds into groups. Switch across unread and saved without a timeline.',
+      opmlLink: 'Browse feed collections',
+      readingTitle: 'Reader mode',
+      readingText: 'Full-article view with a quiet layout for long-form reading.',
+      simpleTitle: 'Markdown sync',
+      simpleText: 'Saved articles write to a local Markdown folder you own and can version or back up.',
       previewAria: 'KiJi app previews',
       previewTitle: 'See KiJi in action',
-      previewLead: 'Browse stations and articles in a native desktop layout, then open a clean reader view for distraction-free reading.',
+      previewLead: 'Stations in the sidebar, a clean reader, and saved articles synced as Markdown.',
       previewArticleList: 'Article list with stations sidebar',
       previewReaderMode: 'Reader mode',
     },
@@ -317,7 +321,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     privacy: {
       eyebrow: 'Privacy',
       title: 'No personal reading data collected.',
-      lead: 'KiJi\'s desktop reader keeps your feeds, articles, saved items, and reading state on your device. Your data can be exported, and the core reader does not use tracking or an algorithmic timeline.',
+      lead: 'KiJi stores feeds, articles, saved items, and reading state locally. Export when needed. No telemetry, no ranking feed.',
     },
     support: {
       eyebrow: 'Feedback',
@@ -362,7 +366,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     pageMeta: {
       home: {
         title: 'KiJi - 简单、私密的 RSS 阅读器',
-        description: 'KiJi 是一个简单、私密的 RSS 阅读器，让订阅、收藏文章、Markdown 文件夹同步和阅读数据保存在本地，并可由用户导出。',
+        description: 'KiJi 是本地桌面 RSS 阅读器：站点分组、阅读模式，以及将收藏同步为 Markdown——无需账号，无遥测。',
         canonicalPath: '/',
       },
       download: {
@@ -400,7 +404,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: '反馈',
     },
     footer: {
-      brandTagline: '简单、私密的桌面阅读器。以隐私为先构建。',
+      brandTagline: '简单、私密的桌面 RSS 阅读器。纯本地。',
       productHeading: '产品',
       legalHeading: '法律与支持',
       disclaimer: '© 2026 KiJi by Yomi Lab。所有处理均在本地完成。',
@@ -421,17 +425,19 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
       downloadsTitle: 'KiJi {version} 已发布',
-      downloadsText: 'macOS、Windows 和 Linux 的原生桌面版本可在下载页和 GitHub Releases 获取。',
-      privacyTitle: '不收集个人阅读数据',
-      privacyText: '你的订阅、文章、收藏、Markdown 文件和阅读状态都由你掌控，保存在设备本地。',
-      feedsTitle: '导入和导出订阅',
-      feedsText: '可以从 OPML 订阅集合开始，并保持订阅列表可迁移。',
-      opmlLink: '查看 OPML 目录',
-      simpleTitle: 'Markdown 同步与收藏导出',
-      simpleText: '把已保存文章同步到本地 Markdown 文件夹，也可以在需要时导出全部收藏文章，保留可迁移的归档。',
+      downloadsText: 'macOS、Windows、Linux 桌面构建。',
+      privacyTitle: '纯本地',
+      privacyText: '无需账号，无云端，无遥测。订阅与阅读状态保存在本地磁盘。',
+      feedsTitle: '站点',
+      feedsText: '给订阅打标签分组，在未读与已保存之间切换，没有信息流干扰。',
+      opmlLink: '浏览订阅合集',
+      readingTitle: '阅读模式',
+      readingText: '全文阅读视图，版面克制，适合长文。',
+      simpleTitle: 'Markdown 同步',
+      simpleText: '收藏文章写入本地 Markdown 文件夹，便于版本管理或备份。',
       previewAria: 'KiJi 应用预览',
       previewTitle: '看看 KiJi 的实际界面',
-      previewLead: '在原生桌面布局中浏览站点与文章列表，再进入简洁的阅读模式专注阅读。',
+      previewLead: '侧栏站点、干净的阅读视图，以及同步为 Markdown 的收藏。',
       previewArticleList: '带站点侧栏的文章列表',
       previewReaderMode: '阅读模式',
     },
@@ -464,7 +470,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     privacy: {
       eyebrow: '隐私',
       title: '不收集个人阅读数据。',
-      lead: 'KiJi 桌面阅读器会将你的订阅、文章、收藏和阅读状态保存在设备本地。你的数据可以导出，核心阅读器不使用追踪或算法信息流。',
+      lead: 'KiJi 在本地存储订阅、文章、收藏与阅读状态。需要时可导出。无遥测，无排序信息流。',
     },
     support: {
       eyebrow: '反馈',
@@ -509,7 +515,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     pageMeta: {
       home: {
         title: 'KiJi - シンプルでプライベートなRSSリーダー',
-        description: 'KiJiは、フィード、保存記事、Markdownフォルダ同期、読書データをローカルに保ち、エクスポートできるシンプルでプライベートなRSSリーダーです。',
+        description: 'KiJiはローカル専用のデスクトップRSSリーダーです。ステーション、リーダーモード、保存記事のMarkdown同期に対応。アカウント不要、テレメトリなし。',
         canonicalPath: '/',
       },
       download: {
@@ -547,7 +553,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'フィードバック',
     },
     footer: {
-      brandTagline: 'シンプルでプライベートなデスクトップリーダー。プライバシーを最優先に構築。',
+      brandTagline: 'シンプルでプライベートなデスクトップRSSリーダー。ローカル専用。',
       productHeading: '製品',
       legalHeading: '法務とサポート',
       disclaimer: '© 2026 KiJi by Yomi Lab。すべての処理はローカルで行われます。',
@@ -568,17 +574,19 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',
       downloadsTitle: 'KiJi {version} を公開',
-      downloadsText: 'macOS、Windows、Linux 向けのネイティブデスクトップ版をダウンロードページと GitHub Releases から入手できます。',
-      privacyTitle: '個人の読書データを収集しません',
-      privacyText: 'フィード、記事、保存項目、Markdownファイル、読書状態は、あなたの管理下でデバイス上に残ります。',
-      feedsTitle: 'フィードのインポートとエクスポート',
-      feedsText: 'OPMLフィードコレクションから始めて、購読リストを持ち運べます。',
-      opmlLink: 'OPMLディレクトリを見る',
-      simpleTitle: 'Markdown同期と保存記事のエクスポート',
-      simpleText: '保存した記事をローカルのMarkdownフォルダに同期し、必要なときにすべての保存記事をポータブルなアーカイブとしてエクスポートできます。',
+      downloadsText: 'macOS、Windows、Linux 向けデスクトップビルド。',
+      privacyTitle: 'ローカル専用',
+      privacyText: 'アカウント不要、クラウドなし、テレメトリなし。購読と読書状態はディスクに残ります。',
+      feedsTitle: 'ステーション',
+      feedsText: 'フィードをタグでグループ化し、タイムラインなしで未読と保存済みを切り替えます。',
+      opmlLink: 'フィードコレクションを見る',
+      readingTitle: 'リーダーモード',
+      readingText: '長文向けの落ち着いた全文表示。',
+      simpleTitle: 'Markdown同期',
+      simpleText: '保存記事を手元の Markdown フォルダへ書き出し、バージョン管理やバックアップに使えます。',
       previewAria: 'KiJiアプリのプレビュー',
       previewTitle: 'KiJiの画面を見る',
-      previewLead: 'ネイティブなデスクトップレイアウトでステーションと記事を閲覧し、集中して読めるリーダービューを開けます。',
+      previewLead: 'サイドバーのステーション、クリーンなリーダー、Markdown 同期される保存記事。',
       previewArticleList: 'ステーションサイドバー付き記事リスト',
       previewReaderMode: 'リーダーモード',
     },
@@ -611,7 +619,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     privacy: {
       eyebrow: 'プライバシー',
       title: '個人の読書データを収集しません。',
-      lead: 'KiJiのデスクトップリーダーは、フィード、記事、保存項目、読書状態をデバイス上に保ちます。データはエクスポートでき、コアリーダーはトラッキングやアルゴリズム型タイムラインを使いません。',
+      lead: 'KiJiはフィード、記事、保存項目、読書状態をローカルに保存します。必要ならエクスポートできます。テレメトリなし、ランキングフィードなし。',
     },
     support: {
       eyebrow: 'フィードバック',
@@ -1088,6 +1096,10 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
             <h2>{text.home.feedsTitle}</h2>
             <p className="muted">{text.home.feedsText}</p>
             <a href={OPML_DIRECTORY_URL}>{text.home.opmlLink}</a>
+          </article>
+          <article className="card" id="reading">
+            <h2>{text.home.readingTitle}</h2>
+            <p className="muted">{text.home.readingText}</p>
           </article>
           <article className="card" id="pro">
             <h2>{text.home.simpleTitle}</h2>
