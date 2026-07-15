@@ -1,14 +1,13 @@
 # KiJi
 
-KiJi is a local-only desktop RSS reader with stations, reader mode, and Markdown sync for saved articles.
+KiJi is a local-only desktop RSS reader. Stations, Defuddle/Readability parsers, Markdown sync for saved articles.
 
 Brand summary:
 
-- Local-only — no account, no cloud, no telemetry. Subscriptions and reading state stay on disk.
-- Stations — tag feeds into groups; switch across unread and saved without a timeline.
-- Reader mode — full-article view with a quiet layout for long-form reading.
-- Markdown sync — saved articles write to a local Markdown folder you own and can version or back up.
-- No ranking feed — a straightforward reader without telemetry.
+- Local-only — feeds and state stay on disk.
+- Stations — tag feeds into groups; flip unread ↔ saved — no timeline.
+- Reader mode — Defuddle + Readability — two engines to parse raw page HTML into article text.
+- Markdown sync — sync articles to local folder as markdown.
 
 Official pages:
 
