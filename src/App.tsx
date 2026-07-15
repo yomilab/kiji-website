@@ -143,7 +143,6 @@ interface LocalizedText {
     setAria: string;
   };
   home: {
-    eyebrow: string;
     title: string;
     downloadCta: string;
     subscribeCta: string;
@@ -268,7 +267,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: 'Set language to',
     },
     home: {
-      eyebrow: 'A local, modern RSS reader.',
       title: 'A local, modern RSS reader.',
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
@@ -415,7 +413,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '切换语言到',
     },
     home: {
-      eyebrow: '本地现代 RSS 阅读器。',
       title: '本地现代 RSS 阅读器。',
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
@@ -562,7 +559,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '言語を変更',
     },
     home: {
-      eyebrow: 'ローカルでモダンなRSSリーダー。',
       title: 'ローカルでモダンなRSSリーダー。',
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
@@ -1048,7 +1044,6 @@ function HomePage({ text }: { text: LocalizedText }) {
     <>
       <main className="shell">
         <section className="hero" id="top">
-          <p className="eyebrow">{text.home.eyebrow}</p>
           <h1>{text.home.title}</h1>
           <div className="actions">
             <a className="button primary" href="/download/">{text.home.downloadCta}</a>
