@@ -1,6 +1,6 @@
 # KiJi
 
-KiJi is a local-only desktop RSS reader. Stations, Defuddle/Readability parsers, Markdown sync for saved articles.
+KiJi is a local, modern RSS reader. Stations, Defuddle/Readability parsers, Markdown sync for saved articles.
 
 Brand summary:
 

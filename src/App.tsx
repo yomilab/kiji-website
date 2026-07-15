@@ -214,8 +214,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
   en: {
     pageMeta: {
       home: {
-        title: 'KiJi - Local RSS.',
-        description: 'Local-only desktop RSS reader. Stations, Defuddle/Readability parsers, Markdown sync.',
+        title: 'KiJi - A local, modern RSS reader.',
+        description: 'A local, modern RSS reader. Stations, Defuddle/Readability parsers, Markdown sync.',
         canonicalPath: '/',
       },
       download: {
@@ -253,7 +253,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'Feedback',
     },
     footer: {
-      brandTagline: 'Local-only desktop RSS.',
+      brandTagline: 'A local, modern RSS reader.',
       productHeading: 'Product',
       legalHeading: 'Legal',
       disclaimer: '© 2026 KiJi by Yomi Lab. All processing is local.',
@@ -268,8 +268,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: 'Set language to',
     },
     home: {
-      eyebrow: 'Local RSS.',
-      title: 'Local RSS.',
+      eyebrow: 'A local, modern RSS reader.',
+      title: 'A local, modern RSS reader.',
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       featuresAria: 'Product highlights',
@@ -361,8 +361,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
   'zh-Hans': {
     pageMeta: {
       home: {
-        title: 'KiJi - 本地 RSS。',
-        description: '本地桌面 RSS 阅读器。站点分组、Defuddle/Readability 双引擎解析、Markdown 同步。',
+        title: 'KiJi - 本地现代 RSS 阅读器。',
+        description: '本地现代 RSS 阅读器。站点分组、Defuddle/Readability 双引擎解析、Markdown 同步。',
         canonicalPath: '/',
       },
       download: {
@@ -400,7 +400,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: '反馈',
     },
     footer: {
-      brandTagline: '本地桌面 RSS。',
+      brandTagline: '本地现代 RSS 阅读器。',
       productHeading: '产品',
       legalHeading: '法律与支持',
       disclaimer: '© 2026 KiJi by Yomi Lab。所有处理均在本地完成。',
@@ -415,8 +415,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '切换语言到',
     },
     home: {
-      eyebrow: '本地 RSS。',
-      title: '本地 RSS。',
+      eyebrow: '本地现代 RSS 阅读器。',
+      title: '本地现代 RSS 阅读器。',
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       featuresAria: '产品亮点',
@@ -508,8 +508,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
   ja: {
     pageMeta: {
       home: {
-        title: 'KiJi - ローカルRSS。',
-        description: 'ローカル専用デスクトップRSSリーダー。ステーション、Defuddle/Readabilityパーサ、Markdown同期。',
+        title: 'KiJi - ローカルでモダンなRSSリーダー。',
+        description: 'ローカルでモダンなRSSリーダー。ステーション、Defuddle/Readabilityパーサ、Markdown同期。',
         canonicalPath: '/',
       },
       download: {
@@ -547,7 +547,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'フィードバック',
     },
     footer: {
-      brandTagline: 'ローカル専用デスクトップRSS。',
+      brandTagline: 'ローカルでモダンなRSSリーダー。',
       productHeading: '製品',
       legalHeading: '法務とサポート',
       disclaimer: '© 2026 KiJi by Yomi Lab。すべての処理はローカルで行われます。',
@@ -562,8 +562,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '言語を変更',
     },
     home: {
-      eyebrow: 'ローカルRSS。',
-      title: 'ローカルRSS。',
+      eyebrow: 'ローカルでモダンなRSSリーダー。',
+      title: 'ローカルでモダンなRSSリーダー。',
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       featuresAria: '製品の特徴',

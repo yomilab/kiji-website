@@ -1,6 +1,6 @@
 # KiJi Website
 
-Public website for KiJi — local RSS.
+Public website for KiJi — a local, modern RSS reader.
 
 ## Development
 
