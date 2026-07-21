@@ -80,9 +80,6 @@ a {
   justify-content: space-between;
   padding: 16px 0;
   border-bottom: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .brand {
