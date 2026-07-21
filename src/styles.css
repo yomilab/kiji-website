@@ -370,7 +370,6 @@ summary:focus-visible {
 .card {
   min-height: 180px;
   padding: 26px;
-  border: 1px solid color-mix(in srgb, var(--color-text) 38%, transparent);
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
