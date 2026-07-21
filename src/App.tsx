@@ -143,9 +143,12 @@ interface LocalizedText {
     setAria: string;
   };
   home: {
+    eyebrow: string;
     title: string;
+    lead: string;
     downloadCta: string;
     subscribeCta: string;
+    heroShotAlt: string;
     featuresAria: string;
     privacyTitle: string;
     privacyText: string;
@@ -154,13 +157,11 @@ interface LocalizedText {
     opmlLink: string;
     readingTitle: string;
     readingText: string;
+    readerShotAlt: string;
     simpleTitle: string;
     simpleText: string;
-    previewAria: string;
-    previewTitle: string;
-    previewLead: string;
-    previewArticleList: string;
-    previewReaderMode: string;
+    closingTitle: string;
+    closingText: string;
   };
   download: {
     eyebrow: string;
@@ -267,9 +268,12 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: 'Set language to',
     },
     home: {
+      eyebrow: 'Open source · v{version}',
       title: 'A local, modern RSS reader.',
+      lead: 'Feeds, articles, and reading state stay on your device. Group feeds into stations, parse pages with Defuddle or Readability, and sync articles to disk as Markdown.',
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
+      heroShotAlt: 'Article list with stations sidebar',
       featuresAria: 'Product highlights',
       privacyTitle: 'Local-only',
       privacyText: 'Feeds and state stay on disk.',
@@ -278,13 +282,11 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       opmlLink: 'Browse feed collections',
       readingTitle: 'Reader mode',
       readingText: 'Defuddle + Readability — two engines to parse raw page HTML into article text.',
+      readerShotAlt: 'Reader mode',
       simpleTitle: 'Markdown sync',
       simpleText: 'Sync articles to local folder as markdown.',
-      previewAria: 'KiJi app previews',
-      previewTitle: 'See KiJi in action',
-      previewLead: 'Stations, dual parsers, Markdown sync.',
-      previewArticleList: 'Article list with stations sidebar',
-      previewReaderMode: 'Reader mode',
+      closingTitle: 'Available for macOS, Windows, and Linux.',
+      closingText: 'Free and open source.',
     },
     download: {
       eyebrow: 'Downloads',
@@ -413,9 +415,12 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '切换语言到',
     },
     home: {
+      eyebrow: '开源 · v{version}',
       title: '本地现代 RSS 阅读器。',
+      lead: '订阅、文章与阅读状态均保存在本地。按标签将订阅分组为站点，使用 Defuddle 或 Readability 解析正文，并将文章以 Markdown 同步到磁盘。',
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
+      heroShotAlt: '带站点侧栏的文章列表',
       featuresAria: '产品亮点',
       privacyTitle: '纯本地',
       privacyText: '订阅与状态只在本地磁盘。',
@@ -424,13 +429,11 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       opmlLink: '浏览订阅合集',
       readingTitle: '阅读模式',
       readingText: 'Defuddle + Readability — 双引擎，从原始网页 HTML 解析出正文。',
+      readerShotAlt: '阅读模式',
       simpleTitle: 'Markdown 同步',
       simpleText: '将文章同步到本地文件夹为 Markdown。',
-      previewAria: 'KiJi 应用预览',
-      previewTitle: '看看 KiJi 的实际界面',
-      previewLead: '站点、双解析引擎、Markdown 同步。',
-      previewArticleList: '带站点侧栏的文章列表',
-      previewReaderMode: '阅读模式',
+      closingTitle: '支持 macOS、Windows 和 Linux。',
+      closingText: '免费开源。',
     },
     download: {
       eyebrow: '下载',
@@ -559,9 +562,12 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       setAria: '言語を変更',
     },
     home: {
+      eyebrow: 'オープンソース · v{version}',
       title: 'ローカルでモダンなRSSリーダー。',
+      lead: 'フィード、記事、読書状態はすべてデバイス上に保存されます。フィードをステーションに分類し、Defuddle / Readability で本文を抽出し、記事を Markdown としてディスクに同期できます。',
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
+      heroShotAlt: 'ステーションサイドバー付き記事リスト',
       featuresAria: '製品の特徴',
       privacyTitle: 'ローカル専用',
       privacyText: '購読と状態はディスクに残る。',
@@ -570,13 +576,11 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       opmlLink: 'フィードコレクションを見る',
       readingTitle: 'リーダーモード',
       readingText: 'Defuddle + Readability — 生HTMLから記事本文を抜き出す二系統のパーサ。',
+      readerShotAlt: 'リーダーモード',
       simpleTitle: 'Markdown同期',
       simpleText: '記事をローカルフォルダへ Markdown として同期。',
-      previewAria: 'KiJiアプリのプレビュー',
-      previewTitle: 'KiJiの画面を見る',
-      previewLead: 'ステーション、デュアルパーサ、Markdown同期。',
-      previewArticleList: 'ステーションサイドバー付き記事リスト',
-      previewReaderMode: 'リーダーモード',
+      closingTitle: 'macOS、Windows、Linux に対応。',
+      closingText: '無料のオープンソース。',
     },
     download: {
       eyebrow: 'ダウンロード',
@@ -1039,59 +1043,122 @@ function Footer({ text }: { text: LocalizedText }) {
   );
 }
 
-function HomePage({ text }: { text: LocalizedText }) {
+const useRevealOnScroll = (): void => {
+  useEffect(() => {
+    const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'));
+    if (elements.length === 0) return undefined;
+
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('revealed'));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+};
+
+function CardIcon({ children }: { children: React.ReactNode }) {
+  return (
+    <svg className="card-icon" viewBox="0 0 24 24" aria-hidden="true">
+      {children}
+    </svg>
+  );
+}
+
+function ShotWindow({ src, alt }: { src: string; alt: string }) {
+  return (
+    <figure className="shot-window">
+      <div className="shot-chrome" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <img src={src} alt={alt} loading="lazy" />
+    </figure>
+  );
+}
+
+function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersion: string }) {
   return (
     <>
       <main className="shell">
-        <section className="hero" id="top">
-          <h1>{text.home.title}</h1>
-          <div className="actions">
-            <a className="button primary" href="/download/">{text.home.downloadCta}</a>
-            <a className="button" href="/feed.xml">{text.home.subscribeCta}</a>
+        <section className="hero home-hero" id="top">
+          <div className="hero-copy">
+            <p className="eyebrow">{formatVersionedCopy(text.home.eyebrow, releaseVersion)}</p>
+            <h1>{text.home.title}</h1>
+            <p className="lead">{text.home.lead}</p>
+            <div className="actions">
+              <a className="button primary" href="/download/">{text.home.downloadCta}</a>
+              <a className="button" href="/feed.xml">{text.home.subscribeCta}</a>
+            </div>
           </div>
+          <ShotWindow src="/images/screenshots/preview-article-list.png" alt={text.home.heroShotAlt} />
         </section>
 
-        <section className="preview-section" aria-label={text.home.previewAria}>
-          <div className="preview-copy">
-            <h2>{text.home.previewTitle}</h2>
-            <p className="muted">{text.home.previewLead}</p>
-          </div>
-          <div className="preview-grid">
-            <figure className="preview-shot">
-              <img
-                src="/images/screenshots/preview-article-list.png"
-                alt={text.home.previewArticleList}
-                loading="lazy"
-              />
-            </figure>
-            <figure className="preview-shot">
-              <img
-                src="/images/screenshots/preview-reader-mode.png"
-                alt={text.home.previewReaderMode}
-                loading="lazy"
-              />
-            </figure>
-          </div>
-        </section>
-
-        <section className="grid" aria-label={text.home.featuresAria}>
-          <article className="card" id="privacy">
+        <section className="bento" aria-label={text.home.featuresAria}>
+          <article className="card feature-large" id="reading" data-reveal>
+            <div>
+              <CardIcon>
+                <path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 0-2 2Z" />
+                <path d="M4 19a2 2 0 0 1 2-2h13" />
+                <path d="M9 8h6M9 12h6" />
+              </CardIcon>
+              <h2>{text.home.readingTitle}</h2>
+              <p className="muted">{text.home.readingText}</p>
+            </div>
+            <img
+              src="/images/screenshots/preview-reader-mode.png"
+              alt={text.home.readerShotAlt}
+              loading="lazy"
+            />
+          </article>
+          <article className="card" id="privacy" data-reveal>
+            <CardIcon>
+              <rect x="5" y="11" width="14" height="9" rx="2" />
+              <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+            </CardIcon>
             <h2>{text.home.privacyTitle}</h2>
             <p className="muted">{text.home.privacyText}</p>
           </article>
-          <article className="card" id="opml-directory">
+          <article className="card" id="opml-directory" data-reveal>
+            <CardIcon>
+              <path d="M4 4h6l10 10-6 6L4 10Z" />
+              <circle cx="9" cy="9" r="1.5" />
+            </CardIcon>
             <h2>{text.home.feedsTitle}</h2>
             <p className="muted">{text.home.feedsText}</p>
             <a href={OPML_DIRECTORY_URL}>{text.home.opmlLink}</a>
           </article>
-          <article className="card" id="reading">
-            <h2>{text.home.readingTitle}</h2>
-            <p className="muted">{text.home.readingText}</p>
-          </article>
-          <article className="card" id="pro">
+          <article className="card feature-wide" id="pro" data-reveal>
+            <CardIcon>
+              <path d="M6 3h8l4 4v14H6Z" />
+              <path d="M14 3v4h4" />
+              <path d="M12 11v5M12 16l-2.5-2.5M12 16l2.5-2.5" />
+            </CardIcon>
             <h2>{text.home.simpleTitle}</h2>
             <p className="muted">{text.home.simpleText}</p>
           </article>
+        </section>
+
+        <section className="closing" data-reveal>
+          <h2>{text.home.closingTitle}</h2>
+          <p className="muted">{text.home.closingText}</p>
+          <div className="actions">
+            <a className="button primary" href="/download/">{text.home.downloadCta}</a>
+          </div>
         </section>
       </main>
       <Footer text={text} />
@@ -1256,6 +1323,7 @@ export default function App() {
   const releaseVersion = resolveReleaseVersion(releaseManifest);
 
   usePageMeta(page, selectedLanguage, releaseVersion);
+  useRevealOnScroll();
 
   useEffect(() => {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, selectedLanguage);
@@ -1264,7 +1332,7 @@ export default function App() {
   return (
     <>
       <Header text={text} selectedLanguage={selectedLanguage} onSelectLanguage={setSelectedLanguage} />
-      {page === 'home' && <HomePage text={text} />}
+      {page === 'home' && <HomePage text={text} releaseVersion={releaseVersion} />}
       {page === 'download' && <DownloadPage text={text} releaseVersion={releaseVersion} />}
       {page === 'resource' && <ResourcePage text={text} />}
       {page === 'changelog' && <ChangelogPage text={text} />}
