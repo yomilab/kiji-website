@@ -193,7 +193,6 @@ a {
   min-width: 72px;
   margin-top: 8px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: var(--shadow-pop);
@@ -437,7 +436,6 @@ summary:focus-visible {
   gap: 18px;
   margin: 8px 0 88px;
   padding: 56px 24px;
-  border: 1px dashed color-mix(in srgb, var(--color-text) 45%, transparent);
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
@@ -580,7 +578,6 @@ summary:focus-visible {
   width: min(420px, calc(100vw - 32px));
   margin-top: 8px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: var(--shadow-pop);
@@ -638,7 +635,6 @@ summary:focus-visible {
   align-content: start;
   min-height: 100%;
   padding: 20px;
-  border: 1px solid color-mix(in srgb, var(--color-text) 38%, transparent);
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
