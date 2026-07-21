@@ -1095,7 +1095,16 @@ function CardIcon({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ShotWindow({ src, alt }: { src: string; alt: string }) {
+function ShotImage({ base, alt, className }: { base: string; alt: string; className?: string }) {
+  return (
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcSet={`${base}-dark.png`} />
+      <img className={className} src={`${base}-light.png`} alt={alt} loading="lazy" />
+    </picture>
+  );
+}
+
+function ShotWindow({ base, alt }: { base: string; alt: string }) {
   return (
     <figure className="shot-window">
       <div className="shot-chrome" aria-hidden="true">
@@ -1103,7 +1112,7 @@ function ShotWindow({ src, alt }: { src: string; alt: string }) {
         <span />
         <span />
       </div>
-      <img src={src} alt={alt} loading="lazy" />
+      <ShotImage base={base} alt={alt} />
     </figure>
   );
 }
@@ -1122,7 +1131,7 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
               <a className="button" href="/feed.xml">{text.home.subscribeCta}</a>
             </div>
           </div>
-          <ShotWindow src="/images/screenshots/preview-article-list.png" alt={text.home.heroShotAlt} />
+          <ShotWindow base="/images/screenshots/preview-article-list" alt={text.home.heroShotAlt} />
         </section>
 
         <section className="bento" aria-label={text.home.featuresAria}>
@@ -1136,10 +1145,9 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
               <h2>{text.home.readingTitle}</h2>
               <p className="muted">{text.home.readingText}</p>
             </div>
-            <img
-              src="/images/screenshots/preview-reader-mode.png"
+            <ShotImage
+              base="/images/screenshots/preview-reader-mode"
               alt={text.home.readerShotAlt}
-              loading="lazy"
             />
           </article>
           <article className="card" id="privacy" data-reveal>
