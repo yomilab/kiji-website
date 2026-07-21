@@ -339,7 +339,6 @@ summary:focus-visible {
 .shot-window {
   margin: 0;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-text) 40%, transparent);
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: var(--shadow-pop);
@@ -430,7 +429,6 @@ summary:focus-visible {
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
   border-radius: 2px;
 }
 
