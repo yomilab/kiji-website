@@ -983,6 +983,19 @@ function LanguageMenu({ selectedLanguage, text, onSelectLanguage }: LanguageMenu
   );
 }
 
+const useScrolled = (): boolean => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = (): void => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return scrolled;
+};
+
 function Header({
   text,
   selectedLanguage,
@@ -992,20 +1005,24 @@ function Header({
   selectedLanguage: LanguageCode;
   onSelectLanguage: (language: LanguageCode) => void;
 }) {
+  const scrolled = useScrolled();
+
   return (
-    <header className="shell nav">
-      <a className="brand" href="/">
-        <AppLogo className="brand-mark" />
-        <span>KiJi</span>
-      </a>
-      <nav className="nav-links" aria-label={text.nav.aria}>
-        <a href="/download/">{text.nav.download}</a>
-        <a href="/resource/">{text.nav.resource}</a>
-        <a href="/changelog/">{text.nav.changelog}</a>
-        <a href="/feed.xml">{text.nav.rss}</a>
-        <a href="/support/">{text.nav.support}</a>
-        <LanguageMenu selectedLanguage={selectedLanguage} text={text.language} onSelectLanguage={onSelectLanguage} />
-      </nav>
+    <header className={scrolled ? 'site-nav scrolled' : 'site-nav'}>
+      <div className="shell nav-inner">
+        <a className="brand" href="/">
+          <AppLogo className="brand-mark" />
+          <span>KiJi</span>
+        </a>
+        <nav className="nav-links" aria-label={text.nav.aria}>
+          <a href="/download/">{text.nav.download}</a>
+          <a href="/resource/">{text.nav.resource}</a>
+          <a href="/changelog/">{text.nav.changelog}</a>
+          <a href="/feed.xml">{text.nav.rss}</a>
+          <a href="/support/">{text.nav.support}</a>
+          <LanguageMenu selectedLanguage={selectedLanguage} text={text.language} onSelectLanguage={onSelectLanguage} />
+        </nav>
+      </div>
     </header>
   );
 }
