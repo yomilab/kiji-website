@@ -214,8 +214,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
   en: {
     pageMeta: {
       home: {
-        title: 'KiJi - A local, modern RSS reader.',
-        description: 'A local, modern RSS reader. Stations, Defuddle/Readability parsers, Markdown sync.',
+        title: 'KiJi - A simple, modern RSS reader.',
+        description: 'A simple, modern RSS reader with stations, Defuddle/Readability extraction, and Markdown sync.',
         canonicalPath: '/',
       },
       download: {
@@ -253,7 +253,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'Feedback',
     },
     footer: {
-      brandTagline: 'A local, modern RSS reader.',
+      brandTagline: 'A simple, modern RSS reader.',
       productHeading: 'Product',
       legalHeading: 'Legal',
       disclaimer: '© 2026 KiJi by Yomi Lab. All processing is local.',
@@ -269,23 +269,23 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     },
     home: {
       eyebrow: 'Open source · v{version}',
-      title: 'A local, modern RSS reader.',
-      lead: 'Feeds, articles, and reading state stay on your device. Group feeds into stations, parse pages with Defuddle or Readability, and sync articles to disk as Markdown.',
+      title: 'A simple, modern RSS reader.',
+      lead: 'Feeds, articles, and reading state are stored on your device. KiJi groups feeds into stations, extracts article text with Defuddle and Readability, and syncs articles to disk as Markdown.',
       downloadCta: 'Download KiJi',
       subscribeCta: 'Subscribe to updates',
       heroShotAlt: 'Article list with stations sidebar',
       featuresAria: 'Product highlights',
       privacyTitle: 'Local-only',
-      privacyText: 'Feeds and state stay on disk.',
+      privacyText: 'No account, no server. All data is stored in a local SQLite database.',
       feedsTitle: 'Stations',
-      feedsText: 'Tag feeds into groups; flip unread ↔ saved — no timeline.',
+      feedsText: 'Feeds are grouped by tags into stations. Views switch between unread and saved; there is no algorithmic timeline.',
       opmlLink: 'Browse feed collections',
       readingTitle: 'Reader mode',
-      readingText: 'Defuddle + Readability — two engines to parse raw page HTML into article text.',
+      readingText: 'Two extraction engines, Defuddle and Readability, convert full page HTML into clean article text.',
       readerShotAlt: 'Reader mode',
       simpleTitle: 'Markdown sync',
-      simpleText: 'Sync articles to local folder as markdown.',
-      closingTitle: 'Available for macOS, Windows, and Linux.',
+      simpleText: 'Saved articles are written to a local folder as Markdown files.',
+      closingTitle: 'Native builds for macOS, Windows, and Linux.',
       closingText: 'Free and open source.',
     },
     download: {
@@ -361,8 +361,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
   'zh-Hans': {
     pageMeta: {
       home: {
-        title: 'KiJi - 本地现代 RSS 阅读器。',
-        description: '本地现代 RSS 阅读器。站点分组、Defuddle/Readability 双引擎解析、Markdown 同步。',
+        title: 'KiJi - 简单现代的 RSS 阅读器。',
+        description: '简单现代的 RSS 阅读器，支持站点分组、Defuddle/Readability 正文提取和 Markdown 同步。',
         canonicalPath: '/',
       },
       download: {
@@ -400,7 +400,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: '反馈',
     },
     footer: {
-      brandTagline: '本地现代 RSS 阅读器。',
+      brandTagline: '简单现代的 RSS 阅读器。',
       productHeading: '产品',
       legalHeading: '法律与支持',
       disclaimer: '© 2026 KiJi by Yomi Lab。所有处理均在本地完成。',
@@ -416,23 +416,23 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     },
     home: {
       eyebrow: '开源 · v{version}',
-      title: '本地现代 RSS 阅读器。',
-      lead: '订阅、文章与阅读状态均保存在本地。按标签将订阅分组为站点，使用 Defuddle 或 Readability 解析正文，并将文章以 Markdown 同步到磁盘。',
+      title: '简单现代的 RSS 阅读器。',
+      lead: '订阅、文章与阅读状态均保存在你的设备上。KiJi 将订阅按标签分组为站点，使用 Defuddle 和 Readability 提取正文，并将文章以 Markdown 同步到磁盘。',
       downloadCta: '下载 KiJi',
       subscribeCta: '订阅更新',
       heroShotAlt: '带站点侧栏的文章列表',
       featuresAria: '产品亮点',
       privacyTitle: '纯本地',
-      privacyText: '订阅与状态只在本地磁盘。',
+      privacyText: '无需账号，没有服务器。所有数据存储在本地 SQLite 数据库中。',
       feedsTitle: '站点',
-      feedsText: '给订阅打标签分组；未读 ↔ 已保存切换 — 没有时间线。',
+      feedsText: '订阅按标签分组为站点；视图在未读与已保存之间切换——没有算法时间线。',
       opmlLink: '浏览订阅合集',
       readingTitle: '阅读模式',
-      readingText: 'Defuddle + Readability — 双引擎，从原始网页 HTML 解析出正文。',
+      readingText: 'Defuddle 和 Readability 两个提取引擎，将完整网页 HTML 转换为干净的正文。',
       readerShotAlt: '阅读模式',
       simpleTitle: 'Markdown 同步',
-      simpleText: '将文章同步到本地文件夹为 Markdown。',
-      closingTitle: '支持 macOS、Windows 和 Linux。',
+      simpleText: '保存的文章会以 Markdown 文件写入本地文件夹。',
+      closingTitle: '提供 macOS、Windows 和 Linux 原生构建。',
       closingText: '免费开源。',
     },
     download: {
@@ -508,8 +508,8 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
   ja: {
     pageMeta: {
       home: {
-        title: 'KiJi - ローカルでモダンなRSSリーダー。',
-        description: 'ローカルでモダンなRSSリーダー。ステーション、Defuddle/Readabilityパーサ、Markdown同期。',
+        title: 'KiJi - シンプルでモダンなRSSリーダー。',
+        description: 'シンプルでモダンなRSSリーダー。ステーション、Defuddle/Readabilityによる本文抽出、Markdown同期。',
         canonicalPath: '/',
       },
       download: {
@@ -547,7 +547,7 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       support: 'フィードバック',
     },
     footer: {
-      brandTagline: 'ローカルでモダンなRSSリーダー。',
+      brandTagline: 'シンプルでモダンなRSSリーダー。',
       productHeading: '製品',
       legalHeading: '法務とサポート',
       disclaimer: '© 2026 KiJi by Yomi Lab。すべての処理はローカルで行われます。',
@@ -563,23 +563,23 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     },
     home: {
       eyebrow: 'オープンソース · v{version}',
-      title: 'ローカルでモダンなRSSリーダー。',
-      lead: 'フィード、記事、読書状態はすべてデバイス上に保存されます。フィードをステーションに分類し、Defuddle / Readability で本文を抽出し、記事を Markdown としてディスクに同期できます。',
+      title: 'シンプルでモダンなRSSリーダー。',
+      lead: 'フィード、記事、読書状態はすべてお使いのデバイスに保存されます。KiJi はフィードをタグでステーションに分類し、Defuddle と Readability で本文を抽出し、記事を Markdown としてディスクに同期します。',
       downloadCta: 'KiJiをダウンロード',
       subscribeCta: '更新を購読',
       heroShotAlt: 'ステーションサイドバー付き記事リスト',
       featuresAria: '製品の特徴',
       privacyTitle: 'ローカル専用',
-      privacyText: '購読と状態はディスクに残る。',
+      privacyText: 'アカウント不要、サーバーなし。すべてのデータはローカルの SQLite データベースに保存されます。',
       feedsTitle: 'ステーション',
-      feedsText: 'フィードをタグでグループ化；未読 ↔ 保存済みを切替 — タイムラインなし。',
+      feedsText: 'フィードをタグでステーションに分類。未読と保存済みのビューを切替——アルゴリズムのタイムラインはありません。',
       opmlLink: 'フィードコレクションを見る',
       readingTitle: 'リーダーモード',
-      readingText: 'Defuddle + Readability — 生HTMLから記事本文を抜き出す二系統のパーサ。',
+      readingText: 'Defuddle と Readability の2つの抽出エンジンが、ページ全体のHTMLをクリーンな本文に変換します。',
       readerShotAlt: 'リーダーモード',
       simpleTitle: 'Markdown同期',
-      simpleText: '記事をローカルフォルダへ Markdown として同期。',
-      closingTitle: 'macOS、Windows、Linux に対応。',
+      simpleText: '保存した記事は Markdown ファイルとしてローカルフォルダに書き出されます。',
+      closingTitle: 'macOS、Windows、Linux 向けネイティブビルド。',
       closingText: '無料のオープンソース。',
     },
     download: {
