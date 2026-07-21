@@ -9,9 +9,7 @@
   --color-primary-soft: #e4e9f0;
   --color-accent: #5c6b2a;
   --color-border: #c8c4b4;
-  --line-rule: rgba(91, 111, 140, 0.16);
-  --line-margin: rgba(92, 107, 42, 0.42);
-  --line-margin-secondary: rgba(120, 122, 118, 0.3);
+  --line-rule: rgba(91, 111, 140, 0.12);
   --radius: 3px;
   --shadow-card: 4px 4px 0 rgba(92, 107, 42, 0.14);
   --shadow-pop: 6px 6px 0 rgba(47, 74, 110, 0.16);
@@ -21,7 +19,6 @@
   --font-serif: "Source Serif 4", Georgia, "Times New Roman", "Songti SC", "Noto Serif SC",
     "Noto Serif JP", serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --shell-edge: max(16px, (100vw - 1120px) / 2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,9 +32,7 @@
     --color-primary-soft: #232c38;
     --color-accent: #a8b86a;
     --color-border: #34373f;
-    --line-rule: rgba(140, 160, 190, 0.09);
-    --line-margin: rgba(168, 184, 106, 0.3);
-    --line-margin-secondary: rgba(160, 162, 158, 0.16);
+    --line-rule: rgba(140, 160, 190, 0.07);
     --shadow-card: 4px 4px 0 rgba(0, 0, 0, 0.35);
     --shadow-pop: 6px 6px 0 rgba(0, 0, 0, 0.4);
   }
@@ -54,26 +49,13 @@ html {
 body {
   margin: 0;
   background-color: var(--color-bg);
-  background-image:
-    linear-gradient(
-      to right,
-      transparent 0,
-      transparent calc(var(--shell-edge) - 22px),
-      var(--line-margin-secondary) calc(var(--shell-edge) - 22px),
-      var(--line-margin-secondary) calc(var(--shell-edge) - 21px),
-      transparent calc(var(--shell-edge) - 21px),
-      transparent calc(var(--shell-edge) - 18px),
-      var(--line-margin) calc(var(--shell-edge) - 18px),
-      var(--line-margin) calc(var(--shell-edge) - 17px),
-      transparent calc(var(--shell-edge) - 17px)
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0,
-      transparent 27px,
-      var(--line-rule) 27px,
-      var(--line-rule) 28px
-    );
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 13px,
+    var(--line-rule) 13px,
+    var(--line-rule) 14px
+  );
   color: var(--color-text);
   font-family: var(--font-sans);
   line-height: 1.6;
