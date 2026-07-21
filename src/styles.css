@@ -355,7 +355,6 @@ summary:focus-visible {
   display: grid;
   gap: 16px;
   padding: 16px 0 40px;
-  counter-reset: card;
 }
 
 @media (min-width: 800px) {
@@ -370,26 +369,12 @@ summary:focus-visible {
 }
 
 .card {
-  position: relative;
   min-height: 180px;
   padding: 26px;
   border: 1px solid color-mix(in srgb, var(--color-text) 38%, transparent);
   border-radius: var(--radius);
   background: var(--color-surface);
   box-shadow: var(--shadow-card);
-}
-
-.card::before {
-  counter-increment: card;
-  content: counter(card, decimal-leading-zero);
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  color: color-mix(in srgb, var(--color-muted) 70%, transparent);
-  font-family: var(--font-label);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
 }
 
 .card h2 {
