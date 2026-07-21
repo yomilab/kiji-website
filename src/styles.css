@@ -345,22 +345,6 @@ summary:focus-visible {
   box-shadow: var(--shadow-pop);
 }
 
-.shot-chrome {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--color-border);
-  background: color-mix(in srgb, var(--color-primary-soft) 45%, var(--color-surface));
-}
-
-.shot-chrome span {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--color-muted) 55%, var(--color-border));
-}
-
 .shot-window img {
   display: block;
   width: 100%;

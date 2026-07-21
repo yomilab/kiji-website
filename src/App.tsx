@@ -1107,11 +1107,6 @@ function ShotImage({ base, alt, className }: { base: string; alt: string; classN
 function ShotWindow({ base, alt }: { base: string; alt: string }) {
   return (
     <figure className="shot-window">
-      <div className="shot-chrome" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
       <ShotImage base={base} alt={alt} />
     </figure>
   );
