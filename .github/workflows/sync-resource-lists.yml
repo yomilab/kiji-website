@@ -1,0 +1,53 @@
+name: Sync KiJi resource lists
+
+on:
+  workflow_dispatch:
+    inputs:
+      resource_metadata_url:
+        description: Public metadata/feeds.json URL to sync.
+        required: false
+        default: https://raw.githubusercontent.com/yomilab/kiji-resource/main/metadata/feeds.json
+  repository_dispatch:
+    types:
+      - kiji-resource-updated
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Sync resource list metadata
+        env:
+          DISPATCH_METADATA_URL: ${{ github.event.client_payload.resource_metadata_url }}
+          INPUT_METADATA_URL: ${{ github.event.inputs.resource_metadata_url }}
+        run: |
+          set -euo pipefail
+          RESOURCE_METADATA_URL="${DISPATCH_METADATA_URL:-${INPUT_METADATA_URL:-https://raw.githubusercontent.com/yomilab/kiji-resource/main/metadata/feeds.json}}"
+          npm run resource:sync -- --metadata-url "${RESOURCE_METADATA_URL}"
+
+      - run: npm run typecheck
+      - run: npm run build
+
+      - name: Commit resource list changes
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/resourceLists.json
+          if git diff --cached --quiet; then
+            echo "No resource list changes to commit."
+            exit 0
+          fi
+          git commit -m "Sync KiJi resource lists"
+          git push

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import latestReleaseManifest from './data/latestRelease.json';
+import resourceListsManifest from './data/resourceLists.json';
 
 type PageKey = 'home' | 'download' | 'resource' | 'changelog' | 'privacy' | 'support';
 type LogoVariant = 'light' | 'dark' | 'theme';
@@ -28,6 +29,23 @@ interface LogoDownload {
   fileType: string;
   previewVariant: LogoVariant;
 }
+
+interface ResourceListEntry {
+  id: string;
+  name: string;
+  path: string;
+  rawUrl: string;
+  browseUrl: string;
+}
+
+interface ResourceListsManifest {
+  version: number;
+  source: string;
+  syncedAt: string;
+  lists: ResourceListEntry[];
+}
+
+const RESOURCE_LISTS: ResourceListEntry[] = (resourceListsManifest as ResourceListsManifest).lists;
 
 type LogoDownloadId = 'logo-pack' | 'light-logo' | 'dark-logo';
 
@@ -189,6 +207,15 @@ interface LocalizedText {
     gridAria: string;
     downloadPrefix: string;
   };
+  resourceFeeds: {
+    title: string;
+    lead: string;
+    gridAria: string;
+    openOpml: string;
+  };
+  feedLists: Record<string, {
+    description: string;
+  }>;
   privacy: {
     eyebrow: string;
     title: string;
@@ -313,6 +340,29 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadLight: 'Download light PNG',
       gridAria: 'KiJi logo downloads',
       downloadPrefix: 'Download',
+    },
+    resourceFeeds: {
+      title: 'Recommended RSS lists.',
+      lead: 'Curated OPML feed collections from the KiJi resource catalog. In KiJi, use Import OPML and paste the raw link of a list.',
+      gridAria: 'Recommended RSS lists',
+      openOpml: 'Open OPML',
+    },
+    feedLists: {
+      recommended: { description: 'Start here — opens every topic below in one import.' },
+      tech: { description: 'Gadgets, apps, and the people building them.' },
+      daily: { description: 'Short reads worth keeping in rotation.' },
+      ai: { description: 'Models, tools, and ideas reshaping tech.' },
+      security: { description: 'Hacking, privacy, and staying safe online.' },
+      dev: { description: 'Code, craft, and making things well.' },
+      coins: { description: 'Bitcoin, crypto, and on-chain culture.' },
+      news: { description: 'Headlines and stories from around the world.' },
+      korea: { description: 'News and writing from Korea.' },
+      japan: { description: 'News and writing from Japan.' },
+      'hn-popular': { description: 'Blogs that topped the 2025 Hacker News popularity list.' },
+      'awesome-tech-rss': { description: 'Startup, science, and technology feeds.' },
+      'recommend-1': { description: 'Our full reading list, sorted by topic.' },
+      'recommend-2': { description: 'The feeds we reach for most often.' },
+      'recommend-all': { description: 'One starter pack across every topic.' },
     },
     privacy: {
       eyebrow: 'Privacy',
@@ -461,6 +511,29 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       gridAria: 'KiJi Logo 下载',
       downloadPrefix: '下载',
     },
+    resourceFeeds: {
+      title: '推荐 RSS 列表。',
+      lead: '来自 KiJi 资源目录的精选 OPML 订阅合集。在 KiJi 中使用「导入 OPML」，粘贴某个列表的原始链接即可。',
+      gridAria: '推荐 RSS 列表',
+      openOpml: '打开 OPML',
+    },
+    feedLists: {
+      recommended: { description: '从这里开始——一次导入即可打开以下所有主题。' },
+      tech: { description: '数码产品、应用，以及打造它们的人。' },
+      daily: { description: '值得日常翻阅的短篇阅读。' },
+      ai: { description: '正在重塑科技的模型、工具与思想。' },
+      security: { description: '黑客攻防、隐私与网络安全。' },
+      dev: { description: '代码、技艺，以及把事情做好。' },
+      coins: { description: '比特币、加密货币与链上文化。' },
+      news: { description: '来自世界各地的头条与报道。' },
+      korea: { description: '来自韩国的新闻与文章。' },
+      japan: { description: '来自日本的新闻与文章。' },
+      'hn-popular': { description: '登上 2025 年 Hacker News 人气榜的博客。' },
+      'awesome-tech-rss': { description: '创业、科学与科技订阅源。' },
+      'recommend-1': { description: '我们的完整阅读清单，按主题整理。' },
+      'recommend-2': { description: '我们最常打开的订阅源。' },
+      'recommend-all': { description: '覆盖所有主题的入门合集。' },
+    },
     privacy: {
       eyebrow: '隐私',
       title: '不收集个人阅读数据。',
@@ -607,6 +680,29 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
       downloadLight: 'ライトPNGをダウンロード',
       gridAria: 'KiJiロゴダウンロード',
       downloadPrefix: 'ダウンロード',
+    },
+    resourceFeeds: {
+      title: 'おすすめRSSリスト。',
+      lead: 'KiJiリソースカタログの厳選OPMLフィードコレクション。KiJiの「OPMLをインポート」にリストのRawリンクを貼るだけで購読できます。',
+      gridAria: 'おすすめRSSリスト',
+      openOpml: 'OPMLを開く',
+    },
+    feedLists: {
+      recommended: { description: 'まずはここから——すべてのトピックを一度にインポート。' },
+      tech: { description: 'ガジェット、アプリ、それを作る人々。' },
+      daily: { description: '日々のローテーションに入れたい短めの読み物。' },
+      ai: { description: 'テクノロジーを塗り替えるモデル、ツール、アイデア。' },
+      security: { description: 'ハッキング、プライバシー、安全なオンライン生活。' },
+      dev: { description: 'コード、クラフト、ものづくりの極意。' },
+      coins: { description: 'ビットコイン、暗号資産、オンチェーン文化。' },
+      news: { description: '世界中のヘッドラインとストーリー。' },
+      korea: { description: '韓国発のニュースと記事。' },
+      japan: { description: '日本発のニュースと記事。' },
+      'hn-popular': { description: '2025年のHacker News人気リストを制したブログ。' },
+      'awesome-tech-rss': { description: 'スタートアップ、科学、テクノロジーのフィード。' },
+      'recommend-1': { description: 'トピック別に整理した全読書リスト。' },
+      'recommend-2': { description: '最もよく開くフィード。' },
+      'recommend-all': { description: '全トピックを網羅するスターターパック。' },
     },
     privacy: {
       eyebrow: 'プライバシー',
@@ -1308,6 +1404,24 @@ function ResourcePage({ text }: { text: LocalizedText }) {
             </article>
           );
         })}
+      </section>
+      <section className="resource-feeds" aria-label={text.resourceFeeds.gridAria}>
+        <h2>{text.resourceFeeds.title}</h2>
+        <p className="lead">{text.resourceFeeds.lead}</p>
+        <div className="feed-list-grid">
+          {RESOURCE_LISTS.map((list) => {
+            const listText = text.feedLists[list.id] ?? { description: '' };
+            return (
+              <article className="feed-list-card" key={list.id}>
+                <h3>{list.name}</h3>
+                <p className="muted">{listText.description}</p>
+                <a className="button" href={list.rawUrl} target="_blank" rel="noreferrer">
+                  {text.resourceFeeds.openOpml}
+                </a>
+              </article>
+            );
+          })}
+        </div>
       </section>
     </main>
   );

@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "source": "https://github.com/yomilab/kiji-resource",
+  "syncedAt": "2026-07-22T09:15:49.441Z",
+  "lists": [
+    {
+      "id": "recommended",
+      "name": "Recommended",
+      "path": "recommended.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/recommended.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/recommended.opml"
+    },
+    {
+      "id": "tech",
+      "name": "Tech",
+      "path": "feeds/tech.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/tech.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/tech.opml"
+    },
+    {
+      "id": "daily",
+      "name": "Daily",
+      "path": "feeds/daily.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/daily.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/daily.opml"
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "path": "feeds/ai.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/ai.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/ai.opml"
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "path": "feeds/security.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/security.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/security.opml"
+    },
+    {
+      "id": "dev",
+      "name": "Dev",
+      "path": "feeds/dev.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/dev.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/dev.opml"
+    },
+    {
+      "id": "coins",
+      "name": "Coins",
+      "path": "feeds/coins.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/coins.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/coins.opml"
+    },
+    {
+      "id": "news",
+      "name": "News",
+      "path": "feeds/news.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/news.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/news.opml"
+    },
+    {
+      "id": "korea",
+      "name": "Korea",
+      "path": "feeds/korea.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/korea.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/korea.opml"
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "path": "feeds/japan.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/japan.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/japan.opml"
+    },
+    {
+      "id": "hn-popular",
+      "name": "HN Popular",
+      "path": "feeds/hn-popular.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/hn-popular.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/hn-popular.opml"
+    },
+    {
+      "id": "awesome-tech-rss",
+      "name": "Awesome Tech RSS",
+      "path": "feeds/awesome-tech-rss.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/awesome-tech-rss.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/awesome-tech-rss.opml"
+    },
+    {
+      "id": "recommend-1",
+      "name": "Recommend 1",
+      "path": "feeds/recommend-1.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/recommend-1.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/recommend-1.opml"
+    },
+    {
+      "id": "recommend-2",
+      "name": "Recommend 2",
+      "path": "feeds/recommend-2.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/recommend-2.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/recommend-2.opml"
+    },
+    {
+      "id": "recommend-all",
+      "name": "Recommend All",
+      "path": "feeds/recommend-all.opml",
+      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/recommend-all.opml",
+      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/recommend-all.opml"
+    }
+  ]
+}

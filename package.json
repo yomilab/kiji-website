@@ -8,6 +8,7 @@
     "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
     "preview": "vite preview",
     "release:sync": "node scripts/sync-release-data.mjs",
+    "resource:sync": "node scripts/sync-resource-lists.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json"
   },
   "dependencies": {
