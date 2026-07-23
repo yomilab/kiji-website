@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "https://github.com/yomilab/kiji-resource",
-  "syncedAt": "2026-07-22T10:29:26.363Z",
+  "syncedAt": "2026-07-23T09:12:48.307Z",
   "lists": [
     {
       "id": "recommended",
@@ -16,13 +16,6 @@
       "path": "feeds/tech.opml",
       "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/tech.opml",
       "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/tech.opml"
-    },
-    {
-      "id": "daily",
-      "name": "Daily",
-      "path": "feeds/daily.opml",
-      "rawUrl": "https://raw.githubusercontent.com/yomilab/kiji-resource/main/feeds/daily.opml",
-      "browseUrl": "https://github.com/yomilab/kiji-resource/blob/main/feeds/daily.opml"
     },
     {
       "id": "ai",
