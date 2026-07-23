@@ -350,7 +350,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     feedLists: {
       recommended: { description: 'Start here — opens every topic below in one import.' },
       tech: { description: 'Gadgets, apps, and the people building them.' },
-      daily: { description: 'Short reads worth keeping in rotation.' },
       ai: { description: 'Models, tools, and ideas reshaping tech.' },
       security: { description: 'Hacking, privacy, and staying safe online.' },
       dev: { description: 'Code, craft, and making things well.' },
@@ -520,7 +519,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     feedLists: {
       recommended: { description: '从这里开始——一次导入即可打开以下所有主题。' },
       tech: { description: '数码产品、应用，以及打造它们的人。' },
-      daily: { description: '值得日常翻阅的短篇阅读。' },
       ai: { description: '正在重塑科技的模型、工具与思想。' },
       security: { description: '黑客攻防、隐私与网络安全。' },
       dev: { description: '代码、技艺，以及把事情做好。' },
@@ -690,7 +688,6 @@ const TEXT: Record<LanguageCode, LocalizedText> = {
     feedLists: {
       recommended: { description: 'まずはここから——すべてのトピックを一度にインポート。' },
       tech: { description: 'ガジェット、アプリ、それを作る人々。' },
-      daily: { description: '日々のローテーションに入れたい短めの読み物。' },
       ai: { description: 'テクノロジーを塗り替えるモデル、ツール、アイデア。' },
       security: { description: 'ハッキング、プライバシー、安全なオンライン生活。' },
       dev: { description: 'コード、クラフト、ものづくりの極意。' },

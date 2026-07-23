@@ -27,7 +27,6 @@ const metadataUrl = args.get('metadata-url') ?? process.env.RESOURCE_METADATA_UR
 const DISPLAY_NAMES = {
   recommended: 'Recommended',
   tech: 'Tech',
-  daily: 'Daily',
   ai: 'AI',
   security: 'Security',
   dev: 'Dev',
