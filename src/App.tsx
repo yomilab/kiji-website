@@ -1104,16 +1104,16 @@ function Header({
     <header className={scrolled ? 'site-nav scrolled' : 'site-nav'}>
       <div className="shell nav-inner">
         <a className="brand" href="/">
-          <AppLogo className="brand-mark" />
+          <img className="brand-mark" src="/images/kiji-mark.png" alt="" aria-hidden="true" />
           <span>KiJi</span>
         </a>
         <nav className="nav-links" aria-label={text.nav.aria}>
-          <a href="/download/">{text.nav.download}</a>
           <a href="/resource/">{text.nav.resource}</a>
           <a href="/changelog/">{text.nav.changelog}</a>
           <a href="/feed.xml">{text.nav.rss}</a>
           <a href="/support/">{text.nav.support}</a>
           <LanguageMenu selectedLanguage={selectedLanguage} text={text.language} onSelectLanguage={onSelectLanguage} />
+          <a className="button primary nav-cta" href="/download/">{text.nav.download}</a>
         </nav>
       </div>
     </header>
@@ -1122,33 +1122,26 @@ function Header({
 
 function Footer({ text }: { text: LocalizedText }) {
   return (
-    <footer className="shell footer">
-      <div className="footer-grid">
-        <div className="footer-brand">
-          <div className="footer-brand-name">KiJi</div>
-          <p>{text.footer.brandTagline}</p>
-        </div>
-        <div className="footer-col">
-          <h4>{text.footer.productHeading}</h4>
-          <a href="/download/">{text.nav.download}</a>
-          <a href="/changelog/">{text.nav.changelog}</a>
-          <a href="/resource/">{text.nav.resource}</a>
-          <a href="/feed.xml">{text.nav.rss}</a>
-        </div>
-        <div className="footer-col">
-          <h4>{text.footer.legalHeading}</h4>
-          <a href="/privacy/">{text.footer.privacy}</a>
-          <a href="/support/">{text.footer.support}</a>
-          <a href="/llms.txt">{text.footer.llms}</a>
-          <a className="github-link" href={YOMILAB_GITHUB_URL} target="_blank" rel="noreferrer" aria-label={`${text.footer.github}: KiJi open repositories`}>
-            <svg className="github-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.96c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.78c0 .27.18.59.69.49A10.18 10.18 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" />
-            </svg>
-            <span>{text.footer.github}</span>
-          </a>
-        </div>
+    <footer className="site-footer shell">
+      <div className="footer-note">
+        <span className="footer-tagline">{text.footer.brandTagline}</span>
+        <span>{text.footer.disclaimer}</span>
       </div>
-      <p className="footer-bottom">{text.footer.disclaimer}</p>
+      <nav className="footer-nav" aria-label={text.nav.aria}>
+        <a href="/download/">{text.nav.download}</a>
+        <a href="/resource/">{text.footer.resource}</a>
+        <a href="/changelog/">{text.nav.changelog}</a>
+        <a href="/feed.xml">{text.nav.rss}</a>
+        <a href="/privacy/">{text.footer.privacy}</a>
+        <a href="/support/">{text.footer.support}</a>
+        <a href="/llms.txt">{text.footer.llms}</a>
+        <a href={YOMILAB_GITHUB_URL} target="_blank" rel="noreferrer">
+          <svg className="github-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49v-1.72c-2.78.62-3.37-1.38-3.37-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.36 9.36 0 0 1 12 6.96c.85 0 1.7.12 2.5.35 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.8-4.57 5.05.36.32.68.94.68 1.9v2.78c0 .27.18.59.69.49A10.18 10.18 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" />
+          </svg>
+          <span>{text.footer.github}</span>
+        </a>
+      </nav>
     </footer>
   );
 }
@@ -1180,14 +1173,6 @@ const useRevealOnScroll = (): void => {
   }, []);
 };
 
-function CardIcon({ children }: { children: React.ReactNode }) {
-  return (
-    <svg className="card-icon" viewBox="0 0 24 24" aria-hidden="true">
-      {children}
-    </svg>
-  );
-}
-
 function ShotImage({ base, alt, className }: { base: string; alt: string; className?: string }) {
   return (
     <picture>
@@ -1210,60 +1195,50 @@ function HomePage({ text, releaseVersion }: { text: LocalizedText; releaseVersio
     <>
       <main className="shell">
         <section className="hero home-hero" id="top">
-          <div className="hero-copy">
-            <p className="eyebrow">{formatVersionedCopy(text.home.eyebrow, releaseVersion)}</p>
-            <h1>{text.home.title}</h1>
-            <p className="lead">{text.home.lead}</p>
-            <div className="actions">
-              <a className="button primary" href="/download/">{text.home.downloadCta}</a>
-              <a className="button" href="/feed.xml">{text.home.subscribeCta}</a>
-            </div>
+          <p className="eyebrow">{formatVersionedCopy(text.home.eyebrow, releaseVersion)}</p>
+          <h1>{text.home.title}</h1>
+          <p className="lead">{text.home.lead}</p>
+          <div className="actions">
+            <a className="button primary" href="/download/">{text.home.downloadCta}</a>
+            <a className="button" href="/feed.xml">{text.home.subscribeCta}</a>
           </div>
           <ShotWindow base="/images/screenshots/preview-article-list" alt={text.home.heroShotAlt} />
         </section>
 
-        <section className="bento" aria-label={text.home.featuresAria}>
-          <article className="card feature-large" id="reading" data-reveal>
-            <div>
-              <CardIcon>
-                <path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 0-2 2Z" />
-                <path d="M4 19a2 2 0 0 1 2-2h13" />
-                <path d="M9 8h6M9 12h6" />
-              </CardIcon>
-              <h2>{text.home.readingTitle}</h2>
-              <p className="muted">{text.home.readingText}</p>
-            </div>
+        <section className="features" aria-label={text.home.featuresAria}>
+          <div className="features-copy" id="reading" data-reveal>
+            <p className="eyebrow">{text.home.featuresAria}</p>
+            <h2>{text.home.readingTitle}</h2>
+            <p className="muted">{text.home.readingText}</p>
             <ShotImage
               base="/images/screenshots/preview-reader-mode"
               alt={text.home.readerShotAlt}
             />
-          </article>
-          <article className="card" id="privacy" data-reveal>
-            <CardIcon>
-              <rect x="5" y="11" width="14" height="9" rx="2" />
-              <path d="M8 11V8a4 4 0 0 1 8 0v3" />
-            </CardIcon>
-            <h2>{text.home.privacyTitle}</h2>
-            <p className="muted">{text.home.privacyText}</p>
-          </article>
-          <article className="card" id="opml-directory" data-reveal>
-            <CardIcon>
-              <path d="M4 4h6l10 10-6 6L4 10Z" />
-              <circle cx="9" cy="9" r="1.5" />
-            </CardIcon>
-            <h2>{text.home.feedsTitle}</h2>
-            <p className="muted">{text.home.feedsText}</p>
-            <a href={OPML_DIRECTORY_URL}>{text.home.opmlLink}</a>
-          </article>
-          <article className="card feature-wide" id="pro" data-reveal>
-            <CardIcon>
-              <path d="M6 3h8l4 4v14H6Z" />
-              <path d="M14 3v4h4" />
-              <path d="M12 11v5M12 16l-2.5-2.5M12 16l2.5-2.5" />
-            </CardIcon>
-            <h2>{text.home.simpleTitle}</h2>
-            <p className="muted">{text.home.simpleText}</p>
-          </article>
+          </div>
+          <ol className="features-list">
+            <li id="privacy" data-reveal>
+              <span className="point-index">01</span>
+              <div>
+                <h3>{text.home.privacyTitle}</h3>
+                <p className="muted">{text.home.privacyText}</p>
+              </div>
+            </li>
+            <li id="opml-directory" data-reveal>
+              <span className="point-index">02</span>
+              <div>
+                <h3>{text.home.feedsTitle}</h3>
+                <p className="muted">{text.home.feedsText}</p>
+                <a href={OPML_DIRECTORY_URL}>{text.home.opmlLink}</a>
+              </div>
+            </li>
+            <li id="pro" data-reveal>
+              <span className="point-index">03</span>
+              <div>
+                <h3>{text.home.simpleTitle}</h3>
+                <p className="muted">{text.home.simpleText}</p>
+              </div>
+            </li>
+          </ol>
         </section>
 
         <section className="closing" data-reveal>
