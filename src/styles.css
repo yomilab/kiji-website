@@ -1,42 +1,45 @@
 :root {
   color-scheme: light dark;
-  --paper: #fbfaf8;
+  --paper: #eeece7;
   --surface: #ffffff;
-  --ink: #242424;
-  --ink-strong: #202020;
-  --muted: #626262;
-  --faint: #929292;
-  --line: #dedede;
-  --dash: #d3d3d3;
-  --accent: #38954d;
-  --accent-strong: #2e7d4a;
-  --accent-fill: #48b25f;
-  --accent-soft: #edf6ee;
+  --ink: #212121;
+  --ink-strong: #17171c;
+  --muted: #616161;
+  --faint: #93939f;
+  --line: #d9d9dd;
+  --dash: #e5e7eb;
+  --accent: #4c6ee6;
+  --accent-strong: #000000;
+  --accent-fill: #17171c;
+  --accent-soft: #eeece7;
   --radius-card: 10px;
   --shadow-card: 0 1px 2px rgba(29, 29, 27, 0.06), 0 18px 44px -18px rgba(29, 29, 27, 0.18);
   --shadow-card-lg: 0 2px 4px rgba(29, 29, 27, 0.07), 0 40px 90px -30px rgba(29, 29, 27, 0.28);
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
-  --font-sans: "Archivo", Arial, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic ProN",
+  --font-display: "Space Grotesk", Inter, ui-sans-serif, system-ui, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic ProN",
     "Noto Sans JP", "Noto Sans SC", sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas,
+  --font-sans: Inter, Arial, ui-sans-serif, system-ui, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic ProN",
+    "Noto Sans JP", "Noto Sans SC", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
     "Noto Sans Mono CJK SC", "Noto Sans Mono CJK JP", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #121412;
-    --surface: #191c19;
-    --ink: #eceee9;
-    --ink-strong: #f4f6f1;
-    --muted: #9aa198;
-    --faint: #6d746b;
-    --line: #2a2e29;
-    --dash: #343a32;
-    --accent: #7fd998;
-    --accent-strong: #82d69c;
-    --accent-fill: #62cc7e;
-    --accent-soft: #1d3325;
+    --paper: #071829;
+    --surface: #0c1d2e;
+    --ink: #f5f5f7;
+    --ink-strong: #ffffff;
+    --muted: #b4b4c0;
+    --faint: #75758a;
+    --line: #243447;
+    --dash: #2a3b50;
+    --accent: #4c6ee6;
+    --accent-strong: #ffffff;
+    --accent-fill: #ffffff;
+    --accent-soft: #12202a;
     --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 18px 44px -18px rgba(0, 0, 0, 0.6);
     --shadow-card-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 40px 90px -30px rgba(0, 0, 0, 0.75);
   }
@@ -99,6 +102,7 @@ a {
   align-items: center;
   gap: 9px;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: 17px;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -268,6 +272,7 @@ h1 {
   max-width: 900px;
   margin: 0;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: clamp(39px, 4.4vw, 56px);
   font-weight: 300;
   letter-spacing: -0.035em;
@@ -403,6 +408,7 @@ summary:focus-visible {
 .features-copy h2 {
   margin: 0;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: clamp(30px, 3.2vw, 42px);
   font-weight: 300;
   letter-spacing: -0.035em;
@@ -517,6 +523,7 @@ summary:focus-visible {
 .closing h2 {
   margin: 0;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: clamp(32px, 3.6vw, 44px);
   font-weight: 300;
   letter-spacing: -0.035em;
@@ -792,6 +799,7 @@ summary:focus-visible {
 .resource-feeds h2 {
   margin: 0;
   color: var(--ink-strong);
+  font-family: var(--font-display);
   font-size: clamp(30px, 3.2vw, 40px);
   font-weight: 300;
   letter-spacing: -0.035em;
@@ -809,7 +817,7 @@ summary:focus-visible {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: var(--line);
+  background: var(--paper);
 }
 
 .feed-list-card {
@@ -818,12 +826,12 @@ summary:focus-visible {
   gap: 10px;
   min-height: 100%;
   padding: 24px;
-  background: var(--surface);
+  background: var(--paper);
   transition: background 150ms ease;
 }
 
 .feed-list-card:hover {
-  background: var(--paper);
+  background: var(--surface);
 }
 
 .feed-list-card h3 {
