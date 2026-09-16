@@ -1,48 +1,34 @@
 :root {
-  color-scheme: light dark;
-  --paper: #eeece7;
-  --surface: #ffffff;
-  --ink: #212121;
-  --ink-strong: #17171c;
-  --muted: #616161;
-  --faint: #93939f;
-  --line: #d9d9dd;
-  --dash: #e5e7eb;
-  --accent: #4c6ee6;
-  --accent-strong: #000000;
-  --accent-fill: #17171c;
-  --accent-soft: #eeece7;
-  --radius-card: 10px;
-  --shadow-card: 0 1px 2px rgba(29, 29, 27, 0.06), 0 18px 44px -18px rgba(29, 29, 27, 0.18);
-  --shadow-card-lg: 0 2px 4px rgba(29, 29, 27, 0.07), 0 40px 90px -30px rgba(29, 29, 27, 0.28);
-  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
-  --font-display: "Space Grotesk", Inter, ui-sans-serif, system-ui, "PingFang SC",
+  color-scheme: dark;
+  --paper: #000000;
+  --surface: #0a0a0a;
+  --surface-2: #141414;
+  --ink: #d9d9d9;
+  --ink-strong: #fafafa;
+  --muted: #a1a1a1;
+  --faint: #6b6b6b;
+  --line: #262626;
+  --accent: #fe750e;
+  --accent-strong: #fe8f3c;
+  --accent-fill: #fe750e;
+  --accent-soft: #1a1108;
+  --on-accent: #090909;
+  --radius-card: 16px;
+  --shadow-card: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 -80px 120px -60px rgba(0, 0, 0, 0.55),
+    0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-card-lg: inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 -120px 160px -80px rgba(0, 0, 0, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 40px 90px -30px rgba(0, 0, 0, 0.75);
+  --ease-out-strong: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-display: "Fraunces", Georgia, "Times New Roman", "Songti SC",
+    "Hiragino Mincho ProN", "Noto Serif SC", "Noto Serif JP", serif;
+  --font-sans: "Geist", Inter, ui-sans-serif, system-ui, "PingFang SC",
     "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic ProN",
     "Noto Sans JP", "Noto Sans SC", sans-serif;
-  --font-sans: Inter, Arial, ui-sans-serif, system-ui, "PingFang SC",
-    "Hiragino Sans GB", "Microsoft YaHei", "Hiragino Kaku Gothic ProN",
-    "Noto Sans JP", "Noto Sans SC", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas,
-    "Noto Sans Mono CJK SC", "Noto Sans Mono CJK JP", monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #071829;
-    --surface: #0c1d2e;
-    --ink: #f5f5f7;
-    --ink-strong: #ffffff;
-    --muted: #b4b4c0;
-    --faint: #75758a;
-    --line: #243447;
-    --dash: #2a3b50;
-    --accent: #4c6ee6;
-    --accent-strong: #ffffff;
-    --accent-fill: #ffffff;
-    --accent-soft: #12202a;
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 18px 44px -18px rgba(0, 0, 0, 0.6);
-    --shadow-card-lg: 0 2px 4px rgba(0, 0, 0, 0.4), 0 40px 90px -30px rgba(0, 0, 0, 0.75);
-  }
+  --font-mono: "Geist Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo,
+    Consolas, "Noto Sans Mono CJK SC", "Noto Sans Mono CJK JP", monospace;
 }
 
 * {
@@ -65,7 +51,7 @@ body {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent-fill) 22%, transparent);
+  background: color-mix(in srgb, var(--accent) 32%, transparent);
   color: var(--ink-strong);
 }
 
@@ -84,17 +70,18 @@ a {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: var(--paper);
-  border-bottom: 1px dashed var(--dash);
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 64px;
   padding: 0 24px;
-  background: var(--paper);
 }
 
 .brand {
@@ -103,7 +90,7 @@ a {
   gap: 9px;
   color: var(--ink-strong);
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 500;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -134,7 +121,7 @@ a {
   gap: 20px;
   color: var(--muted);
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .nav-links > a:not(.button) {
@@ -260,11 +247,11 @@ a {
 .eyebrow {
   display: block;
   margin: 0 0 22px;
-  color: var(--accent-strong);
+  color: var(--muted);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -273,19 +260,20 @@ h1 {
   margin: 0;
   color: var(--ink-strong);
   font-family: var(--font-display);
-  font-size: clamp(39px, 4.4vw, 56px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-optical-sizing: auto;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .lead {
   max-width: 680px;
   margin: 18px 0 0;
   color: var(--muted);
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 1.5;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
 }
 
 .home-hero .lead {
@@ -315,8 +303,8 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 38px;
-  padding: 6px 14px;
+  height: 40px;
+  padding: 6px 16px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--surface);
@@ -326,34 +314,28 @@ h1 {
   line-height: 24px;
   white-space: nowrap;
   text-decoration: none;
-  transition: border-color 120ms ease, opacity 120ms ease, transform 120ms ease;
+  transition: border-color 150ms ease, background 150ms ease,
+    transform 150ms var(--ease-out-strong);
 }
 
 .button:hover {
   border-color: var(--faint);
-  opacity: 0.9;
+  background: var(--surface-2);
 }
 
 .button:active {
-  transform: translateY(1px) scale(0.98);
+  transform: scale(0.96);
 }
 
 .button.primary {
   border-color: var(--accent-fill);
   background: var(--accent-fill);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .button.primary:hover {
   border-color: var(--accent-strong);
   background: var(--accent-strong);
-  opacity: 0.95;
-}
-
-@media (prefers-color-scheme: dark) {
-  .button.primary {
-    color: #10131a;
-  }
 }
 
 .button:focus-visible,
@@ -369,7 +351,7 @@ summary:focus-visible {
   width: 100%;
   margin: 0;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   background: var(--surface);
   box-shadow: var(--shadow-card-lg);
 }
@@ -388,8 +370,9 @@ summary:focus-visible {
   margin: 0 0 8px;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   background: var(--surface);
+  box-shadow: var(--shadow-card);
 }
 
 .features-copy {
@@ -409,16 +392,17 @@ summary:focus-visible {
   margin: 0;
   color: var(--ink-strong);
   font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-size: clamp(30px, 3.2vw, 42px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .features-copy p {
   margin: 16px 0 0;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .features-copy img {
@@ -426,7 +410,7 @@ summary:focus-visible {
   width: 100%;
   height: auto;
   margin-top: 32px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .features-list {
@@ -449,7 +433,7 @@ summary:focus-visible {
 }
 
 .features-list li:hover {
-  background: var(--paper);
+  background: var(--surface-2);
 }
 
 .features-list li:last-child {
@@ -458,9 +442,9 @@ summary:focus-visible {
 
 .point-index {
   padding-top: 3px;
-  color: var(--accent-strong);
+  color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.08em;
 }
@@ -469,14 +453,14 @@ summary:focus-visible {
   margin: 0;
   color: var(--ink-strong);
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .features-list p {
   margin: 8px 0 0;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -495,7 +479,7 @@ summary:focus-visible {
 }
 
 .features-list a:hover {
-  border-bottom-color: var(--ink);
+  border-bottom-color: var(--ink-strong);
 }
 
 @media (max-width: 900px) {
@@ -524,15 +508,16 @@ summary:focus-visible {
   margin: 0;
   color: var(--ink-strong);
   font-family: var(--font-display);
-  font-size: clamp(32px, 3.6vw, 44px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
-  line-height: 1.02;
+  font-optical-sizing: auto;
+  font-size: clamp(32px, 3.6vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .closing p {
   margin: 14px 0 0;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .closing .actions {
@@ -596,19 +581,13 @@ summary:focus-visible {
   border-right: 1px solid color-mix(in srgb, #ffffff 22%, transparent);
   border-radius: 999px 0 0 999px;
   background: var(--accent-fill);
-  color: #ffffff;
+  color: var(--on-accent);
   text-decoration: none;
   transition: background 150ms ease;
 }
 
 .download-primary:hover {
   background: var(--accent-strong);
-}
-
-@media (prefers-color-scheme: dark) {
-  .download-primary {
-    color: #10131a;
-  }
 }
 
 .download-primary strong {
@@ -624,7 +603,7 @@ summary:focus-visible {
 
 .download-primary span:last-child {
   font-size: 13px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .download-kicker {
@@ -648,22 +627,16 @@ summary:focus-visible {
   border-left: 0;
   border-radius: 0 999px 999px 0;
   background: color-mix(in srgb, var(--accent-fill) 82%, #000000);
-  color: #ffffff;
+  color: var(--on-accent);
   cursor: pointer;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   list-style: none;
   transition: background 150ms ease;
 }
 
 .download-menu summary:hover {
   background: color-mix(in srgb, var(--accent-fill) 68%, #000000);
-}
-
-@media (prefers-color-scheme: dark) {
-  .download-menu summary {
-    color: #10131a;
-  }
 }
 
 .download-menu summary::-webkit-details-marker {
@@ -737,7 +710,7 @@ summary:focus-visible {
   gap: 1px;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   background: var(--line);
 }
 
@@ -754,14 +727,14 @@ summary:focus-visible {
   margin: 0 0 6px;
   color: var(--ink-strong);
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .logo-card p {
   margin: 0;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .logo-card .button {
@@ -800,9 +773,10 @@ summary:focus-visible {
   margin: 0;
   color: var(--ink-strong);
   font-family: var(--font-display);
+  font-optical-sizing: auto;
   font-size: clamp(30px, 3.2vw, 40px);
-  font-weight: 300;
-  letter-spacing: -0.035em;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 .resource-feeds .lead {
@@ -816,7 +790,7 @@ summary:focus-visible {
   gap: 1px;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-card);
   background: var(--paper);
 }
 
@@ -838,14 +812,14 @@ summary:focus-visible {
   margin: 0;
   color: var(--ink-strong);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.01em;
 }
 
 .feed-list-card p {
   margin: 0;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .feed-list-card .button {
@@ -870,7 +844,7 @@ summary:focus-visible {
   border-top: 1px solid var(--line);
   color: var(--faint);
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .footer-note {
