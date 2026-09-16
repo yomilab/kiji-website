@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import DownloadPanel from '../islands/DownloadPanel';
+import { getText, localePath, type LanguageCode } from '../../i18n';
+import latestRelease from '../../data/latestRelease.json';
+import {
+  DEFAULT_DOWNLOAD_ID,
+  downloadOptionsFromManifest,
+  formatVersionedCopy,
+  type ReleaseManifest,
+} from '../../lib/release';
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale } = Astro.props;
+const text = getText(locale);
+const manifest = latestRelease as ReleaseManifest;
+const releaseVersion = manifest.version ?? '1.0.0';
+const checksumsUrl = manifest.checksumsUrl ?? manifest.notesUrl ?? 'https://github.com/yomilab/kiji-app/releases/latest';
+const options = downloadOptionsFromManifest(manifest);
+const recommended = options.find((option) => option.id === DEFAULT_DOWNLOAD_ID) ?? options[0];
+const canonicalUrl = new URL(
+  localePath(locale, '/download/'),
+  Astro.site ?? 'https://kiji.yomilab.app'
+).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'KiJi',
+  description: formatVersionedCopy(text.pageMeta.download.description, releaseVersion),
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: 'macOS, Windows, Linux',
+  url: canonicalUrl,
+  softwareVersion: releaseVersion,
+  downloadUrl: recommended?.url,
+  offers: { '@type': 'Offer', price: '0' },
+};
+---
+
+<Base page="download" locale={locale} text={text} releaseVersion={releaseVersion} jsonLd={jsonLd}>
+  <main class="shell hero">
+    <p class="eyebrow">{text.download.eyebrow}</p>
+    <h1>{formatVersionedCopy(text.download.title, releaseVersion)}</h1>
+    <p class="lead">{text.download.lead}</p>
+    <DownloadPanel client:load initialManifest={manifest} text={text.download} optionText={text.downloadOptions} />
+    <div class="actions">
+      <a class="button" href={checksumsUrl}>{text.download.checksums}</a>
+      <a class="button" href="/feed.xml">{text.download.releaseRss}</a>
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,159 @@
+---
+import '../styles.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import {
+  DEFAULT_LANGUAGE_CODE,
+  LANGUAGE_OPTIONS,
+  LANGUAGE_STORAGE_KEY,
+  OG_LOCALES,
+  localePath,
+  type LanguageCode,
+  type LocalizedText,
+  type PageKey,
+} from '../i18n';
+import { formatVersionedCopy } from '../lib/release';
+
+interface Props {
+  page: PageKey;
+  locale: LanguageCode;
+  text: LocalizedText;
+  releaseVersion?: string;
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  homeRedirect?: boolean;
+  metaTitle?: string;
+  metaDescription?: string;
+}
+
+const {
+  page,
+  locale,
+  text,
+  releaseVersion = '',
+  jsonLd,
+  homeRedirect = false,
+  metaTitle,
+  metaDescription,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://kiji.yomilab.app');
+const meta = text.pageMeta[page];
+const title = metaTitle ?? meta.title;
+const description = metaDescription ?? (page === 'download'
+  ? formatVersionedCopy(meta.description, releaseVersion)
+  : meta.description);
+const canonicalPath = meta.canonicalPath;
+const canonicalUrl = new URL(localePath(locale, canonicalPath), site).href;
+const alternates = LANGUAGE_OPTIONS.map((option) => ({
+  code: option.code,
+  href: new URL(localePath(option.code, canonicalPath), site).href,
+}));
+const defaultLocaleUrl = new URL(localePath(DEFAULT_LANGUAGE_CODE, canonicalPath), site).href;
+const ogImage = new URL('/images/kiji-logo.png', site).href;
+const ogLocale = OG_LOCALES[locale];
+const ogLocaleAlternates = LANGUAGE_OPTIONS
+  .map((option) => OG_LOCALES[option.code])
+  .filter((value) => value !== ogLocale);
+const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const shouldRedirectHome = homeRedirect && locale === DEFAULT_LANGUAGE_CODE;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.code} href={alternate.href} />)}
+    <link rel="alternate" hreflang="x-default" href={defaultLocaleUrl} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title="KiJi updates" href="/feed.xml" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale} />
+    {ogLocaleAlternates.map((value) => <meta property="og:locale:alternate" content={value} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="theme-color" content="#000000" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    {jsonLdItems.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}
+    {shouldRedirectHome && (
+      <script is:inline define:vars={{ storageKey: LANGUAGE_STORAGE_KEY }}>
+        (function () {
+          try {
+            var lang = localStorage.getItem(storageKey);
+            if (lang !== 'en' && lang !== 'zh-Hans' && lang !== 'ja') {
+              var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
+              lang = 'en';
+              for (var i = 0; i < langs.length; i += 1) {
+                var candidate = String(langs[i] || '').toLowerCase();
+                if (candidate.indexOf('zh') === 0) { lang = 'zh-Hans'; break; }
+                if (candidate.indexOf('ja') === 0) { lang = 'ja'; break; }
+              }
+              localStorage.setItem(storageKey, lang);
+            }
+            if (lang !== 'en') {
+              location.replace('/' + lang + '/');
+            }
+          } catch (error) {
+            /* localStorage unavailable — stay on the English page */
+          }
+        })();
+      </script>
+    )}
+  </head>
+  <body>
+    <Header locale={locale} text={text} canonicalPath={canonicalPath} />
+    <slot />
+    <Footer locale={locale} text={text} />
+    <script is:inline define:vars={{ storageKey: LANGUAGE_STORAGE_KEY }}>
+      // Persist the explicit language choice so the home page can honor it on the next visit.
+      document.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target.closest('[data-language-choice]') : null;
+        if (!target) return;
+        try {
+          localStorage.setItem(storageKey, target.getAttribute('data-language-choice') ?? 'en');
+        } catch (error) {
+          /* ignore */
+        }
+      });
+
+      // Close open <details> menus (language, download options) on outside click.
+      document.addEventListener('pointerdown', (event) => {
+        document.querySelectorAll('details[open]').forEach((element) => {
+          if (event.target instanceof Node && !element.contains(event.target)) {
+            element.removeAttribute('open');
+          }
+        });
+      });
+
+      // Reveal-on-scroll animation.
+      const revealElements = Array.from(document.querySelectorAll('[data-reveal]'));
+      if (revealElements.length > 0) {
+        if ('IntersectionObserver' in window) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.12 });
+          revealElements.forEach((element) => observer.observe(element));
+        } else {
+          revealElements.forEach((element) => element.classList.add('revealed'));
+        }
+      }
+    </script>
+  </body>
+</html>

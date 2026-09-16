@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getText, localePath, type LanguageCode } from '../../i18n';
+import releasesData from '../../data/releases.json';
+import type { ReleaseEntry } from '../../lib/release';
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale } = Astro.props;
+const text = getText(locale);
+const releases = (releasesData as ReleaseEntry[]).filter((entry) => entry.version);
+const dateFormatter = new Intl.DateTimeFormat(locale, { dateStyle: 'long' });
+
+const canonicalUrl = new URL(
+  localePath(locale, '/changelog/'),
+  Astro.site ?? 'https://kiji.yomilab.app'
+).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: text.pageMeta.changelog.title,
+  url: canonicalUrl,
+  itemListElement: releases.map((release, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: `KiJi ${release.version}`,
+    url: release.notesUrl ?? canonicalUrl,
+  })),
+};
+---
+
+<Base page="changelog" locale={locale} text={text} jsonLd={jsonLd}>
+  <main class="shell hero">
+    <p class="eyebrow">{text.changelog.eyebrow}</p>
+    <h1>{text.changelog.title}</h1>
+    <p class="lead">{text.changelog.lead}</p>
+    <div class="actions">
+      <a class="button" href="/feed.xml">{text.changelog.rssCta}</a>
+    </div>
+    <ul class="release-list">
+      {releases.map((release) => (
+        <li class="release-item" id={release.tag ?? `v${release.version}`}>
+          <div class="release-heading">
+            <h2>KiJi {release.version}</h2>
+            {release.date && <time datetime={release.date}>{dateFormatter.format(new Date(release.date))}</time>}
+          </div>
+          {release.notesUrl && (
+            <a class="release-notes-link" href={release.notesUrl} target="_blank" rel="noreferrer">
+              {text.changelog.releaseNotes}
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
+  </main>
+</Base>

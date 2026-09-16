@@ -218,6 +218,7 @@ a {
   text-align: center;
   font-weight: 400;
   letter-spacing: 0.08em;
+  text-decoration: none;
 }
 
 .language-option:last-child {
@@ -700,6 +701,65 @@ summary:focus-visible {
 
 .download-note a {
   color: var(--accent-strong);
+}
+
+/* ---------- Changelog release list ---------- */
+
+.release-list {
+  display: grid;
+  gap: 1px;
+  margin: 40px 0 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--line);
+  list-style: none;
+}
+
+.release-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 24px 28px;
+  background: var(--surface);
+}
+
+.release-heading {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.release-item h2 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.release-item time {
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.release-notes-link {
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--faint);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 150ms ease;
+}
+
+.release-notes-link:hover {
+  border-bottom-color: var(--ink-strong);
 }
 
 /* ---------- Resource page ---------- */

@@ -1,0 +1,43 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  base: string;
+  alt: string;
+  class?: string;
+  eager?: boolean;
+}
+
+const { base, alt, class: className, eager = false } = Astro.props;
+
+const screenshots = import.meta.glob<{ default: ImageMetadata }>('/src/assets/screenshots/*.png', { eager: true });
+const light = screenshots[`/src/assets/screenshots/${base}-light.png`]?.default;
+const dark = screenshots[`/src/assets/screenshots/${base}-dark.png`]?.default;
+if (!light || !dark) {
+  throw new Error(`Missing screenshot pair for "${base}" in src/assets/screenshots/`);
+}
+
+const [lightWebp, lightPng, darkWebp, darkPng] = await Promise.all([
+  getImage({ src: light, format: 'webp' }),
+  getImage({ src: light, format: 'png' }),
+  getImage({ src: dark, format: 'webp' }),
+  getImage({ src: dark, format: 'png' }),
+]);
+---
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset={darkWebp.src} type="image/webp" />
+  <source media="(prefers-color-scheme: dark)" srcset={darkPng.src} type="image/png" />
+  <source srcset={lightWebp.src} type="image/webp" />
+  <img
+    src={lightPng.src}
+    width={lightPng.attributes.width}
+    height={lightPng.attributes.height}
+    alt={alt}
+    class={className}
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : 'auto'}
+    decoding="async"
+  />
+</picture>

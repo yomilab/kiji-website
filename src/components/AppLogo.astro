@@ -1,0 +1,19 @@
+---
+import type { LogoVariant } from '../i18n';
+
+interface Props {
+  class?: string;
+  variant?: LogoVariant;
+}
+
+const { class: className, variant = 'theme' } = Astro.props;
+---
+
+{variant === 'dark' && <img class={className} src="/images/kiji-logo-dark.png" alt="" aria-hidden="true" />}
+{variant === 'light' && <img class={className} src="/images/kiji-logo.png" alt="" aria-hidden="true" />}
+{variant === 'theme' && (
+  <picture>
+    <source srcset="/images/kiji-logo-dark.png" media="(prefers-color-scheme: dark)" />
+    <img class={className} src="/images/kiji-logo.png" alt="" aria-hidden="true" />
+  </picture>
+)}

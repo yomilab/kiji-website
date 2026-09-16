@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getText, localePath, type LanguageCode } from '../../i18n';
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale } = Astro.props;
+const text = getText(locale);
+
+const canonicalUrl = new URL(
+  localePath(locale, '/support/'),
+  Astro.site ?? 'https://kiji.yomilab.app'
+).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: text.pageMeta.support.title,
+  description: text.pageMeta.support.description,
+  url: canonicalUrl,
+  inLanguage: locale,
+};
+---
+
+<Base page="support" locale={locale} text={text} jsonLd={jsonLd}>
+  <main class="shell hero">
+    <p class="eyebrow">{text.support.eyebrow}</p>
+    <h1>{text.support.title}</h1>
+    <p class="lead">
+      {text.support.leadPrefix} <a href="mailto:hello@yomilab.app">hello@yomilab.app</a>. {text.support.leadSuffix}
+    </p>
+  </main>
+</Base>

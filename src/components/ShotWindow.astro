@@ -1,0 +1,14 @@
+---
+import ShotImage from './ShotImage.astro';
+
+interface Props {
+  base: string;
+  alt: string;
+}
+
+const { base, alt } = Astro.props;
+---
+
+<figure class="shot-window">
+  <ShotImage base={base} alt={alt} eager />
+</figure>

@@ -12,6 +12,8 @@ Brand summary:
 Official pages:
 
 - Website: https://kiji.yomilab.app/
+- 简体中文: https://kiji.yomilab.app/zh-Hans/
+- 日本語: https://kiji.yomilab.app/ja/
 - Downloads: https://kiji.yomilab.app/download/
 - Resources: https://kiji.yomilab.app/resource/
 - Changelog: https://kiji.yomilab.app/changelog/

@@ -69,6 +69,27 @@ await writeFile(
   'utf8'
 );
 
+// Maintain the append-only release index that powers the /changelog/ page.
+const releasesPath = path.join(ROOT_DIR, 'src/data/releases.json');
+let releases = [];
+try {
+  const parsed = JSON.parse(await readFile(releasesPath, 'utf8'));
+  if (Array.isArray(parsed)) {
+    releases = parsed;
+  }
+} catch {
+  // Missing or unreadable file — start a fresh index.
+}
+if (!releases.some((entry) => entry?.version === version)) {
+  releases.unshift({
+    version,
+    tag: manifest.tag ?? `v${version}`,
+    date: manifest.date ?? new Date().toISOString(),
+    notesUrl: manifest.notesUrl ?? `${websiteUrl}/changelog/`,
+  });
+  await writeFile(releasesPath, `${JSON.stringify(releases, null, 2)}\n`, 'utf8');
+}
+
 const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>

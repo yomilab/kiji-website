@@ -1,0 +1,29 @@
+---
+import LanguageMenu from './LanguageMenu.astro';
+import { localePath, type LanguageCode, type LocalizedText } from '../i18n';
+
+interface Props {
+  locale: LanguageCode;
+  text: LocalizedText;
+  canonicalPath: string;
+}
+
+const { locale, text, canonicalPath } = Astro.props;
+---
+
+<header class="site-nav">
+  <div class="shell nav-inner">
+    <a class="brand" href={localePath(locale, '/')}>
+      <img class="brand-mark" src="/images/kiji-mark.png" alt="" aria-hidden="true" />
+      <span>KiJi</span>
+    </a>
+    <nav class="nav-links" aria-label={text.nav.aria}>
+      <a href={localePath(locale, '/resource/')}>{text.nav.resource}</a>
+      <a href={localePath(locale, '/changelog/')}>{text.nav.changelog}</a>
+      <a href="/feed.xml">{text.nav.rss}</a>
+      <a href={localePath(locale, '/support/')}>{text.nav.support}</a>
+      <LanguageMenu locale={locale} text={text.language} canonicalPath={canonicalPath} />
+      <a class="button primary nav-cta" href={localePath(locale, '/download/')}>{text.nav.download}</a>
+    </nav>
+  </div>
+</header>

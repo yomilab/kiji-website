@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import { getText } from '../i18n';
+
+const text = getText('en');
+---
+
+<Base
+  page="home"
+  locale="en"
+  text={text}
+  metaTitle="Page not found - KiJi"
+  metaDescription="The requested KiJi website page could not be found."
+>
+  <main class="shell hero">
+    <p class="eyebrow">404</p>
+    <h1>Page not found.</h1>
+    <div class="actions">
+      <a class="button primary" href="/">Back to KiJi home</a>
+    </div>
+  </main>
+</Base>

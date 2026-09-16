@@ -1,0 +1,98 @@
+---
+import Base from '../../layouts/Base.astro';
+import AppLogo from '../AppLogo.astro';
+import { getText, localePath, type LanguageCode, type LogoDownload } from '../../i18n';
+import resourceListsManifest from '../../data/resourceLists.json';
+
+interface Props {
+  locale: LanguageCode;
+}
+
+interface ResourceListEntry {
+  id: string;
+  name: string;
+  path: string;
+  rawUrl: string;
+  browseUrl: string;
+}
+
+interface ResourceListsManifest {
+  version: number;
+  source: string;
+  syncedAt: string;
+  lists: ResourceListEntry[];
+}
+
+const { locale } = Astro.props;
+const text = getText(locale);
+const resourceLists = (resourceListsManifest as ResourceListsManifest).lists;
+
+const LOGO_DOWNLOADS: LogoDownload[] = [
+  { id: 'logo-pack', href: '/downloads/kiji-app-logos.zip', fileType: 'ZIP', previewVariant: 'theme' },
+  { id: 'light-logo', href: '/images/kiji-logo.png', fileType: 'PNG', previewVariant: 'light' },
+  { id: 'dark-logo', href: '/images/kiji-logo-dark.png', fileType: 'PNG', previewVariant: 'dark' },
+];
+
+const canonicalUrl = new URL(
+  localePath(locale, '/resource/'),
+  Astro.site ?? 'https://kiji.yomilab.app'
+).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: text.pageMeta.resource.title,
+  description: text.pageMeta.resource.description,
+  url: canonicalUrl,
+  inLanguage: locale,
+};
+---
+
+<Base page="resource" locale={locale} text={text} jsonLd={jsonLd}>
+  <main class="shell hero">
+    <p class="eyebrow">{text.resource.eyebrow}</p>
+    <h1>{text.resource.title}</h1>
+    <p class="lead">{text.resource.lead}</p>
+    <div class="actions">
+      <a class="button primary" href="/downloads/kiji-app-logos.zip" download>{text.resource.downloadPack}</a>
+      <a class="button" href="/images/kiji-logo.png" download>{text.resource.downloadLight}</a>
+    </div>
+    <section class="logo-grid" aria-label={text.resource.gridAria}>
+      {LOGO_DOWNLOADS.map((asset) => {
+        const assetText = text.logoDownloads[asset.id];
+        return (
+          <article class="logo-card">
+            <div class="logo-preview">
+              <AppLogo variant={asset.previewVariant} />
+            </div>
+            <div>
+              <h2>{assetText.title}</h2>
+              <p class="muted">{assetText.detail}</p>
+            </div>
+            <a class="button" href={asset.href} download>
+              {text.resource.downloadPrefix} {asset.fileType}
+            </a>
+          </article>
+        );
+      })}
+    </section>
+    <section class="resource-feeds" aria-label={text.resourceFeeds.gridAria}>
+      <h2>{text.resourceFeeds.title}</h2>
+      <p class="lead">{text.resourceFeeds.lead}</p>
+      <div class="feed-list-grid">
+        {resourceLists.map((list) => {
+          const listText = text.feedLists[list.id] ?? { description: '' };
+          return (
+            <article class="feed-list-card">
+              <h3>{list.name}</h3>
+              <p class="muted">{listText.description}</p>
+              <a class="button" href={list.rawUrl} target="_blank" rel="noreferrer">
+                {text.resourceFeeds.openOpml}
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  </main>
+</Base>

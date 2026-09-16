@@ -1,25 +1,27 @@
 {
   "name": "kiji-website",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1 --port 5173",
-    "build": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && vite build",
-    "preview": "vite preview",
+    "dev": "astro dev --host 127.0.0.1 --port 5173",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 127.0.0.1",
     "release:sync": "node scripts/sync-release-data.mjs",
     "resource:sync": "node scripts/sync-resource-lists.mjs",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json"
+    "typecheck": "astro check"
   },
   "dependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.6.0",
+    "astro": "^5.16.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.6",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
-    "@vitejs/plugin-react": "^5.1.1",
-    "typescript": "^5.9.3",
-    "vite": "^7.2.7"
+    "typescript": "^5.9.3"
   }
 }

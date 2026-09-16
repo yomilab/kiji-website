@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import ShotImage from '../ShotImage.astro';
+import ShotWindow from '../ShotWindow.astro';
+import { getText, localePath, type LanguageCode } from '../../i18n';
+import latestRelease from '../../data/latestRelease.json';
+import { formatVersionedCopy } from '../../lib/release';
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale } = Astro.props;
+const text = getText(locale);
+const releaseVersion = latestRelease.version ?? '1.0.0';
+const siteUrl = (Astro.site ?? new URL('https://kiji.yomilab.app')).href;
+
+const OPML_DIRECTORY_URL = 'https://github.com/yomilab/kiji-resource';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'KiJi',
+    description: text.pageMeta.home.description,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'macOS, Windows, Linux',
+    url: siteUrl,
+    softwareVersion: releaseVersion,
+    offers: { '@type': 'Offer', price: '0' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'KiJi',
+    url: siteUrl,
+    inLanguage: ['en', 'zh-Hans', 'ja'],
+  },
+];
+---
+
+<Base page="home" locale={locale} text={text} releaseVersion={releaseVersion} jsonLd={jsonLd} homeRedirect>
+  <main class="shell">
+    <section class="hero home-hero" id="top">
+      <p class="eyebrow">{formatVersionedCopy(text.home.eyebrow, releaseVersion)}</p>
+      <h1>{text.home.title}</h1>
+      <p class="lead">{text.home.lead}</p>
+      <div class="actions">
+        <a class="button primary" href={localePath(locale, '/download/')}>{text.home.downloadCta}</a>
+        <a class="button" href="/feed.xml">{text.home.subscribeCta}</a>
+      </div>
+      <ShotWindow base="preview-article-list" alt={text.home.heroShotAlt} />
+    </section>
+
+    <section class="features" aria-label={text.home.featuresAria}>
+      <div class="features-copy" id="reading" data-reveal>
+        <p class="eyebrow">{text.home.featuresAria}</p>
+        <h2>{text.home.readingTitle}</h2>
+        <p class="muted">{text.home.readingText}</p>
+        <ShotImage base="preview-reader-mode" alt={text.home.readerShotAlt} />
+      </div>
+      <ol class="features-list">
+        <li id="privacy" data-reveal>
+          <span class="point-index">01</span>
+          <div>
+            <h3>{text.home.privacyTitle}</h3>
+            <p class="muted">{text.home.privacyText}</p>
+          </div>
+        </li>
+        <li id="opml-directory" data-reveal>
+          <span class="point-index">02</span>
+          <div>
+            <h3>{text.home.feedsTitle}</h3>
+            <p class="muted">{text.home.feedsText}</p>
+            <a href={OPML_DIRECTORY_URL}>{text.home.opmlLink}</a>
+          </div>
+        </li>
+        <li id="pro" data-reveal>
+          <span class="point-index">03</span>
+          <div>
+            <h3>{text.home.simpleTitle}</h3>
+            <p class="muted">{text.home.simpleText}</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="closing" data-reveal>
+      <h2>{text.home.closingTitle}</h2>
+      <p class="muted">{text.home.closingText}</p>
+      <div class="actions">
+        <a class="button primary" href={localePath(locale, '/download/')}>{text.home.downloadCta}</a>
+      </div>
+    </section>
+  </main>
+</Base>
