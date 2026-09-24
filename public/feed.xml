@@ -5,13 +5,13 @@
     <link>https://github.com/</link>
     <description>Release notes, app changes, resource repo updates, and service announcements for KiJi.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Sep 2026 07:34:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 08:23:48 GMT</lastBuildDate>
     <item>
-      <title>KiJi 1.2.0 released</title>
-      <link>https://github.com/yomilab/kiji-app/releases/tag/v1.2.0</link>
-      <guid>https://github.com/changelog/#v1.2.0</guid>
-      <pubDate>Tue, 08 Sep 2026 07:34:47 GMT</pubDate>
-      <description>KiJi 1.2.0 is available with updated desktop downloads and checksums.</description>
+      <title>KiJi 1.3.0 released</title>
+      <link>https://github.com/yomilab/kiji-app/releases/tag/v1.3.0</link>
+      <guid>https://github.com/changelog/#v1.3.0</guid>
+      <pubDate>Thu, 24 Sep 2026 08:23:48 GMT</pubDate>
+      <description>KiJi 1.3.0 is available with updated desktop downloads and checksums.</description>
     </item>
   </channel>
 </rss>
