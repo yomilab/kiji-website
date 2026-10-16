@@ -74,6 +74,8 @@ const zhHans: LocalizedText = {
     readerShotAlt: '阅读模式',
     simpleTitle: 'Markdown 同步',
     simpleText: '保存的文章会以 Markdown 文件写入本地文件夹。',
+    themesTitle: '阅读主题',
+    themesText: '13 款书本风格主题，每款都有浅色和深色版本。',
     closingTitle: '提供 macOS、Windows 和 Linux 原生构建。',
     closingText: '免费开源。',
   },

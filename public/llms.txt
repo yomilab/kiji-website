@@ -8,6 +8,7 @@ Brand summary:
 - Stations — feeds grouped by tags; views switch between unread and saved; no algorithmic timeline.
 - Reader mode — Defuddle and Readability extraction engines convert full page HTML into clean article text.
 - Markdown sync — saved articles are written to a local folder as Markdown files.
+- Reader themes — 13 book-style themes (Paper, Sepia, Calm, Eye Care, Washi, Parchment, Newsprint, E-Ink, Solarized, Quiet, Midnight, OLED Night, High Contrast), each with a light and a dark version.
 
 Official pages:
 

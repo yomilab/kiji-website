@@ -74,6 +74,8 @@ const en: LocalizedText = {
     readerShotAlt: 'Reader mode',
     simpleTitle: 'Markdown sync',
     simpleText: 'Saved articles are written to a local folder as Markdown files.',
+    themesTitle: 'Reader themes',
+    themesText: '13 book-style themes, each with a light and a dark version.',
     closingTitle: 'Native builds for macOS, Windows, and Linux.',
     closingText: 'Free and open source.',
   },

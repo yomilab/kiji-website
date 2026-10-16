@@ -74,6 +74,8 @@ const ja: LocalizedText = {
     readerShotAlt: 'リーダーモード',
     simpleTitle: 'Markdown同期',
     simpleText: '保存した記事は Markdown ファイルとしてローカルフォルダに書き出されます。',
+    themesTitle: 'リーダーテーマ',
+    themesText: '本のような13種類のテーマ。それぞれライトとダークを用意。',
     closingTitle: 'macOS、Windows、Linux 向けネイティブビルド。',
     closingText: '無料のオープンソース。',
   },

@@ -94,6 +94,8 @@ export interface LocalizedText {
     readerShotAlt: string;
     simpleTitle: string;
     simpleText: string;
+    themesTitle: string;
+    themesText: string;
     closingTitle: string;
     closingText: string;
   };
