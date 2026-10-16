@@ -100,7 +100,7 @@ const zhHans: LocalizedText = {
   resource: {
     eyebrow: '品牌资源',
     title: '下载 KiJi 资源。',
-    lead: '可将官方 KiJi Logo 用于网站链接、应用列表、发布说明和支持材料。完整资源包包含当前浅色和深色应用 Logo。',
+    lead: '可将官方 KiJi Logo 用于网站链接、应用列表、发布说明和支持材料。完整资源包包含浅色和深色应用 Logo 及标志。',
     downloadPack: '下载 Logo 包',
     downloadLight: '下载浅色 PNG',
     gridAria: 'KiJi Logo 下载',
@@ -142,7 +142,7 @@ const zhHans: LocalizedText = {
   logoDownloads: {
     'logo-pack': {
       title: '完整 Logo 包',
-      detail: '包含浅色和深色 1024x1024 透明应用 Logo 的 ZIP 文件。',
+      detail: '包含浅色和深色应用 Logo 及标志的 ZIP 文件。',
     },
     'light-logo': {
       title: '浅色应用 Logo',

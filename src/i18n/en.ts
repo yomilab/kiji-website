@@ -100,7 +100,7 @@ const en: LocalizedText = {
   resource: {
     eyebrow: 'Brand assets',
     title: 'Download KiJi resources.',
-    lead: 'Use the official KiJi logo set for website links, app listings, release notes, and support material. The complete pack includes the current light and dark app logos.',
+    lead: 'Use the official KiJi logo set for website links, app listings, release notes, and support material. The complete pack includes the light and dark app logos and marks.',
     downloadPack: 'Download logo pack',
     downloadLight: 'Download light PNG',
     gridAria: 'KiJi logo downloads',
@@ -142,7 +142,7 @@ const en: LocalizedText = {
   logoDownloads: {
     'logo-pack': {
       title: 'Complete logo pack',
-      detail: 'ZIP with the light and dark 1024x1024 transparent app logos.',
+      detail: 'ZIP with the light and dark app logos and marks.',
     },
     'light-logo': {
       title: 'Light app logo',

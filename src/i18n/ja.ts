@@ -100,7 +100,7 @@ const ja: LocalizedText = {
   resource: {
     eyebrow: 'ブランド素材',
     title: 'KiJiリソースをダウンロード。',
-    lead: '公式KiJiロゴセットは、Webサイトリンク、アプリ掲載、リリースノート、サポート資料に利用できます。完全パックには現在のライト/ダークのアプリロゴが含まれます。',
+    lead: '公式KiJiロゴセットは、Webサイトリンク、アプリ掲載、リリースノート、サポート資料に利用できます。完全パックにはライト/ダークのアプリロゴとマークが含まれます。',
     downloadPack: 'ロゴパックをダウンロード',
     downloadLight: 'ライトPNGをダウンロード',
     gridAria: 'KiJiロゴダウンロード',
@@ -142,7 +142,7 @@ const ja: LocalizedText = {
   logoDownloads: {
     'logo-pack': {
       title: '完全ロゴパック',
-      detail: 'ライト/ダークの1024x1024透明アプリロゴを含むZIPです。',
+      detail: 'ライト/ダークのアプリロゴとマークを含むZIPです。',
     },
     'light-logo': {
       title: 'ライトアプリロゴ',
