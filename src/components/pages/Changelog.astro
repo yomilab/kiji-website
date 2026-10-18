@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getText, localePath, type LanguageCode } from '../../i18n';
 import releasesData from '../../data/releases.json';
-import type { ReleaseEntry } from '../../lib/release';
+import { releaseNotesFor, type ReleaseEntry } from '../../lib/release';
 
 interface Props {
   locale: LanguageCode;
@@ -27,7 +27,7 @@ const jsonLd = {
     '@type': 'ListItem',
     position: index + 1,
     name: `KiJi ${release.version}`,
-    url: release.notesUrl ?? canonicalUrl,
+    url: `${canonicalUrl}#${release.tag ?? `v${release.version}`}`,
   })),
 };
 ---
@@ -41,19 +41,33 @@ const jsonLd = {
       <a class="button" href="/feed.xml">{text.changelog.rssCta}</a>
     </div>
     <ul class="release-list">
-      {releases.map((release) => (
-        <li class="release-item" id={release.tag ?? `v${release.version}`}>
-          <div class="release-heading">
-            <h2>KiJi {release.version}</h2>
-            {release.date && <time datetime={release.date}>{dateFormatter.format(new Date(release.date))}</time>}
-          </div>
-          {release.notesUrl && (
-            <a class="release-notes-link" href={release.notesUrl} target="_blank" rel="noreferrer">
-              {text.changelog.releaseNotes}
-            </a>
-          )}
-        </li>
-      ))}
+      {releases.map((release) => {
+        const assetsUrl = release.assetsUrl;
+        const notes = releaseNotesFor(release.notes, locale);
+        const sections = notes?.sections ?? [];
+        return (
+          <li class="release-item" id={release.tag ?? `v${release.version}`} lang={notes === release.notes ? 'en' : undefined}>
+            <div class="release-heading">
+              <h2>KiJi {release.version}</h2>
+              {release.date && <time datetime={release.date}>{dateFormatter.format(new Date(release.date))}</time>}
+            </div>
+            {notes?.summary && <p class="release-summary">{notes.summary}</p>}
+            {sections.map((section) => (
+              <section class="release-notes-group">
+                <h3>{section.title}</h3>
+                <ul>
+                  {section.items.map((item) => <li>{item}</li>)}
+                </ul>
+              </section>
+            ))}
+            {assetsUrl && (
+              <a class="release-notes-link" href={assetsUrl} target="_blank" rel="noreferrer">
+                {text.changelog.assetsLink}
+              </a>
+            )}
+          </li>
+        );
+      })}
     </ul>
   </main>
 </Base>

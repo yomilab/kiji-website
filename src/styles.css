@@ -719,12 +719,12 @@ summary:focus-visible {
 
 .release-item {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
   padding: 24px 28px;
   background: var(--surface);
+  scroll-margin-top: 96px;
 }
 
 .release-heading {
@@ -746,6 +746,41 @@ summary:focus-visible {
   color: var(--faint);
   font-family: var(--font-mono);
   font-size: 12px;
+}
+
+.release-summary {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.release-notes-group {
+  width: 100%;
+}
+
+.release-notes-group h3 {
+  margin: 0 0 8px;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.release-notes-group ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0 0 0 18px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.release-notes-group li::marker {
+  color: var(--faint);
 }
 
 .release-notes-link {

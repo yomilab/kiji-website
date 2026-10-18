@@ -95,7 +95,7 @@ const ja: LocalizedText = {
     title: 'KiJiの更新',
     lead: 'KiJiのリリースノートと製品アップデート。',
     rssCta: 'RSSで購読',
-    releaseNotes: 'リリースノート',
+    assetsLink: 'ダウンロードとチェックサム',
   },
   resource: {
     eyebrow: 'ブランド素材',

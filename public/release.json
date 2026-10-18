@@ -3,7 +3,7 @@
   "version": "1.5.0",
   "tag": "v1.5.0",
   "date": "2026-10-16T10:26:35Z",
-  "notesUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.5.0",
+  "notesUrl": "https://kiji.yomilab.app/changelog/#v1.5.0",
   "updatesFeedUrl": "https://kiji.yomilab.app/feed.xml",
   "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.5.0",
   "downloadOptions": [
@@ -161,5 +161,55 @@
       "url": "https://github.com/yomilab/kiji-app/releases/download/v1.5.0/KiJi-1.5.0-windows-x86_64.msi",
       "size": 18489611
     }
-  ]
+  ],
+  "notes": {
+    "sections": [
+      {
+        "title": "Improved",
+        "items": [
+          "New app icon, Ripple: waves spreading out from a corner. Choose Ripple, Ripple Dark, Light or Dark in Settings → App icon. If you had picked Sunset, Cosmos, Particle or Wave, KiJi now shows Ripple, because those icons were retired."
+        ]
+      },
+      {
+        "title": "Fixed",
+        "items": [
+          "Security update for a built-in networking library."
+        ]
+      }
+    ],
+    "translations": {
+      "zh-Hans": {
+        "sections": [
+          {
+            "title": "改进",
+            "items": [
+              "新应用图标 Ripple：波纹从一角向外扩散。可在 Settings → App icon 中选择 Ripple、Ripple Dark、Light 或 Dark。如果你之前选的是 Sunset、Cosmos、Particle 或 Wave，这些图标已停用，KiJi 现在会显示 Ripple。"
+            ]
+          },
+          {
+            "title": "修复",
+            "items": [
+              "内置网络库的安全更新。"
+            ]
+          }
+        ]
+      },
+      "ja": {
+        "sections": [
+          {
+            "title": "改善",
+            "items": [
+              "新しいアプリアイコン Ripple：角から波紋が広がるデザインです。Settings → App icon で Ripple、Ripple Dark、Light、Dark から選べます。Sunset、Cosmos、Particle、Wave を選んでいた場合、これらのアイコンは廃止されたため Ripple が表示されます。"
+            ]
+          },
+          {
+            "title": "修正",
+            "items": [
+              "内蔵のネットワークライブラリのセキュリティアップデート。"
+            ]
+          }
+        ]
+      }
+    }
+  }
 }

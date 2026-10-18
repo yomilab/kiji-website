@@ -95,7 +95,7 @@ const zhHans: LocalizedText = {
     title: 'KiJi 更新',
     lead: 'KiJi 的发布说明与产品更新。',
     rssCta: '通过 RSS 订阅',
-    releaseNotes: '发布说明',
+    assetsLink: '下载与校验和',
   },
   resource: {
     eyebrow: '品牌资源',

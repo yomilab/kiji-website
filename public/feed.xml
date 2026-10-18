@@ -2,16 +2,37 @@
 <rss version="2.0">
   <channel>
     <title>KiJi Updates</title>
-    <link>https://github.com/</link>
-    <description>Release notes, app changes, resource repo updates, and service announcements for KiJi.</description>
+    <link>https://kiji.yomilab.app/changelog/</link>
+    <description>Release notes for KiJi.</description>
     <language>en</language>
     <lastBuildDate>Fri, 16 Oct 2026 10:26:35 GMT</lastBuildDate>
     <item>
-      <title>KiJi 1.5.0 released</title>
-      <link>https://github.com/yomilab/kiji-app/releases/tag/v1.5.0</link>
-      <guid>https://github.com/changelog/#v1.5.0</guid>
+      <title>KiJi 1.5.0</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.5.0</link>
+      <guid isPermaLink="false">kiji-release-v1.5.0</guid>
       <pubDate>Fri, 16 Oct 2026 10:26:35 GMT</pubDate>
-      <description>KiJi 1.5.0 is available with updated desktop downloads and checksums.</description>
+      <description><![CDATA[<h3>Improved</h3><ul><li>New app icon, Ripple: waves spreading out from a corner. Choose Ripple, Ripple Dark, Light or Dark in Settings → App icon. If you had picked Sunset, Cosmos, Particle or Wave, KiJi now shows Ripple, because those icons were retired.</li></ul><h3>Fixed</h3><ul><li>Security update for a built-in networking library.</li></ul>]]></description>
+    </item>
+    <item>
+      <title>KiJi 1.4.0</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.4.0</link>
+      <guid isPermaLink="false">kiji-release-v1.4.0</guid>
+      <pubDate>Fri, 16 Oct 2026 04:04:10 GMT</pubDate>
+      <description><![CDATA[<h3>New</h3><ul><li>Reader themes: 13 book-inspired looks for reading, including Paper, Sepia, Calm, Washi, Newsprint, E-Ink, Solarized, Midnight and High Contrast, each in a light and a dark version. Pick one in Settings → Appearance → Theme → Reader theme.</li></ul><h3>Improved</h3><ul><li>KiJi now uses its full name, KiJi Reader, in About, update messages and feedback emails, and the app menu is called Reader.</li></ul><h3>Fixed</h3><ul><li>Security updates for several built-in libraries.</li></ul>]]></description>
+    </item>
+    <item>
+      <title>KiJi 1.3.0</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.3.0</link>
+      <guid isPermaLink="false">kiji-release-v1.3.0</guid>
+      <pubDate>Thu, 24 Sep 2026 08:23:48 GMT</pubDate>
+      <description><![CDATA[<h3>New</h3><ul><li>A Read view in the library, so you can find articles you have already read.</li><li>You can drag the window by more of the header area.</li><li>The sync status at the bottom of the sidebar now says what is syncing: your whole library, one feed or a station.</li><li>Windows and Linux: a KiJi menu in the app's menu bar.</li></ul><h3>Improved</h3><ul><li>Station names appear right away instead of waiting for feed icons, and the sidebar loads faster.</li></ul><h3>Fixed</h3><ul><li>KiJi no longer uses more and more memory when left running with background refresh, including after your Mac wakes from sleep.</li><li>Searching your articles stays accurate while feeds sync.</li><li>The loading placeholder in the article list now fits tall windows.</li><li>Station lists show new articles after a background refresh instead of an outdated list.</li><li>Dragging feeds and stations to reorder them in the sidebar sorts correctly, and large imports are faster.</li></ul>]]></description>
+    </item>
+    <item>
+      <title>KiJi 1.2.0</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.2.0</link>
+      <guid isPermaLink="false">kiji-release-v1.2.0</guid>
+      <pubDate>Tue, 08 Sep 2026 07:34:47 GMT</pubDate>
+      <description><![CDATA[<p>A reliability release with fixes for Windows, the article list, the sidebar and startup.</p><h3>New</h3><ul><li>Surface opacity: a slider in Settings → Appearance sets how see-through the sidebar is.</li><li>A new Wave app icon in Settings → App icon.</li></ul><h3>Improved</h3><ul><li>The default app icon is now Light instead of Cosmos. You can still pick the others in Settings.</li><li>Clean Old Articles now frees disk space by shrinking the database file.</li><li>KiJi does a little less work at launch and when you change settings.</li></ul><h3>Fixed</h3><ul><li>Large libraries no longer freeze KiJi for up to 30 seconds at launch.</li><li>Windows 10: File → Settings…, the sidebar gear and Ctrl+, open Settings again.</li><li>Switching to a station or feed no longer gets stuck at 100 items with Load more not working.</li><li>After importing an OPML file, KiJi shows the new feeds' articles as soon as they arrive instead of sometimes showing an empty list.</li><li>Articles fetched in the background while you switch stations now show up right away instead of after your next switch.</li><li>Sidebar: folded sections stay folded, long titles are shortened neatly, drag-to-sort works, and the refresh icon spins in place.</li><li>Feed management no longer shows dark bands behind its headers in the Modern theme.</li><li>macOS no longer reopens hidden Settings, article or update windows at launch, which used extra memory.</li><li>KiJi no longer shows false resource warnings caused by other apps.</li><li>Security updates for several built-in libraries.</li></ul>]]></description>
     </item>
   </channel>
 </rss>

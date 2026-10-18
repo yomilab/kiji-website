@@ -115,7 +115,7 @@ export interface LocalizedText {
     title: string;
     lead: string;
     rssCta: string;
-    releaseNotes: string;
+    assetsLink: string;
   };
   resource: {
     eyebrow: string;

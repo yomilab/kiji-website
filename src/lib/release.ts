@@ -13,6 +13,27 @@ export interface ReleaseDownloadAsset {
   size?: number;
 }
 
+/** Grouped, plain-text notes generated from kiji-app CHANGELOG.md (confirmed before each bump). */
+export interface ReleaseNotesSection {
+  title: string;
+  items: string[];
+}
+
+export interface LocalizedReleaseNotes {
+  summary?: string;
+  sections: ReleaseNotesSection[];
+}
+
+/** English at the top level; `translations` keyed by website locale (`zh-Hans`, `ja`). */
+export interface ReleaseNotes extends LocalizedReleaseNotes {
+  translations?: Record<string, LocalizedReleaseNotes>;
+}
+
+/** The release notes in `locale`, or English when that translation is missing. */
+export const releaseNotesFor = (notes: ReleaseNotes | undefined, locale: string): LocalizedReleaseNotes | undefined => (
+  notes ? notes.translations?.[locale] ?? notes : undefined
+);
+
 export interface ReleaseManifest {
   productName: string;
   version: string;
@@ -21,6 +42,7 @@ export interface ReleaseManifest {
   notesUrl?: string;
   updatesFeedUrl?: string;
   checksumsUrl?: string;
+  notes?: ReleaseNotes;
   downloads?: Record<string, ReleaseDownloadAsset>;
   downloadOptions?: ReleaseDownloadAsset[];
 }
@@ -29,7 +51,9 @@ export interface ReleaseEntry {
   version: string;
   tag?: string;
   date?: string;
-  notesUrl?: string;
+  /** GitHub release page: installers and checksums. */
+  assetsUrl?: string;
+  notes?: ReleaseNotes;
 }
 
 export const DOWNLOAD_MANIFEST_URL = '/release.json';

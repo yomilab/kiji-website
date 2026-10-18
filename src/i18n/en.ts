@@ -95,7 +95,7 @@ const en: LocalizedText = {
     title: 'KiJi updates',
     lead: 'Release notes and product updates for KiJi.',
     rssCta: 'Subscribe with RSS',
-    releaseNotes: 'Release notes',
+    assetsLink: 'Downloads and checksums',
   },
   resource: {
     eyebrow: 'Brand assets',
