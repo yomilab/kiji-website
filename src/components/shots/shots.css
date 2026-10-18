@@ -1,0 +1,925 @@
+/* KiJi app mockups for website screenshots. Colors come from --rt-* tokens:
+   set inline when a shot gets an explicit theme, otherwise inherited from the
+   page (:root, see readerThemeCss). A dark page is `[data-scheme="dark"]` on
+   an ancestor; a shot with its own data-scheme ignores the page. */
+
+.ks-window {
+  --ks-chrome: color-mix(in srgb, var(--rt-ink) 6%, var(--rt-page));
+  --ks-line: color-mix(in srgb, var(--rt-ink) 11%, transparent);
+  --ks-hover: color-mix(in srgb, var(--rt-ink) 8%, transparent);
+  --ks-sans: -apple-system, "SF Pro Text", "Inter", system-ui, sans-serif;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--rt-page);
+  color: var(--rt-ink);
+  font-family: var(--ks-sans);
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: inset 0 0 0 1px var(--ks-line);
+  -webkit-font-smoothing: antialiased;
+}
+
+.ks-window[data-scheme="dark"],
+[data-scheme="dark"] .ks-window:not([data-scheme]) {
+  --ks-chrome: color-mix(in srgb, #ffffff 5%, var(--rt-page));
+}
+
+.ks-window :is(h1, h2, h3),
+.ks-fan :is(h1, h2, h3) {
+  max-width: none;
+  color: inherit;
+}
+
+.ks-lights {
+  display: flex;
+  gap: 8px;
+}
+
+.ks-lights i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Sidebar */
+
+.ks-sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 248px;
+  padding: 16px 14px;
+  background: var(--ks-chrome);
+  border-right: 1px solid var(--ks-line);
+}
+
+.ks-sidebar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  color: var(--rt-ink-soft);
+}
+
+.ks-sidebar-tools {
+  display: flex;
+  gap: 16px;
+}
+
+.ks-sidebar-title {
+  margin: 30px 6px 18px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ks-sidebar-title small {
+  margin-left: 6px;
+  color: var(--rt-ink-soft);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.ks-group {
+  margin: 14px 6px 6px;
+  color: var(--rt-ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ks-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.ks-nav svg {
+  color: var(--rt-ink-soft);
+}
+
+.ks-nav.is-active {
+  background: color-mix(in srgb, var(--rt-accent) 16%, transparent);
+  color: var(--rt-accent);
+}
+
+.ks-nav.is-active svg {
+  color: currentColor;
+}
+
+.ks-emoji {
+  width: 18px;
+  text-align: center;
+}
+
+.ks-count {
+  margin-left: auto;
+  color: var(--rt-ink-soft);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ks-sidebar-foot {
+  margin-top: auto;
+  padding: 0 6px;
+  color: var(--rt-ink-soft);
+}
+
+/* Article list */
+
+.ks-list {
+  flex: 1;
+  padding: 28px 56px 0 40px;
+  overflow: hidden;
+}
+
+.ks-list-head {
+  position: relative;
+  margin: 0 0 18px 42px;
+}
+
+.ks-list-head h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.ks-list-head p {
+  margin: 2px 0 0;
+  color: var(--rt-ink-soft);
+  font-size: 13px;
+}
+
+.ks-list-search {
+  position: absolute;
+  top: 2px;
+  right: -20px;
+  color: var(--rt-ink-soft);
+}
+
+.ks-item {
+  display: flex;
+  gap: 14px;
+  padding: 12px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+}
+
+.ks-item.is-selected {
+  background: var(--ks-hover);
+}
+
+.ks-favicon {
+  display: grid;
+  flex: 0 0 28px;
+  place-items: center;
+  height: 28px;
+  margin-top: 18px;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1px var(--ks-line);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ks-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.ks-item-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--rt-ink-soft);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.ks-item h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 3px 0 3px;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.ks-unread {
+  flex: 0 0 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rt-accent);
+}
+
+.ks-item p {
+  margin: 0;
+  color: var(--rt-ink-soft);
+  font-size: 14px;
+}
+
+.ks-list.is-compact .ks-item {
+  padding: 10px 12px;
+}
+
+/* Reader */
+
+.ks-reader {
+  display: block;
+}
+
+.ks-toolbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 52px;
+  padding: 0 18px;
+  color: var(--rt-ink-soft);
+}
+
+.ks-title {
+  position: absolute;
+  left: 50%;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 7px 18px;
+  border-radius: 99px;
+  background: var(--ks-hover);
+  color: var(--rt-ink);
+  font-size: 20px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.ks-title b {
+  font-weight: 650;
+}
+
+.ks-title span {
+  color: var(--rt-ink-soft);
+  font-size: 16px;
+}
+
+.ks-toolbar-right {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.ks-tool {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.ks-tool.is-on {
+  background: var(--ks-hover);
+  color: var(--rt-ink);
+}
+
+.ks-aa {
+  font-family: var(--rt-title-font);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ks-article {
+  width: 640px;
+  margin: 26px auto 0;
+  font-family: var(--rt-body-font);
+}
+
+.ks-article .ks-headline {
+  margin: 0 0 14px;
+  font-family: var(--rt-title-font);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.ks-byline {
+  margin: 0 0 28px;
+  color: var(--rt-accent);
+  font-family: var(--ks-sans, system-ui);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.ks-article p {
+  margin: 0 0 20px;
+  font-size: 19px;
+  line-height: var(--rt-line-height);
+}
+
+.ks-article a {
+  color: var(--rt-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ks-article blockquote {
+  margin: 0;
+  padding-left: 18px;
+  border-left: 3px solid var(--rt-accent);
+  color: var(--rt-ink-soft);
+  font-size: 21px;
+  font-style: italic;
+}
+
+.ks-popover {
+  position: absolute;
+  top: 54px;
+  right: 58px;
+  width: 300px;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--rt-page);
+  box-shadow: 0 0 0 1px var(--ks-line), 0 24px 60px -12px rgba(0, 0, 0, 0.35);
+}
+
+.ks-popover-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.ks-popover-head span {
+  color: var(--rt-ink-soft);
+}
+
+.ks-seg {
+  display: flex;
+  padding: 3px;
+  border-radius: 9px;
+  background: var(--ks-hover);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ks-seg span {
+  flex: 1;
+  padding: 5px 14px;
+  border-radius: 7px;
+  text-align: center;
+  color: var(--rt-ink-soft);
+}
+
+.ks-seg span.is-on,
+.ks-seg-auto span[data-v="light"],
+[data-scheme="dark"] .ks-seg-auto span[data-v="dark"] {
+  background: var(--rt-page);
+  color: var(--rt-ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+[data-scheme="dark"] .ks-seg-auto span[data-v="light"] {
+  background: none;
+  color: var(--rt-ink-soft);
+  box-shadow: none;
+}
+
+.ks-swatches {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.ks-dual {
+  --c-page: var(--l-page);
+  --c-ink: var(--l-ink);
+  --c-soft: var(--l-soft);
+  --c-accent: var(--l-accent);
+  --c-on-accent: var(--l-on-accent);
+}
+
+[data-scheme="dark"] .ks-dual {
+  --c-page: var(--d-page);
+  --c-ink: var(--d-ink);
+  --c-soft: var(--d-soft);
+  --c-accent: var(--d-accent);
+  --c-on-accent: var(--d-on-accent);
+}
+
+.ks-swatch {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--c-page);
+  color: var(--c-ink);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c-ink) 18%, transparent);
+}
+
+.ks-swatch b {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.ks-swatch i {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-accent);
+}
+
+.ks-swatch.is-selected {
+  outline: 2px solid var(--rt-accent);
+  outline-offset: 2px;
+}
+
+.ks-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--rt-ink-soft);
+  font-size: 12px;
+}
+
+.ks-slider i {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--ks-hover);
+}
+
+.ks-slider b {
+  position: absolute;
+  top: -6px;
+  left: 45%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--rt-page);
+  box-shadow: 0 0 0 1px var(--ks-line), 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Settings / theme gallery */
+
+.ks-settings-nav {
+  flex: 0 0 210px;
+  padding: 16px 12px;
+  background: var(--ks-chrome);
+  border-right: 1px solid var(--ks-line);
+}
+
+.ks-settings-nav .ks-lights {
+  margin: 0 4px 28px;
+}
+
+.ks-settings-body {
+  flex: 1;
+  padding: 36px 44px;
+}
+
+.ks-settings-body h2 {
+  margin: 0 0 22px;
+  font-size: 24px;
+}
+
+.ks-settings-body h3 {
+  margin: 28px 0 2px;
+  font-size: 15px;
+}
+
+.ks-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ks-line);
+}
+
+.ks-row .ks-seg {
+  width: 240px;
+}
+
+.ks-hint {
+  margin: 0 0 16px;
+  color: var(--rt-ink-soft);
+  font-size: 13px;
+}
+
+.ks-theme-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px 16px;
+}
+
+.ks-theme-card {
+  margin: 0;
+}
+
+.ks-theme-preview {
+  position: relative;
+  height: 96px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--c-page);
+  color: var(--c-ink);
+  box-shadow: inset 0 0 0 1px var(--ks-line);
+}
+
+.ks-theme-card.is-selected .ks-theme-preview {
+  outline: 2px solid var(--rt-accent);
+  outline-offset: 3px;
+}
+
+.ks-theme-card.is-selected .ks-check {
+  display: grid;
+}
+
+.ks-theme-preview b {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.ks-theme-preview i {
+  display: block;
+  width: 86%;
+  height: 4px;
+  margin-bottom: 6px;
+  border-radius: 2px;
+  background: var(--c-soft);
+  opacity: 0.55;
+}
+
+.ks-theme-preview u {
+  display: block;
+  width: 30%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--c-accent);
+}
+
+/* Shown for the selected card; on the website readerThemeCss shows it for the page theme. */
+.ks-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: none;
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.ks-theme-card figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ks-theme-card small {
+  display: block;
+  color: var(--rt-ink-soft);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* Theme fan */
+
+.ks-fan {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.ks-fan-page {
+  position: absolute;
+  top: 70px;
+  left: calc(50% - 230px);
+  width: 460px;
+  height: 640px;
+  padding: 26px 0 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--rt-page);
+  color: var(--rt-ink);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--rt-ink) 12%, transparent), 0 30px 70px -20px rgba(0, 0, 0, 0.45);
+  transform-origin: 50% 110%;
+}
+
+.ks-fan-page .ks-article {
+  width: auto;
+  margin: 18px 34px 0;
+}
+
+.ks-fan-page .ks-article .ks-headline {
+  font-size: 30px;
+}
+
+.ks-fan-page .ks-article p {
+  font-size: 15px;
+}
+
+.ks-fan-label {
+  margin-left: 34px;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: var(--rt-accent);
+  color: var(--rt-on-accent);
+  font-family: -apple-system, "Inter", system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Markdown sync */
+
+.ks-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ks-stage-back {
+  position: absolute;
+  inset: 0 260px 90px 0;
+  width: auto;
+  height: auto;
+}
+
+.ks-stage-back .ks-list {
+  padding-right: 30px;
+}
+
+.ks-editor {
+  --ed-bg: #ffffff;
+  --ed-ink: #1d1d1f;
+  --ed-soft: #6e6e73;
+  --ed-line: rgba(0, 0, 0, 0.1);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 640px;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--ed-bg);
+  color: var(--ed-ink);
+  font-family: -apple-system, "Inter", system-ui, sans-serif;
+  font-size: 13px;
+  box-shadow: 0 0 0 1px var(--ed-line), 0 40px 80px -24px rgba(0, 0, 0, 0.5);
+}
+
+.ks-editor[data-scheme="dark"],
+[data-scheme="dark"] .ks-editor:not([data-scheme]) {
+  --ed-bg: #1e1e20;
+  --ed-ink: #e8e8ea;
+  --ed-soft: #98989d;
+  --ed-line: rgba(255, 255, 255, 0.1);
+}
+
+.ks-editor-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 44px;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--ed-line);
+  color: var(--ed-soft);
+}
+
+.ks-editor-bar span,
+.ks-editor-bar em {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ks-editor-bar em {
+  margin-left: auto;
+  color: #2e9d5b;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.ks-editor-body {
+  display: flex;
+  height: calc(100% - 44px);
+}
+
+.ks-files {
+  flex: 0 0 200px;
+  margin: 0;
+  padding: 10px 8px;
+  list-style: none;
+  border-right: 1px solid var(--ed-line);
+}
+
+.ks-files li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  color: var(--ed-soft);
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ks-files li.is-on {
+  background: color-mix(in srgb, var(--ed-ink) 8%, transparent);
+  color: var(--ed-ink);
+}
+
+.ks-md {
+  flex: 1;
+  margin: 0;
+  padding: 18px 20px;
+  overflow: hidden;
+  font-family: "SF Mono", "Geist Mono", ui-monospace, Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  white-space: pre;
+}
+
+.ks-md .m { color: var(--ed-soft); }
+.ks-md .k { color: #8a4fd1; }
+.ks-md .h { color: #c2410c; font-weight: 700; }
+.ks-md .q { color: #2563eb; }
+
+.ks-editor[data-scheme="dark"] .ks-md .k,
+[data-scheme="dark"] .ks-editor:not([data-scheme]) .ks-md .k { color: #c39bff; }
+.ks-editor[data-scheme="dark"] .ks-md .h,
+[data-scheme="dark"] .ks-editor:not([data-scheme]) .ks-md .h { color: #ff9f6b; }
+.ks-editor[data-scheme="dark"] .ks-md .q,
+[data-scheme="dark"] .ks-editor:not([data-scheme]) .ks-md .q { color: #7aa2f7; }
+
+/* Extraction before/after */
+
+.ks-extract {
+  display: block;
+}
+
+.ks-web {
+  position: absolute;
+  inset: 0;
+  background: #f3f3f3;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ks-web-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  height: 46px;
+  padding: 0 16px;
+  background: #e4e4e4;
+}
+
+.ks-web-url {
+  flex: 0 1 420px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: #fff;
+  color: #666;
+  font-size: 12px;
+}
+
+.ks-web-nav {
+  display: flex;
+  gap: 14px;
+  height: 46px;
+  align-items: center;
+  padding: 0 32px;
+  background: #1f2a44;
+}
+
+.ks-web-nav i {
+  width: 70px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.ks-web-main {
+  display: flex;
+  gap: 24px;
+  padding: 24px 32px;
+}
+
+.ks-web-col {
+  flex: 1;
+}
+
+.ks-web-col .ks-headline {
+  margin: 14px 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.ks-web-col p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ks-web-ad {
+  display: grid;
+  place-items: center;
+  height: 90px;
+  background: repeating-linear-gradient(45deg, #ddd 0 10px, #e8e8e8 10px 20px);
+  color: #888;
+  font-size: 11px;
+}
+
+.ks-web-ad.is-wide {
+  height: 140px;
+}
+
+.ks-web-side {
+  display: grid;
+  flex: 0 0 260px;
+  gap: 14px;
+  align-content: start;
+}
+
+.ks-web-card {
+  height: 120px;
+  border-radius: 4px;
+  background: #ddd;
+}
+
+.ks-web-cookie {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 18px 32px;
+  background: #222;
+  color: #eee;
+  font-size: 13px;
+}
+
+.ks-web-cookie b {
+  margin-left: 16px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  background: #4c8bf5;
+}
+
+.ks-clean {
+  position: absolute;
+  inset: 0;
+  padding-top: 40px;
+  background: var(--rt-page);
+}
+
+.ks-clean .ks-article {
+  max-width: 560px;
+  width: auto;
+  margin: 0 64px 0 0;
+}
+
+.ks-split {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--rt-accent);
+}
+
+.ks-split span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 8px 14px;
+  border-radius: 99px;
+  background: var(--rt-accent);
+  color: var(--rt-on-accent);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>KiJi Updates</title>
     <link>https://kiji.yomilab.app/changelog/</link>
+    <atom:link href="https://kiji.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for KiJi.</description>
     <language>en</language>
     <lastBuildDate>Fri, 16 Oct 2026 10:26:35 GMT</lastBuildDate>

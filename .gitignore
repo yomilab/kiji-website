@@ -8,3 +8,6 @@ vite.config.d.ts
 
 # Astro generated types/cache
 .astro/
+
+# Storybook design lab
+storybook-static/

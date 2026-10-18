@@ -1,10 +1,12 @@
 ---
+import { Picture, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import Base from '../../layouts/Base.astro';
-import ShotImage from '../ShotImage.astro';
-import ShotWindow from '../ShotWindow.astro';
+import { ExtractionShot, ReaderShot } from '../shots/Shots';
 import { getText, localePath, type LanguageCode } from '../../i18n';
 import latestRelease from '../../data/latestRelease.json';
-import { formatVersionedCopy } from '../../lib/release';
+import { READER_THEMES, dualVars } from '../../lib/readerThemes';
+import { organizationJsonLd, softwareApplicationJsonLd, websiteJsonLd } from '../../lib/structuredData';
 
 interface Props {
   locale: LanguageCode;
@@ -17,87 +19,634 @@ const siteUrl = (Astro.site ?? new URL('https://kiji.yomilab.app')).href;
 
 const OPML_DIRECTORY_URL = 'https://github.com/yomilab/kiji-resource';
 
+// Real app captures (yomi-docs/scripts/app-screenshot/kiji-screenshot.mjs --publish).
+const captures = import.meta.glob<{ default: ImageMetadata }>('/src/assets/captures/*.png', { eager: true });
+const capture = (name: string) => {
+  const image = captures[`/src/assets/captures/${name}.png`]?.default;
+  if (!image) throw new Error(`Missing capture "${name}" in src/assets/captures/`);
+  return image;
+};
+const captureWidths = [640, 960, 1280, 1920, 2560];
+
+const heroLead = text.home.heroLead.replace('{count}', String(READER_THEMES.length));
+// CJK headlines break between clauses, never inside a word.
+const clauses = (value: string) => value.split(/(?<=[，、])/);
+const heroClauses = clauses(text.home.heroTitle);
+const chipStyle = (id: string) =>
+  Object.entries(dualVars(id))
+    .map(([key, value]) => `${key}:${value}`)
+    .join(';');
+
+const screenshot = await getImage({ src: capture('tech-light-dark'), width: 1280, format: 'webp' });
 const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'KiJi',
+  softwareApplicationJsonLd({
+    locale,
     description: text.pageMeta.home.description,
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'macOS, Windows, Linux',
-    url: siteUrl,
-    softwareVersion: releaseVersion,
-    offers: { '@type': 'Offer', price: '0' },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'KiJi',
-    url: siteUrl,
-    inLanguage: ['en', 'zh-Hans', 'ja'],
-  },
+    version: releaseVersion,
+    releaseDate: latestRelease.date,
+    screenshot: new URL(screenshot.src, siteUrl).href,
+  }),
+  websiteJsonLd(locale),
+  organizationJsonLd(),
 ];
 ---
 
 <Base page="home" locale={locale} text={text} releaseVersion={releaseVersion} jsonLd={jsonLd} homeRedirect>
-  <main class="shell">
-    <section class="hero home-hero" id="top">
-      <p class="eyebrow">{formatVersionedCopy(text.home.eyebrow, releaseVersion)}</p>
+  <main class="shell swatch">
+    <section class="sc-hero" id="top">
       <h1>{text.home.title}</h1>
-      <p class="lead">{text.home.lead}</p>
-      <div class="actions">
-        <a class="button primary" href={localePath(locale, '/download/')}>{text.home.downloadCta}</a>
-        <a class="button" href="/feed.xml">{text.home.subscribeCta}</a>
+      <p class="sc-lead">{text.home.lead}</p>
+      <div class="sc-actions">
+        <a class="button primary sw-button" href={localePath(locale, '/download/')}>{text.home.downloadCta}</a>
+        <a class="sw-subscribe" href="/feed.xml">{text.home.subscribeCta}</a>
       </div>
-      <ShotWindow base="preview-article-list" alt={text.home.heroShotAlt} />
+      <figure class="sc-figure">
+        <div class="sc-labels" aria-hidden="true">
+          <span>{text.home.captureLight}</span>
+          <span>{text.home.captureDark}</span>
+        </div>
+        <Picture
+          src={capture('tech-light-dark')}
+          formats={['avif', 'webp']}
+          widths={captureWidths}
+          sizes="(max-width: 1152px) calc(100vw - 32px), 1120px"
+          alt={text.home.captureTechAlt}
+          loading="eager"
+          fetchpriority="high"
+        />
+      </figure>
     </section>
 
-    <section class="features" aria-label={text.home.featuresAria}>
-      <div class="features-copy" id="reading" data-reveal>
-        <p class="eyebrow">{text.home.featuresAria}</p>
+    <div class="sc-pair">
+      <figure class="sc-figure is-cascade">
+        <h2>{text.home.captureLanguagesTitle}</h2>
+        <Picture
+          class="sc-only-light"
+          src={capture('languages-light')}
+          formats={['avif', 'webp']}
+          widths={captureWidths}
+          sizes="(max-width: 960px) calc(100vw - 32px), 552px"
+          alt={text.home.captureLanguagesAlt}
+        />
+        <Picture
+          class="sc-only-dark"
+          src={capture('languages-dark')}
+          formats={['avif', 'webp']}
+          widths={captureWidths}
+          sizes="(max-width: 960px) calc(100vw - 32px), 552px"
+          alt={text.home.captureLanguagesAlt}
+        />
+      </figure>
+      <figure class="sc-figure">
         <h2>{text.home.readingTitle}</h2>
-        <p class="muted">{text.home.readingText}</p>
-        <ShotImage base="preview-reader-mode" alt={text.home.readerShotAlt} />
+        <div class="sc-labels" aria-hidden="true">
+          <span>{text.home.captureLight}</span>
+          <span>{text.home.captureDark}</span>
+        </div>
+        <Picture
+          src={capture('reader-light-dark')}
+          formats={['avif', 'webp']}
+          widths={captureWidths}
+          sizes="(max-width: 960px) calc(100vw - 32px), 552px"
+          alt={text.home.captureReaderAlt}
+        />
+      </figure>
+    </div>
+
+    <section class="sw-hero" id="themes">
+      <h2 class="sw-title">{heroClauses.map((clause) => <span>{clause}</span>)}</h2>
+      <p class="sw-lead">{heroLead}</p>
+
+      <div class="sw-picker" role="radiogroup" aria-label={text.home.themesTitle}>
+        {
+          READER_THEMES.map((theme) => (
+            <button
+              type="button"
+              role="radio"
+              aria-checked="false"
+              aria-label={theme.label}
+              title={theme.label}
+              class="sw-chip"
+              style={chipStyle(theme.id)}
+              data-theme-choice={theme.id}
+              data-theme-id={theme.id}
+            >
+              <span style={`font-family:${theme.titleFont}`}>Aa</span>
+              <i></i>
+            </button>
+          ))
+        }
+        <button
+          type="button"
+          class="sw-scheme"
+          data-scheme-toggle
+          data-label-light={text.home.lightVersion}
+          data-label-dark={text.home.darkVersion}
+        >
+          {text.home.darkVersion}
+        </button>
       </div>
-      <ol class="features-list">
-        <li id="privacy" data-reveal>
-          <span class="point-index">01</span>
-          <div>
-            <h3>{text.home.privacyTitle}</h3>
-            <p class="muted">{text.home.privacyText}</p>
-          </div>
-        </li>
-        <li id="opml-directory" data-reveal>
-          <span class="point-index">02</span>
-          <div>
-            <h3>{text.home.feedsTitle}</h3>
-            <p class="muted">{text.home.feedsText}</p>
-            <a href={OPML_DIRECTORY_URL}>{text.home.opmlLink}</a>
-          </div>
-        </li>
-        <li id="pro" data-reveal>
-          <span class="point-index">03</span>
-          <div>
-            <h3>{text.home.simpleTitle}</h3>
-            <p class="muted">{text.home.simpleText}</p>
-          </div>
-        </li>
-        <li id="reader-themes" data-reveal>
-          <span class="point-index">04</span>
-          <div>
-            <h3>{text.home.themesTitle}</h3>
-            <p class="muted">{text.home.themesText}</p>
-          </div>
-        </li>
-      </ol>
+
+      <div class="sw-shot">
+        <ReaderShot client:load showThemeMenu={false} label={text.home.heroShotAlt} />
+      </div>
     </section>
 
-    <section class="closing" data-reveal>
-      <h2>{text.home.closingTitle}</h2>
-      <p class="muted">{text.home.closingText}</p>
-      <div class="actions">
-        <a class="button primary" href={localePath(locale, '/download/')}>{text.home.downloadCta}</a>
+    <div class="sw-features" aria-label={text.home.featuresAria} role="region">
+      <section class="sw-feature sw-showcase" id="reading">
+        <div class="sw-feature-copy">
+          <h2>{clauses(text.home.readingHeadline).map((clause) => <span>{clause}</span>)}</h2>
+          <p>{text.home.readingText}</p>
+        </div>
+        <div class="sw-feature-shot">
+          <ExtractionShot client:visible split={0.5} label={text.home.readerShotAlt} />
+        </div>
+      </section>
+
+      <div class="sw-notes">
+        <section class="sw-note" id="long-running">
+          <h2>{text.home.longRunTitle}</h2>
+          <p>{text.home.longRunText}</p>
+        </section>
+        <section class="sw-note" id="opml-directory">
+          <h2>{text.home.feedsTitle}</h2>
+          <p>{text.home.feedsText}</p>
+          <a href={OPML_DIRECTORY_URL}>{text.home.opmlLink}</a>
+        </section>
+        <section class="sw-note" id="pro">
+          <h2>{text.home.simpleTitle}</h2>
+          <p>{text.home.simpleText}</p>
+        </section>
+        <section class="sw-note" id="reader-themes">
+          <h2>{text.home.themesTitle}</h2>
+          <p>{text.home.themesText}</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="sw-cta" id="privacy">
+      <div>
+        <h2>{text.home.closingTitle}</h2>
+        <p>{text.home.privacyText} {text.home.closingText}</p>
+      </div>
+      <div class="sw-cta-actions">
+        <a class="button primary sw-button" href={localePath(locale, '/download/')}>{text.home.downloadCta}</a>
+        <a class="sw-subscribe" href="/feed.xml">{text.home.subscribeCta}</a>
       </div>
     </section>
   </main>
 </Base>
+
+<script>
+  // Theme picker: the chosen reader theme recolors the whole site (see Base.astro).
+  const api = window.kijiReaderTheme;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-theme-choice]'));
+  const toggle = document.querySelector<HTMLButtonElement>('[data-scheme-toggle]');
+
+  function sync() {
+    if (!api) return;
+    const { theme, scheme } = api.get();
+    for (const chip of chips) {
+      const current = chip.dataset.themeChoice === theme;
+      chip.setAttribute('aria-checked', String(current));
+      chip.tabIndex = current ? 0 : -1;
+    }
+    if (toggle) {
+      toggle.textContent = (scheme === 'dark' ? toggle.dataset.labelLight : toggle.dataset.labelDark) ?? '';
+    }
+  }
+
+  function choose(index: number) {
+    const chip = chips[(index + chips.length) % chips.length];
+    const theme = chip.dataset.themeChoice;
+    if (!api || !theme) return;
+    api.set(theme, (api.get().scheme as 'light' | 'dark') ?? null);
+    chip.focus();
+  }
+
+  chips.forEach((chip, index) => {
+    chip.addEventListener('click', () => choose(index));
+    // Arrow keys move between themes, as in a native radio group.
+    chip.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        event.preventDefault();
+        choose(index + 1);
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        event.preventDefault();
+        choose(index - 1);
+      }
+    });
+  });
+
+  toggle?.addEventListener('click', () => {
+    if (!api) return;
+    const { theme, scheme } = api.get();
+    api.set(theme ?? '', scheme === 'dark' ? 'light' : 'dark');
+  });
+
+  document.addEventListener('kiji:reader-theme', sync);
+  sync();
+</script>
+
+<style>
+  /* Real app captures lead the page. */
+  .sc-hero {
+    padding: 88px 0 0;
+  }
+
+  .sc-hero > h1 {
+    max-width: 14em;
+    font-size: clamp(40px, 6.4vw, 80px);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .sc-lead {
+    max-width: 60ch;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: 18px;
+  }
+
+  .sc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+    margin-top: 32px;
+  }
+
+  .sc-figure {
+    margin: 0;
+  }
+
+  .sc-hero .sc-figure {
+    margin-top: 56px;
+  }
+
+  .sc-figure h2 {
+    margin: 0 0 14px;
+    color: var(--ink-strong);
+    font-family: var(--font-display);
+    font-size: clamp(26px, 2.6vw, 32px);
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  /* One label centred over each stitched slice. */
+  .sc-labels {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 10px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .sc-labels span + span {
+    border-left: 1px solid var(--line);
+  }
+
+  .sc-figure :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.22));
+  }
+
+  :global(:root[data-scheme="dark"]) .sc-figure :global(img) {
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.7));
+  }
+
+  /* The station cascade carries its own soft shadows inside the image. */
+  .sc-figure.is-cascade :global(img),
+  :global(:root[data-scheme="dark"]) .sc-figure.is-cascade :global(img) {
+    filter: none;
+  }
+
+  .sc-figure :global(.sc-only-dark),
+  :global(:root[data-scheme="dark"]) .sc-figure :global(.sc-only-light) {
+    display: none;
+  }
+
+  :global(:root[data-scheme="dark"]) .sc-figure :global(.sc-only-dark) {
+    display: block;
+  }
+
+  .sc-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 16px;
+    padding-top: 96px;
+  }
+
+  .sw-hero {
+    padding: 144px 0 0;
+  }
+
+  .sw-title {
+    margin: 0;
+    color: var(--ink-strong);
+    font-family: var(--font-display);
+    max-width: 11.5em;
+    text-wrap: balance;
+    word-break: auto-phrase;
+    font-size: clamp(46px, 8vw, 104px);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  :global(:lang(zh-Hans)) .sw-title,
+  :global(:lang(ja)) .sw-title {
+    font-size: clamp(28px, 6.4vw, 84px);
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  :global(:lang(zh-Hans)) .sw-title span,
+  :global(:lang(ja)) .sw-title span,
+  :global(:lang(zh-Hans)) .sw-showcase h2 span,
+  :global(:lang(ja)) .sw-showcase h2 span {
+    display: inline-block;
+  }
+
+  .sw-lead {
+    max-width: 52ch;
+    margin: 28px 0 40px;
+    color: var(--muted);
+    font-size: 19px;
+  }
+
+  .sw-picker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Each chip carries both versions of its theme (--l-*, --d-*); the page scheme picks one. */
+  .sw-chip {
+    --c-page: var(--l-page);
+    --c-ink: var(--l-ink);
+    --c-accent: var(--l-accent);
+    position: relative;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--c-page);
+    color: var(--c-ink);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 18%, transparent);
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 160ms ease;
+  }
+
+  :global(:root[data-scheme="dark"]) .sw-chip {
+    --c-page: var(--d-page);
+    --c-ink: var(--d-ink);
+    --c-accent: var(--d-accent);
+  }
+
+  .sw-chip:hover {
+    transform: translateY(-2px);
+  }
+
+  .sw-chip i {
+    position: absolute;
+    right: 9px;
+    bottom: 9px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--c-accent);
+  }
+
+  .sw-scheme {
+    height: 40px;
+    margin-left: 10px;
+    padding: 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--ink);
+    font: 500 14px var(--font-sans);
+    cursor: pointer;
+  }
+
+  .sw-scheme:hover {
+    background: var(--surface-2);
+  }
+
+  .sw-chip:focus-visible,
+  .sw-scheme:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .sw-shot {
+    margin-top: 32px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-card-lg);
+  }
+
+  .sw-features {
+    display: grid;
+    gap: 112px;
+    padding: 136px 0 0;
+  }
+
+  .sw-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .sw-feature-copy h2,
+  .sw-cta h2 {
+    margin: 0;
+    color: var(--ink-strong);
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.4vw, 42px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  /* Text-only features under the reader showcase: one row of short notes. */
+  .sw-notes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 48px 64px;
+    max-width: 960px;
+  }
+
+  .sw-note h2 {
+    margin: 0;
+    color: var(--ink-strong);
+    font-family: var(--font-display);
+    font-size: clamp(24px, 2.4vw, 30px);
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  .sw-note p {
+    margin: 12px 0 0;
+    color: var(--muted);
+  }
+
+  .sw-note a {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    text-underline-offset: 4px;
+  }
+
+  /* Reader-mode showcase, from the Library theme: a wider copy column and a larger headline. */
+  .sw-showcase {
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  }
+
+  .sw-showcase .sw-feature-copy h2 {
+    font-size: clamp(36px, 4.4vw, 56px);
+    line-height: 1.02;
+  }
+
+  :global(:lang(zh-Hans)) .sw-showcase .sw-feature-copy h2,
+  :global(:lang(ja)) .sw-showcase .sw-feature-copy h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.2;
+  }
+
+  .sw-feature-copy p {
+    margin: 14px 0 0;
+    color: var(--muted);
+  }
+
+  .sw-feature-copy a {
+    display: inline-block;
+    margin-top: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    text-underline-offset: 4px;
+  }
+
+  .sw-feature-shot {
+    border-radius: 14px;
+    box-shadow: var(--shadow-card-lg);
+  }
+
+  .sw-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px 48px;
+    padding: 160px 0 120px;
+  }
+
+  .sw-cta h2 {
+    max-width: 18ch;
+    font-size: clamp(34px, 4.6vw, 56px);
+    font-weight: 300;
+  }
+
+  .sw-cta p {
+    max-width: 52ch;
+    margin: 16px 0 0;
+    color: var(--muted);
+  }
+
+  .sw-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .sw-button {
+    height: 52px;
+    padding: 0 26px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sw-subscribe {
+    color: var(--ink);
+    font-size: 15px;
+    text-underline-offset: 4px;
+  }
+
+  @media (max-width: 960px) {
+    .sw-notes {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sc-pair {
+      grid-template-columns: 1fr;
+      padding-top: 64px;
+    }
+  }
+
+  @media (max-width: 860px) {
+    .sc-hero {
+      padding-top: 48px;
+    }
+
+    .sc-hero .sc-figure {
+      margin-top: 36px;
+    }
+
+    .sw-hero {
+      padding-top: 96px;
+    }
+
+    .sw-chip {
+      width: 42px;
+      height: 42px;
+      font-size: 14px;
+    }
+
+    .sw-chip i {
+      right: 7px;
+      bottom: 7px;
+    }
+
+    .sw-scheme {
+      margin-left: 0;
+    }
+
+    .sw-features {
+      gap: 72px;
+      padding-top: 88px;
+    }
+
+    .sw-notes {
+      grid-template-columns: 1fr;
+    }
+
+    .sw-feature,
+    .sw-showcase {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .sw-cta {
+      padding: 104px 0 80px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sw-chip {
+      transition: none;
+    }
+  }
+</style>

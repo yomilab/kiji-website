@@ -9,7 +9,10 @@
     "preview": "astro preview --host 127.0.0.1",
     "release:sync": "node scripts/sync-release-data.mjs",
     "resource:sync": "node scripts/sync-resource-lists.mjs",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "storybook": "storybook dev -p 6016 --no-open",
+    "build-storybook": "storybook build -o storybook-static",
+    "social:image": "node scripts/make-social-image.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
@@ -20,8 +23,11 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
+    "@storybook/react-vite": "^10.6.2",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
-    "typescript": "^5.9.3"
+    "storybook": "^10.6.2",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.4"
   }
 }

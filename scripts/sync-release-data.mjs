@@ -157,10 +157,11 @@ const feedItems = releases.slice(0, 20).map((release) => {
 }).join('\n');
 
 const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${xmlEscape(productName)} Updates</title>
     <link>${xmlEscape(changelogUrl)}</link>
+    <atom:link href="https://kiji.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for ${xmlEscape(productName)}.</description>
     <language>en</language>
     <lastBuildDate>${releaseDate}</lastBuildDate>

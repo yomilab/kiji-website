@@ -53,6 +53,10 @@ export const OG_LOCALES: Record<LanguageCode, string> = {
 
 export interface LocalizedText {
   pageMeta: Record<PageKey, PageMeta>;
+  seo: {
+    /** Alt text for the social preview image (public/images/og/kiji-og-<locale>.png). */
+    ogImageAlt: string;
+  };
   nav: {
     aria: string;
     download: string;
@@ -77,21 +81,35 @@ export interface LocalizedText {
     setAria: string;
   };
   home: {
-    eyebrow: string;
     title: string;
+    heroTitle: string;
+    /** `{count}` is replaced with the number of reader themes. */
+    heroLead: string;
     lead: string;
     downloadCta: string;
     subscribeCta: string;
+    darkVersion: string;
+    lightVersion: string;
+    captureLight: string;
+    captureDark: string;
+    captureTechAlt: string;
+    captureLanguagesTitle: string;
+    captureLanguagesAlt: string;
+    captureReaderAlt: string;
     heroShotAlt: string;
+    readerShotAlt: string;
     featuresAria: string;
     privacyTitle: string;
     privacyText: string;
+    longRunTitle: string;
+    longRunText: string;
     feedsTitle: string;
     feedsText: string;
     opmlLink: string;
     readingTitle: string;
+    /** Headline of the reader-mode showcase on the home page. */
+    readingHeadline: string;
     readingText: string;
-    readerShotAlt: string;
     simpleTitle: string;
     simpleText: string;
     themesTitle: string;
