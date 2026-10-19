@@ -137,15 +137,6 @@ const jsonLd = [
             </button>
           ))
         }
-        <button
-          type="button"
-          class="sw-scheme"
-          data-scheme-toggle
-          data-label-light={text.home.lightVersion}
-          data-label-dark={text.home.darkVersion}
-        >
-          {text.home.darkVersion}
-        </button>
       </div>
 
       <div class="sw-shot">
@@ -215,18 +206,14 @@ const jsonLd = [
   // Theme picker: the chosen reader theme recolors the whole site (see Base.astro).
   const api = window.kijiReaderTheme;
   const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-theme-choice]'));
-  const toggle = document.querySelector<HTMLButtonElement>('[data-scheme-toggle]');
 
   function sync() {
     if (!api) return;
-    const { theme, scheme } = api.get();
+    const { theme } = api.get();
     for (const chip of chips) {
       const current = chip.dataset.themeChoice === theme;
       chip.setAttribute('aria-checked', String(current));
       chip.tabIndex = current ? 0 : -1;
-    }
-    if (toggle) {
-      toggle.textContent = (scheme === 'dark' ? toggle.dataset.labelLight : toggle.dataset.labelDark) ?? '';
     }
   }
 
@@ -234,7 +221,7 @@ const jsonLd = [
     const chip = chips[(index + chips.length) % chips.length];
     const theme = chip.dataset.themeChoice;
     if (!api || !theme) return;
-    api.set(theme, (api.get().scheme as 'light' | 'dark') ?? null);
+    api.set(theme);
     chip.focus();
   }
 
@@ -250,12 +237,6 @@ const jsonLd = [
         choose(index - 1);
       }
     });
-  });
-
-  toggle?.addEventListener('click', () => {
-    if (!api) return;
-    const { theme, scheme } = api.get();
-    api.set(theme ?? '', scheme === 'dark' ? 'light' : 'dark');
   });
 
   document.addEventListener('kiji:reader-theme', sync);
@@ -444,24 +425,7 @@ const jsonLd = [
     background: var(--c-accent);
   }
 
-  .sw-scheme {
-    height: 40px;
-    margin-left: 10px;
-    padding: 0 16px;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--ink);
-    font: 500 14px var(--font-sans);
-    cursor: pointer;
-  }
-
-  .sw-scheme:hover {
-    background: var(--surface-2);
-  }
-
-  .sw-chip:focus-visible,
-  .sw-scheme:focus-visible {
+  .sw-chip:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
   }
@@ -664,10 +628,6 @@ const jsonLd = [
     .sw-chip i {
       right: 7px;
       bottom: 7px;
-    }
-
-    .sw-scheme {
-      margin-left: 0;
     }
 
     .sw-features {

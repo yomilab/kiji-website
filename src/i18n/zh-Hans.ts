@@ -73,8 +73,6 @@ const zhHans: LocalizedText = {
     lead: '打开即用，常开无负担。无论开着多久，KiJi 都轻盈从容，你的阅读也始终留在自己的设备上。',
     downloadCta: '下载 KiJi',
     subscribeCta: '订阅更新',
-    darkVersion: '深色版本',
-    lightVersion: '浅色版本',
     captureLight: '浅色',
     captureDark: '深色',
     captureTechAlt: 'KiJi 显示“Tech”站点，左半为浅色版本，右半为深色版本',

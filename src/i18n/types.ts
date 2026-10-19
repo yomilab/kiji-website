@@ -93,8 +93,6 @@ export interface LocalizedText {
     lead: string;
     downloadCta: string;
     subscribeCta: string;
-    darkVersion: string;
-    lightVersion: string;
     captureLight: string;
     captureDark: string;
     captureTechAlt: string;

@@ -73,8 +73,6 @@ const ja: LocalizedText = {
     lead: 'すぐに開けて、開いたままでも軽やか。どれだけ長く使っても KiJi は身軽なまま、あなたの読書はいつも手元のデバイスに。',
     downloadCta: 'KiJiをダウンロード',
     subscribeCta: '更新を購読',
-    darkVersion: 'ダーク版',
-    lightVersion: 'ライト版',
     captureLight: 'ライト',
     captureDark: 'ダーク',
     captureTechAlt: '「Tech」ステーションを表示した KiJi。左半分がライト、右半分がダーク',

@@ -131,7 +131,7 @@ export const THEME_IDS = READER_THEMES.map((theme) => theme.id);
 /** Theme the site wears before the visitor picks one. */
 export const DEFAULT_SITE_THEME = 'calm';
 
-/** localStorage key for the visitor's `{ theme, scheme }` choice. */
+/** localStorage key for the visitor's `{ theme }` choice (light or dark follows the OS). */
 export const SITE_THEME_STORAGE_KEY = 'kiji-website-reader-theme';
 
 export function getTheme(id: string): ReaderTheme {

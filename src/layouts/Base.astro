@@ -119,12 +119,12 @@ const shouldRedirectHome = homeRedirect && locale === DEFAULT_LANGUAGE_CODE;
         } catch (error) {
           saved = {};
         }
-        function apply(theme, scheme) {
+        function apply(theme) {
           if (themeIds.indexOf(theme) < 0) theme = defaultTheme;
-          if (scheme !== 'light' && scheme !== 'dark') scheme = null;
-          saved = { theme: theme, scheme: scheme };
+          // Only the theme is saved; light or dark always follows the OS.
+          saved = { theme: theme };
           root.setAttribute('data-reader-theme', theme);
-          root.setAttribute('data-scheme', scheme || (media.matches ? 'dark' : 'light'));
+          root.setAttribute('data-scheme', media.matches ? 'dark' : 'light');
           var meta = document.querySelector('meta[name="theme-color"]');
           if (meta) meta.setAttribute('content', getComputedStyle(root).getPropertyValue('--rt-page').trim());
           document.dispatchEvent(new CustomEvent('kiji:reader-theme', { detail: { theme: theme, scheme: root.getAttribute('data-scheme') } }));
@@ -133,8 +133,8 @@ const shouldRedirectHome = homeRedirect && locale === DEFAULT_LANGUAGE_CODE;
           get: function () {
             return { theme: root.getAttribute('data-reader-theme'), scheme: root.getAttribute('data-scheme') };
           },
-          set: function (theme, scheme) {
-            apply(theme, scheme);
+          set: function (theme) {
+            apply(theme);
             try {
               localStorage.setItem(storageKey, JSON.stringify(saved));
             } catch (error) {
@@ -142,10 +142,10 @@ const shouldRedirectHome = homeRedirect && locale === DEFAULT_LANGUAGE_CODE;
             }
           },
         };
-        apply(saved.theme, saved.scheme);
+        apply(saved.theme);
         if (media.addEventListener) {
           media.addEventListener('change', function () {
-            if (!saved.scheme) apply(saved.theme, null);
+            apply(saved.theme);
           });
         }
       })();

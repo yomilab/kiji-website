@@ -73,8 +73,6 @@ const en: LocalizedText = {
     lead: 'Quick to open, light to keep around. KiJi stays easy on your computer however long it runs, and your reading never leaves your device.',
     downloadCta: 'Download KiJi',
     subscribeCta: 'Subscribe to updates',
-    darkVersion: 'Dark version',
-    lightVersion: 'Light version',
     captureLight: 'Light',
     captureDark: 'Dark',
     captureTechAlt: 'KiJi showing the Tech station, in the light version on the left and the dark version on the right',
