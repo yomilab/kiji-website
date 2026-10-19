@@ -12,6 +12,7 @@ Brand summary:
 - Reader mode — Defuddle and Readability extraction engines convert full page HTML into clean article text.
 - Markdown sync — saved articles are written to a local folder as Markdown files.
 - Reader themes — 13 book-style themes (Paper, Sepia, Calm, Eye Care, Washi, Parchment, Newsprint, E-Ink, Solarized, Quiet, Midnight, OLED Night, High Contrast), each with a light and a dark version.
+- Assistant access — AI apps (Claude Desktop, Claude Code, Cursor, VS Code, Codex, any MCP client) can read the stations, feeds, articles, and saved items the user shares, and the article open in KiJi, through the local `kiji-app --mcp` server. Off by default, read-only, runs on the user's computer; chosen in Settings → Assistant.
 
 Official pages:
 
@@ -22,6 +23,7 @@ Official pages:
 - Resources: https://kiji.yomilab.app/resource/
 - Changelog: https://kiji.yomilab.app/changelog/
 - Privacy: https://kiji.yomilab.app/privacy/
+- Connect AI assistants (MCP): https://kiji.yomilab.app/assistant/
 - Feedback page: https://kiji.yomilab.app/support/
 - Updates RSS: https://kiji.yomilab.app/feed.xml
 - Feedback: hello@yomilab.app

@@ -29,5 +29,15 @@ const jsonLd = {
     <p class="eyebrow">{text.privacy.eyebrow}</p>
     <h1>{text.privacy.title}</h1>
     <p class="lead">{text.privacy.lead}</p>
+    <section class="doc-section" id="assistant-access" aria-labelledby="assistant-access-title">
+      <h2 id="assistant-access-title">{text.privacy.assistantTitle}</h2>
+      <p>{text.privacy.assistantLead}</p>
+      <ul class="doc-points">
+        {text.privacy.assistantPoints.map((point) => (
+          <li><strong>{point.title}</strong> {point.text}</li>
+        ))}
+      </ul>
+      <a class="doc-link" href={localePath(locale, '/assistant/')}>{text.privacy.assistantHelpLink}</a>
+    </section>
   </main>
 </Base>

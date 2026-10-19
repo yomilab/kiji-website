@@ -27,6 +27,11 @@ const en: LocalizedText = {
       description: 'KiJi collects no personal reading data. Your feeds, articles, saved items, and reading state stay on your device, and you can export them anytime.',
       canonicalPath: '/privacy/',
     },
+    assistant: {
+      title: 'Connect Claude, Cursor, and more to KiJi',
+      description: 'Let Claude, Cursor, VS Code, Codex, or another AI app read your KiJi library. Read-only, off until you turn it on, and you choose what it sees.',
+      canonicalPath: '/assistant/',
+    },
     support: {
       title: 'KiJi Feedback and Support',
       description: 'Questions, feature ideas, or a bug to report? Write to the KiJi team by email. Every note helps make KiJi a calmer RSS reader.',
@@ -50,6 +55,7 @@ const en: LocalizedText = {
     legalHeading: 'Legal',
     disclaimer: '© 2026 KiJi by Yomi Lab. All processing is local.',
     privacy: 'Privacy',
+    assistant: 'AI assistants',
     support: 'Feedback',
     resource: 'Resource',
     github: 'YomiLab GitHub',
@@ -147,6 +153,123 @@ const en: LocalizedText = {
     eyebrow: 'Privacy',
     title: 'No personal reading data collected.',
     lead: 'KiJi stores feeds, articles, saved items, and reading state locally. Export when needed.',
+    assistantTitle: 'Assistant access',
+    assistantLead: 'KiJi can let an AI app you use, such as Claude, Cursor, or VS Code, read your KiJi library so you can ask it about your reading.',
+    assistantPoints: [
+      {
+        title: 'Off by default.',
+        text: 'Nothing is shared until you turn on Settings → Assistant → Let assistants read your KiJi library. You can turn it off again at any time.',
+      },
+      {
+        title: 'Read-only.',
+        text: 'Assistants can read what you share. They cannot add, change, or delete anything in KiJi.',
+      },
+      {
+        title: 'Runs on your computer.',
+        text: 'KiJi answers the AI app directly on your computer. Your library is not sent to us or kept on any KiJi server.',
+      },
+      {
+        title: 'You choose what is shared.',
+        text: 'In Settings → Assistant, pick which stations assistants can see, and whether feeds without a station, saved articles, the article you’re reading, and your notes and highlights are included. Notes and highlights stay off until you turn them on.',
+      },
+      {
+        title: 'Content goes to the AI app you ask.',
+        text: 'When you ask an assistant about your reading, the articles it reads go to that AI app, which may send them to its AI service. That app’s own privacy policy applies to them.',
+      },
+      {
+        title: 'Reset Access.',
+        text: 'If you connected an app by web address, Reset Access in Settings → Assistant replaces its key: the old key stops working and every connected app is disconnected.',
+      },
+    ],
+    assistantHelpLink: 'How to connect an AI assistant',
+  },
+  assistant: {
+    eyebrow: 'Assistant access',
+    title: 'Ask your AI assistant about your reading.',
+    lead: 'Connect Claude, Cursor, VS Code, Codex, or another AI app to KiJi. It can then read the stations, articles, and saved items you choose, and the article you have open. It only reads; it never changes your library.',
+    stepsTitle: 'Set it up',
+    steps: [
+      'Open KiJi and go to Settings → Assistant.',
+      'Turn on Let assistants read your KiJi library.',
+      'Under What Assistants Can See, choose what to share.',
+      'Find your AI app in the list and use its button. KiJi fills in where it is installed on your computer.',
+      'Keep KiJi open while you ask. If it is closed, your assistant will tell you to open it.',
+    ],
+    clientsTitle: 'Your AI app',
+    clientsLead: 'The examples below assume KiJi is in the Applications folder on a Mac. The buttons in KiJi give you the right version for your computer, so copy from there when you can. If you move KiJi, copy the setup again.',
+    clients: {
+      'claude-desktop': {
+        name: 'Claude Desktop',
+        text: 'On a Mac, click Download Extension and double-click the KiJi.mcpb file it saves; Claude asks you to confirm the install. Or click Copy Setup, add the block to Claude’s config file (Claude → Settings → Developer → Edit Config), and restart Claude.',
+      },
+      'claude-code': {
+        name: 'Claude Code',
+        text: 'Click Copy Command and run it in your terminal.',
+      },
+      cursor: {
+        name: 'Cursor',
+        text: 'Click Add to Cursor and confirm in Cursor. Or click Copy Setup and add the block to ~/.cursor/mcp.json.',
+      },
+      vscode: {
+        name: 'VS Code',
+        text: 'Click Add to VS Code and confirm in VS Code. Or click Copy Setup, run MCP: Open User Configuration from the Command Palette, and add the block.',
+      },
+      codex: {
+        name: 'OpenAI Codex',
+        text: 'Click Copy Setup and add the lines to ~/.codex/config.toml.',
+      },
+      other: {
+        name: 'Other apps',
+        text: 'Most AI apps that support MCP can start KiJi with a command. Click Copy Command and paste it where your app asks for one.',
+      },
+      'web-address': {
+        name: 'Apps that only take a web address',
+        text: 'In Settings → Assistant → Advanced, turn on Allow connections by web address, then click Copy Web Address Setup. The setup includes a private key, so keep it to yourself. Reset Access gives you a new one.',
+      },
+    },
+    promptsTitle: 'Things to ask',
+    promptsLead: 'Once it is connected, ask in your own words. A few ideas:',
+    prompts: [
+      'Summarize what I’m reading and list the claims worth checking.',
+      'What happened in my Tech station in the last 3 days? Group by topic.',
+      'Find articles about Rust async from this month and compare their views.',
+      'Turn my saved articles from last week, with my highlights, into study notes.',
+    ],
+    sharingTitle: 'What your assistant can see',
+    sharingPoints: [
+      'Only what you choose under What Assistants Can See: all stations or the ones you pick, feeds without a station, saved articles, and the article you’re reading.',
+      'Notes and highlights stay private until you turn them on.',
+      'Assistants can read, but they cannot mark items read, save, delete, or subscribe.',
+      'Connected Assistants in Settings → Assistant shows which apps connected and when.',
+    ],
+    troubleTitle: 'If something does not work',
+    trouble: [
+      {
+        problem: 'The assistant says KiJi is not open.',
+        fix: 'Open KiJi and make sure Let assistants read your KiJi library is on.',
+      },
+      {
+        problem: 'It cannot find a station.',
+        fix: 'Choose that station under What Assistants Can See.',
+      },
+      {
+        problem: 'It says no article is open.',
+        fix: 'Open an article in KiJi, and check that The article I’m reading is on.',
+      },
+      {
+        problem: 'Your app cannot start KiJi after you moved it.',
+        fix: 'Copy the setup again from Settings → Assistant.',
+      },
+      {
+        problem: 'An app connected by web address stopped working.',
+        fix: 'Access was reset. Click Copy Web Address Setup again.',
+      },
+      {
+        problem: 'KiJi says another copy of KiJi is sharing.',
+        fix: 'Quit the other copy, then turn assistant access off and on again.',
+      },
+    ],
+    privacyLink: 'How assistant access handles your data',
   },
   support: {
     eyebrow: 'Feedback',
