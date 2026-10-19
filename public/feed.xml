@@ -6,7 +6,14 @@
     <atom:link href="https://kiji.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for KiJi.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Oct 2026 13:33:03 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 09:38:55 GMT</lastBuildDate>
+    <item>
+      <title>KiJi 1.7.0</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.7.0</link>
+      <guid isPermaLink="false">kiji-release-v1.7.0</guid>
+      <pubDate>Mon, 19 Oct 2026 09:38:55 GMT</pubDate>
+      <description><![CDATA[<h3>New</h3><ul><li>New Assistant tab in Settings lets AI apps such as Claude, Cursor, VS Code and Codex read your KiJi library — including the article you're reading right now — so you can ask them to explain an article, summarize a station's week, or search your feeds. It's off until you turn it on, read-only, and you choose which stations, saved articles and notes are shared. One click adds KiJi to Claude Desktop, Cursor or VS Code.</li><li>You can also let assistants make changes for you: mark articles read or unread, star them, or save them to Saved when you ask. This has its own switch in Settings → Assistant, is off until you turn it on, and the article list, unread counts and Saved update right away.</li><li>New Manage Feeds window keeps your feeds, stations, Library views, and import and export in one place, with tabs along the top like a Mac settings window. Lists show each feed's icon, site, counts and status, and you can select several feeds to change them together.</li></ul><h3>Improved</h3><ul><li>Adding a feed is simpler: paste a link and KiJi shows the feed — its title, site and latest articles — before you add it, or tells you if you already follow it. Importing a feed list or saved articles has its own tab.</li><li>Settings has a cleaner, more Mac-like look, with a slimmer sidebar and new icons.</li></ul><h3>Fixed</h3><ul><li>On Windows and Linux, the close button of the full-window image viewer no longer sits under the window's own Close button, so closing an image no longer closes the window.</li></ul>]]></description>
+    </item>
     <item>
       <title>KiJi 1.6.0</title>
       <link>https://kiji.yomilab.app/changelog/#v1.6.0</link>

@@ -1,50 +1,30 @@
 {
   "productName": "KiJi",
-  "version": "1.6.0",
-  "tag": "v1.6.0",
-  "date": "2026-10-18T13:33:03Z",
-  "notesUrl": "https://kiji.yomilab.app/changelog/#v1.6.0",
+  "version": "1.7.0",
+  "tag": "v1.7.0",
+  "date": "2026-10-19T09:38:55Z",
+  "notesUrl": "https://kiji.yomilab.app/changelog/#v1.7.0",
   "notes": {
     "sections": [
       {
         "title": "New",
         "items": [
-          "Articles give pictures more room: single images and videos can spread wider than the text, rows of images become galleries, wide tables and code can use the margins, and clicking an image opens it full-window.",
-          "The top of an article shows when it was published and how long it takes to read, and a thin bar shows your progress as you read."
+          "New Assistant tab in Settings lets AI apps such as Claude, Cursor, VS Code and Codex read your KiJi library — including the article you're reading right now — so you can ask them to explain an article, summarize a station's week, or search your feeds. It's off until you turn it on, read-only, and you choose which stations, saved articles and notes are shared. One click adds KiJi to Claude Desktop, Cursor or VS Code.",
+          "You can also let assistants make changes for you: mark articles read or unread, star them, or save them to Saved when you ask. This has its own switch in Settings → Assistant, is off until you turn it on, and the article list, unread counts and Saved update right away.",
+          "New Manage Feeds window keeps your feeds, stations, Library views, and import and export in one place, with tabs along the top like a Mac settings window. Lists show each feed's icon, site, counts and status, and you can select several feeds to change them together."
         ]
       },
       {
         "title": "Improved",
         "items": [
-          "In light mode, the selected item in the sidebar is easier to read, and feed icons in the article list sit on a light background.",
-          "The About and update window lists what's new in an update, grouped into New, Improved and Fixed, so you can read the notes before downloading. It has a cleaner layout, uses your reader theme's accent color, and its buttons match your system's style."
+          "Adding a feed is simpler: paste a link and KiJi shows the feed — its title, site and latest articles — before you add it, or tells you if you already follow it. Importing a feed list or saved articles has its own tab.",
+          "Settings has a cleaner, more Mac-like look, with a slimmer sidebar and new icons."
         ]
       },
       {
         "title": "Fixed",
         "items": [
-          "A feed that fails to refresh while you open its station no longer waits twice as long before KiJi tries it again.",
-          "Rare database or connection hiccups while switching stations, opening smart views, syncing in the background or leaving a search no longer leave errors in the log; the list retries on your next scroll or interaction.",
-          "Opening a station no longer re-reads every feed in it just to look for missing icons.",
-          "Adding a feed no longer reports a failure when the feed was added but its first articles or icon could not be saved; KiJi opens the new feed and loads its articles.",
-          "Switching stations while feeds sync in the background no longer marks healthy feeds as failing, so they keep refreshing on schedule.",
-          "A feed that has been failing for a long time no longer starts being retried on every refresh.",
-          "Removing a feed while a refresh is running no longer stops the rest of the library from refreshing.",
-          "Feeds whose items have no link or ID no longer show the same article again after every refresh.",
-          "Changing a theme, font or other setting no longer interrupts or restarts background refresh.",
-          "Importing an OPML file while a saved-articles import is running no longer leaves that import stuck.",
-          "Large OPML imports are faster, and a problem assigning one station no longer reports the whole import as failed.",
-          "Importing a saved-articles ZIP now keeps the right text for articles that share a title, such as \"Untitled\".",
-          "Holding j or k while opening an article or a dialog no longer keeps moving through the list behind it.",
-          "Saving an article and quickly opening another no longer shows the first article in the new view.",
-          "Clearing all feeds or deleting a station with its feeds now updates the sidebar even if part of the cleanup fails.",
-          "Choosing a feed or station while KiJi's window is behind other windows (or when KiJi reopens your last selection in the background) now refreshes it right away, instead of pausing background updates for up to 10 minutes.",
-          "Feed icons in the sidebar show again after launch, without slowing down startup.",
-          "Feeds in Japanese, Chinese and other non-UTF-8 encodings now load instead of failing every time.",
-          "Background refresh no longer makes marking articles read or starred wait while large feeds are processed, and a failed save of a feed's new articles no longer leaves it half-updated.",
-          "Unread counts are now correct for each feed when two subscriptions share the same articles.",
-          "Clicking a station during a background refresh no longer delays refreshing the rest of your library.",
-          "Importing the same saved-articles file twice no longer creates duplicates; KiJi tells you how many were already saved. CSV files with quotes or commas in titles import correctly."
+          "On Windows and Linux, the close button of the full-window image viewer no longer sits under the window's own Close button, so closing an image no longer closes the window."
         ]
       }
     ],
@@ -54,42 +34,22 @@
           {
             "title": "新功能",
             "items": [
-              "文章里的图片有了更多空间：单张图片和视频可以比正文更宽，成排的图片会排成图集，较宽的表格和代码可以延伸到页边，点按图片可全窗口查看。",
-              "文章顶部会显示发布时间和预计阅读时长，阅读时还有一条细进度条显示你读到哪里。"
+              "Settings 新增 Assistant 标签页，让 Claude、Cursor、VS Code、Codex 等 AI 应用读取你的 KiJi 资料库，包括你正在阅读的文章。你可以让它们解释一篇文章、总结某个站点分组一周的内容，或搜索你的订阅。此功能默认关闭，只读，并由你决定共享哪些站点分组、已保存文章和笔记。一键即可把 KiJi 添加到 Claude Desktop、Cursor 或 VS Code。",
+              "你也可以允许助手替你操作：在你要求时将文章标为已读或未读、加星标，或保存到 Saved。此项在 Settings → Assistant 中有单独的开关，默认关闭；文章列表、未读数和 Saved 会立即更新。",
+              "新的 Manage Feeds 窗口把订阅、站点分组、Library 视图以及导入导出集中在一处，标签页位于窗口顶部，就像 Mac 的设置窗口。列表会显示每个订阅的图标、网站、数量和状态，还可以同时选择多个订阅一起修改。"
             ]
           },
           {
             "title": "改进",
             "items": [
-              "浅色模式下，侧栏中选中的项目更容易看清，文章列表中的订阅图标改为浅色底。",
-              "「关于」与更新窗口会按「新功能」「改进」「修复」分组列出更新内容，下载前就能先看说明。窗口布局更简洁，会使用你阅读主题的强调色，按钮也与系统风格一致。"
+              "添加订阅更简单了：粘贴链接后，KiJi 会先显示这个订阅的标题、网站和最新文章，再由你添加；如果你已经订阅过，也会直接告诉你。导入订阅列表或已保存文章有了单独的标签页。",
+              "Settings 的外观更简洁、更像 Mac，侧栏更窄，并换用了新图标。"
             ]
           },
           {
             "title": "修复",
             "items": [
-              "打开站点时某个订阅刷新失败，KiJi 不再要等两倍的时间才重试。",
-              "切换站点、打开智能视图、后台同步或退出搜索时偶尔出现的数据库或连接问题，不再在日志里留下错误；列表会在你下次滚动或操作时重试。",
-              "打开站点时，不再为了查找缺失的图标而重新读取其中的每个订阅。",
-              "订阅已经添加、只是首批文章或图标没能保存时，不再提示添加失败；KiJi 会打开新订阅并加载文章。",
-              "后台同步期间切换站点，不再把正常的订阅标记为失败，它们会继续按计划刷新。",
-              "长期失败的订阅不再在每次刷新时都被重试。",
-              "刷新进行中删除订阅，不再导致资料库中其余订阅停止刷新。",
-              "条目没有链接或 ID 的订阅，不再在每次刷新后重复显示同一篇文章。",
-              "更改主题、字体或其他设置，不再中断或重启后台刷新。",
-              "在导入已保存文章的同时导入 OPML 文件，不再让前一个导入卡住。",
-              "大型 OPML 导入更快了，某一个站点分配出错时也不再把整个导入报告为失败。",
-              "导入已保存文章的 ZIP 时，同名文章（例如 \"Untitled\"）会保留各自正确的正文。",
-              "打开文章或对话框时按住 j 或 k，不再继续移动背后列表中的选择。",
-              "保存一篇文章后快速打开另一篇，新视图中不再显示第一篇文章。",
-              "清空所有订阅或连同订阅一起删除站点时，即使部分清理失败，侧栏也会更新。",
-              "KiJi 窗口在其他窗口后面时（或 KiJi 在后台恢复你上次的选择时）选择订阅或站点，现在会立即刷新，而不再让后台更新暂停最多 10 分钟。",
-              "启动后侧栏中的订阅图标会重新显示，而且不会拖慢启动。",
-              "日文、中文等非 UTF-8 编码的订阅现在可以正常加载，不再每次都失败。",
-              "后台刷新处理大型订阅时，标记文章已读或加星不再需要等待；某个订阅的新文章保存失败时，也不会只更新一半。",
-              "两个订阅包含相同文章时，每个订阅的未读数现在是正确的。",
-              "后台刷新期间点按站点，不再推迟资料库中其余订阅的刷新。",
-              "重复导入同一个已保存文章文件不再产生重复项；KiJi 会告诉你有多少篇已经保存过。标题中含引号或逗号的 CSV 文件也能正确导入。"
+              "在 Windows 和 Linux 上，全窗口图片查看器的关闭按钮不再位于窗口自身的关闭按钮下方，关闭图片时不会再把窗口关掉。"
             ]
           }
         ]
@@ -99,42 +59,22 @@
           {
             "title": "新機能",
             "items": [
-              "記事の画像がより広く表示されるようになりました。1枚の画像や動画は本文より広く、並んだ画像はギャラリーとして表示され、幅の広い表やコードは余白まで使えます。画像をクリックするとウインドウいっぱいに表示されます。",
-              "記事の冒頭に公開日と読了時間の目安が表示され、読み進めると細いバーで進み具合がわかります。"
+              "Settings に新しい Assistant タブが加わり、Claude、Cursor、VS Code、Codex などの AI アプリが、いま読んでいる記事を含む KiJi のライブラリを読めるようになりました。記事の解説、ステーションの1週間のまとめ、フィードの検索などを頼めます。オンにするまでは無効で、読み取り専用です。共有するステーション、保存した記事、メモはあなたが選べます。Claude Desktop、Cursor、VS Code にはワンクリックで KiJi を追加できます。",
+              "アシスタントに操作を任せることもできます。頼んだときに記事を既読・未読にしたり、スターを付けたり、Saved に保存したりします。Settings → Assistant に専用のスイッチがあり、オンにするまでは無効です。記事リスト、未読数、Saved はすぐに更新されます。",
+              "新しい Manage Feeds ウインドウで、フィード、ステーション、Library の表示、読み込みと書き出しをまとめて管理できます。Mac の設定ウインドウのように上部にタブが並びます。リストには各フィードのアイコン、サイト、件数、状態が表示され、複数のフィードを選んでまとめて変更できます。"
             ]
           },
           {
             "title": "改善",
             "items": [
-              "ライトモードで、サイドバーの選択中の項目が読みやすくなり、記事リストのフィードアイコンは明るい背景の上に表示されるようになりました。",
-              "「情報」画面とアップデート画面で、更新内容が「新機能」「改善」「修正」に分けて表示され、ダウンロード前に内容を確認できます。レイアウトがすっきりし、リーダーテーマのアクセントカラーを使い、ボタンはシステムのスタイルに合わせて表示されます。"
+              "フィードの追加がかんたんになりました。リンクを貼り付けると、追加する前にフィードのタイトル、サイト、最新の記事が表示されます。すでに購読している場合はそのことを知らせます。フィードリストや保存した記事の読み込みは専用のタブに分かれました。",
+              "Settings がよりすっきりした Mac らしい見た目になり、サイドバーが細くなって新しいアイコンになりました。"
             ]
           },
           {
             "title": "修正",
             "items": [
-              "ステーションを開いたときに更新に失敗したフィードを、通常の2倍待たずに再試行するようになりました。",
-              "ステーションの切り替え、スマートビューを開く、バックグラウンド同期、検索の終了の際にまれに起きるデータベースや接続の問題が、ログにエラーとして残らなくなりました。次のスクロールや操作でリストが再試行します。",
-              "ステーションを開いたとき、足りないアイコンを探すためだけにすべてのフィードを読み直さなくなりました。",
-              "フィードは追加できたものの最初の記事やアイコンを保存できなかった場合に、追加に失敗したと表示されなくなりました。KiJi は新しいフィードを開いて記事を読み込みます。",
-              "バックグラウンド同期中にステーションを切り替えても、正常なフィードが失敗扱いにならず、予定どおり更新され続けます。",
-              "長いあいだ失敗しているフィードを、更新のたびに再試行しなくなりました。",
-              "更新中にフィードを削除しても、ライブラリのほかのフィードの更新が止まらなくなりました。",
-              "項目にリンクや ID がないフィードで、更新のたびに同じ記事が再び表示されなくなりました。",
-              "テーマやフォントなどの設定を変えても、バックグラウンド更新が中断・再開されなくなりました。",
-              "保存記事のインポート中に OPML ファイルを読み込んでも、そのインポートが止まったままにならなくなりました。",
-              "大きな OPML のインポートが速くなり、1つのステーションの割り当てに問題があってもインポート全体が失敗と表示されなくなりました。",
-              "保存記事の ZIP を読み込むとき、「Untitled」のように同じタイトルの記事でも、それぞれ正しい本文が保たれるようになりました。",
-              "記事やダイアログを開くときに j や k を押し続けても、背後のリストの選択が動き続けなくなりました。",
-              "記事を保存してすぐ別の記事を開いたとき、新しい画面に最初の記事が表示されなくなりました。",
-              "すべてのフィードを消去したり、ステーションをフィードごと削除したりしたとき、後片付けの一部が失敗してもサイドバーが更新されるようになりました。",
-              "KiJi のウインドウがほかのウインドウの後ろにあるとき（または KiJi がバックグラウンドで前回の選択を開き直したとき）にフィードやステーションを選ぶと、すぐに更新されるようになりました。以前はバックグラウンド更新が最大10分止まっていました。",
-              "起動後、サイドバーのフィードアイコンが再び表示されるようになりました。起動が遅くなることもありません。",
-              "日本語や中国語など UTF-8 以外の文字コードのフィードが、毎回失敗せずに読み込めるようになりました。",
-              "大きなフィードのバックグラウンド更新中でも、記事の既読やスターの操作が待たされなくなりました。また、フィードの新しい記事の保存に失敗しても、中途半端に更新された状態になりません。",
-              "2つの購読が同じ記事を含む場合でも、各フィードの未読数が正しく表示されるようになりました。",
-              "バックグラウンド更新中にステーションをクリックしても、ライブラリのほかのフィードの更新が遅れなくなりました。",
-              "同じ保存記事ファイルを2回読み込んでも重複しなくなり、すでに保存済みの件数が表示されます。タイトルに引用符やカンマを含む CSV ファイルも正しく読み込めます。"
+              "Windows と Linux で、全画面の画像ビューアの閉じるボタンがウインドウ自体の閉じるボタンの下に重ならなくなり、画像を閉じたときにウインドウが閉じてしまうことがなくなりました。"
             ]
           }
         ]
@@ -142,7 +82,7 @@
     }
   },
   "updatesFeedUrl": "https://kiji.yomilab.app/feed.xml",
-  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.6.0",
+  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.7.0",
   "downloadOptions": [
     {
       "id": "linux-aarch64-appimage",
@@ -150,10 +90,10 @@
       "label": "Linux ARM64",
       "detail": "Portable AppImage for ARM64 Linux",
       "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.6.0-linux-aarch64.AppImage",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-linux-aarch64.AppImage",
-      "size": 92781064
+      "fileName": "KiJi-1.7.0-linux-aarch64.AppImage",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-aarch64.AppImage",
+      "size": 93297160
     },
     {
       "id": "linux-aarch64-deb",
@@ -161,10 +101,10 @@
       "label": "Linux ARM64 Debian/Ubuntu",
       "detail": "For ARM64 Debian, Ubuntu, and compatible distributions",
       "fileType": "DEB",
-      "fileName": "KiJi-1.6.0-linux-aarch64.deb",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-linux-aarch64.deb",
-      "size": 20045526
+      "fileName": "KiJi-1.7.0-linux-aarch64.deb",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-aarch64.deb",
+      "size": 20657244
     },
     {
       "id": "linux-aarch64-rpm",
@@ -172,10 +112,10 @@
       "label": "Linux ARM64 Fedora/RHEL",
       "detail": "For ARM64 Fedora, RHEL, and compatible distributions",
       "fileType": "RPM",
-      "fileName": "KiJi-1.6.0-linux-aarch64.rpm",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-linux-aarch64.rpm",
-      "size": 20070696
+      "fileName": "KiJi-1.7.0-linux-aarch64.rpm",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-aarch64.rpm",
+      "size": 20682134
     },
     {
       "id": "linux-x86_64-appimage",
@@ -183,10 +123,10 @@
       "label": "Linux x64",
       "detail": "Portable AppImage for most Linux desktops",
       "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.6.0-linux-x86_64.AppImage",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-linux-x86_64.AppImage",
-      "size": 94403064
+      "fileName": "KiJi-1.7.0-linux-x86_64.AppImage",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-x86_64.AppImage",
+      "size": 94960120
     },
     {
       "id": "linux-x86_64-deb",
@@ -194,10 +134,10 @@
       "label": "Linux x64 Debian/Ubuntu",
       "detail": "For Debian, Ubuntu, and compatible distributions",
       "fileType": "DEB",
-      "fileName": "KiJi-1.6.0-linux-x86_64.deb",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-linux-x86_64.deb",
-      "size": 19874510
+      "fileName": "KiJi-1.7.0-linux-x86_64.deb",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-x86_64.deb",
+      "size": 20474292
     },
     {
       "id": "linux-x86_64-rpm",
@@ -205,10 +145,10 @@
       "label": "Linux x64 Fedora/RHEL",
       "detail": "For Fedora, RHEL, and compatible distributions",
       "fileType": "RPM",
-      "fileName": "KiJi-1.6.0-linux-x86_64.rpm",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-linux-x86_64.rpm",
-      "size": 19858052
+      "fileName": "KiJi-1.7.0-linux-x86_64.rpm",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-x86_64.rpm",
+      "size": 20457449
     },
     {
       "id": "mac-arm64-zip",
@@ -216,10 +156,10 @@
       "label": "macOS Apple Silicon",
       "detail": "Portable .app archive",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.6.0-macos-aarch64.app.zip",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-macos-aarch64.app.zip",
-      "size": 18063230
+      "fileName": "KiJi-1.7.0-macos-aarch64.app.zip",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-aarch64.app.zip",
+      "size": 18575898
     },
     {
       "id": "mac-arm64",
@@ -227,10 +167,10 @@
       "label": "macOS Apple Silicon",
       "detail": "Recommended for M1, M2, M3, and newer Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-1.6.0-macos-aarch64.dmg",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-macos-aarch64.dmg",
-      "size": 18261115
+      "fileName": "KiJi-1.7.0-macos-aarch64.dmg",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-aarch64.dmg",
+      "size": 18772234
     },
     {
       "id": "mac-x64-zip",
@@ -238,10 +178,10 @@
       "label": "macOS Intel",
       "detail": "Portable .app archive",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.6.0-macos-x86_64.app.zip",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-macos-x86_64.app.zip",
-      "size": 18665896
+      "fileName": "KiJi-1.7.0-macos-x86_64.app.zip",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-x86_64.app.zip",
+      "size": 19218095
     },
     {
       "id": "mac-x64",
@@ -249,10 +189,10 @@
       "label": "macOS Intel",
       "detail": "For Intel-based Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-1.6.0-macos-x86_64.dmg",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-macos-x86_64.dmg",
-      "size": 18863326
+      "fileName": "KiJi-1.7.0-macos-x86_64.dmg",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-x86_64.dmg",
+      "size": 19425535
     },
     {
       "id": "windows-arm64-setup",
@@ -260,10 +200,10 @@
       "label": "Windows ARM64",
       "detail": "NSIS installer executable",
       "fileType": "EXE",
-      "fileName": "KiJi-1.6.0-windows-aarch64-setup.exe",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-windows-aarch64-setup.exe",
-      "size": 13697620
+      "fileName": "KiJi-1.7.0-windows-aarch64-setup.exe",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-aarch64-setup.exe",
+      "size": 14033863
     },
     {
       "id": "windows-arm64",
@@ -271,10 +211,10 @@
       "label": "Windows ARM64",
       "detail": "For ARM-based Windows devices",
       "fileType": "MSI",
-      "fileName": "KiJi-1.6.0-windows-aarch64.msi",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-windows-aarch64.msi",
-      "size": 18034955
+      "fileName": "KiJi-1.7.0-windows-aarch64.msi",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-aarch64.msi",
+      "size": 18563339
     },
     {
       "id": "windows-x64-setup",
@@ -282,10 +222,10 @@
       "label": "Windows x64",
       "detail": "NSIS installer executable",
       "fileType": "EXE",
-      "fileName": "KiJi-1.6.0-windows-x86_64-setup.exe",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-windows-x86_64-setup.exe",
-      "size": 14391481
+      "fileName": "KiJi-1.7.0-windows-x86_64-setup.exe",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-x86_64-setup.exe",
+      "size": 14789177
     },
     {
       "id": "windows-x64",
@@ -293,10 +233,10 @@
       "label": "Windows x64",
       "detail": "Recommended for most Windows PCs",
       "fileType": "MSI",
-      "fileName": "KiJi-1.6.0-windows-x86_64.msi",
-      "version": "1.6.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.6.0/KiJi-1.6.0-windows-x86_64.msi",
-      "size": 18579723
+      "fileName": "KiJi-1.7.0-windows-x86_64.msi",
+      "version": "1.7.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-x86_64.msi",
+      "size": 19185931
     }
   ]
 }
