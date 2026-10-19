@@ -26,6 +26,9 @@ interface Props {
   metaDescription?: string;
   /** Keep the page out of search results (404). Also drops canonical and hreflang links. */
   noindex?: boolean;
+  /** Social preview name under public/images/og/ (without -<locale>.png); defaults to kiji-og. */
+  ogImageName?: string;
+  ogImageAlt?: string;
 }
 
 const {
@@ -38,6 +41,8 @@ const {
   metaTitle,
   metaDescription,
   noindex = false,
+  ogImageName = 'kiji-og',
+  ogImageAlt = text.seo.ogImageAlt,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://kiji.yomilab.app');
@@ -54,7 +59,7 @@ const alternates = LANGUAGE_OPTIONS.map((option) => ({
 }));
 const defaultLocaleUrl = new URL(localePath(DEFAULT_LANGUAGE_CODE, canonicalPath), site).href;
 // 1200x630 previews built from the logo and a real capture by scripts/make-social-image.mjs.
-const ogImage = new URL(`/images/og/kiji-og-${locale}.png`, site).href;
+const ogImage = new URL(`/images/og/${ogImageName}-${locale}.png`, site).href;
 const ogLocale = OG_LOCALES[locale];
 const ogLocaleAlternates = LANGUAGE_OPTIONS
   .map((option) => OG_LOCALES[option.code])
@@ -91,7 +96,7 @@ const shouldRedirectHome = homeRedirect && locale === DEFAULT_LANGUAGE_CODE;
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content={text.seo.ogImageAlt} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={ogLocale} />
     {ogLocaleAlternates.map((value) => <meta property="og:locale:alternate" content={value} />)}
@@ -99,7 +104,7 @@ const shouldRedirectHome = homeRedirect && locale === DEFAULT_LANGUAGE_CODE;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-    <meta name="twitter:image:alt" content={text.seo.ogImageAlt} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <meta name="theme-color" content="#EEE5D3" />
     <style is:inline set:html={readerThemeCss()} />
     <script is:inline define:vars={{ storageKey: SITE_THEME_STORAGE_KEY, defaultTheme: DEFAULT_SITE_THEME, themeIds: THEME_IDS }}>

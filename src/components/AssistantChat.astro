@@ -1,0 +1,141 @@
+---
+// A Mac-style window showing an AI app answering a question about the article
+// open in KiJi. Text only, no app logos; colors follow the site's reader theme.
+// The article is the fictional one from src/data/shotSample.ts.
+import type { LocalizedText } from '../i18n';
+
+interface Props {
+  chat: LocalizedText['assistant']['chat'];
+}
+
+const { chat } = Astro.props;
+---
+
+<figure class="ac-window" role="img" aria-label={chat.aria}>
+  <div class="ac-titlebar" aria-hidden="true">
+    <span class="ac-lights"><i></i><i></i><i></i></span>
+    <span class="ac-title">{chat.windowTitle}</span>
+  </div>
+  <div class="ac-body" aria-hidden="true">
+    <p class="ac-user">{chat.user}</p>
+    <p class="ac-tool"><span class="ac-tool-dot"></span>{chat.tool}</p>
+    <div class="ac-answer">
+      <p>{chat.answer}</p>
+      <p class="ac-check-title">{chat.checkTitle}</p>
+      <ul>
+        {chat.checks.map((check) => <li>{check}</li>)}
+      </ul>
+    </div>
+  </div>
+</figure>
+
+<style>
+  .ac-window {
+    --ac-chrome: color-mix(in srgb, var(--rt-ink) 6%, var(--rt-page));
+    --ac-line: color-mix(in srgb, var(--rt-ink) 11%, transparent);
+    margin: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--rt-page);
+    color: var(--rt-ink);
+    box-shadow: inset 0 0 0 1px var(--ac-line), var(--shadow-card-lg);
+    font-family: -apple-system, "SF Pro Text", "Inter", system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .ac-titlebar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--ac-line);
+    background: var(--ac-chrome);
+  }
+
+  .ac-lights {
+    position: absolute;
+    left: 14px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .ac-lights i {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f57;
+  }
+
+  .ac-lights i:nth-child(2) {
+    background: #febc2e;
+  }
+
+  .ac-lights i:nth-child(3) {
+    background: #28c840;
+  }
+
+  .ac-title {
+    color: var(--rt-ink-soft);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .ac-body {
+    display: grid;
+    gap: 14px;
+    padding: 22px 22px 26px;
+  }
+
+  .ac-user {
+    justify-self: end;
+    max-width: 80%;
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: 16px 16px 4px 16px;
+    background: var(--rt-accent);
+    color: var(--rt-on-accent);
+  }
+
+  .ac-tool {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--rt-ink-soft);
+    font-size: 12.5px;
+  }
+
+  .ac-tool-dot {
+    flex: none;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--rt-accent);
+  }
+
+  .ac-answer {
+    max-width: 92%;
+    padding: 14px 16px;
+    border-radius: 16px 16px 16px 4px;
+    background: var(--ac-chrome);
+  }
+
+  .ac-answer p {
+    margin: 0;
+  }
+
+  .ac-answer .ac-check-title {
+    margin-top: 12px;
+    font-weight: 600;
+  }
+
+  .ac-answer ul {
+    display: grid;
+    gap: 4px;
+    margin: 6px 0 0;
+    padding-left: 18px;
+  }
+</style>
