@@ -3,6 +3,7 @@ import { Picture, getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { ExtractionShot, ReaderShot } from '../shots/Shots';
+import AssistantChat from '../AssistantChat.astro';
 import { getText, localePath, type LanguageCode } from '../../i18n';
 import latestRelease from '../../data/latestRelease.json';
 import { READER_THEMES, dualVars } from '../../lib/readerThemes';
@@ -182,6 +183,19 @@ const jsonLd = [
           <p>{text.home.themesText}</p>
         </section>
       </div>
+
+      <section class="sw-feature sw-assistant" id="assistant">
+        <div class="sw-feature-copy">
+          <p class="sw-kicker">{text.home.assistantEyebrow}</p>
+          <h2>{clauses(text.home.assistantTitle).map((clause) => <span>{clause}</span>)}</h2>
+          <p>{text.home.assistantText}</p>
+          <ul class="sw-assistant-points">
+            {text.home.assistantPoints.map((point) => <li>{point}</li>)}
+          </ul>
+          <a href={localePath(locale, '/assistant/')}>{text.home.assistantLink}</a>
+        </div>
+        <AssistantChat chat={text.assistant.chat} />
+      </section>
     </div>
 
     <section class="sw-cta" id="privacy">
@@ -370,7 +384,9 @@ const jsonLd = [
   :global(:lang(zh-Hans)) .sw-title span,
   :global(:lang(ja)) .sw-title span,
   :global(:lang(zh-Hans)) .sw-showcase h2 span,
-  :global(:lang(ja)) .sw-showcase h2 span {
+  :global(:lang(ja)) .sw-showcase h2 span,
+  :global(:lang(zh-Hans)) .sw-assistant h2 span,
+  :global(:lang(ja)) .sw-assistant h2 span {
     display: inline-block;
   }
 
@@ -539,6 +555,36 @@ const jsonLd = [
     text-underline-offset: 4px;
   }
 
+  /* Assistant (MCP) feature: copy beside the chat mockup. */
+  .sw-assistant {
+    grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  }
+
+  .sw-kicker {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .sw-feature-copy .sw-kicker {
+    margin: 0 0 14px;
+  }
+
+  .sw-assistant-points {
+    display: grid;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 0 0 0 18px;
+    color: var(--ink);
+  }
+
+  .sw-assistant-points li::marker {
+    color: var(--accent);
+  }
+
   .sw-feature-shot {
     border-radius: 14px;
     box-shadow: var(--shadow-card-lg);
@@ -634,7 +680,8 @@ const jsonLd = [
     }
 
     .sw-feature,
-    .sw-showcase {
+    .sw-showcase,
+    .sw-assistant {
       grid-template-columns: 1fr;
       gap: 24px;
     }

@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import AssistantChat from '../AssistantChat.astro';
+import { APP_ID } from '../../lib/structuredData';
 import { getText, localePath, type AssistantClientId, type LanguageCode } from '../../i18n';
 
 interface Props {
@@ -74,33 +76,96 @@ const canonicalUrl = new URL(
   Astro.site ?? 'https://kiji.yomilab.app'
 ).href;
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: text.pageMeta.assistant.title,
-  description: text.pageMeta.assistant.description,
-  url: canonicalUrl,
-  inLanguage: locale,
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: text.pageMeta.assistant.title,
+    description: text.pageMeta.assistant.description,
+    url: canonicalUrl,
+    inLanguage: locale,
+    about: { '@id': APP_ID },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    mainEntity: text.assistant.faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+];
 ---
 
-<Base page="assistant" locale={locale} text={text} jsonLd={jsonLd}>
-  <main class="shell hero">
-    <p class="eyebrow">{text.assistant.eyebrow}</p>
-    <h1>{text.assistant.title}</h1>
-    <p class="lead">{text.assistant.lead}</p>
+<Base
+  page="assistant"
+  locale={locale}
+  text={text}
+  jsonLd={jsonLd}
+  ogImageName="kiji-og-assistant"
+  ogImageAlt={text.seo.assistantOgImageAlt}
+>
+  <main class="shell as-page">
+    <section class="as-hero">
+      <div class="as-hero-copy">
+        <p class="eyebrow">{text.assistant.eyebrow}</p>
+        <h1>{text.assistant.title.split(/(?<=[，、])/).map((clause) => <span>{clause}</span>)}</h1>
+        <p class="lead">{text.assistant.lead}</p>
+        <div class="actions">
+          <a class="button primary" href={localePath(locale, '/download/')}>{text.assistant.downloadCta}</a>
+          <a class="button" href="#setup">{text.assistant.setupLink}</a>
+        </div>
+      </div>
+      <AssistantChat chat={text.assistant.chat} />
+    </section>
 
-    <section class="doc-section" id="setup" aria-labelledby="setup-title">
-      <h2 id="setup-title">{text.assistant.stepsTitle}</h2>
-      <ol class="doc-points">
-        {text.assistant.steps.map((step) => <li>{step}</li>)}
+    <section class="as-section" id="ask" aria-labelledby="ask-title">
+      <h2 id="ask-title">{text.assistant.askTitle}</h2>
+      <p class="as-section-lead">{text.assistant.askLead}</p>
+      <ul class="as-asks">
+        {text.assistant.asks.map((ask) => (
+          <li>
+            <h3>{ask.title}</h3>
+            <p>“{ask.prompt}”</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="as-section" id="how" aria-labelledby="how-title">
+      <h2 id="how-title">{text.assistant.howTitle}</h2>
+      <ol class="as-how">
+        {text.assistant.how.map((step, index) => (
+          <li>
+            <span class="as-how-number" aria-hidden="true">{index + 1}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))}
       </ol>
     </section>
 
-    <section class="doc-section" id="apps" aria-labelledby="apps-title">
-      <h2 id="apps-title">{text.assistant.clientsTitle}</h2>
-      <p>{text.assistant.clientsLead}</p>
-      <div class="doc-clients">
+    <section class="as-section" id="privacy" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">{text.assistant.privacyTitle}</h2>
+      <p class="as-section-lead">{text.assistant.privacyLead}</p>
+      <ul class="doc-points as-privacy">
+        {text.privacy.assistantPoints.map((point) => (
+          <li><strong>{point.title}</strong> {point.text}</li>
+        ))}
+      </ul>
+      <a class="doc-link" href={`${localePath(locale, '/privacy/')}#assistant-access`}>{text.assistant.privacyLink}</a>
+    </section>
+
+    <section class="as-section" id="setup" aria-labelledby="setup-title">
+      <h2 id="setup-title">{text.assistant.setupTitle}</h2>
+      <ol class="doc-points as-steps">
+        {text.assistant.steps.map((step) => <li>{step}</li>)}
+      </ol>
+      <h3 class="as-subtitle" id="apps">{text.assistant.clientsTitle}</h3>
+      <p class="as-section-lead">{text.assistant.clientsLead}</p>
+      <div class="doc-clients as-clients">
         {CLIENT_SETUP.map((client) => {
           const clientText = text.assistant.clients[client.id];
           return (
@@ -114,32 +179,218 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="doc-section" id="prompts" aria-labelledby="prompts-title">
-      <h2 id="prompts-title">{text.assistant.promptsTitle}</h2>
-      <p>{text.assistant.promptsLead}</p>
-      <ul class="doc-prompts">
-        {text.assistant.prompts.map((prompt) => <li>{prompt}</li>)}
-      </ul>
-    </section>
-
-    <section class="doc-section" id="sharing" aria-labelledby="sharing-title">
-      <h2 id="sharing-title">{text.assistant.sharingTitle}</h2>
-      <ul class="doc-points">
-        {text.assistant.sharingPoints.map((point) => <li>{point}</li>)}
-      </ul>
-      <a class="doc-link" href={`${localePath(locale, '/privacy/')}#assistant-access`}>{text.assistant.privacyLink}</a>
-    </section>
-
-    <section class="doc-section" id="troubleshooting" aria-labelledby="troubleshooting-title">
-      <h2 id="troubleshooting-title">{text.assistant.troubleTitle}</h2>
-      <dl class="doc-trouble">
-        {text.assistant.trouble.map((item) => (
-          <div>
-            <dt>{item.problem}</dt>
-            <dd>{item.fix}</dd>
-          </div>
+    <section class="as-section" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">{text.assistant.faqTitle}</h2>
+      <div class="as-faq">
+        {text.assistant.faq.map((item) => (
+          <details>
+            <summary>{item.question}</summary>
+            <p>{item.answer}</p>
+          </details>
         ))}
-      </dl>
+      </div>
     </section>
   </main>
 </Base>
+
+<style>
+  .as-page {
+    padding: 72px 0 120px;
+  }
+
+  .as-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .as-hero h1 {
+    font-size: clamp(38px, 4.6vw, 58px);
+  }
+
+  /* CJK headlines break between clauses, never inside a word. */
+  :global(:lang(zh-Hans)) .as-hero h1 span,
+  :global(:lang(ja)) .as-hero h1 span {
+    display: inline-block;
+  }
+
+  :global(:lang(zh-Hans)) .as-hero h1,
+  :global(:lang(ja)) .as-hero h1 {
+    font-size: clamp(28px, 3.8vw, 46px);
+    line-height: 1.2;
+  }
+
+  .as-section {
+    display: grid;
+    gap: 16px;
+    margin-top: 112px;
+    scroll-margin-top: 88px;
+  }
+
+  .as-section h2 {
+    margin: 0;
+    color: var(--ink-strong);
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.4vw, 42px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+  }
+
+  .as-section h3 {
+    margin: 0;
+    color: var(--ink-strong);
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .as-section-lead {
+    max-width: 680px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+  }
+
+  .as-asks,
+  .as-how {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 12px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .as-asks li,
+  .as-how li {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    background: var(--surface);
+  }
+
+  .as-asks p {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  .as-how p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  .as-how-number {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+
+  .as-privacy,
+  .as-steps {
+    max-width: 760px;
+  }
+
+  .as-subtitle {
+    margin-top: 28px !important;
+    font-family: var(--font-display);
+    font-size: 24px !important;
+    font-weight: 400 !important;
+  }
+
+  .as-clients {
+    max-width: 860px;
+  }
+
+  .as-faq {
+    display: grid;
+    max-width: 820px;
+    border-top: 1px solid var(--line);
+  }
+
+  .as-faq details {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .as-faq summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 0;
+    color: var(--ink-strong);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .as-faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Disclosure chevron drawn in CSS. */
+  .as-faq summary::after {
+    content: "";
+    flex: none;
+    width: 8px;
+    height: 8px;
+    margin: 6px 4px 0 0;
+    border-right: 1.5px solid var(--muted);
+    border-bottom: 1.5px solid var(--muted);
+    transform: rotate(45deg);
+    transition: transform 160ms ease;
+  }
+
+  .as-faq details[open] summary::after {
+    transform: rotate(225deg);
+    margin-top: 10px;
+  }
+
+  .as-faq p {
+    max-width: 680px;
+    margin: 0 0 18px;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 960px) {
+    .as-hero {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .as-asks,
+    .as-how {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 700px) {
+    .as-page {
+      padding-top: 48px;
+    }
+
+    .as-section {
+      margin-top: 80px;
+    }
+
+    .as-asks,
+    .as-how {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -58,6 +58,8 @@ export interface LocalizedText {
   seo: {
     /** Alt text for the social preview image (public/images/og/kiji-og-<locale>.png). */
     ogImageAlt: string;
+    /** Alt text for the /assistant/ social preview (public/images/og/kiji-og-assistant-<locale>.png). */
+    assistantOgImageAlt: string;
   };
   nav: {
     aria: string;
@@ -119,6 +121,11 @@ export interface LocalizedText {
     themesText: string;
     closingTitle: string;
     closingText: string;
+    assistantEyebrow: string;
+    assistantTitle: string;
+    assistantText: string;
+    assistantPoints: string[];
+    assistantLink: string;
   };
   download: {
     eyebrow: string;
@@ -170,19 +177,33 @@ export interface LocalizedText {
     eyebrow: string;
     title: string;
     lead: string;
-    stepsTitle: string;
+    downloadCta: string;
+    setupLink: string;
+    /** Example conversation in the chat mockup (AssistantChat.astro). Fictional article. */
+    chat: {
+      aria: string;
+      windowTitle: string;
+      user: string;
+      tool: string;
+      answer: string;
+      checkTitle: string;
+      checks: string[];
+    };
+    askTitle: string;
+    askLead: string;
+    asks: Array<{ title: string; prompt: string }>;
+    howTitle: string;
+    how: Array<{ title: string; text: string }>;
+    privacyTitle: string;
+    privacyLead: string;
+    privacyLink: string;
+    setupTitle: string;
     steps: string[];
     clientsTitle: string;
     clientsLead: string;
     clients: Record<AssistantClientId, { name: string; text: string }>;
-    promptsTitle: string;
-    promptsLead: string;
-    prompts: string[];
-    sharingTitle: string;
-    sharingPoints: string[];
-    troubleTitle: string;
-    trouble: Array<{ problem: string; fix: string }>;
-    privacyLink: string;
+    faqTitle: string;
+    faq: Array<{ question: string; answer: string }>;
   };
   support: {
     eyebrow: string;
