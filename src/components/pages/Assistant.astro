@@ -1,0 +1,145 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getText, localePath, type AssistantClientId, type LanguageCode } from '../../i18n';
+
+interface Props {
+  locale: LanguageCode;
+}
+
+const { locale } = Astro.props;
+const text = getText(locale);
+
+// What the buttons in KiJi → Settings → Assistant produce, for KiJi in /Applications on a Mac.
+// Keep in sync with kiji-app src-tauri/src/mcp/client_setup.rs
+// (yomi-docs/docs/kiji/tauri/setup-kiji-mcp-clients.md §2).
+const APP_PATH = '/Applications/KiJi.app/Contents/MacOS/kiji-app';
+
+const CLIENT_SETUP: Array<{ id: AssistantClientId; snippet: string }> = [
+  {
+    id: 'claude-desktop',
+    snippet: `{
+  "mcpServers": {
+    "kiji": {
+      "command": "${APP_PATH}",
+      "args": ["--mcp"]
+    }
+  }
+}`,
+  },
+  {
+    id: 'claude-code',
+    snippet: `claude mcp add --scope user kiji -- '${APP_PATH}' --mcp`,
+  },
+  {
+    id: 'cursor',
+    snippet: `{
+  "mcpServers": {
+    "kiji": {
+      "command": "${APP_PATH}",
+      "args": ["--mcp"]
+    }
+  }
+}`,
+  },
+  {
+    id: 'vscode',
+    snippet: `{
+  "servers": {
+    "kiji": {
+      "type": "stdio",
+      "command": "${APP_PATH}",
+      "args": ["--mcp"]
+    }
+  }
+}`,
+  },
+  {
+    id: 'codex',
+    snippet: `[mcp_servers.kiji]
+command = "${APP_PATH}"
+args = ["--mcp"]`,
+  },
+  {
+    id: 'other',
+    snippet: `'${APP_PATH}' --mcp`,
+  },
+  {
+    id: 'web-address',
+    snippet: `{ "url": "http://127.0.0.1:47615/mcp", "headers": { "Authorization": "Bearer kiji_…" } }`,
+  },
+];
+
+const canonicalUrl = new URL(
+  localePath(locale, '/assistant/'),
+  Astro.site ?? 'https://kiji.yomilab.app'
+).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: text.pageMeta.assistant.title,
+  description: text.pageMeta.assistant.description,
+  url: canonicalUrl,
+  inLanguage: locale,
+};
+---
+
+<Base page="assistant" locale={locale} text={text} jsonLd={jsonLd}>
+  <main class="shell hero">
+    <p class="eyebrow">{text.assistant.eyebrow}</p>
+    <h1>{text.assistant.title}</h1>
+    <p class="lead">{text.assistant.lead}</p>
+
+    <section class="doc-section" id="setup" aria-labelledby="setup-title">
+      <h2 id="setup-title">{text.assistant.stepsTitle}</h2>
+      <ol class="doc-points">
+        {text.assistant.steps.map((step) => <li>{step}</li>)}
+      </ol>
+    </section>
+
+    <section class="doc-section" id="apps" aria-labelledby="apps-title">
+      <h2 id="apps-title">{text.assistant.clientsTitle}</h2>
+      <p>{text.assistant.clientsLead}</p>
+      <div class="doc-clients">
+        {CLIENT_SETUP.map((client) => {
+          const clientText = text.assistant.clients[client.id];
+          return (
+            <article class="doc-client" id={client.id}>
+              <h3>{clientText.name}</h3>
+              <p>{clientText.text}</p>
+              <pre lang="en"><code>{client.snippet}</code></pre>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="doc-section" id="prompts" aria-labelledby="prompts-title">
+      <h2 id="prompts-title">{text.assistant.promptsTitle}</h2>
+      <p>{text.assistant.promptsLead}</p>
+      <ul class="doc-prompts">
+        {text.assistant.prompts.map((prompt) => <li>{prompt}</li>)}
+      </ul>
+    </section>
+
+    <section class="doc-section" id="sharing" aria-labelledby="sharing-title">
+      <h2 id="sharing-title">{text.assistant.sharingTitle}</h2>
+      <ul class="doc-points">
+        {text.assistant.sharingPoints.map((point) => <li>{point}</li>)}
+      </ul>
+      <a class="doc-link" href={`${localePath(locale, '/privacy/')}#assistant-access`}>{text.assistant.privacyLink}</a>
+    </section>
+
+    <section class="doc-section" id="troubleshooting" aria-labelledby="troubleshooting-title">
+      <h2 id="troubleshooting-title">{text.assistant.troubleTitle}</h2>
+      <dl class="doc-trouble">
+        {text.assistant.trouble.map((item) => (
+          <div>
+            <dt>{item.problem}</dt>
+            <dd>{item.fix}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  </main>
+</Base>

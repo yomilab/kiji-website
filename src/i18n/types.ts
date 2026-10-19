@@ -1,4 +1,6 @@
-export type PageKey = 'home' | 'download' | 'resource' | 'changelog' | 'privacy' | 'support';
+export type PageKey = 'home' | 'download' | 'resource' | 'changelog' | 'privacy' | 'assistant' | 'support';
+/** AI apps covered on the /assistant/ help page; setup snippets live in Assistant.astro. */
+export type AssistantClientId = 'claude-desktop' | 'claude-code' | 'cursor' | 'vscode' | 'codex' | 'other' | 'web-address';
 export type LogoVariant = 'light' | 'dark' | 'theme';
 export type LogoDownloadId = 'logo-pack' | 'light-logo' | 'dark-logo';
 export type DownloadPlatform = 'mac' | 'windows' | 'linux';
@@ -71,6 +73,7 @@ export interface LocalizedText {
     legalHeading: string;
     disclaimer: string;
     privacy: string;
+    assistant: string;
     support: string;
     resource: string;
     github: string;
@@ -157,6 +160,29 @@ export interface LocalizedText {
     eyebrow: string;
     title: string;
     lead: string;
+    assistantTitle: string;
+    assistantLead: string;
+    /** Each point is a bold lead-in plus the sentence after it. */
+    assistantPoints: Array<{ title: string; text: string }>;
+    assistantHelpLink: string;
+  };
+  assistant: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    stepsTitle: string;
+    steps: string[];
+    clientsTitle: string;
+    clientsLead: string;
+    clients: Record<AssistantClientId, { name: string; text: string }>;
+    promptsTitle: string;
+    promptsLead: string;
+    prompts: string[];
+    sharingTitle: string;
+    sharingPoints: string[];
+    troubleTitle: string;
+    trouble: Array<{ problem: string; fix: string }>;
+    privacyLink: string;
   };
   support: {
     eyebrow: string;

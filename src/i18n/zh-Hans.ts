@@ -27,6 +27,11 @@ const zhHans: LocalizedText = {
       description: 'KiJi 不收集个人阅读数据。订阅、文章、收藏与阅读状态都保存在你的设备上，随时可以导出。',
       canonicalPath: '/privacy/',
     },
+    assistant: {
+      title: '把 Claude、Cursor 等 AI 助手连接到 KiJi',
+      description: '让 Claude、Cursor、VS Code、Codex 等 AI 应用读取你的 KiJi 资料库。只读，默认关闭，能看到什么由你决定。',
+      canonicalPath: '/assistant/',
+    },
     support: {
       title: 'KiJi 反馈与支持',
       description: '有问题、功能建议或想报告 bug？欢迎发邮件给 KiJi 团队，每一条反馈都会让 KiJi 更好用。',
@@ -50,6 +55,7 @@ const zhHans: LocalizedText = {
     legalHeading: '法律与支持',
     disclaimer: '© 2026 KiJi by Yomi Lab。所有处理均在本地完成。',
     privacy: '隐私',
+    assistant: 'AI 助手',
     support: '反馈',
     resource: '资源',
     github: 'YomiLab GitHub',
@@ -147,6 +153,123 @@ const zhHans: LocalizedText = {
     eyebrow: '隐私',
     title: '不收集个人阅读数据。',
     lead: 'KiJi 在本地存储订阅、文章、收藏与阅读状态。需要时可导出。',
+    assistantTitle: '助手访问',
+    assistantLead: 'KiJi 可以让你使用的 AI 应用（例如 Claude、Cursor 或 VS Code）读取你的 KiJi 资料库，方便你就自己的阅读向它提问。',
+    assistantPoints: [
+      {
+        title: '默认关闭。',
+        text: '在你打开 Settings → Assistant → Let assistants read your KiJi library 之前，不会共享任何内容。你随时可以再关掉。',
+      },
+      {
+        title: '只读。',
+        text: '助手只能读取你共享的内容，不能在 KiJi 中添加、修改或删除任何东西。',
+      },
+      {
+        title: '在你的电脑上运行。',
+        text: 'KiJi 直接在你的电脑上回应 AI 应用。你的资料库不会发送给我们，也不会保存在任何 KiJi 服务器上。',
+      },
+      {
+        title: '共享什么由你决定。',
+        text: '在 Settings → Assistant 中选择助手能看到哪些站点，以及是否包含没有站点的订阅源、收藏的文章、正在阅读的文章和你的笔记与高亮。笔记与高亮在你打开之前保持关闭。',
+      },
+      {
+        title: '内容会交给你提问的 AI 应用。',
+        text: '当你向助手询问阅读内容时，它读取的文章会交给这个 AI 应用，应用可能会把它们发送到自己的 AI 服务。这些内容适用该应用自己的隐私政策。',
+      },
+      {
+        title: 'Reset Access。',
+        text: '如果你通过网址连接了某个应用，Settings → Assistant 中的 Reset Access 会更换密钥：旧密钥随即失效，所有已连接的应用都会断开。',
+      },
+    ],
+    assistantHelpLink: '如何连接 AI 助手',
+  },
+  assistant: {
+    eyebrow: '助手访问',
+    title: '向 AI 助手询问你的阅读。',
+    lead: '把 Claude、Cursor、VS Code、Codex 或其他 AI 应用连接到 KiJi，它就能读取你选择的站点、文章和收藏，以及你正在打开的文章。它只读取，从不修改你的资料库。',
+    stepsTitle: '设置步骤',
+    steps: [
+      '打开 KiJi，进入 Settings → Assistant。',
+      '打开 Let assistants read your KiJi library。',
+      '在 What Assistants Can See 中选择要共享的内容。',
+      '在列表中找到你的 AI 应用，点击对应的按钮。KiJi 会自动填入它在你电脑上的安装位置。',
+      '提问时保持 KiJi 打开。如果 KiJi 没有打开，助手会提醒你打开它。',
+    ],
+    clientsTitle: '你的 AI 应用',
+    clientsLead: '下面的示例假设 KiJi 位于 Mac 的“应用程序”文件夹。KiJi 中的按钮会给出适合你电脑的版本，尽量从那里复制。移动 KiJi 之后，请重新复制设置。',
+    clients: {
+      'claude-desktop': {
+        name: 'Claude Desktop',
+        text: '在 Mac 上点击 Download Extension，然后双击保存下来的 KiJi.mcpb 文件，Claude 会请你确认安装。也可以点击 Copy Setup，把内容加入 Claude 的配置文件（Claude → Settings → Developer → Edit Config），然后重启 Claude。',
+      },
+      'claude-code': {
+        name: 'Claude Code',
+        text: '点击 Copy Command，在终端中运行。',
+      },
+      cursor: {
+        name: 'Cursor',
+        text: '点击 Add to Cursor，并在 Cursor 中确认。也可以点击 Copy Setup，把内容加入 ~/.cursor/mcp.json。',
+      },
+      vscode: {
+        name: 'VS Code',
+        text: '点击 Add to VS Code，并在 VS Code 中确认。也可以点击 Copy Setup，在命令面板中运行 MCP: Open User Configuration，再把内容加进去。',
+      },
+      codex: {
+        name: 'OpenAI Codex',
+        text: '点击 Copy Setup，把这几行加入 ~/.codex/config.toml。',
+      },
+      other: {
+        name: '其他应用',
+        text: '大多数支持 MCP 的 AI 应用都能用一条命令启动 KiJi。点击 Copy Command，粘贴到应用要求填写命令的地方。',
+      },
+      'web-address': {
+        name: '只支持网址的应用',
+        text: '在 Settings → Assistant → Advanced 中打开 Allow connections by web address，然后点击 Copy Web Address Setup。设置中包含一把私人密钥，请不要分享给他人。Reset Access 会换一把新的。',
+      },
+    },
+    promptsTitle: '可以这样问',
+    promptsLead: '连接之后，用你自己的话提问即可。几个例子：',
+    prompts: [
+      '总结我正在读的文章，并列出值得核实的说法。',
+      '我的 Tech 站点最近 3 天发生了什么？按主题分组。',
+      '找出本月关于 Rust async 的文章，比较它们的观点。',
+      '把我上周收藏的文章和其中的高亮整理成学习笔记。',
+    ],
+    sharingTitle: '助手能看到什么',
+    sharingPoints: [
+      '只有你在 What Assistants Can See 中选择的内容：全部站点或你挑选的站点、没有站点的订阅源、收藏的文章，以及你正在阅读的文章。',
+      '笔记与高亮在你打开之前保持私密。',
+      '助手只能读取，不能标记已读、收藏、删除或订阅。',
+      'Settings → Assistant 中的 Connected Assistants 会显示哪些应用连接过，以及连接的时间。',
+    ],
+    troubleTitle: '遇到问题时',
+    trouble: [
+      {
+        problem: '助手说 KiJi 没有打开。',
+        fix: '打开 KiJi，并确认 Let assistants read your KiJi library 已打开。',
+      },
+      {
+        problem: '找不到某个站点。',
+        fix: '在 What Assistants Can See 中选中这个站点。',
+      },
+      {
+        problem: '提示没有打开的文章。',
+        fix: '在 KiJi 中打开一篇文章，并确认 The article I’m reading 已打开。',
+      },
+      {
+        problem: '移动 KiJi 之后，应用无法启动它。',
+        fix: '在 Settings → Assistant 中重新复制设置。',
+      },
+      {
+        problem: '通过网址连接的应用不能用了。',
+        fix: '访问已被重置。请再次点击 Copy Web Address Setup。',
+      },
+      {
+        problem: 'KiJi 提示另一个 KiJi 正在共享。',
+        fix: '退出另一个 KiJi，然后把助手访问关掉再打开。',
+      },
+    ],
+    privacyLink: '助手访问如何处理你的数据',
   },
   support: {
     eyebrow: '反馈',

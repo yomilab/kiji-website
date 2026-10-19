@@ -27,6 +27,11 @@ const ja: LocalizedText = {
       description: 'KiJi は個人の読書データを収集しません。フィード、記事、保存項目、読書状態はお使いのデバイスに保存され、いつでもエクスポートできます。',
       canonicalPath: '/privacy/',
     },
+    assistant: {
+      title: 'KiJi に AI アシスタントを接続 - Claude・Cursor など',
+      description: 'Claude、Cursor、VS Code、Codex などの AI アプリから KiJi のライブラリを読めるようにします。読み取り専用で初期設定はオフ、見せる範囲はあなたが選べます。',
+      canonicalPath: '/assistant/',
+    },
     support: {
       title: 'KiJi フィードバックとサポート',
       description: '質問、機能の要望、不具合の報告は KiJi チームへメールでどうぞ。いただいた声が KiJi をもっと使いやすくします。',
@@ -50,6 +55,7 @@ const ja: LocalizedText = {
     legalHeading: '法務とサポート',
     disclaimer: '© 2026 KiJi by Yomi Lab。すべての処理はローカルで行われます。',
     privacy: 'プライバシー',
+    assistant: 'AI アシスタント',
     support: 'フィードバック',
     resource: 'リソース',
     github: 'YomiLab GitHub',
@@ -147,6 +153,123 @@ const ja: LocalizedText = {
     eyebrow: 'プライバシー',
     title: '個人の読書データを収集しません。',
     lead: 'KiJiはフィード、記事、保存項目、読書状態をローカルに保存します。必要ならエクスポートできます。',
+    assistantTitle: 'アシスタントアクセス',
+    assistantLead: 'KiJi は、Claude、Cursor、VS Code など、お使いの AI アプリに KiJi のライブラリを読ませることができます。読んでいる記事について AI に質問できます。',
+    assistantPoints: [
+      {
+        title: '初期設定はオフ。',
+        text: 'Settings → Assistant → Let assistants read your KiJi library をオンにするまで、何も共有されません。いつでもオフに戻せます。',
+      },
+      {
+        title: '読み取り専用。',
+        text: 'アシスタントが読めるのは共有した内容だけです。KiJi の中で追加・変更・削除はできません。',
+      },
+      {
+        title: 'お使いのコンピューター上で動作。',
+        text: 'KiJi はお使いのコンピューター上で AI アプリに直接応答します。ライブラリが私たちに送られたり、KiJi のサーバーに保存されたりすることはありません。',
+      },
+      {
+        title: '共有する範囲はあなたが選びます。',
+        text: 'Settings → Assistant で、アシスタントに見せるステーションと、ステーションのないフィード、保存した記事、読んでいる記事、メモとハイライトを含めるかを選べます。メモとハイライトはオンにするまでオフです。',
+      },
+      {
+        title: '内容は質問した AI アプリに渡ります。',
+        text: 'アシスタントに読書について尋ねると、読まれた記事はその AI アプリに渡り、アプリが自社の AI サービスに送る場合があります。その扱いにはそのアプリのプライバシーポリシーが適用されます。',
+      },
+      {
+        title: 'Reset Access。',
+        text: 'Web アドレスでアプリを接続した場合、Settings → Assistant の Reset Access でキーが新しくなります。古いキーは使えなくなり、接続中のアプリはすべて切断されます。',
+      },
+    ],
+    assistantHelpLink: 'AI アシスタントの接続方法',
+  },
+  assistant: {
+    eyebrow: 'アシスタントアクセス',
+    title: '読んでいるものを、AI アシスタントに聞く。',
+    lead: 'Claude、Cursor、VS Code、Codex などの AI アプリを KiJi に接続すると、あなたが選んだステーション、記事、保存項目と、いま開いている記事を読めるようになります。読むだけで、ライブラリを変更することはありません。',
+    stepsTitle: '設定の手順',
+    steps: [
+      'KiJi を開き、Settings → Assistant に進みます。',
+      'Let assistants read your KiJi library をオンにします。',
+      'What Assistants Can See で共有する内容を選びます。',
+      '一覧からお使いの AI アプリを探し、そのボタンを使います。KiJi がインストール場所を自動で入れます。',
+      '質問するときは KiJi を開いたままにします。閉じていると、アシスタントが KiJi を開くよう案内します。',
+    ],
+    clientsTitle: 'お使いの AI アプリ',
+    clientsLead: '以下の例は、Mac の「アプリケーション」フォルダに KiJi がある場合です。KiJi のボタンはお使いのコンピューターに合った内容を出すので、できるだけそこからコピーしてください。KiJi を移動したら、設定をコピーし直してください。',
+    clients: {
+      'claude-desktop': {
+        name: 'Claude Desktop',
+        text: 'Mac では Download Extension をクリックし、保存された KiJi.mcpb をダブルクリックすると、Claude がインストールを確認します。または Copy Setup をクリックし、Claude の設定ファイル（Claude → Settings → Developer → Edit Config）に追加して Claude を再起動します。',
+      },
+      'claude-code': {
+        name: 'Claude Code',
+        text: 'Copy Command をクリックし、ターミナルで実行します。',
+      },
+      cursor: {
+        name: 'Cursor',
+        text: 'Add to Cursor をクリックして Cursor で確認します。または Copy Setup をクリックし、~/.cursor/mcp.json に追加します。',
+      },
+      vscode: {
+        name: 'VS Code',
+        text: 'Add to VS Code をクリックして VS Code で確認します。または Copy Setup をクリックし、コマンドパレットで MCP: Open User Configuration を実行して追加します。',
+      },
+      codex: {
+        name: 'OpenAI Codex',
+        text: 'Copy Setup をクリックし、~/.codex/config.toml に追加します。',
+      },
+      other: {
+        name: 'その他のアプリ',
+        text: 'MCP に対応した多くの AI アプリは、コマンドで KiJi を起動できます。Copy Command をクリックし、アプリのコマンド入力欄に貼り付けます。',
+      },
+      'web-address': {
+        name: 'Web アドレスだけに対応したアプリ',
+        text: 'Settings → Assistant → Advanced で Allow connections by web address をオンにし、Copy Web Address Setup をクリックします。設定には個人用のキーが含まれるので、他の人と共有しないでください。Reset Access で新しいキーに替えられます。',
+      },
+    },
+    promptsTitle: '質問の例',
+    promptsLead: '接続したら、いつもの言葉で質問するだけです。たとえば：',
+    prompts: [
+      'いま読んでいる記事を要約して、確認すべき主張を挙げて。',
+      'Tech ステーションで直近 3 日に何があった？トピックごとにまとめて。',
+      '今月の Rust async に関する記事を探して、それぞれの見解を比べて。',
+      '先週保存した記事とハイライトを学習ノートにまとめて。',
+    ],
+    sharingTitle: 'アシスタントに見えるもの',
+    sharingPoints: [
+      'What Assistants Can See で選んだものだけです。すべてのステーションまたは選んだステーション、ステーションのないフィード、保存した記事、読んでいる記事。',
+      'メモとハイライトは、オンにするまで非公開のままです。',
+      'アシスタントは読むだけで、既読にする、保存する、削除する、購読することはできません。',
+      'Settings → Assistant の Connected Assistants で、どのアプリがいつ接続したかを確認できます。',
+    ],
+    troubleTitle: 'うまくいかないとき',
+    trouble: [
+      {
+        problem: 'KiJi が開いていないと言われる。',
+        fix: 'KiJi を開き、Let assistants read your KiJi library がオンになっているか確認してください。',
+      },
+      {
+        problem: 'ステーションが見つからない。',
+        fix: 'What Assistants Can See でそのステーションを選んでください。',
+      },
+      {
+        problem: '開いている記事がないと言われる。',
+        fix: 'KiJi で記事を開き、The article I’m reading がオンか確認してください。',
+      },
+      {
+        problem: 'KiJi を移動したら、アプリから起動できなくなった。',
+        fix: 'Settings → Assistant から設定をコピーし直してください。',
+      },
+      {
+        problem: 'Web アドレスで接続したアプリが使えなくなった。',
+        fix: 'アクセスがリセットされています。Copy Web Address Setup をもう一度クリックしてください。',
+      },
+      {
+        problem: '別の KiJi が共有中と表示される。',
+        fix: 'もう一方の KiJi を終了し、アシスタントアクセスをオフにしてからオンに戻してください。',
+      },
+    ],
+    privacyLink: 'アシスタントアクセスとデータの扱い',
   },
   support: {
     eyebrow: 'フィードバック',

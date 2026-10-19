@@ -593,6 +593,141 @@ summary:focus-visible {
   border-bottom-color: var(--ink-strong);
 }
 
+/* ---------- Doc pages (privacy, assistant) ---------- */
+
+.doc-section {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin-top: 44px;
+}
+
+.doc-section h2 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-size: clamp(26px, 2.8vw, 34px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.doc-section h3 {
+  margin: 0;
+  color: var(--ink-strong);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.doc-section p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.doc-points,
+.doc-prompts {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0 0 0 20px;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.doc-points li::marker {
+  color: var(--faint);
+}
+
+.doc-points strong {
+  color: var(--ink-strong);
+  font-weight: 600;
+}
+
+.doc-prompts {
+  padding: 0;
+  list-style: none;
+}
+
+.doc-prompts li {
+  padding: 12px 16px;
+  border-left: 2px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 10px 10px 0;
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.doc-clients {
+  display: grid;
+  gap: 14px;
+}
+
+.doc-client {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  scroll-margin-top: 96px;
+}
+
+.doc-client pre {
+  margin: 0;
+  padding: 12px 14px;
+  overflow-x: auto;
+  border-radius: 10px;
+  background: var(--surface-2);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.doc-trouble {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.doc-trouble div {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.doc-trouble dt {
+  color: var(--ink-strong);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.doc-trouble dd {
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.doc-link {
+  justify-self: start;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--faint);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 150ms ease;
+}
+
+.doc-link:hover {
+  border-bottom-color: var(--ink-strong);
+}
+
 /* ---------- Resource page ---------- */
 
 .logo-grid {
