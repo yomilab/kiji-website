@@ -75,7 +75,7 @@ const en: LocalizedText = {
     subscribeCta: 'Subscribe to updates',
     captureLight: 'Light',
     captureDark: 'Dark',
-    captureTechAlt: 'KiJi showing the Tech station, in the light version on the left and the dark version on the right',
+    captureTechAlt: 'KiJi showing the Awesome Tech station with large cover images, in the light version on the left and the dark version on the right',
     captureLanguagesTitle: 'Feeds in any language',
     captureLanguagesAlt: 'KiJi showing English, Japanese and Chinese stations side by side',
     captureReaderAlt: 'An article in KiJi reader mode, in the light version on the left and the dark version on the right',

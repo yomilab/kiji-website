@@ -75,7 +75,7 @@ const zhHans: LocalizedText = {
     subscribeCta: '订阅更新',
     captureLight: '浅色',
     captureDark: '深色',
-    captureTechAlt: 'KiJi 显示“Tech”站点，左半为浅色版本，右半为深色版本',
+    captureTechAlt: 'KiJi 以大封面图显示“Awesome Tech”站点，左半为浅色版本，右半为深色版本',
     captureLanguagesTitle: '任何语言的订阅',
     captureLanguagesAlt: 'KiJi 并排显示英文、日文和中文站点',
     captureReaderAlt: 'KiJi 阅读模式下的文章，左半为浅色版本，右半为深色版本',

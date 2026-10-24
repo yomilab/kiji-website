@@ -38,7 +38,7 @@ const chipStyle = (id: string) =>
     .map(([key, value]) => `${key}:${value}`)
     .join(';');
 
-const screenshot = await getImage({ src: capture('tech-light-dark'), width: 1280, format: 'webp' });
+const screenshot = await getImage({ src: capture('awesome-tech-light-dark'), width: 1280, format: 'webp' });
 const jsonLd = [
   softwareApplicationJsonLd({
     locale,
@@ -67,7 +67,7 @@ const jsonLd = [
           <span>{text.home.captureDark}</span>
         </div>
         <Picture
-          src={capture('tech-light-dark')}
+          src={capture('awesome-tech-light-dark')}
           formats={['avif', 'webp']}
           widths={captureWidths}
           sizes="(max-width: 1152px) calc(100vw - 32px), 1120px"

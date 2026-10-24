@@ -75,7 +75,7 @@ const ja: LocalizedText = {
     subscribeCta: '更新を購読',
     captureLight: 'ライト',
     captureDark: 'ダーク',
-    captureTechAlt: '「Tech」ステーションを表示した KiJi。左半分がライト、右半分がダーク',
+    captureTechAlt: '「Awesome Tech」ステーションを大きなカバー画像で表示した KiJi。左半分がライト、右半分がダーク',
     captureLanguagesTitle: 'どの言語のフィードでも',
     captureLanguagesAlt: '英語、日本語、中国語のステーションを並べて表示した KiJi',
     captureReaderAlt: 'KiJi のリーダーモードで表示した記事。左半分がライト、右半分がダーク',
