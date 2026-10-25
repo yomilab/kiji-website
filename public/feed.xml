@@ -6,7 +6,14 @@
     <atom:link href="https://kiji.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for KiJi.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Oct 2026 00:54:27 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 01:11:28 GMT</lastBuildDate>
+    <item>
+      <title>KiJi 1.8.1</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.8.1</link>
+      <guid isPermaLink="false">kiji-release-v1.8.1</guid>
+      <pubDate>Sun, 25 Oct 2026 01:11:28 GMT</pubDate>
+      <description><![CDATA[<h3>New</h3><ul><li>Podcast episodes keep playing when you close the article. A small player sits in the bottom-right corner with play/pause, skip back 15 seconds, skip ahead 30 seconds and playback speed. Open its queue to go back to any episode you started; each one picks up where you left off, and the next one plays when an episode ends. Click the episode name to open its article again.</li></ul><h3>Improved</h3><ul><li>The article list now shows large cover images by default. If you already picked a style in Settings → Appearance, KiJi keeps it.</li><li>The episode player in articles has a new look: the show's artwork and the episode name, a larger play button, skip back and ahead, time left, and playback speed. While another episode plays, Play later adds this one to the queue.</li></ul>]]></description>
+    </item>
     <item>
       <title>KiJi 1.8.0</title>
       <link>https://kiji.yomilab.app/changelog/#v1.8.0</link>

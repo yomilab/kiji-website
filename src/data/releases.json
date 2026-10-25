@@ -1,5 +1,64 @@
 [
   {
+    "version": "1.8.1",
+    "tag": "v1.8.1",
+    "date": "2026-10-25T01:11:28Z",
+    "assetsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.8.1",
+    "notes": {
+      "sections": [
+        {
+          "title": "New",
+          "items": [
+            "Podcast episodes keep playing when you close the article. A small player sits in the bottom-right corner with play/pause, skip back 15 seconds, skip ahead 30 seconds and playback speed. Open its queue to go back to any episode you started; each one picks up where you left off, and the next one plays when an episode ends. Click the episode name to open its article again."
+          ]
+        },
+        {
+          "title": "Improved",
+          "items": [
+            "The article list now shows large cover images by default. If you already picked a style in Settings → Appearance, KiJi keeps it.",
+            "The episode player in articles has a new look: the show's artwork and the episode name, a larger play button, skip back and ahead, time left, and playback speed. While another episode plays, Play later adds this one to the queue."
+          ]
+        }
+      ],
+      "translations": {
+        "zh-Hans": {
+          "sections": [
+            {
+              "title": "新功能",
+              "items": [
+                "关闭文章后，播客节目会继续播放。右下角有一个小播放器，提供播放/暂停、后退 15 秒、前进 30 秒和播放速度。打开它的队列可以回到任何你听过的节目，每个节目都会从上次停下的地方继续，一集播完后会自动播放下一集。点击节目名称即可再次打开对应的文章。"
+              ]
+            },
+            {
+              "title": "改进",
+              "items": [
+                "文章列表现在默认显示大幅封面图片。如果你已经在 Settings → Appearance 中选过样式，KiJi 会保留你的选择。",
+                "文章中的节目播放器换了新外观：节目封面和单集名称、更大的播放按钮、后退和前进、剩余时间以及播放速度。在播放其他节目时，点击 Play later 可把这一集加入队列。"
+              ]
+            }
+          ]
+        },
+        "ja": {
+          "sections": [
+            {
+              "title": "新機能",
+              "items": [
+                "記事を閉じてもポッドキャストのエピソードが再生され続けるようになりました。右下に小さなプレーヤーが表示され、再生/一時停止、15 秒戻る、30 秒進む、再生速度を操作できます。キューを開くと、これまでに聴いたエピソードにいつでも戻れます。どのエピソードも前回止めたところから再開し、1 つ終わると次のエピソードが再生されます。エピソード名をクリックすると、その記事をもう一度開けます。"
+              ]
+            },
+            {
+              "title": "改善",
+              "items": [
+                "記事リストが最初から大きなカバー画像で表示されるようになりました。Settings → Appearance ですでにスタイルを選んでいる場合は、その選択がそのまま使われます。",
+                "記事内のエピソードプレーヤーのデザインが新しくなりました。番組のアートワークとエピソード名、大きな再生ボタン、戻る・進む、残り時間、再生速度を表示します。別のエピソードを再生中は、Play later でこのエピソードをキューに追加できます。"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
     "version": "1.8.0",
     "tag": "v1.8.0",
     "date": "2026-10-25T00:54:27Z",
