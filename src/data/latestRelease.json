@@ -1,30 +1,35 @@
 {
   "productName": "KiJi",
-  "version": "1.7.0",
-  "tag": "v1.7.0",
-  "date": "2026-10-19T09:38:55Z",
-  "notesUrl": "https://kiji.yomilab.app/changelog/#v1.7.0",
+  "version": "1.8.0",
+  "tag": "v1.8.0",
+  "date": "2026-10-25T00:54:27Z",
+  "notesUrl": "https://kiji.yomilab.app/changelog/#v1.8.0",
   "notes": {
     "sections": [
       {
         "title": "New",
         "items": [
-          "New Assistant tab in Settings lets AI apps such as Claude, Cursor, VS Code and Codex read your KiJi library — including the article you're reading right now — so you can ask them to explain an article, summarize a station's week, or search your feeds. It's off until you turn it on, read-only, and you choose which stations, saved articles and notes are shared. One click adds KiJi to Claude Desktop, Cursor or VS Code.",
-          "You can also let assistants make changes for you: mark articles read or unread, star them, or save them to Saved when you ask. This has its own switch in Settings → Assistant, is off until you turn it on, and the article list, unread counts and Saved update right away.",
-          "New Manage Feeds window keeps your feeds, stations, Library views, and import and export in one place, with tabs along the top like a Mac settings window. Lists show each feed's icon, site, counts and status, and you can select several feeds to change them together."
+          "KiJi can keep running after you close its window, so feeds keep updating and AI assistants can still reach it. Turn it on in Settings → General → Keep KiJi running when you close the window. On Mac it's on by default and KiJi stays in the Dock; on Windows and Linux it lives in the system tray, where you can open or quit it, and opening KiJi again brings back the running window.",
+          "A new Today view in the Library shows everything from the last 24 hours.",
+          "Press ⌘K to jump to any feed, station or view, or to run an action, by typing a few letters.",
+          "Paste a website's address in Add Feeds and KiJi finds its feed for you. You no longer need the exact feed link.",
+          "Choose how the article list looks: Compact, Comfortable or Large Images.",
+          "Make article text bigger or smaller with ⌘+ and ⌘−, and reset it with ⌘0. A size control also sits in the reader.",
+          "KiJi can remove old read articles for you to keep your library small. Pick an age in Settings → General → Storage. It's off by default, and starred and saved articles are always kept."
         ]
       },
       {
         "title": "Improved",
         "items": [
-          "Adding a feed is simpler: paste a link and KiJi shows the feed — its title, site and latest articles — before you add it, or tells you if you already follow it. Importing a feed list or saved articles has its own tab.",
-          "Settings has a cleaner, more Mac-like look, with a slimmer sidebar and new icons."
+          "Search now looks inside the full text of articles, not just titles. It works in the article list, in Saved, and for assistants. Title matches come first, and text matches show a short excerpt of where the word appears. Existing libraries are indexed in the background, and title search keeps working while that runs.",
+          "KiJi works better with VoiceOver and the keyboard. You can move through the sidebar and article list with arrow keys and Tab, VoiceOver reads names, unread counts and read state, focus returns to your place when you close an article, and Reduce Motion is respected.",
+          "Starred and unread views and stations with many articles open faster."
         ]
       },
       {
         "title": "Fixed",
         "items": [
-          "On Windows and Linux, the close button of the full-window image viewer no longer sits under the window's own Close button, so closing an image no longer closes the window."
+          "On a narrow window, the article list keeps its side margins."
         ]
       }
     ],
@@ -34,22 +39,27 @@
           {
             "title": "新功能",
             "items": [
-              "Settings 新增 Assistant 标签页，让 Claude、Cursor、VS Code、Codex 等 AI 应用读取你的 KiJi 资料库，包括你正在阅读的文章。你可以让它们解释一篇文章、总结某个站点分组一周的内容，或搜索你的订阅。此功能默认关闭，只读，并由你决定共享哪些站点分组、已保存文章和笔记。一键即可把 KiJi 添加到 Claude Desktop、Cursor 或 VS Code。",
-              "你也可以允许助手替你操作：在你要求时将文章标为已读或未读、加星标，或保存到 Saved。此项在 Settings → Assistant 中有单独的开关，默认关闭；文章列表、未读数和 Saved 会立即更新。",
-              "新的 Manage Feeds 窗口把订阅、站点分组、Library 视图以及导入导出集中在一处，标签页位于窗口顶部，就像 Mac 的设置窗口。列表会显示每个订阅的图标、网站、数量和状态，还可以同时选择多个订阅一起修改。"
+              "关闭窗口后，KiJi 可以继续在后台运行，订阅会继续更新，AI 助手也仍能访问它。在 Settings → General → Keep KiJi running when you close the window 中开启。在 Mac 上默认开启，KiJi 会留在 Dock 中；在 Windows 和 Linux 上它会留在系统托盘，可从托盘打开或退出，再次打开 KiJi 会回到正在运行的窗口。",
+              "Library 新增 Today 视图，显示最近 24 小时内的所有内容。",
+              "按 ⌘K，输入几个字母即可跳转到任意订阅、站点分组或视图，或执行某个操作。",
+              "在 Add Feeds 中粘贴网站地址，KiJi 会自动为你找到它的订阅源，不再需要准确的订阅链接。",
+              "可选择文章列表的样式：Compact、Comfortable 或 Large Images。",
+              "用 ⌘+ 和 ⌘− 放大或缩小文章文字，用 ⌘0 恢复默认。阅读器中也有字号控件。",
+              "KiJi 可以替你自动删除较早的已读文章，让资料库保持精简。在 Settings → General → Storage 中选择保留时长。此功能默认关闭，加星标和已保存的文章始终保留。"
             ]
           },
           {
             "title": "改进",
             "items": [
-              "添加订阅更简单了：粘贴链接后，KiJi 会先显示这个订阅的标题、网站和最新文章，再由你添加；如果你已经订阅过，也会直接告诉你。导入订阅列表或已保存文章有了单独的标签页。",
-              "Settings 的外观更简洁、更像 Mac，侧栏更窄，并换用了新图标。"
+              "搜索现在会查找文章全文，而不只是标题，适用于文章列表、Saved 以及助手。标题匹配的结果排在前面，正文匹配的结果会显示关键词所在位置的简短摘录。已有资料库会在后台建立索引，期间标题搜索照常可用。",
+              "KiJi 对 VoiceOver 和键盘的支持更好了。可以用方向键和 Tab 在侧边栏和文章列表中移动，VoiceOver 会朗读名称、未读数和已读状态，关闭文章后焦点会回到原来的位置，并会遵循“减少动态效果”设置。",
+              "星标、未读视图以及文章较多的站点分组打开得更快。"
             ]
           },
           {
             "title": "修复",
             "items": [
-              "在 Windows 和 Linux 上，全窗口图片查看器的关闭按钮不再位于窗口自身的关闭按钮下方，关闭图片时不会再把窗口关掉。"
+              "窗口较窄时，文章列表会保留两侧边距。"
             ]
           }
         ]
@@ -59,22 +69,27 @@
           {
             "title": "新機能",
             "items": [
-              "Settings に新しい Assistant タブが加わり、Claude、Cursor、VS Code、Codex などの AI アプリが、いま読んでいる記事を含む KiJi のライブラリを読めるようになりました。記事の解説、ステーションの1週間のまとめ、フィードの検索などを頼めます。オンにするまでは無効で、読み取り専用です。共有するステーション、保存した記事、メモはあなたが選べます。Claude Desktop、Cursor、VS Code にはワンクリックで KiJi を追加できます。",
-              "アシスタントに操作を任せることもできます。頼んだときに記事を既読・未読にしたり、スターを付けたり、Saved に保存したりします。Settings → Assistant に専用のスイッチがあり、オンにするまでは無効です。記事リスト、未読数、Saved はすぐに更新されます。",
-              "新しい Manage Feeds ウインドウで、フィード、ステーション、Library の表示、読み込みと書き出しをまとめて管理できます。Mac の設定ウインドウのように上部にタブが並びます。リストには各フィードのアイコン、サイト、件数、状態が表示され、複数のフィードを選んでまとめて変更できます。"
+              "ウインドウを閉じたあとも KiJi をバックグラウンドで動かし続けられるようになりました。フィードは更新され続け、AI アシスタントからも引き続きアクセスできます。Settings → General → Keep KiJi running when you close the window でオンにします。Mac では最初からオンで、KiJi は Dock に残ります。Windows と Linux ではシステムトレイに常駐し、そこから開いたり終了したりできます。KiJi をもう一度開くと、動いているウインドウが戻ってきます。",
+              "Library に新しい Today ビューが加わり、過去24時間のものをすべて表示します。",
+              "⌘K を押して数文字入力するだけで、フィード、ステーション、ビューに移動したり、操作を実行したりできます。",
+              "Add Feeds にウェブサイトのアドレスを貼り付けると、KiJi がそのフィードを見つけます。正確なフィードのリンクは必要ありません。",
+              "記事リストの見た目を Compact、Comfortable、Large Images から選べます。",
+              "⌘+ と ⌘− で記事の文字を大きく・小さくでき、⌘0 で元に戻せます。リーダーにも文字サイズの操作があります。",
+              "古い既読記事を KiJi が自動で削除し、ライブラリを小さく保てます。Settings → General → Storage で期間を選びます。最初はオフで、スター付きと保存した記事は常に残ります。"
             ]
           },
           {
             "title": "改善",
             "items": [
-              "フィードの追加がかんたんになりました。リンクを貼り付けると、追加する前にフィードのタイトル、サイト、最新の記事が表示されます。すでに購読している場合はそのことを知らせます。フィードリストや保存した記事の読み込みは専用のタブに分かれました。",
-              "Settings がよりすっきりした Mac らしい見た目になり、サイドバーが細くなって新しいアイコンになりました。"
+              "検索がタイトルだけでなく記事の本文も対象になりました。記事リスト、Saved、アシスタントで使えます。タイトルに一致したものが先に並び、本文に一致したものには該当箇所の短い抜粋が表示されます。既存のライブラリはバックグラウンドで索引が作られ、その間もタイトル検索はそのまま使えます。",
+              "VoiceOver とキーボードでより使いやすくなりました。矢印キーと Tab でサイドバーと記事リストを移動でき、VoiceOver が名前、未読数、既読状態を読み上げます。記事を閉じるとフォーカスが元の位置に戻り、「視差効果を減らす」の設定にも従います。",
+              "スター付きや未読のビュー、記事の多いステーションがより速く開くようになりました。"
             ]
           },
           {
             "title": "修正",
             "items": [
-              "Windows と Linux で、全画面の画像ビューアの閉じるボタンがウインドウ自体の閉じるボタンの下に重ならなくなり、画像を閉じたときにウインドウが閉じてしまうことがなくなりました。"
+              "ウインドウが狭いときも、記事リストの左右の余白が保たれるようになりました。"
             ]
           }
         ]
@@ -82,7 +97,7 @@
     }
   },
   "updatesFeedUrl": "https://kiji.yomilab.app/feed.xml",
-  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.7.0",
+  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.8.0",
   "downloadOptions": [
     {
       "id": "linux-aarch64-appimage",
@@ -90,10 +105,10 @@
       "label": "Linux ARM64",
       "detail": "Portable AppImage for ARM64 Linux",
       "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.7.0-linux-aarch64.AppImage",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-aarch64.AppImage",
-      "size": 93297160
+      "fileName": "KiJi-1.8.0-linux-aarch64.AppImage",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-linux-aarch64.AppImage",
+      "size": 93600264
     },
     {
       "id": "linux-aarch64-deb",
@@ -101,10 +116,10 @@
       "label": "Linux ARM64 Debian/Ubuntu",
       "detail": "For ARM64 Debian, Ubuntu, and compatible distributions",
       "fileType": "DEB",
-      "fileName": "KiJi-1.7.0-linux-aarch64.deb",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-aarch64.deb",
-      "size": 20657244
+      "fileName": "KiJi-1.8.0-linux-aarch64.deb",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-linux-aarch64.deb",
+      "size": 20889352
     },
     {
       "id": "linux-aarch64-rpm",
@@ -112,10 +127,10 @@
       "label": "Linux ARM64 Fedora/RHEL",
       "detail": "For ARM64 Fedora, RHEL, and compatible distributions",
       "fileType": "RPM",
-      "fileName": "KiJi-1.7.0-linux-aarch64.rpm",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-aarch64.rpm",
-      "size": 20682134
+      "fileName": "KiJi-1.8.0-linux-aarch64.rpm",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-linux-aarch64.rpm",
+      "size": 20914245
     },
     {
       "id": "linux-x86_64-appimage",
@@ -123,10 +138,10 @@
       "label": "Linux x64",
       "detail": "Portable AppImage for most Linux desktops",
       "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.7.0-linux-x86_64.AppImage",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-x86_64.AppImage",
-      "size": 94960120
+      "fileName": "KiJi-1.8.0-linux-x86_64.AppImage",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-linux-x86_64.AppImage",
+      "size": 95214072
     },
     {
       "id": "linux-x86_64-deb",
@@ -134,10 +149,10 @@
       "label": "Linux x64 Debian/Ubuntu",
       "detail": "For Debian, Ubuntu, and compatible distributions",
       "fileType": "DEB",
-      "fileName": "KiJi-1.7.0-linux-x86_64.deb",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-x86_64.deb",
-      "size": 20474292
+      "fileName": "KiJi-1.8.0-linux-x86_64.deb",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-linux-x86_64.deb",
+      "size": 20686124
     },
     {
       "id": "linux-x86_64-rpm",
@@ -145,10 +160,10 @@
       "label": "Linux x64 Fedora/RHEL",
       "detail": "For Fedora, RHEL, and compatible distributions",
       "fileType": "RPM",
-      "fileName": "KiJi-1.7.0-linux-x86_64.rpm",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-linux-x86_64.rpm",
-      "size": 20457449
+      "fileName": "KiJi-1.8.0-linux-x86_64.rpm",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-linux-x86_64.rpm",
+      "size": 20672841
     },
     {
       "id": "mac-arm64-zip",
@@ -156,10 +171,10 @@
       "label": "macOS Apple Silicon",
       "detail": "Portable .app archive",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.7.0-macos-aarch64.app.zip",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-aarch64.app.zip",
-      "size": 18575898
+      "fileName": "KiJi-1.8.0-macos-aarch64.app.zip",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-macos-aarch64.app.zip",
+      "size": 18764610
     },
     {
       "id": "mac-arm64",
@@ -167,10 +182,10 @@
       "label": "macOS Apple Silicon",
       "detail": "Recommended for M1, M2, M3, and newer Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-1.7.0-macos-aarch64.dmg",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-aarch64.dmg",
-      "size": 18772234
+      "fileName": "KiJi-1.8.0-macos-aarch64.dmg",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-macos-aarch64.dmg",
+      "size": 18958498
     },
     {
       "id": "mac-x64-zip",
@@ -178,10 +193,10 @@
       "label": "macOS Intel",
       "detail": "Portable .app archive",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.7.0-macos-x86_64.app.zip",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-x86_64.app.zip",
-      "size": 19218095
+      "fileName": "KiJi-1.8.0-macos-x86_64.app.zip",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-macos-x86_64.app.zip",
+      "size": 19374396
     },
     {
       "id": "mac-x64",
@@ -189,10 +204,10 @@
       "label": "macOS Intel",
       "detail": "For Intel-based Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-1.7.0-macos-x86_64.dmg",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-macos-x86_64.dmg",
-      "size": 19425535
+      "fileName": "KiJi-1.8.0-macos-x86_64.dmg",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-macos-x86_64.dmg",
+      "size": 19557780
     },
     {
       "id": "windows-arm64-setup",
@@ -200,10 +215,10 @@
       "label": "Windows ARM64",
       "detail": "NSIS installer executable",
       "fileType": "EXE",
-      "fileName": "KiJi-1.7.0-windows-aarch64-setup.exe",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-aarch64-setup.exe",
-      "size": 14033863
+      "fileName": "KiJi-1.8.0-windows-aarch64-setup.exe",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-windows-aarch64-setup.exe",
+      "size": 14130728
     },
     {
       "id": "windows-arm64",
@@ -211,10 +226,10 @@
       "label": "Windows ARM64",
       "detail": "For ARM-based Windows devices",
       "fileType": "MSI",
-      "fileName": "KiJi-1.7.0-windows-aarch64.msi",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-aarch64.msi",
-      "size": 18563339
+      "fileName": "KiJi-1.8.0-windows-aarch64.msi",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-windows-aarch64.msi",
+      "size": 18706699
     },
     {
       "id": "windows-x64-setup",
@@ -222,10 +237,10 @@
       "label": "Windows x64",
       "detail": "NSIS installer executable",
       "fileType": "EXE",
-      "fileName": "KiJi-1.7.0-windows-x86_64-setup.exe",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-x86_64-setup.exe",
-      "size": 14789177
+      "fileName": "KiJi-1.8.0-windows-x86_64-setup.exe",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-windows-x86_64-setup.exe",
+      "size": 14870343
     },
     {
       "id": "windows-x64",
@@ -233,10 +248,10 @@
       "label": "Windows x64",
       "detail": "Recommended for most Windows PCs",
       "fileType": "MSI",
-      "fileName": "KiJi-1.7.0-windows-x86_64.msi",
-      "version": "1.7.0",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.7.0/KiJi-1.7.0-windows-x86_64.msi",
-      "size": 19185931
+      "fileName": "KiJi-1.8.0-windows-x86_64.msi",
+      "version": "1.8.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.0/KiJi-1.8.0-windows-x86_64.msi",
+      "size": 19288331
     }
   ]
 }

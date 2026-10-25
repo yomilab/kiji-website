@@ -6,7 +6,14 @@
     <atom:link href="https://kiji.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for KiJi.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Oct 2026 09:38:55 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 00:54:27 GMT</lastBuildDate>
+    <item>
+      <title>KiJi 1.8.0</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.8.0</link>
+      <guid isPermaLink="false">kiji-release-v1.8.0</guid>
+      <pubDate>Sun, 25 Oct 2026 00:54:27 GMT</pubDate>
+      <description><![CDATA[<h3>New</h3><ul><li>KiJi can keep running after you close its window, so feeds keep updating and AI assistants can still reach it. Turn it on in Settings → General → Keep KiJi running when you close the window. On Mac it's on by default and KiJi stays in the Dock; on Windows and Linux it lives in the system tray, where you can open or quit it, and opening KiJi again brings back the running window.</li><li>A new Today view in the Library shows everything from the last 24 hours.</li><li>Press ⌘K to jump to any feed, station or view, or to run an action, by typing a few letters.</li><li>Paste a website's address in Add Feeds and KiJi finds its feed for you. You no longer need the exact feed link.</li><li>Choose how the article list looks: Compact, Comfortable or Large Images.</li><li>Make article text bigger or smaller with ⌘+ and ⌘−, and reset it with ⌘0. A size control also sits in the reader.</li><li>KiJi can remove old read articles for you to keep your library small. Pick an age in Settings → General → Storage. It's off by default, and starred and saved articles are always kept.</li></ul><h3>Improved</h3><ul><li>Search now looks inside the full text of articles, not just titles. It works in the article list, in Saved, and for assistants. Title matches come first, and text matches show a short excerpt of where the word appears. Existing libraries are indexed in the background, and title search keeps working while that runs.</li><li>KiJi works better with VoiceOver and the keyboard. You can move through the sidebar and article list with arrow keys and Tab, VoiceOver reads names, unread counts and read state, focus returns to your place when you close an article, and Reduce Motion is respected.</li><li>Starred and unread views and stations with many articles open faster.</li></ul><h3>Fixed</h3><ul><li>On a narrow window, the article list keeps its side margins.</li></ul>]]></description>
+    </item>
     <item>
       <title>KiJi 1.7.0</title>
       <link>https://kiji.yomilab.app/changelog/#v1.7.0</link>
