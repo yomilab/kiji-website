@@ -38,7 +38,7 @@ const chipStyle = (id: string) =>
     .map(([key, value]) => `${key}:${value}`)
     .join(';');
 
-const screenshot = await getImage({ src: capture('awesome-tech-light-dark'), width: 1280, format: 'webp' });
+const screenshot = await getImage({ src: capture('awesome-tech-dark'), width: 1280, format: 'webp' });
 const jsonLd = [
   softwareApplicationJsonLd({
     locale,
@@ -62,12 +62,8 @@ const jsonLd = [
         <a class="sw-subscribe" href="/feed.xml">{text.home.subscribeCta}</a>
       </div>
       <figure class="sc-figure">
-        <div class="sc-labels" aria-hidden="true">
-          <span>{text.home.captureLight}</span>
-          <span>{text.home.captureDark}</span>
-        </div>
         <Picture
-          src={capture('awesome-tech-light-dark')}
+          src={capture('awesome-tech-dark')}
           formats={['avif', 'webp']}
           widths={captureWidths}
           sizes="(max-width: 1152px) calc(100vw - 32px), 1120px"
