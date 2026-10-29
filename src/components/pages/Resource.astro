@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import AppLogo from '../AppLogo.astro';
+import { iconUrl } from '../../lib/iconUrl';
 import { getText, localePath, type LanguageCode, type LogoDownload } from '../../i18n';
 import resourceListsManifest from '../../data/resourceLists.json';
 
@@ -28,9 +29,9 @@ const text = getText(locale);
 const resourceLists = (resourceListsManifest as ResourceListsManifest).lists;
 
 const LOGO_DOWNLOADS: LogoDownload[] = [
-  { id: 'logo-pack', href: '/downloads/kiji-app-logos.zip', fileType: 'ZIP', previewVariant: 'theme' },
-  { id: 'light-logo', href: '/images/kiji-logo.png', fileType: 'PNG', previewVariant: 'light' },
-  { id: 'dark-logo', href: '/images/kiji-logo-dark.png', fileType: 'PNG', previewVariant: 'dark' },
+  { id: 'logo-pack', href: iconUrl('/downloads/kiji-app-logos.zip'), fileType: 'ZIP', previewVariant: 'theme' },
+  { id: 'light-logo', href: iconUrl('/images/kiji-logo.png'), fileType: 'PNG', previewVariant: 'light' },
+  { id: 'dark-logo', href: iconUrl('/images/kiji-logo-dark.png'), fileType: 'PNG', previewVariant: 'dark' },
 ];
 
 const canonicalUrl = new URL(
@@ -54,8 +55,8 @@ const jsonLd = {
     <h1>{text.resource.title}</h1>
     <p class="lead">{text.resource.lead}</p>
     <div class="actions">
-      <a class="button primary" href="/downloads/kiji-app-logos.zip" download>{text.resource.downloadPack}</a>
-      <a class="button" href="/images/kiji-logo.png" download>{text.resource.downloadLight}</a>
+      <a class="button primary" href={iconUrl('/downloads/kiji-app-logos.zip')} download>{text.resource.downloadPack}</a>
+      <a class="button" href={iconUrl('/images/kiji-logo.png')} download>{text.resource.downloadLight}</a>
     </div>
     <section class="logo-grid" aria-label={text.resource.gridAria}>
       {LOGO_DOWNLOADS.map((asset) => {

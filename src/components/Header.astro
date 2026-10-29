@@ -1,6 +1,7 @@
 ---
 import LanguageMenu from './LanguageMenu.astro';
 import { localePath, type LanguageCode, type LocalizedText } from '../i18n';
+import { iconUrl } from '../lib/iconUrl';
 
 interface Props {
   locale: LanguageCode;
@@ -14,8 +15,8 @@ const { locale, text, canonicalPath } = Astro.props;
 <header class="site-nav">
   <div class="shell nav-inner">
     <a class="brand" href={localePath(locale, '/')}>
-      <img class="brand-mark brand-mark-light" src="/images/kiji-mark.svg" alt="" aria-hidden="true" />
-      <img class="brand-mark brand-mark-dark" src="/images/kiji-mark-dark.svg" alt="" aria-hidden="true" />
+      <img class="brand-mark brand-mark-light" src={iconUrl('/images/kiji-mark.svg')} alt="" aria-hidden="true" />
+      <img class="brand-mark brand-mark-dark" src={iconUrl('/images/kiji-mark-dark.svg')} alt="" aria-hidden="true" />
       <span>KiJi</span>
     </a>
     <nav class="nav-links" aria-label={text.nav.aria}>

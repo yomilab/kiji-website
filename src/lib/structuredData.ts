@@ -2,6 +2,7 @@
 // Only facts the site already states: free, desktop platforms, version from the
 // release manifest, publisher Yomi Lab. No ratings or reviews.
 import { localePath, type LanguageCode } from '../i18n';
+import { iconUrl } from './iconUrl';
 
 const SITE = 'https://kiji.yomilab.app';
 export const ORGANIZATION_ID = `${SITE}/#organization`;
@@ -59,7 +60,7 @@ export const softwareApplicationJsonLd = ({
   ...(releaseDate ? { dateModified: releaseDate } : {}),
   downloadUrl: downloadUrl ?? new URL(localePath(locale, '/download/'), SITE).href,
   releaseNotes: new URL(localePath(locale, '/changelog/'), SITE).href,
-  image: `${SITE}/images/kiji-logo.png`,
+  image: `${SITE}${iconUrl('/images/kiji-logo.png')}`,
   ...(screenshot ? { screenshot } : {}),
   isAccessibleForFree: true,
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },

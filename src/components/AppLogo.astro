@@ -1,5 +1,6 @@
 ---
 import type { LogoVariant } from '../i18n';
+import { iconUrl } from '../lib/iconUrl';
 
 interface Props {
   class?: string;
@@ -9,11 +10,11 @@ interface Props {
 const { class: className, variant = 'theme' } = Astro.props;
 ---
 
-{variant === 'dark' && <img class={className} src="/images/kiji-logo-dark.png" alt="" aria-hidden="true" />}
-{variant === 'light' && <img class={className} src="/images/kiji-logo.png" alt="" aria-hidden="true" />}
+{variant === 'dark' && <img class={className} src={iconUrl('/images/kiji-logo-dark.png')} alt="" aria-hidden="true" />}
+{variant === 'light' && <img class={className} src={iconUrl('/images/kiji-logo.png')} alt="" aria-hidden="true" />}
 {variant === 'theme' && (
   <picture>
-    <source srcset="/images/kiji-logo-dark.png" media="(prefers-color-scheme: dark)" />
-    <img class={className} src="/images/kiji-logo.png" alt="" aria-hidden="true" />
+    <source srcset={iconUrl('/images/kiji-logo-dark.png')} media="(prefers-color-scheme: dark)" />
+    <img class={className} src={iconUrl('/images/kiji-logo.png')} alt="" aria-hidden="true" />
   </picture>
 )}
