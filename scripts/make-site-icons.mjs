@@ -6,11 +6,16 @@
 // The file names here describe the page background, as before.
 //
 // Run: node scripts/make-site-icons.mjs   (needs the appIcons repo next to this one)
+// It also copies every app icon the KiJi app offers in Settings (1024 masters from kiji-app)
+// to public/images/app-icons/ for the Resource page and the logo pack.
+//
+// Run: node scripts/make-site-icons.mjs   (needs the appIcons and kiji-app repos next to this one)
 // Output: public/images/kiji-logo{,-dark}.png, public/images/kiji-mark{,-dark}.{svg,png},
+//         public/images/kiji-mark-bold.svg (header), public/images/app-icons/*.png,
 //         public/favicon.svg, public/favicon.ico, public/apple-touch-icon.png,
 //         public/downloads/kiji-app-logos.zip
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -19,6 +24,18 @@ import sharp from 'sharp';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SOURCE = path.resolve(ROOT, '../appIcons/products/kiji/concepts/kiji-circle');
 const PUBLIC = path.join(ROOT, 'public');
+const APP_IMAGES = path.resolve(ROOT, '../kiji-app/src/assets/images');
+
+// Settings → App icon in kiji-app (APP_ICON_VARIANT_OPTIONS), same order. Keep in sync with
+// src/lib/appIcons.ts.
+const APP_ICONS = {
+  ripple: 'kiji-logo-ripple.png',
+  'ripple-dark': 'kiji-logo-ripple-dark.png',
+  light: 'kiji-logo.png',
+  dark: 'kiji-logo-dark.png',
+  circle: 'kiji-logo-circle.png',
+  'circle-dark': 'kiji-logo-circle-dark.png',
+};
 
 const iconSvg = {
   light: readFileSync(path.join(SOURCE, 'kiji-circle-light-b-gradient.svg'), 'utf8').trim(),
@@ -84,6 +101,15 @@ out('images/kiji-mark.svg', svgDoc(inner(mark.light)));
 out('images/kiji-mark-dark.svg', svgDoc(inner(mark.dark)));
 out('images/kiji-mark.png', files.markLight);
 out('images/kiji-mark-dark.png', files.markDark);
+// Header logo: the favicon's bold mark in the gradient outline (the app's Circle Dark), on
+// light and dark pages alike.
+out('images/kiji-mark-bold.svg', svgDoc(inner(bold(mark.light))));
+
+const appIconFiles = Object.fromEntries(
+  Object.entries(APP_ICONS).map(([id, file]) => [`kiji-icon-${id}.png`, readFileSync(path.join(APP_IMAGES, file))]),
+);
+mkdirSync(path.join(PUBLIC, 'images/app-icons'), { recursive: true });
+for (const [name, data] of Object.entries(appIconFiles)) out(`images/app-icons/${name}`, data);
 
 out('favicon.svg', faviconSvg());
 const boldLight = bold(mark.light);
@@ -107,7 +133,8 @@ const packFiles = {
     'Official KiJi logo assets (Circle).\n\n' +
     'kiji-logo-light-1024.png / kiji-logo-dark-1024.png  App icon, transparent 1024x1024, for light / dark backgrounds.\n' +
     'kiji-mark-light-*  Mark filling the canvas, for light backgrounds.\n' +
-    'kiji-mark-dark-*   Mark filling the canvas, for dark backgrounds.\n\n' +
+    'kiji-mark-dark-*   Mark filling the canvas, for dark backgrounds.\n' +
+    'app-icons/kiji-icon-*.png  Every app icon offered in KiJi Settings, transparent 1024x1024.\n\n' +
     'Website: https://kiji.yomilab.app\n',
   'kiji-logo-light-1024.png': files.logoLight,
   'kiji-logo-dark-1024.png': files.logoDark,
@@ -116,6 +143,8 @@ const packFiles = {
   'kiji-mark-light.svg': svgDoc(inner(mark.light)),
   'kiji-mark-dark.svg': svgDoc(inner(mark.dark)),
 };
+for (const [name, data] of Object.entries(appIconFiles)) packFiles[`app-icons/${name}`] = data;
+mkdirSync(path.join(pack, 'app-icons'));
 for (const [name, data] of Object.entries(packFiles)) writeFileSync(path.join(pack, name), data);
 const zip = path.join(PUBLIC, 'downloads/kiji-app-logos.zip');
 rmSync(zip, { force: true });

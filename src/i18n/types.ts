@@ -2,7 +2,7 @@ export type PageKey = 'home' | 'download' | 'resource' | 'changelog' | 'privacy'
 /** AI apps covered on the /assistant/ help page; setup snippets live in Assistant.astro. */
 export type AssistantClientId = 'claude-desktop' | 'claude-code' | 'cursor' | 'vscode' | 'codex' | 'other' | 'web-address';
 export type LogoVariant = 'light' | 'dark' | 'theme';
-export type LogoDownloadId = 'logo-pack' | 'light-logo' | 'dark-logo';
+export type LogoDownloadId = 'logo-pack';
 export type DownloadPlatform = 'mac' | 'windows' | 'linux';
 
 export interface PageMeta {
@@ -150,6 +150,8 @@ export interface LocalizedText {
     downloadPack: string;
     downloadLight: string;
     gridAria: string;
+    appIconDetail: string;
+    appIconDefault: string;
     downloadPrefix: string;
   };
   resourceFeeds: {

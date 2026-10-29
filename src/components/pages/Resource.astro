@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import AppLogo from '../AppLogo.astro';
 import { iconUrl } from '../../lib/iconUrl';
+import { APP_ICONS, appIconPath } from '../../lib/appIcons';
 import { getText, localePath, type LanguageCode, type LogoDownload } from '../../i18n';
 import resourceListsManifest from '../../data/resourceLists.json';
 
@@ -30,8 +31,6 @@ const resourceLists = (resourceListsManifest as ResourceListsManifest).lists;
 
 const LOGO_DOWNLOADS: LogoDownload[] = [
   { id: 'logo-pack', href: iconUrl('/downloads/kiji-app-logos.zip'), fileType: 'ZIP', previewVariant: 'theme' },
-  { id: 'light-logo', href: iconUrl('/images/kiji-logo.png'), fileType: 'PNG', previewVariant: 'light' },
-  { id: 'dark-logo', href: iconUrl('/images/kiji-logo-dark.png'), fileType: 'PNG', previewVariant: 'dark' },
 ];
 
 const canonicalUrl = new URL(
@@ -76,6 +75,20 @@ const jsonLd = {
           </article>
         );
       })}
+      {APP_ICONS.map((icon) => (
+        <article class="logo-card">
+          <div class="logo-preview">
+            <img src={iconUrl(appIconPath(icon.id))} alt="" aria-hidden="true" />
+          </div>
+          <div>
+            <h2>{icon.label}</h2>
+            <p class="muted">{icon.isDefault ? text.resource.appIconDefault : text.resource.appIconDetail}</p>
+          </div>
+          <a class="button" href={iconUrl(appIconPath(icon.id))} download>
+            {text.resource.downloadPrefix} PNG
+          </a>
+        </article>
+      ))}
     </section>
     <section class="resource-feeds" aria-label={text.resourceFeeds.gridAria}>
       <h2>{text.resourceFeeds.title}</h2>

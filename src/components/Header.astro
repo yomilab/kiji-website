@@ -15,8 +15,7 @@ const { locale, text, canonicalPath } = Astro.props;
 <header class="site-nav">
   <div class="shell nav-inner">
     <a class="brand" href={localePath(locale, '/')}>
-      <img class="brand-mark brand-mark-light" src={iconUrl('/images/kiji-mark.svg')} alt="" aria-hidden="true" />
-      <img class="brand-mark brand-mark-dark" src={iconUrl('/images/kiji-mark-dark.svg')} alt="" aria-hidden="true" />
+      <img class="brand-mark" src={iconUrl('/images/kiji-mark-bold.svg')} alt="" aria-hidden="true" />
       <span>KiJi</span>
     </a>
     <nav class="nav-links" aria-label={text.nav.aria}>

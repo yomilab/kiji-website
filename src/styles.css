@@ -119,15 +119,6 @@ a {
   object-fit: contain;
 }
 
-.brand-mark-dark,
-:root[data-scheme="dark"] .brand-mark-light {
-  display: none;
-}
-
-:root[data-scheme="dark"] .brand-mark-dark {
-  display: block;
-}
-
 .nav-links {
   display: flex;
   align-items: center;
