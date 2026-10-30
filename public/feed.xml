@@ -6,7 +6,14 @@
     <atom:link href="https://kiji.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for KiJi.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Oct 2026 01:11:28 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 10:20:26 GMT</lastBuildDate>
+    <item>
+      <title>KiJi 1.9.0</title>
+      <link>https://kiji.yomilab.app/changelog/#v1.9.0</link>
+      <guid isPermaLink="false">kiji-release-v1.9.0</guid>
+      <pubDate>Fri, 30 Oct 2026 10:20:26 GMT</pubDate>
+      <description><![CDATA[<h3>New</h3><ul><li>Two new app icons to choose from in Settings → Appearance → App icon: Circle and Circle Dark, the KiJi ripple inside a round outline. Ripple stays the default.</li></ul><h3>Fixed</h3><ul><li>Pasting a feed link and pressing Enter no longer sometimes says no feed was found when the link works. Looking up a website without a feed also gives an answer much sooner.</li></ul>]]></description>
+    </item>
     <item>
       <title>KiJi 1.8.1</title>
       <link>https://kiji.yomilab.app/changelog/#v1.8.1</link>

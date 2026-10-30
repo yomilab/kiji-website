@@ -1,5 +1,61 @@
 [
   {
+    "version": "1.9.0",
+    "tag": "v1.9.0",
+    "date": "2026-10-30T10:20:26Z",
+    "assetsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.9.0",
+    "notes": {
+      "sections": [
+        {
+          "title": "New",
+          "items": [
+            "Two new app icons to choose from in Settings → Appearance → App icon: Circle and Circle Dark, the KiJi ripple inside a round outline. Ripple stays the default."
+          ]
+        },
+        {
+          "title": "Fixed",
+          "items": [
+            "Pasting a feed link and pressing Enter no longer sometimes says no feed was found when the link works. Looking up a website without a feed also gives an answer much sooner."
+          ]
+        }
+      ],
+      "translations": {
+        "zh-Hans": {
+          "sections": [
+            {
+              "title": "新功能",
+              "items": [
+                "Settings → Appearance → App icon 中新增两款应用图标可供选择：Circle 和 Circle Dark，即圆形轮廓中的 KiJi 波纹图案。默认图标仍为 Ripple。"
+              ]
+            },
+            {
+              "title": "修复",
+              "items": [
+                "粘贴订阅链接后按 Enter，不会再在链接有效的情况下偶尔提示找不到订阅源。查询没有订阅源的网站时，也会更快给出结果。"
+              ]
+            }
+          ]
+        },
+        "ja": {
+          "sections": [
+            {
+              "title": "新機能",
+              "items": [
+                "Settings → Appearance → App icon で選べるアプリアイコンに Circle と Circle Dark の 2 つが加わりました。丸い輪郭の中に KiJi の波紋を描いたデザインです。デフォルトは引き続き Ripple です。"
+              ]
+            },
+            {
+              "title": "修正",
+              "items": [
+                "フィードのリンクを貼り付けてすぐ Enter を押したときに、リンクが有効なのに「フィードが見つからない」と表示されることがなくなりました。フィードのないサイトを調べたときも、ずっと早く結果が出ます。"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
     "version": "1.8.1",
     "tag": "v1.8.1",
     "date": "2026-10-25T01:11:28Z",

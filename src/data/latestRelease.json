@@ -1,22 +1,21 @@
 {
   "productName": "KiJi",
-  "version": "1.8.1",
-  "tag": "v1.8.1",
-  "date": "2026-10-25T01:11:28Z",
-  "notesUrl": "https://kiji.yomilab.app/changelog/#v1.8.1",
+  "version": "1.9.0",
+  "tag": "v1.9.0",
+  "date": "2026-10-30T10:20:26Z",
+  "notesUrl": "https://kiji.yomilab.app/changelog/#v1.9.0",
   "notes": {
     "sections": [
       {
         "title": "New",
         "items": [
-          "Podcast episodes keep playing when you close the article. A small player sits in the bottom-right corner with play/pause, skip back 15 seconds, skip ahead 30 seconds and playback speed. Open its queue to go back to any episode you started; each one picks up where you left off, and the next one plays when an episode ends. Click the episode name to open its article again."
+          "Two new app icons to choose from in Settings → Appearance → App icon: Circle and Circle Dark, the KiJi ripple inside a round outline. Ripple stays the default."
         ]
       },
       {
-        "title": "Improved",
+        "title": "Fixed",
         "items": [
-          "The article list now shows large cover images by default. If you already picked a style in Settings → Appearance, KiJi keeps it.",
-          "The episode player in articles has a new look: the show's artwork and the episode name, a larger play button, skip back and ahead, time left, and playback speed. While another episode plays, Play later adds this one to the queue."
+          "Pasting a feed link and pressing Enter no longer sometimes says no feed was found when the link works. Looking up a website without a feed also gives an answer much sooner."
         ]
       }
     ],
@@ -26,14 +25,13 @@
           {
             "title": "新功能",
             "items": [
-              "关闭文章后，播客节目会继续播放。右下角有一个小播放器，提供播放/暂停、后退 15 秒、前进 30 秒和播放速度。打开它的队列可以回到任何你听过的节目，每个节目都会从上次停下的地方继续，一集播完后会自动播放下一集。点击节目名称即可再次打开对应的文章。"
+              "Settings → Appearance → App icon 中新增两款应用图标可供选择：Circle 和 Circle Dark，即圆形轮廓中的 KiJi 波纹图案。默认图标仍为 Ripple。"
             ]
           },
           {
-            "title": "改进",
+            "title": "修复",
             "items": [
-              "文章列表现在默认显示大幅封面图片。如果你已经在 Settings → Appearance 中选过样式，KiJi 会保留你的选择。",
-              "文章中的节目播放器换了新外观：节目封面和单集名称、更大的播放按钮、后退和前进、剩余时间以及播放速度。在播放其他节目时，点击 Play later 可把这一集加入队列。"
+              "粘贴订阅链接后按 Enter，不会再在链接有效的情况下偶尔提示找不到订阅源。查询没有订阅源的网站时，也会更快给出结果。"
             ]
           }
         ]
@@ -43,14 +41,13 @@
           {
             "title": "新機能",
             "items": [
-              "記事を閉じてもポッドキャストのエピソードが再生され続けるようになりました。右下に小さなプレーヤーが表示され、再生/一時停止、15 秒戻る、30 秒進む、再生速度を操作できます。キューを開くと、これまでに聴いたエピソードにいつでも戻れます。どのエピソードも前回止めたところから再開し、1 つ終わると次のエピソードが再生されます。エピソード名をクリックすると、その記事をもう一度開けます。"
+              "Settings → Appearance → App icon で選べるアプリアイコンに Circle と Circle Dark の 2 つが加わりました。丸い輪郭の中に KiJi の波紋を描いたデザインです。デフォルトは引き続き Ripple です。"
             ]
           },
           {
-            "title": "改善",
+            "title": "修正",
             "items": [
-              "記事リストが最初から大きなカバー画像で表示されるようになりました。Settings → Appearance ですでにスタイルを選んでいる場合は、その選択がそのまま使われます。",
-              "記事内のエピソードプレーヤーのデザインが新しくなりました。番組のアートワークとエピソード名、大きな再生ボタン、戻る・進む、残り時間、再生速度を表示します。別のエピソードを再生中は、Play later でこのエピソードをキューに追加できます。"
+              "フィードのリンクを貼り付けてすぐ Enter を押したときに、リンクが有効なのに「フィードが見つからない」と表示されることがなくなりました。フィードのないサイトを調べたときも、ずっと早く結果が出ます。"
             ]
           }
         ]
@@ -58,7 +55,7 @@
     }
   },
   "updatesFeedUrl": "https://kiji.yomilab.app/feed.xml",
-  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.8.1",
+  "checksumsUrl": "https://github.com/yomilab/kiji-app/releases/tag/v1.9.0",
   "downloadOptions": [
     {
       "id": "linux-aarch64-appimage",
@@ -66,10 +63,10 @@
       "label": "Linux ARM64",
       "detail": "Portable AppImage for ARM64 Linux",
       "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.8.1-linux-aarch64.AppImage",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-linux-aarch64.AppImage",
-      "size": 93604360
+      "fileName": "KiJi-1.9.0-linux-aarch64.AppImage",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-linux-aarch64.AppImage",
+      "size": 96266760
     },
     {
       "id": "linux-aarch64-deb",
@@ -77,10 +74,10 @@
       "label": "Linux ARM64 Debian/Ubuntu",
       "detail": "For ARM64 Debian, Ubuntu, and compatible distributions",
       "fileType": "DEB",
-      "fileName": "KiJi-1.8.1-linux-aarch64.deb",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-linux-aarch64.deb",
-      "size": 20891024
+      "fileName": "KiJi-1.9.0-linux-aarch64.deb",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-linux-aarch64.deb",
+      "size": 23591320
     },
     {
       "id": "linux-aarch64-rpm",
@@ -88,10 +85,10 @@
       "label": "Linux ARM64 Fedora/RHEL",
       "detail": "For ARM64 Fedora, RHEL, and compatible distributions",
       "fileType": "RPM",
-      "fileName": "KiJi-1.8.1-linux-aarch64.rpm",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-linux-aarch64.rpm",
-      "size": 20915834
+      "fileName": "KiJi-1.9.0-linux-aarch64.rpm",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-linux-aarch64.rpm",
+      "size": 23621890
     },
     {
       "id": "linux-x86_64-appimage",
@@ -99,10 +96,10 @@
       "label": "Linux x64",
       "detail": "Portable AppImage for most Linux desktops",
       "fileType": "APPIMAGE",
-      "fileName": "KiJi-1.8.1-linux-x86_64.AppImage",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-linux-x86_64.AppImage",
-      "size": 95230456
+      "fileName": "KiJi-1.9.0-linux-x86_64.AppImage",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-linux-x86_64.AppImage",
+      "size": 97896952
     },
     {
       "id": "linux-x86_64-deb",
@@ -110,10 +107,10 @@
       "label": "Linux x64 Debian/Ubuntu",
       "detail": "For Debian, Ubuntu, and compatible distributions",
       "fileType": "DEB",
-      "fileName": "KiJi-1.8.1-linux-x86_64.deb",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-linux-x86_64.deb",
-      "size": 20694406
+      "fileName": "KiJi-1.9.0-linux-x86_64.deb",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-linux-x86_64.deb",
+      "size": 23389478
     },
     {
       "id": "linux-x86_64-rpm",
@@ -121,10 +118,10 @@
       "label": "Linux x64 Fedora/RHEL",
       "detail": "For Fedora, RHEL, and compatible distributions",
       "fileType": "RPM",
-      "fileName": "KiJi-1.8.1-linux-x86_64.rpm",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-linux-x86_64.rpm",
-      "size": 20678035
+      "fileName": "KiJi-1.9.0-linux-x86_64.rpm",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-linux-x86_64.rpm",
+      "size": 23377045
     },
     {
       "id": "mac-arm64-zip",
@@ -132,10 +129,10 @@
       "label": "macOS Apple Silicon",
       "detail": "Portable .app archive",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.8.1-macos-aarch64.app.zip",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-macos-aarch64.app.zip",
-      "size": 18770817
+      "fileName": "KiJi-1.9.0-macos-aarch64.app.zip",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-macos-aarch64.app.zip",
+      "size": 21521728
     },
     {
       "id": "mac-arm64",
@@ -143,10 +140,10 @@
       "label": "macOS Apple Silicon",
       "detail": "Recommended for M1, M2, M3, and newer Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-1.8.1-macos-aarch64.dmg",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-macos-aarch64.dmg",
-      "size": 18966363
+      "fileName": "KiJi-1.9.0-macos-aarch64.dmg",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-macos-aarch64.dmg",
+      "size": 21660138
     },
     {
       "id": "mac-x64-zip",
@@ -154,10 +151,10 @@
       "label": "macOS Intel",
       "detail": "Portable .app archive",
       "fileType": "ZIP",
-      "fileName": "KiJi-1.8.1-macos-x86_64.app.zip",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-macos-x86_64.app.zip",
-      "size": 19378420
+      "fileName": "KiJi-1.9.0-macos-x86_64.app.zip",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-macos-x86_64.app.zip",
+      "size": 22128779
     },
     {
       "id": "mac-x64",
@@ -165,10 +162,10 @@
       "label": "macOS Intel",
       "detail": "For Intel-based Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-1.8.1-macos-x86_64.dmg",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-macos-x86_64.dmg",
-      "size": 19562385
+      "fileName": "KiJi-1.9.0-macos-x86_64.dmg",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-macos-x86_64.dmg",
+      "size": 22272411
     },
     {
       "id": "windows-arm64-setup",
@@ -176,10 +173,10 @@
       "label": "Windows ARM64",
       "detail": "NSIS installer executable",
       "fileType": "EXE",
-      "fileName": "KiJi-1.8.1-windows-aarch64-setup.exe",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-windows-aarch64-setup.exe",
-      "size": 14135169
+      "fileName": "KiJi-1.9.0-windows-aarch64-setup.exe",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-windows-aarch64-setup.exe",
+      "size": 16198641
     },
     {
       "id": "windows-arm64",
@@ -187,10 +184,10 @@
       "label": "Windows ARM64",
       "detail": "For ARM-based Windows devices",
       "fileType": "MSI",
-      "fileName": "KiJi-1.8.1-windows-aarch64.msi",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-windows-aarch64.msi",
-      "size": 18718987
+      "fileName": "KiJi-1.9.0-windows-aarch64.msi",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-windows-aarch64.msi",
+      "size": 21398016
     },
     {
       "id": "windows-x64-setup",
@@ -198,10 +195,10 @@
       "label": "Windows x64",
       "detail": "NSIS installer executable",
       "fileType": "EXE",
-      "fileName": "KiJi-1.8.1-windows-x86_64-setup.exe",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-windows-x86_64-setup.exe",
-      "size": 14870287
+      "fileName": "KiJi-1.9.0-windows-x86_64-setup.exe",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-windows-x86_64-setup.exe",
+      "size": 16935955
     },
     {
       "id": "windows-x64",
@@ -209,10 +206,10 @@
       "label": "Windows x64",
       "detail": "Recommended for most Windows PCs",
       "fileType": "MSI",
-      "fileName": "KiJi-1.8.1-windows-x86_64.msi",
-      "version": "1.8.1",
-      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.8.1/KiJi-1.8.1-windows-x86_64.msi",
-      "size": 19292427
+      "fileName": "KiJi-1.9.0-windows-x86_64.msi",
+      "version": "1.9.0",
+      "url": "https://github.com/yomilab/kiji-app/releases/download/v1.9.0/KiJi-1.9.0-windows-x86_64.msi",
+      "size": 21971456
     }
   ]
 }
