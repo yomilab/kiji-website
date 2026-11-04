@@ -383,7 +383,7 @@ export function MarkdownSyncShot({ theme, scheme, className, label, locale = 'en
           <div className="ks-editor-bar">
             <Lights />
             <span>
-              <Icon d={ICONS.folder} size={15} /> ~/Notes/KiJi
+              <Icon d={ICONS.folder} size={15} /> ~/Notes/Yomi Reader
             </span>
             <em>
               <Icon d={ICONS.check} size={13} /> Synced

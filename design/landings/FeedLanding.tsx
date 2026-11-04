@@ -48,7 +48,7 @@ const ENTRIES: Entry[] = [
 ];
 
 /**
- * Feed: the landing page is laid out like KiJi itself. Sections are stations,
+ * Feed: the landing page is laid out like Yomi Reader itself. Sections are stations,
  * features are unread items, and opening one shows its screenshot.
  */
 export function FeedLanding() {
@@ -68,7 +68,7 @@ export function FeedLanding() {
         <Brand className="fd-brand" />
         <nav aria-label={copy.nav.aria}>
           <a className="is-active" href="#features">
-            KiJi <span>{unread > 0 ? unread : ''}</span>
+            Yomi Reader <span>{unread > 0 ? unread : ''}</span>
           </a>
           <a href={LINKS.download}>{copy.nav.download}</a>
           <a href={LINKS.changelog}>{copy.nav.changelog}</a>

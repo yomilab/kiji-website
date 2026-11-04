@@ -56,9 +56,9 @@ export const OG_LOCALES: Record<LanguageCode, string> = {
 export interface LocalizedText {
   pageMeta: Record<PageKey, PageMeta>;
   seo: {
-    /** Alt text for the social preview image (public/images/og/kiji-og-<locale>.png). */
+    /** Alt text for the social preview image (public/images/og/yomi-reader-og-<locale>.png). */
     ogImageAlt: string;
-    /** Alt text for the /assistant/ social preview (public/images/og/kiji-og-assistant-<locale>.png). */
+    /** Alt text for the /assistant/ social preview (public/images/og/yomi-reader-og-assistant-<locale>.png). */
     assistantOgImageAlt: string;
   };
   nav: {
@@ -87,6 +87,7 @@ export interface LocalizedText {
   };
   home: {
     title: string;
+    formerly: string;
     heroTitle: string;
     /** `{count}` is replaced with the number of reader themes. */
     heroLead: string;
@@ -172,6 +173,8 @@ export interface LocalizedText {
     /** Each point is a bold lead-in plus the sentence after it. */
     assistantPoints: Array<{ title: string; text: string }>;
     assistantHelpLink: string;
+    updatesTitle: string;
+    updatesText: string;
   };
   assistant: {
     eyebrow: string;

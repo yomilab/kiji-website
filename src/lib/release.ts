@@ -56,7 +56,7 @@ export interface ReleaseEntry {
   notes?: ReleaseNotes;
 }
 
-export const DOWNLOAD_MANIFEST_URL = '/release.json';
+export const DOWNLOAD_MANIFEST_URL = '/release-current.json';
 
 export const DOWNLOAD_ORDER = [
   'mac-arm64',
@@ -160,7 +160,7 @@ const inferDownloadLabel = (id: string, fileName: string): Pick<DownloadOption, 
   return {
     platform: 'linux',
     label: fileName,
-    detail: 'Additional KiJi package',
+    detail: 'Additional Yomi Reader package',
     fileType,
   };
 };

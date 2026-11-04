@@ -11,9 +11,9 @@ export const LINKS = {
 
 export function Brand({ className }: { className?: string }) {
   return (
-    <a className={className} href="/" aria-label="KiJi home" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', color: 'inherit' }}>
+    <a className={className} href="/" aria-label="Yomi Reader home" style={{ display: 'inline-flex', alignItems: 'center', gap: 10, textDecoration: 'none', color: 'inherit' }}>
       <img src="/images/kiji-mark.svg" alt="" width={28} height={28} />
-      <span>KiJi</span>
+      <span>Yomi Reader</span>
     </a>
   );
 }

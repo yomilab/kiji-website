@@ -33,7 +33,7 @@ export function SwatchLanding({ initialTheme = 'calm', initialScheme = 'light' }
         <section className="sw-hero">
           <h1>Your feeds, in the light you read best.</h1>
           <p className="sw-lead">
-            KiJi is a free, local RSS reader. Pick one of {READER_THEMES.length} book-style themes and every article follows it.
+            Yomi Reader is a free, local RSS reader. Pick one of {READER_THEMES.length} book-style themes and every article follows it.
           </p>
 
           <div className="sw-picker" role="radiogroup" aria-label="Reader theme">

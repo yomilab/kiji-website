@@ -15,7 +15,7 @@ const dateFormatter = new Intl.DateTimeFormat(locale, { dateStyle: 'long' });
 
 const canonicalUrl = new URL(
   localePath(locale, '/changelog/'),
-  Astro.site ?? 'https://kiji.yomilab.app'
+  Astro.site ?? 'https://reader.yomilab.app'
 ).href;
 
 const jsonLd = {
@@ -26,7 +26,7 @@ const jsonLd = {
   itemListElement: releases.map((release, index) => ({
     '@type': 'ListItem',
     position: index + 1,
-    name: `KiJi ${release.version}`,
+    name: `Yomi Reader ${release.version}`,
     url: `${canonicalUrl}#${release.tag ?? `v${release.version}`}`,
   })),
 };
@@ -48,7 +48,7 @@ const jsonLd = {
         return (
           <li class="release-item" id={release.tag ?? `v${release.version}`} lang={notes === release.notes ? 'en' : undefined}>
             <div class="release-heading">
-              <h2>KiJi {release.version}</h2>
+              <h2>Yomi Reader {release.version}</h2>
               {release.date && <time datetime={release.date}>{dateFormatter.format(new Date(release.date))}</time>}
             </div>
             {notes?.summary && <p class="release-summary">{notes.summary}</p>}

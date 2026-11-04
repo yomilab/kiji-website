@@ -16,7 +16,7 @@ interface Props {
 const { locale } = Astro.props;
 const text = getText(locale);
 const releaseVersion = latestRelease.version ?? '1.0.0';
-const siteUrl = (Astro.site ?? new URL('https://kiji.yomilab.app')).href;
+const siteUrl = (Astro.site ?? new URL('https://reader.yomilab.app')).href;
 
 const OPML_DIRECTORY_URL = 'https://github.com/yomilab/kiji-resource';
 
@@ -57,6 +57,7 @@ const jsonLd = [
     <section class="sc-hero" id="top">
       <h1>{text.home.title}</h1>
       <p class="sc-lead">{text.home.lead}</p>
+      <p class="sc-formerly">{text.home.formerly}</p>
       <div class="sc-actions">
         <a class="button primary sw-button" href={localePath(locale, '/download/')}>{text.home.downloadCta}</a>
         <a class="sw-subscribe" href="/feed.xml">{text.home.subscribeCta}</a>
@@ -252,6 +253,13 @@ const jsonLd = [
     line-height: 1.02;
     letter-spacing: -0.025em;
     text-wrap: balance;
+  }
+
+  .sc-formerly {
+    margin: 8px 0 0;
+    font-size: 0.875rem;
+    color: var(--muted, inherit);
+    opacity: 0.8;
   }
 
   .sc-lead {

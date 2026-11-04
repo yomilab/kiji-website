@@ -3,12 +3,12 @@
 // (src/assets/captures/tech-light-dark.png). Nothing is drawn by hand except the
 // background color (Calm theme page color) and the wordmark + tagline text.
 //
-// The /assistant/ preview (kiji-og-assistant-<locale>.png) uses the same logo and
+// The /assistant/ preview (yomi-reader-og-assistant-<locale>.png) uses the same logo and
 // wordmark beside three example questions in chat bubbles (text only, no app logos).
 //
 // Run: node scripts/make-social-image.mjs
-// Output: public/images/og/kiji-og-{en,zh-Hans,ja}.png,
-//         public/images/og/kiji-og-assistant-{en,zh-Hans,ja}.png
+// Output: public/images/og/yomi-reader-og-{en,zh-Hans,ja}.png,
+//         public/images/og/yomi-reader-og-assistant-{en,zh-Hans,ja}.png
 import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -72,7 +72,7 @@ async function shot() {
 async function build(locale, shotBuffer, logoBuffer) {
   const [line1, line2] = TAGLINES[locale];
   const text = Buffer.from(`<svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-  <text x="64" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="600" fill="${INK}">KiJi</text>
+  <text x="64" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="600" fill="${INK}">Yomi Reader</text>
   <text x="64" y="372" font-family="'PingFang SC', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="${INK}">${escape(line1)}</text>
   <text x="64" y="418" font-family="'PingFang SC', 'Hiragino Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="${INK}">${escape(line2)}</text>
 </svg>`);
@@ -81,7 +81,7 @@ async function build(locale, shotBuffer, logoBuffer) {
   <defs><filter id="s" x="-10%" y="-10%" width="130%" height="130%"><feGaussianBlur stdDeviation="14"/></filter></defs>
   <rect x="${SHOT_X}" y="${SHOT_Y + 6}" width="${WIDTH}" height="${HEIGHT}" rx="18" fill="#000" fill-opacity="0.18" filter="url(#s)"/>
 </svg>`);
-  const out = path.join(OUT_DIR, `kiji-og-${locale}.png`);
+  const out = path.join(OUT_DIR, `yomi-reader-og-${locale}.png`);
   await sharp({ create: { width: WIDTH, height: HEIGHT, channels: 4, background: PAGE } })
     .composite([
       { input: shadow, left: 0, top: 0 },
@@ -109,12 +109,12 @@ async function buildAssistant(locale, logoBuffer) {
   <text x="${x + 28}" y="${y + 45}" font-family="${SANS}" font-size="26" fill="${color}">${escape(question)}</text>`;
   }).join('\n  ');
   const svg = Buffer.from(`<svg width="${WIDTH}" height="${HEIGHT}" xmlns="http://www.w3.org/2000/svg">
-  <text x="64" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="600" fill="${INK}">KiJi</text>
+  <text x="64" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="600" fill="${INK}">Yomi Reader</text>
   <text x="64" y="372" font-family="${SANS}" font-size="34" fill="${INK}">${escape(tagline[0])}</text>
   <text x="64" y="418" font-family="${SANS}" font-size="34" fill="${INK}">${escape(tagline[1])}</text>
   ${bubbles}
 </svg>`);
-  const out = path.join(OUT_DIR, `kiji-og-assistant-${locale}.png`);
+  const out = path.join(OUT_DIR, `yomi-reader-og-assistant-${locale}.png`);
   await sharp({ create: { width: WIDTH, height: HEIGHT, channels: 4, background: PAGE } })
     .composite([
       { input: logoBuffer, left: 64, top: 120 },

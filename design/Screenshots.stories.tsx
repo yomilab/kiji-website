@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { THEME_IDS } from '../src/lib/readerThemes';
 import { ArticleListShot, ExtractionShot, MarkdownSyncShot, ReaderShot, ThemeFanShot, ThemeGalleryShot } from '../src/components/shots/Shots';
 
-/** Website screenshots drawn as HTML mockups of the KiJi app, so any reader theme can be shown. */
+/** Website screenshots drawn as HTML mockups of the Yomi Reader app, so any reader theme can be shown. */
 function Stage({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
   return (
     <div style={{ minHeight: '100vh', padding: '48px 5vw', background: dark ? '#0d0f12' : '#e9e9ec', boxSizing: 'border-box' }}>

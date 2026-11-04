@@ -30,12 +30,12 @@ const text = getText(locale);
 const resourceLists = (resourceListsManifest as ResourceListsManifest).lists;
 
 const LOGO_DOWNLOADS: LogoDownload[] = [
-  { id: 'logo-pack', href: iconUrl('/downloads/kiji-app-logos.zip'), fileType: 'ZIP', previewVariant: 'theme' },
+  { id: 'logo-pack', href: iconUrl('/downloads/yomi-reader-logos.zip'), fileType: 'ZIP', previewVariant: 'theme' },
 ];
 
 const canonicalUrl = new URL(
   localePath(locale, '/resource/'),
-  Astro.site ?? 'https://kiji.yomilab.app'
+  Astro.site ?? 'https://reader.yomilab.app'
 ).href;
 
 const jsonLd = {
@@ -54,7 +54,7 @@ const jsonLd = {
     <h1>{text.resource.title}</h1>
     <p class="lead">{text.resource.lead}</p>
     <div class="actions">
-      <a class="button primary" href={iconUrl('/downloads/kiji-app-logos.zip')} download>{text.resource.downloadPack}</a>
+      <a class="button primary" href={iconUrl('/downloads/yomi-reader-logos.zip')} download>{text.resource.downloadPack}</a>
       <a class="button" href={iconUrl('/images/kiji-logo.png')} download>{text.resource.downloadLight}</a>
     </div>
     <section class="logo-grid" aria-label={text.resource.gridAria}>

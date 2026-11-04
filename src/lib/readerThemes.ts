@@ -1,5 +1,5 @@
 /**
- * Mirror of the KiJi app's reader themes. The website wears the theme the
+ * Mirror of the Yomi Reader app's reader themes. The website wears the theme the
  * visitor picks on the home page (see `readerThemeCss` and Base.astro), and the
  * app mockups in `src/components/shots/` render with the same tokens.
  * Source of truth: kiji-app/src/services/settings/readerThemes.ts (fonts)

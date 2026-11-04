@@ -27,7 +27,7 @@ interface Props {
   metaDescription?: string;
   /** Keep the page out of search results (404). Also drops canonical and hreflang links. */
   noindex?: boolean;
-  /** Social preview name under public/images/og/ (without -<locale>.png); defaults to kiji-og. */
+  /** Social preview name under public/images/og/ (without -<locale>.png); defaults to yomi-reader-og. */
   ogImageName?: string;
   ogImageAlt?: string;
 }
@@ -42,11 +42,11 @@ const {
   metaTitle,
   metaDescription,
   noindex = false,
-  ogImageName = 'kiji-og',
+  ogImageName = 'yomi-reader-og',
   ogImageAlt = text.seo.ogImageAlt,
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://kiji.yomilab.app');
+const site = Astro.site ?? new URL('https://reader.yomilab.app');
 const meta = text.pageMeta[page];
 const title = metaTitle ?? meta.title;
 const description = metaDescription ?? (page === 'download'
@@ -88,8 +88,8 @@ const shouldRedirectHome = homeRedirect && locale === DEFAULT_LANGUAGE_CODE;
     <link rel="icon" href={iconUrl('/favicon.ico')} sizes="any" />
     <link rel="icon" href={iconUrl('/favicon.svg')} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={iconUrl('/apple-touch-icon.png')} />
-    <link rel="alternate" type="application/rss+xml" title="KiJi updates" href="/feed.xml" />
-    <meta property="og:site_name" content="KiJi" />
+    <link rel="alternate" type="application/rss+xml" title="Yomi Reader updates" href="/feed.xml" />
+    <meta property="og:site_name" content="Yomi Reader" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {!noindex && <meta property="og:url" content={canonicalUrl} />}

@@ -1,8 +1,10 @@
-# KiJi
+# Yomi RSS Reader
 
-KiJi is a modern, performant RSS reader built to stay open for weeks or months: light on memory and CPU, with fixed cache limits, a virtualized article list, small refresh batches that pause during sleep, and automatic log cleanup, so memory does not keep growing. Stations, Defuddle/Readability extraction, Markdown sync for saved articles.
+Formerly KiJi. In short: Yomi Reader.
 
-KiJi is free and open source, and runs on macOS, Windows, and Linux as native Tauri builds (x64, and ARM64 where supported). Tagline: "A modern, performant RSS reader."
+Yomi Reader is a modern, performant RSS reader built to stay open for weeks or months: light on memory and CPU, with fixed cache limits, a virtualized article list, small refresh batches that pause during sleep, and automatic log cleanup, so memory does not keep growing. Stations, Defuddle/Readability extraction, Markdown sync for saved articles.
+
+Yomi Reader is free and open source, and runs on macOS, Windows, and Linux as native Tauri builds (x64, and ARM64 where supported). Tagline: "A modern, performant RSS reader."
 
 Brand summary:
 
@@ -12,23 +14,23 @@ Brand summary:
 - Reader mode — Defuddle and Readability extraction engines convert full page HTML into clean article text.
 - Markdown sync — saved articles are written to a local folder as Markdown files.
 - Reader themes — 13 book-style themes (Paper, Sepia, Calm, Eye Care, Washi, Parchment, Newsprint, E-Ink, Solarized, Quiet, Midnight, OLED Night, High Contrast), each with a light and a dark version.
-- Assistant access (MCP) — Claude Desktop (one-click extension), Claude Code, Cursor, VS Code (install links), Codex, and any MCP app can read what the user shares: the article open in KiJi, stations, feeds, articles by time range, search, a digest, and saved articles with highlights. Optional changes (mark read, star, save) only behind a separate "Allow assistants to make changes" switch. Off by default, runs on the user's computer through the local `kiji-app --mcp` server; set up in Settings → Assistant.
+- Assistant access (MCP) — Claude Desktop (one-click extension), Claude Code, Cursor, VS Code (install links), Codex, and any MCP app can read what the user shares: the article open in Yomi Reader, stations, feeds, articles by time range, search, a digest, and saved articles with highlights. Optional changes (mark read, star, save) only behind a separate "Allow assistants to make changes" switch. Off by default, runs on the user's computer through the local `kiji-app --mcp` server; set up in Settings → Assistant.
 
 Official pages:
 
-- Website: https://kiji.yomilab.app/
-- 简体中文: https://kiji.yomilab.app/zh-Hans/
-- 日本語: https://kiji.yomilab.app/ja/
-- Downloads: https://kiji.yomilab.app/download/
-- Resources: https://kiji.yomilab.app/resource/
-- Changelog: https://kiji.yomilab.app/changelog/
-- Privacy: https://kiji.yomilab.app/privacy/
-- AI assistants (MCP) feature and setup: https://kiji.yomilab.app/assistant/
-- Feedback page: https://kiji.yomilab.app/support/
-- Updates RSS: https://kiji.yomilab.app/feed.xml
+- Website: https://reader.yomilab.app/
+- 简体中文: https://reader.yomilab.app/zh-Hans/
+- 日本語: https://reader.yomilab.app/ja/
+- Downloads: https://reader.yomilab.app/download/
+- Resources: https://reader.yomilab.app/resource/
+- Changelog: https://reader.yomilab.app/changelog/
+- Privacy: https://reader.yomilab.app/privacy/
+- AI assistants (MCP) feature and setup: https://reader.yomilab.app/assistant/
+- Feedback page: https://reader.yomilab.app/support/
+- Updates RSS: https://reader.yomilab.app/feed.xml
 - Feedback: hello@yomilab.app
-- Release manifest: https://kiji.yomilab.app/release.json
-- GitHub Releases: https://github.com/yomilab/kiji-app/releases/latest
+- Release manifest: https://reader.yomilab.app/release.json
+- GitHub Releases: https://github.com/yomilab/yomi-rss-reader/releases/latest
 - Resource repo: https://github.com/yomilab/kiji-resource
 
 Product behavior and brand guidance are defined in kiji-doc first, then synced to public repositories.

@@ -2,9 +2,10 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { splitReleaseManifest } from './legacy-release-manifest.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const DEFAULT_MANIFEST_URL = 'https://kiji.yomilab.app/release.json';
+const DEFAULT_MANIFEST_URL = 'https://reader.yomilab.app/release.json';
 
 const args = new Map();
 for (let index = 0; index < process.argv.slice(2).length; index += 1) {
@@ -51,9 +52,10 @@ const toRfc822 = (value) => {
   return Number.isNaN(date.getTime()) ? new Date().toUTCString() : date.toUTCString();
 };
 
-const manifest = await fetchManifest();
+const { current: manifest, legacy: legacyManifest } = splitReleaseManifest(await fetchManifest());
 const version = manifest.version ?? '0.0.0';
-const productName = manifest.productName ?? 'KiJi';
+// Item IDs below keep the old prefix: changing them would show every release as new to subscribers.
+const productName = manifest.productName ?? 'Yomi Reader';
 const releaseDate = toRfc822(manifest.date);
 
 await writeFile(
@@ -63,8 +65,14 @@ await writeFile(
 );
 
 await writeFile(
-  path.join(ROOT_DIR, 'public/release.json'),
+  path.join(ROOT_DIR, 'public/release-current.json'),
   `${JSON.stringify(manifest, null, 2)}\n`,
+  'utf8'
+);
+
+await writeFile(
+  path.join(ROOT_DIR, 'public/release.json'),
+  `${JSON.stringify(legacyManifest, null, 2)}\n`,
   'utf8'
 );
 
@@ -128,7 +136,7 @@ releases = [entry, ...releases.filter((candidate) => candidate?.version !== vers
   .sort((left, right) => String(right.date ?? '').localeCompare(String(left.date ?? '')));
 await writeFile(releasesPath, `${JSON.stringify(releases, null, 2)}\n`, 'utf8');
 
-const changelogUrl = 'https://kiji.yomilab.app/changelog/';
+const changelogUrl = 'https://reader.yomilab.app/changelog/';
 const cdata = (value) => `<![CDATA[${String(value).replaceAll(']]>', ']]]]><![CDATA[>')}]]>`;
 const htmlEscape = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -161,7 +169,7 @@ const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
   <channel>
     <title>${xmlEscape(productName)} Updates</title>
     <link>${xmlEscape(changelogUrl)}</link>
-    <atom:link href="https://kiji.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://reader.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for ${xmlEscape(productName)}.</description>
     <language>en</language>
     <lastBuildDate>${releaseDate}</lastBuildDate>

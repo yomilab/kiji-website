@@ -44,7 +44,7 @@ export default function DownloadPanel({ initialManifest, text, optionText }: Dow
         setManifest(nextManifest);
       } catch (error) {
         if (!controller.signal.aborted) {
-          console.warn('Using bundled KiJi release manifest fallback.', error);
+          console.warn('Using bundled Yomi Reader release manifest fallback.', error);
         }
       }
     };
@@ -84,7 +84,7 @@ export default function DownloadPanel({ initialManifest, text, optionText }: Dow
         <a className="download-primary" href={selectedDownload.url}>
           <span className="download-kicker">{text.kicker}</span>
           <strong>{selectedDownloadText.label}</strong>
-          <span>KiJi {selectedDownload.version} · {selectedDownload.fileType}</span>
+          <span>Yomi Reader {selectedDownload.version} · {selectedDownload.fileType}</span>
         </a>
         <details className="download-menu" ref={downloadMenuRef}>
           <summary aria-label={text.chooseAria}>⌄</summary>
@@ -102,7 +102,7 @@ export default function DownloadPanel({ initialManifest, text, optionText }: Dow
                   }}
                 >
                   <span>{localized.label}</span>
-                  <small>KiJi {option.version} · {option.fileType} · {localized.detail}</small>
+                  <small>Yomi Reader {option.version} · {option.fileType} · {localized.detail}</small>
                 </button>
               );
             })}

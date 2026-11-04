@@ -4,7 +4,7 @@
 import { localePath, type LanguageCode } from '../i18n';
 import { iconUrl } from './iconUrl';
 
-const SITE = 'https://kiji.yomilab.app';
+const SITE = 'https://reader.yomilab.app';
 export const ORGANIZATION_ID = `${SITE}/#organization`;
 export const APP_ID = `${SITE}/#app`;
 export const WEBSITE_ID = `${SITE}/#website`;
@@ -22,7 +22,7 @@ export const websiteJsonLd = (locale: LanguageCode) => ({
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': WEBSITE_ID,
-  name: 'KiJi',
+  name: 'Yomi RSS Reader',
   url: `${SITE}/`,
   inLanguage: locale,
   publisher: { '@id': ORGANIZATION_ID },
@@ -49,8 +49,8 @@ export const softwareApplicationJsonLd = ({
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   '@id': APP_ID,
-  name: 'KiJi',
-  alternateName: 'KiJi Reader',
+  name: 'Yomi RSS Reader',
+  alternateName: ['Yomi Reader', 'KiJi', 'KiJi Reader'],
   description,
   url: new URL(localePath(locale, '/'), SITE).href,
   applicationCategory: 'UtilitiesApplication',

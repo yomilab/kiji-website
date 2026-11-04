@@ -1,4 +1,4 @@
-// Every app icon KiJi offers in Settings → App icon, in the app's order. The PNGs are copied
+// Every app icon Yomi Reader offers in Settings → App icon, in the app's order. The PNGs are copied
 // from kiji-app by scripts/make-site-icons.mjs (keep its APP_ICONS in sync).
 export interface AppIcon {
   id: string;

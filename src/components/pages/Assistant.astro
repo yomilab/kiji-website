@@ -11,17 +11,17 @@ interface Props {
 const { locale } = Astro.props;
 const text = getText(locale);
 
-// What the buttons in KiJi → Settings → Assistant produce, for KiJi in /Applications on a Mac.
+// What the buttons in Yomi Reader → Settings → Assistant produce, for Yomi Reader in /Applications on a Mac.
 // Keep in sync with kiji-app src-tauri/src/mcp/client_setup.rs
 // (yomi-docs/docs/kiji/tauri/setup-kiji-mcp-clients.md §2).
-const APP_PATH = '/Applications/KiJi.app/Contents/MacOS/kiji-app';
+const APP_PATH = '/Applications/Yomi Reader.app/Contents/MacOS/kiji-app';
 
 const CLIENT_SETUP: Array<{ id: AssistantClientId; snippet: string }> = [
   {
     id: 'claude-desktop',
     snippet: `{
   "mcpServers": {
-    "kiji": {
+    "yomi-reader": {
       "command": "${APP_PATH}",
       "args": ["--mcp"]
     }
@@ -30,13 +30,13 @@ const CLIENT_SETUP: Array<{ id: AssistantClientId; snippet: string }> = [
   },
   {
     id: 'claude-code',
-    snippet: `claude mcp add --scope user kiji -- '${APP_PATH}' --mcp`,
+    snippet: `claude mcp add --scope user yomi-reader -- '${APP_PATH}' --mcp`,
   },
   {
     id: 'cursor',
     snippet: `{
   "mcpServers": {
-    "kiji": {
+    "yomi-reader": {
       "command": "${APP_PATH}",
       "args": ["--mcp"]
     }
@@ -47,7 +47,7 @@ const CLIENT_SETUP: Array<{ id: AssistantClientId; snippet: string }> = [
     id: 'vscode',
     snippet: `{
   "servers": {
-    "kiji": {
+    "yomi-reader": {
       "type": "stdio",
       "command": "${APP_PATH}",
       "args": ["--mcp"]
@@ -57,7 +57,7 @@ const CLIENT_SETUP: Array<{ id: AssistantClientId; snippet: string }> = [
   },
   {
     id: 'codex',
-    snippet: `[mcp_servers.kiji]
+    snippet: `[mcp_servers.yomi-reader]
 command = "${APP_PATH}"
 args = ["--mcp"]`,
   },
@@ -73,7 +73,7 @@ args = ["--mcp"]`,
 
 const canonicalUrl = new URL(
   localePath(locale, '/assistant/'),
-  Astro.site ?? 'https://kiji.yomilab.app'
+  Astro.site ?? 'https://reader.yomilab.app'
 ).href;
 
 const jsonLd = [
@@ -104,7 +104,7 @@ const jsonLd = [
   locale={locale}
   text={text}
   jsonLd={jsonLd}
-  ogImageName="kiji-og-assistant"
+  ogImageName="yomi-reader-og-assistant"
   ogImageAlt={text.seo.assistantOgImageAlt}
 >
   <main class="shell as-page">

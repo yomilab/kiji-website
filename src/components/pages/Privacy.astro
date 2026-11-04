@@ -11,7 +11,7 @@ const text = getText(locale);
 
 const canonicalUrl = new URL(
   localePath(locale, '/privacy/'),
-  Astro.site ?? 'https://kiji.yomilab.app'
+  Astro.site ?? 'https://reader.yomilab.app'
 ).href;
 
 const jsonLd = {
@@ -38,6 +38,10 @@ const jsonLd = {
         ))}
       </ul>
       <a class="doc-link" href={localePath(locale, '/assistant/')}>{text.privacy.assistantHelpLink}</a>
+    </section>
+    <section class="doc-section" id="app-updates" aria-labelledby="app-updates-title">
+      <h2 id="app-updates-title">{text.privacy.updatesTitle}</h2>
+      <p>{text.privacy.updatesText}</p>
     </section>
   </main>
 </Base>

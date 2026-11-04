@@ -4,7 +4,7 @@ import './signal.css';
 
 /**
  * Signal: one oversized grotesque headline, the app bleeding off the right
- * edge, and the KiJi ripple blue used only for the call to action.
+ * edge, and the Yomi Reader ripple blue used only for the call to action.
  */
 export function SignalLanding() {
   return (

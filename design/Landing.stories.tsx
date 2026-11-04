@@ -41,7 +41,7 @@ const OPTIONS: Option[] = [
   {
     id: 'feed',
     name: 'Feed',
-    note: 'Laid out like KiJi itself: features are unread items you open to see the screenshot. IBM Plex.',
+    note: 'Laid out like Yomi Reader itself: features are unread items you open to see the screenshot. IBM Plex.',
     Component: FeedLanding,
   },
 ];
@@ -60,7 +60,7 @@ function Picker() {
   return (
     <div style={{ minHeight: '100vh', padding: '40px 24px 64px', background: '#f1f1f3', fontFamily: 'Inter, system-ui, sans-serif', color: '#15171c' }}>
       <div style={{ maxWidth: 940, margin: '0 auto' }}>
-        <h1 style={{ margin: 0, fontSize: 28, fontWeight: 650 }}>KiJi website themes</h1>
+        <h1 style={{ margin: 0, fontSize: 28, fontWeight: 650 }}>Yomi Reader website themes</h1>
         <p style={{ margin: '6px 0 32px', color: '#5d6370' }}>Four directions for a short landing page. Open one to see it full size and try it on a phone width.</p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(420px, 1fr))', gap: 28 }}>
           {OPTIONS.map(({ id, name, note, Component }) => (

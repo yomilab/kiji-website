@@ -1,4 +1,4 @@
-name: Sync KiJi resource lists
+name: Sync Yomi Reader resource lists
 
 on:
   workflow_dispatch:
@@ -49,5 +49,5 @@ jobs:
             echo "No resource list changes to commit."
             exit 0
           fi
-          git commit -m "Sync KiJi resource lists"
+          git commit -m "Sync Yomi Reader resource lists"
           git push

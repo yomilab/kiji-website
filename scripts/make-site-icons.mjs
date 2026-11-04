@@ -1,4 +1,4 @@
-// Builds the site's logo, mark, favicon and download-pack files from the KiJi Circle app icon
+// Builds the site's logo, mark, favicon and download-pack files from the Yomi Reader Circle app icon
 // (appIcons/products/kiji/concepts/kiji-circle, shipped in kiji-app as `circle` / `circle-dark`).
 //
 // Light pages use the gradient-outline version (kiji-circle-light-b-gradient, the app's
@@ -6,14 +6,14 @@
 // The file names here describe the page background, as before.
 //
 // Run: node scripts/make-site-icons.mjs   (needs the appIcons repo next to this one)
-// It also copies every app icon the KiJi app offers in Settings (1024 masters from kiji-app)
+// It also copies every app icon the Yomi Reader app offers in Settings (1024 masters from kiji-app)
 // to public/images/app-icons/ for the Resource page and the logo pack.
 //
 // Run: node scripts/make-site-icons.mjs   (needs the appIcons and kiji-app repos next to this one)
 // Output: public/images/kiji-logo{,-dark}.png, public/images/kiji-mark{,-dark}.{svg,png},
 //         public/images/kiji-mark-bold.svg (header), public/images/app-icons/*.png,
 //         public/favicon.svg, public/favicon.ico, public/apple-touch-icon.png,
-//         public/downloads/kiji-app-logos.zip
+//         public/downloads/yomi-reader-logos.zip
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -130,24 +130,24 @@ out(
 const pack = mkdtempSync(path.join(tmpdir(), 'kiji-logos-'));
 const packFiles = {
   'README.txt':
-    'Official KiJi logo assets (Circle).\n\n' +
+    'Official Yomi Reader logo assets (Circle).\n\n' +
     'kiji-logo-light-1024.png / kiji-logo-dark-1024.png  App icon, transparent 1024x1024, for light / dark backgrounds.\n' +
     'kiji-mark-light-*  Mark filling the canvas, for light backgrounds.\n' +
     'kiji-mark-dark-*   Mark filling the canvas, for dark backgrounds.\n' +
-    'app-icons/kiji-icon-*.png  Every app icon offered in KiJi Settings, transparent 1024x1024.\n\n' +
-    'Website: https://kiji.yomilab.app\n',
-  'kiji-logo-light-1024.png': files.logoLight,
-  'kiji-logo-dark-1024.png': files.logoDark,
-  'kiji-mark-light-1024.png': files.markLight,
-  'kiji-mark-dark-1024.png': files.markDark,
-  'kiji-mark-light.svg': svgDoc(inner(mark.light)),
-  'kiji-mark-dark.svg': svgDoc(inner(mark.dark)),
+    'app-icons/kiji-icon-*.png  Every app icon offered in Yomi Reader Settings, transparent 1024x1024.\n\n' +
+    'Website: https://reader.yomilab.app\n',
+  'yomi-reader-logo-light-1024.png': files.logoLight,
+  'yomi-reader-logo-dark-1024.png': files.logoDark,
+  'yomi-reader-mark-light-1024.png': files.markLight,
+  'yomi-reader-mark-dark-1024.png': files.markDark,
+  'yomi-reader-mark-light.svg': svgDoc(inner(mark.light)),
+  'yomi-reader-mark-dark.svg': svgDoc(inner(mark.dark)),
 };
-for (const [name, data] of Object.entries(appIconFiles)) packFiles[`app-icons/${name}`] = data;
+for (const [name, data] of Object.entries(appIconFiles)) packFiles[`app-icons/${name.replace('kiji-', 'yomi-reader-')}`] = data;
 mkdirSync(path.join(pack, 'app-icons'));
 for (const [name, data] of Object.entries(packFiles)) writeFileSync(path.join(pack, name), data);
-const zip = path.join(PUBLIC, 'downloads/kiji-app-logos.zip');
+const zip = path.join(PUBLIC, 'downloads/yomi-reader-logos.zip');
 rmSync(zip, { force: true });
 execFileSync('zip', ['-X', '-q', zip, ...Object.keys(packFiles)], { cwd: pack });
 rmSync(pack, { recursive: true });
-console.log('public/downloads/kiji-app-logos.zip');
+console.log('public/downloads/yomi-reader-logos.zip');

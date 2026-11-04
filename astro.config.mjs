@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://kiji.yomilab.app',
+  site: 'https://reader.yomilab.app',
   output: 'static',
   trailingSlash: 'always',
   i18n: {

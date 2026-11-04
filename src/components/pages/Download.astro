@@ -19,7 +19,7 @@ const { locale } = Astro.props;
 const text = getText(locale);
 const manifest = latestRelease as ReleaseManifest;
 const releaseVersion = manifest.version ?? '1.0.0';
-const checksumsUrl = manifest.checksumsUrl ?? manifest.notesUrl ?? 'https://github.com/yomilab/kiji-app/releases/latest';
+const checksumsUrl = manifest.checksumsUrl ?? manifest.notesUrl ?? 'https://github.com/yomilab/yomi-rss-reader/releases/latest';
 const options = downloadOptionsFromManifest(manifest);
 const recommended = options.find((option) => option.id === DEFAULT_DOWNLOAD_ID) ?? options[0];
 

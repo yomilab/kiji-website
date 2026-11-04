@@ -1,4 +1,4 @@
-/* KiJi app mockups for website screenshots. Colors come from --rt-* tokens:
+/* Yomi Reader app mockups for website screenshots. Colors come from --rt-* tokens:
    set inline when a shot gets an explicit theme, otherwise inherited from the
    page (:root, see readerThemeCss). A dark page is `[data-scheme="dark"]` on
    an ancestor; a shot with its own data-scheme ignores the page. */
