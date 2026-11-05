@@ -158,10 +158,10 @@
       "label": "macOS Apple Silicon",
       "detail": "Recommended for M1, M2, M3, and newer Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-2.0.0-macos-aarch64.dmg",
+      "fileName": "Yomi-Reader-2.0.0-macos-aarch64.dmg",
       "version": "2.0.0",
-      "url": "https://github.com/yomilab/yomi-rss-reader/releases/download/v2.0.0/KiJi-2.0.0-macos-aarch64.dmg",
-      "size": 22933862
+      "url": "https://github.com/yomilab/yomi-rss-reader/releases/download/v2.0.0/Yomi-Reader-2.0.0-macos-aarch64.dmg",
+      "size": 22257804
     },
     {
       "id": "mac-x64-zip",
@@ -180,10 +180,10 @@
       "label": "macOS Intel",
       "detail": "For Intel-based Macs",
       "fileType": "DMG",
-      "fileName": "KiJi-2.0.0-macos-x86_64.dmg",
+      "fileName": "Yomi-Reader-2.0.0-macos-x86_64.dmg",
       "version": "2.0.0",
-      "url": "https://github.com/yomilab/yomi-rss-reader/releases/download/v2.0.0/KiJi-2.0.0-macos-x86_64.dmg",
-      "size": 23839690
+      "url": "https://github.com/yomilab/yomi-rss-reader/releases/download/v2.0.0/Yomi-Reader-2.0.0-macos-x86_64.dmg",
+      "size": 22941790
     },
     {
       "id": "windows-arm64-setup",

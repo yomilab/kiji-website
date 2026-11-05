@@ -2,7 +2,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { splitReleaseManifest } from './legacy-release-manifest.mjs';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_MANIFEST_URL = 'https://reader.yomilab.app/release.json';
@@ -52,7 +51,7 @@ const toRfc822 = (value) => {
   return Number.isNaN(date.getTime()) ? new Date().toUTCString() : date.toUTCString();
 };
 
-const { current: manifest, legacy: legacyManifest } = splitReleaseManifest(await fetchManifest());
+const manifest = await fetchManifest();
 const version = manifest.version ?? '0.0.0';
 // Item IDs below keep the old prefix: changing them would show every release as new to subscribers.
 const productName = manifest.productName ?? 'Yomi Reader';
@@ -70,9 +69,10 @@ await writeFile(
   'utf8'
 );
 
+// Apps on 1.9 read this address and can't be changed; newer ones read release-current.json.
 await writeFile(
   path.join(ROOT_DIR, 'public/release.json'),
-  `${JSON.stringify(legacyManifest, null, 2)}\n`,
+  `${JSON.stringify(manifest, null, 2)}\n`,
   'utf8'
 );
 
