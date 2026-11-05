@@ -6,7 +6,14 @@
     <atom:link href="https://reader.yomilab.app/feed.xml" rel="self" type="application/rss+xml" />
     <description>Release notes for Yomi Reader.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 30 Oct 2026 10:20:26 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 03:09:13 GMT</lastBuildDate>
+    <item>
+      <title>Yomi Reader 2.0.0</title>
+      <link>https://reader.yomilab.app/changelog/#v2.0.0</link>
+      <guid isPermaLink="false">kiji-release-v2.0.0</guid>
+      <pubDate>Thu, 05 Nov 2026 03:09:13 GMT</pubDate>
+      <description><![CDATA[<h3>New</h3><ul><li>Updates can now install by themselves: new versions download in the background and install when you quit. You can turn this off in Settings → General.</li></ul><h3>Improved</h3><ul><li>KiJi is now Yomi Reader. Your feeds, articles, saved items and settings stay where they are. If an assistant app was connected to KiJi, connect it again from Settings → Assistant.</li></ul><h3>Fixed</h3><ul><li>On macOS 27 you can move the app's windows by their top bars again, including the sidebar top, the list and article headers, Settings, Manage Feeds and the update window. A window behind another app also starts moving on the first click. Double-clicking a top bar still zooms the window.</li></ul>]]></description>
+    </item>
     <item>
       <title>Yomi Reader 1.9.0</title>
       <link>https://reader.yomilab.app/changelog/#v1.9.0</link>

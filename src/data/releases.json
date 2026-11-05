@@ -1,5 +1,79 @@
 [
   {
+    "version": "2.0.0",
+    "tag": "v2.0.0",
+    "date": "2026-11-05T03:09:13Z",
+    "assetsUrl": "https://github.com/yomilab/yomi-rss-reader/releases/tag/v2.0.0",
+    "notes": {
+      "sections": [
+        {
+          "title": "New",
+          "items": [
+            "Updates can now install by themselves: new versions download in the background and install when you quit. You can turn this off in Settings → General."
+          ]
+        },
+        {
+          "title": "Improved",
+          "items": [
+            "KiJi is now Yomi Reader. Your feeds, articles, saved items and settings stay where they are. If an assistant app was connected to KiJi, connect it again from Settings → Assistant."
+          ]
+        },
+        {
+          "title": "Fixed",
+          "items": [
+            "On macOS 27 you can move the app's windows by their top bars again, including the sidebar top, the list and article headers, Settings, Manage Feeds and the update window. A window behind another app also starts moving on the first click. Double-clicking a top bar still zooms the window."
+          ]
+        }
+      ],
+      "translations": {
+        "zh-Hans": {
+          "sections": [
+            {
+              "title": "新功能",
+              "items": [
+                "更新现在可以自动安装：新版本会在后台下载，并在退出应用时安装。可在 Settings → General 中关闭。"
+              ]
+            },
+            {
+              "title": "改进",
+              "items": [
+                "KiJi 现已更名为 Yomi Reader。你的订阅源、文章、已保存的内容和设置都保持不变。如果之前有助手应用连接到 KiJi，请在 Settings → Assistant 中重新连接。"
+              ]
+            },
+            {
+              "title": "修复",
+              "items": [
+                "在 macOS 27 上，可以重新通过顶部栏移动应用窗口，包括侧边栏顶部、列表和文章标题栏、Settings、Manage Feeds 和更新窗口。位于其他应用后面的窗口，第一次点击即可开始移动。双击顶部栏仍可缩放窗口。"
+              ]
+            }
+          ]
+        },
+        "ja": {
+          "sections": [
+            {
+              "title": "新機能",
+              "items": [
+                "アップデートを自動でインストールできるようになりました。新しいバージョンはバックグラウンドでダウンロードされ、アプリの終了時にインストールされます。Settings → General でオフにできます。"
+              ]
+            },
+            {
+              "title": "改善",
+              "items": [
+                "KiJi は Yomi Reader になりました。フィード、記事、保存した項目、設定はそのまま引き継がれます。アシスタントアプリを KiJi に接続していた場合は、Settings → Assistant からもう一度接続してください。"
+              ]
+            },
+            {
+              "title": "修正",
+              "items": [
+                "macOS 27 で、サイドバー上部、リストと記事のヘッダー、Settings、Manage Feeds、アップデートウィンドウなど、各ウィンドウの上部バーをドラッグして移動できるようになりました。ほかのアプリの後ろにあるウィンドウも、最初のクリックで動かせます。上部バーをダブルクリックすると、これまでどおりウィンドウがズームします。"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
     "version": "1.9.0",
     "tag": "v1.9.0",
     "date": "2026-10-30T10:20:26Z",
