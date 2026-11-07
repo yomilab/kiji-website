@@ -15,6 +15,12 @@
   --accent-fill: var(--rt-accent);
   --accent-soft: color-mix(in srgb, var(--rt-accent) 12%, var(--rt-page));
   --on-accent: var(--rt-on-accent);
+  /* Filled buttons use ink, not the theme accent, so they stay neutral
+     under every reader theme. Ink and paper swap in dark themes. */
+  --button-fill: var(--rt-ink);
+  --button-fill-hover: color-mix(in srgb, var(--rt-ink) 82%, var(--rt-page));
+  --button-divider: color-mix(in srgb, var(--rt-page) 22%, transparent);
+  --on-button: var(--rt-page);
   --radius-card: 16px;
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-card-lg: 0 2px 4px rgba(0, 0, 0, 0.06), 0 40px 90px -40px rgba(0, 0, 0, 0.35);
@@ -313,14 +319,14 @@ h1 {
 }
 
 .button.primary {
-  border-color: var(--accent-fill);
-  background: var(--accent-fill);
-  color: var(--on-accent);
+  border-color: var(--button-fill);
+  background: var(--button-fill);
+  color: var(--on-button);
 }
 
 .button.primary:hover {
-  border-color: var(--accent-strong);
-  background: var(--accent-strong);
+  border-color: var(--button-fill-hover);
+  background: var(--button-fill-hover);
 }
 
 .button:focus-visible,
@@ -353,87 +359,108 @@ summary:focus-visible {
 
 .split-download {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 52px;
-  overflow: visible;
+  display: inline-grid;
+  justify-self: start;
+  grid-template-columns: minmax(0, auto) auto;
+  max-width: 100%;
   border-radius: 999px;
+  background: var(--button-fill);
+  color: var(--on-button);
   box-shadow: var(--shadow-card);
 }
 
+.download-primary,
+.download-menu summary {
+  color: inherit;
+  transition: background 150ms ease, transform 150ms var(--ease-out-strong);
+}
+
+.download-primary:hover,
+.download-menu summary:hover,
+.download-menu[open] summary {
+  background: var(--button-fill-hover);
+}
+
+.download-primary:active,
+.download-menu summary:active {
+  transform: scale(0.98);
+}
+
 .download-primary {
-  display: grid;
-  gap: 2px;
-  min-height: 68px;
-  padding: 12px 24px;
-  border: 1px solid var(--accent-fill);
-  border-right: 1px solid color-mix(in srgb, #ffffff 22%, transparent);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 12px 22px 12px 18px;
   border-radius: 999px 0 0 999px;
-  background: var(--accent-fill);
-  color: var(--on-accent);
   text-decoration: none;
-  transition: background 150ms ease;
 }
 
-.download-primary:hover {
-  background: var(--accent-strong);
+.download-icon,
+.download-chevron {
+  flex: none;
+  width: 20px;
+  height: 20px;
 }
 
-.download-primary strong {
-  font-size: clamp(16px, 2.4vw, 20px);
+.download-text {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.download-text strong {
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.25;
 }
 
-.download-primary span:last-child,
-.download-kicker {
-  opacity: 0.85;
-}
-
-.download-primary span:last-child {
-  font-size: 13px;
-  font-weight: 400;
-}
-
-.download-kicker {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.download-text span {
+  font-size: 12px;
+  line-height: 1.3;
+  opacity: 0.72;
 }
 
 .download-menu {
-  position: relative;
+  display: flex;
 }
 
 .download-menu summary {
   display: grid;
-  min-height: 68px;
-  height: 100%;
   place-items: center;
-  border: 1px solid var(--accent-fill);
-  border-left: 0;
+  width: 48px;
+  border-left: 1px solid var(--button-divider);
   border-radius: 0 999px 999px 0;
-  background: color-mix(in srgb, var(--accent-fill) 82%, #000000);
-  color: var(--on-accent);
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 400;
   list-style: none;
-  transition: background 150ms ease;
-}
-
-.download-menu summary:hover {
-  background: color-mix(in srgb, var(--accent-fill) 68%, #000000);
 }
 
 .download-menu summary::-webkit-details-marker {
   display: none;
 }
 
+.download-chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform 200ms var(--ease-out-strong);
+}
+
+.download-menu[open] .download-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .download-primary,
+  .download-menu summary,
+  .download-chevron {
+    transition: none;
+    transform: none !important;
+  }
+}
+
 .download-options {
   position: absolute;
-  right: 0;
+  left: 0;
   z-index: 10;
   display: grid;
   width: min(420px, calc(100vw - 32px));
@@ -441,6 +468,7 @@ summary:focus-visible {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-card);
+  top: 100%;
   background: var(--surface);
   box-shadow: var(--shadow-card-lg);
 }

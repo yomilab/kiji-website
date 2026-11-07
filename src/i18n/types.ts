@@ -131,7 +131,8 @@ export interface LocalizedText {
     title: string;
     lead: string;
     panelAria: string;
-    kicker: string;
+    /** Primary button label; {platform} is replaced with the platform name. */
+    primaryLabel: string;
     chooseAria: string;
     directUrl: string;
     checksums: string;

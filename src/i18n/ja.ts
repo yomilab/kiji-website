@@ -116,7 +116,7 @@ const ja: LocalizedText = {
     title: 'デスクトップ向け Yomi Reader {version} を入手。',
     lead: 'お使いのプラットフォーム向けインストーラーを選んでください。Yomi Reader は macOS、Windows、Linux 向けのネイティブ Tauri ビルドを提供し、対応環境では x64 と ARM64 をサポートします。',
     panelAria: 'Yomi Readerをダウンロード',
-    kicker: 'おすすめビルドをダウンロード',
+    primaryLabel: '{platform} 版をダウンロード',
     chooseAria: '別のダウンロードを選択',
     directUrl: '直接リリースアセットURL:',
     checksums: 'GitHubリリース',

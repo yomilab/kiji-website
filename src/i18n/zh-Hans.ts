@@ -116,7 +116,7 @@ const zhHans: LocalizedText = {
     title: '为你的桌面获取 Yomi Reader {version}。',
     lead: '选择适合你平台的安装包。Yomi Reader 提供 macOS、Windows 和 Linux 的原生 Tauri 构建，并在支持的平台提供 x64 与 ARM64 版本。',
     panelAria: '下载 Yomi Reader',
-    kicker: '下载推荐版本',
+    primaryLabel: '下载 {platform} 版',
     chooseAria: '选择其他下载',
     directUrl: '直接发布资源地址：',
     checksums: 'GitHub 发布页',

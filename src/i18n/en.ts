@@ -116,7 +116,7 @@ const en: LocalizedText = {
     title: 'Get Yomi Reader {version} for your desktop.',
     lead: 'Choose the installer for your platform. Yomi Reader ships native Tauri builds for macOS, Windows, and Linux on x64 and ARM64 where supported.',
     panelAria: 'Download Yomi Reader',
-    kicker: 'Download recommended build',
+    primaryLabel: 'Download for {platform}',
     chooseAria: 'Choose another download',
     directUrl: 'Direct release asset URL:',
     checksums: 'GitHub release',

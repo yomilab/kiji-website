@@ -20,6 +20,18 @@ const getLocalizedDownloadOption = (
   optionText[option.id] ?? { label: option.label, detail: option.detail }
 );
 
+const DownloadIcon = () => (
+  <svg className="download-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+    <path d="M10 3v9.5M6 9l4 4 4-4M4 16h12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const ChevronIcon = () => (
+  <svg className="download-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export default function DownloadPanel({ initialManifest, text, optionText }: DownloadPanelProps) {
   const [manifest, setManifest] = useState<ReleaseManifest>(initialManifest);
   const downloadMenuRef = useRef<HTMLDetailsElement | null>(null);
@@ -56,6 +68,33 @@ export default function DownloadPanel({ initialManifest, text, optionText }: Dow
     };
   }, []);
 
+  const closeMenu = (): void => {
+    downloadMenuRef.current?.removeAttribute('open');
+  };
+
+  // Close the platform menu on Escape or a click outside it.
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent): void => {
+      const menu = downloadMenuRef.current;
+      if (menu?.open && !menu.contains(event.target as Node)) {
+        closeMenu();
+      }
+    };
+    const onKeyDown = (event: KeyboardEvent): void => {
+      const menu = downloadMenuRef.current;
+      if (event.key === 'Escape' && menu?.open) {
+        closeMenu();
+        menu.querySelector('summary')?.focus();
+      }
+    };
+    document.addEventListener('pointerdown', onPointerDown);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('pointerdown', onPointerDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
+
   const downloadOptions = useMemo(() => downloadOptionsFromManifest(manifest), [manifest]);
   const recommendedDownload = useMemo(
     () => (downloadOptions.length > 0 ? detectRecommendedDownload(downloadOptions) : undefined),
@@ -80,14 +119,18 @@ export default function DownloadPanel({ initialManifest, text, optionText }: Dow
 
   return (
     <div className="download-panel">
-      <div className="split-download" aria-label={text.panelAria}>
+      <div className="split-download" role="group" aria-label={text.panelAria}>
         <a className="download-primary" href={selectedDownload.url}>
-          <span className="download-kicker">{text.kicker}</span>
-          <strong>{selectedDownloadText.label}</strong>
-          <span>Yomi Reader {selectedDownload.version} · {selectedDownload.fileType}</span>
+          <DownloadIcon />
+          <span className="download-text">
+            <strong>{text.primaryLabel.replace('{platform}', selectedDownloadText.label)}</strong>
+            <span>Yomi Reader {selectedDownload.version} · {selectedDownload.fileType}</span>
+          </span>
         </a>
         <details className="download-menu" ref={downloadMenuRef}>
-          <summary aria-label={text.chooseAria}>⌄</summary>
+          <summary aria-label={text.chooseAria}>
+            <ChevronIcon />
+          </summary>
           <div className="download-options">
             {downloadOptions.map((option) => {
               const localized = getLocalizedDownloadOption(option, optionText);
@@ -96,9 +139,10 @@ export default function DownloadPanel({ initialManifest, text, optionText }: Dow
                   key={option.id}
                   type="button"
                   className={option.id === selectedDownload.id ? 'download-option active' : 'download-option'}
-                  onClick={(event) => {
+                  aria-pressed={option.id === selectedDownload.id}
+                  onClick={() => {
                     setSelectedDownloadId(option.id);
-                    event.currentTarget.closest('details')?.removeAttribute('open');
+                    closeMenu();
                   }}
                 >
                   <span>{localized.label}</span>
